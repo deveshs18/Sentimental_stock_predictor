@@ -1,0 +1,8 @@
+# Hide environment config
+.env
+
+# Optional: Add more things to ignore
+__pycache__/
+*.pyc
+venv/
+.vscode/
