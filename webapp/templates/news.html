@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Company News{% endblock %}
+
+{% block content %}
+    <h1>Latest Company News</h1>
+    <div id="newsArticlesContainer">
+        <!-- News articles will be loaded here -->
+    </div>
+{% endblock %}
+
+{% block scripts_extra %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch("{{ url_for('api_news') }}") // This endpoint will be created in app.py
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok for news: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('News Data:', data); // Log data to console for now
+                    if (data.error) {
+                        console.error('Error fetching news data:', data.error);
+                        const newsContainer = document.getElementById('newsArticlesContainer');
+                        newsContainer.innerHTML = '<p>Error loading news: ' + data.error + '</p>';
+                        return;
+                    }
+                    const newsContainer = document.getElementById('newsArticlesContainer');
+                    newsContainer.innerHTML = ''; // Clear previous content or loading messages
+
+                    if (data.error) {
+                        console.error('Error fetching news data:', data.error);
+                        newsContainer.innerHTML = '<p>Error loading news: ' + data.error + '</p>';
+                        return;
+                    }
+
+                    if (Array.isArray(data) && data.length > 0) {
+                        const ul = document.createElement('ul');
+                        data.forEach(article => {
+                            const li = document.createElement('li');
+
+                            const title = document.createElement('h3');
+                            title.textContent = article.title || 'No Title';
+
+                            const details = document.createElement('p');
+                            const small = document.createElement('small');
+                            small.textContent = `Source: ${article.source || 'N/A'} | Date: ${article.formatted_date || article.date || 'N/A'} | Company: ${article.company_name || 'N/A'}`;
+                            details.appendChild(small);
+
+                            const snippet = document.createElement('p');
+                            snippet.textContent = article.snippet || '';
+
+                            const link = document.createElement('a');
+                            link.href = article.url || '#';
+                            link.textContent = 'Read more';
+                            link.target = '_blank'; // Open in new tab
+
+                            li.appendChild(title);
+                            li.appendChild(details);
+                            li.appendChild(snippet);
+                            li.appendChild(link);
+                            ul.appendChild(li);
+                        });
+                        newsContainer.appendChild(ul);
+                    } else {
+                        newsContainer.innerHTML = '<p>No news articles found.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching or processing news data:', error);
+                    const newsContainer = document.getElementById('newsArticlesContainer');
+                    newsContainer.innerHTML = '<p>Error loading news: ' + error.message + '</p>';
+                });
+        });
+    </script>
+{% endblock %}
