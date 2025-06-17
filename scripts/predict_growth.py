@@ -21,12 +21,13 @@ except LookupError:
     nltk.download('wordnet')
 
 # Configure logging
-os.makedirs('logs', exist_ok=True)
+os.makedirs('../logs', exist_ok=True) # Create top-level logs directory
+log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 logging.basicConfig(
     level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format=log_format,
     handlers=[
-        logging.FileHandler('logs/predict_growth.log', mode='w'),
+        logging.FileHandler('../logs/predict_growth.log', mode='w'),
         logging.StreamHandler()
     ]
 )
