@@ -37,10 +37,10 @@ def generate_dynamic_prompt(user_query, top_companies_df):
     ]
     prompt_lines.append(f"\nUser Query: \"{user_query}\"\n")
 
+    prompt_lines.append("Company Data Context:")
     if top_companies_df.empty:
-        prompt_lines.append("No specific company data is available from the latest pipeline run. Please answer the query based on general knowledge if appropriate.")
+        prompt_lines.append("No specific company data is available from the latest pipeline run.")
     else:
-        prompt_lines.append("Here is the relevant company data from the last day:")
         for _, row in top_companies_df.iterrows():
             line = (
                 f"- {row['company']}: Positive Sentiment={row['positive']}, Neutral Sentiment={row['neutral']}, "
@@ -49,12 +49,25 @@ def generate_dynamic_prompt(user_query, top_companies_df):
             )
             prompt_lines.append(line)
 
-    prompt_lines.append(
-        "\nInstructions: Based on the user's query and the provided company data, "
-        "provide a concise analysis and answer the query. "
-        "If the query is general, identify top companies and justify your choices using the data. "
-        "If the query is about specific companies, focus on them if they are in the provided data, or state if they are not."
+    prompt_lines.append("\n---") # Separator before instructions
+
+    instructions = (
+        "Your primary role is to answer the user's query using ONLY the provided 'Company Data Context'. "
+        "Adhere to the following guidelines strictly:\n"
+        "- If the user asks for a prediction (e.g., 'which stock will go up/down?', 'what might happen next?'), "
+        "base your prediction or inference exclusively on the trends, sentiment (positive, neutral, negative scores), "
+        "GrowthScore, and MacroSentiment visible in the 'Company Data Context'.\n"
+        "- When making such an inference, clearly state that your analysis is derived from this specific dataset and its current indicators. "
+        "For example, start your explanation with 'Based on the provided data (GrowthScore, sentiment)...' or similar phrasing.\n"
+        "- Do NOT use any external knowledge or information outside of the 'Company Data Context' to make predictions or analyses.\n"
+        "- Do NOT refuse to make a prediction or inference if the user is asking for one. Instead, make the best possible interpretation "
+        "grounded in the provided data, even if the data is limited.\n"
+        "- If the query is about specific companies, focus your analysis on them if they are present in the 'Company Data Context'. "
+        "If they are not listed, state that they are not in the current analysis dataset.\n"
+        "- If the 'Company Data Context' is empty, you MUST inform the user that no specific company data is available from the "
+        "latest pipeline run to answer the query and that you cannot perform the requested analysis without it."
     )
+    prompt_lines.append("\nInstructions:\n" + instructions)
     return "\n".join(prompt_lines)
 
 def get_openai_response(prompt_text):
