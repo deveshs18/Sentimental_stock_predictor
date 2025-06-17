@@ -1,0 +1,214 @@
+/* 1. Global Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Lighter background */
+    color: #212529; /* Darker text for better contrast */
+}
+
+a {
+    color: #007bff; /* Standard blue link color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    color: #343a40; /* Slightly softer black for headings */
+}
+
+/* 2. Navigation Bar */
+nav {
+    background-color: #343a40; /* Dark grey */
+    color: white;
+    padding: 0.75em 1em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: flex-start; /* Align items to the start */
+}
+
+nav ul li {
+    margin-right: 25px; /* Increased spacing */
+}
+
+nav ul li a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    color: #adb5bd; /* Lighter grey for hover */
+    text-decoration: none;
+}
+
+/* 3. Main Container */
+.container {
+    width: 90%;
+    max-width: 1200px; /* Max width for larger screens */
+    margin: 20px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.07);
+}
+
+/* 4. Dashboard Specific Styles */
+.chart-title { /* Class for chart headings */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #495057;
+}
+
+#marketSentimentChartContainer, /* Assuming you wrap the main chart in a div */
+.stock-chart-container-wrapper { /* Wrapper for all stock charts */
+    margin-bottom: 30px;
+}
+
+#marketSentimentChart { /* Canvas itself */
+    max-height: 400px; /* Limit height of main chart */
+}
+
+#stockChartsContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allow charts to wrap to next line */
+    justify-content: space-around; /* Distribute space */
+    gap: 20px; /* Space between chart divs */
+}
+
+/* Individual company chart divs (dynamically created with this ID pattern) */
+[id^="stockChart_"][id$="_sentiment"] {
+    border: 1px solid #dee2e6; /* Light border */
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    /* width is set in JS, but could be a class: e.g. width: calc(50% - 20px); for 2 per row */
+}
+
+[id^="stockChart_"][id$="_sentiment"] h3 {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* 5. News Page Specific Styles */
+#newsArticlesContainer h1 { /* If there's an H1 specific to this section */
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+#newsArticlesContainer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#newsArticlesContainer li {
+    background-color: #fff;
+    border: 1px solid #e9ecef; /* Slightly lighter border */
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px; /* Increased margin */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+#newsArticlesContainer li:last-child {
+    margin-bottom: 0;
+}
+
+#newsArticlesContainer h3 { /* Article titles */
+    font-size: 1.3em;
+    color: #0056b3; /* Link-like color for titles */
+    margin-bottom: 8px;
+}
+
+#newsArticlesContainer p {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+#newsArticlesContainer p small { /* Metadata */
+    color: #6c757d; /* Grey for metadata */
+    font-size: 0.85em;
+    display: block; /* Make it take its own line */
+    margin-bottom: 8px;
+}
+
+#newsArticlesContainer a { /* "Read more" link */
+    font-weight: bold;
+}
+
+/* 6. Basic Responsiveness */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav links vertically */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px; /* Space between vertical links */
+    }
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+
+    .container {
+        width: 95%;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    #stockChartsContainer {
+        flex-direction: column; /* Stack company charts vertically */
+        align-items: center;
+    }
+
+    /* Make individual stock chart divs full width on small screens */
+    [id^="stockChart_"][id$="_sentiment"] {
+        width: 90% !important; /* Override inline style if necessary, or better, manage width via classes */
+        margin-bottom: 20px;
+    }
+
+    #marketSentimentChart {
+        max-height: 300px; /* Adjust height for smaller screens */
+    }
+
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.4em; } /* Chart titles */
+    #newsArticlesContainer h1 { font-size: 1.5em; }
+    #newsArticlesContainer h3 { font-size: 1.15em; } /* Article titles */
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        padding: 10px;
+    }
+    /* Further reduce padding for news articles on very small screens */
+    #newsArticlesContainer li {
+        padding: 15px;
+    }
+}

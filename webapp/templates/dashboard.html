@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block title %}Market Sentiment Dashboard{% endblock %}
+
+{% block head_extra %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+    <h1>Market Sentiment Over Time</h1>
+    <div style="width: 75%;">
+        <canvas id="marketSentimentChart"></canvas>
+    </div>
+
+    <h2>Company Specific Sentiment</h2>
+    <div id="stockChartsContainer">
+        <!-- Placeholders for individual stock charts -->
+        <!-- Example: <div id="stockChart_AAPL_sentiment"></div> -->
+        <!-- Example: <div id="stockChart_AMZN_sentiment"></div> -->
+    </div>
+{% endblock %}
+
+{% block scripts_extra %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch Market Sentiment Data
+            fetch("{{ url_for('api_market_sentiment') }}")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok for market_sentiment: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Market Sentiment Data:', data);
+                    if (data.error) {
+                        console.error('Error fetching market sentiment data:', data.error);
+                        const chartDiv = document.getElementById('marketSentimentChart').parentElement;
+                        const errorP = document.createElement('p');
+                        errorP.textContent = 'Error loading market sentiment chart data: ' + data.error;
+                        chartDiv.appendChild(errorP);
+                        return;
+                    }
+                    // Render the market sentiment chart using Chart.js
+                    const marketCtx = document.getElementById('marketSentimentChart').getContext('2d');
+                    new Chart(marketCtx, {
+                        type: 'line',
+                        data: {
+                            labels: data.labels, // Dates from API
+                            datasets: [{
+                                label: 'Market Sentiment Score',
+                                data: data.data, // Sentiment scores from API
+                                borderColor: 'rgb(75, 192, 192)',
+                                tension: 0.1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: false, // Adjust as needed based on sentiment score range
+                                    title: {
+                                        display: true,
+                                        text: 'Sentiment Score'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Date'
+                                    }
+                                }
+                            },
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Overall Market Sentiment Trend'
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching or processing market sentiment data:', error);
+                    const chartDiv = document.getElementById('marketSentimentChart').parentElement;
+                    const errorP = document.createElement('p');
+                    errorP.textContent = 'Error loading market sentiment chart data: ' + error.message;
+                    chartDiv.appendChild(errorP);
+                });
+
+            // Fetch Stock Data (all companies for now)
+            fetch("{{ url_for('api_stock_data') }}")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok for stock_data: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Stock Data:', data);
+                    if (data.error) {
+                        console.error('Error fetching stock data:', data.error);
+                        const stockChartsContainer = document.getElementById('stockChartsContainer');
+                        const errorP = document.createElement('p');
+                        errorP.textContent = 'Error loading stock data: ' + data.error;
+                        stockChartsContainer.appendChild(errorP);
+                        return;
+                    }
+                    // Process and display stock data by creating multiple charts
+                    const stockChartsContainer = document.getElementById('stockChartsContainer');
+                    if (Array.isArray(data)) {
+                        data.forEach(company => {
+                            const companyDivId = `stockChart_${company.name}_sentiment`;
+                            let companyDiv = document.getElementById(companyDivId);
+                            if (!companyDiv) { // Create div if it wasn't pre-created
+                                companyDiv = document.createElement('div');
+                                companyDiv.id = companyDivId;
+                                companyDiv.style.width = "45%"; // Example styling for smaller charts
+                                companyDiv.style.margin = "2.5%";
+                                companyDiv.style.display = "inline-block";
+                                stockChartsContainer.appendChild(companyDiv);
+                            }
+
+                            // Clear previous content and add canvas
+                            companyDiv.innerHTML = `<h3>${company.name} Sentiment</h3><canvas id="canvas_${company.name}_sentiment" height="200"></canvas>`;
+
+                            const companyCtx = document.getElementById(`canvas_${company.name}_sentiment`).getContext('2d');
+                            new Chart(companyCtx, {
+                                type: 'line',
+                                data: {
+                                    labels: company.dates, // Dates from API for this company
+                                    datasets: [{
+                                        label: `${company.name} Sentiment Score`,
+                                        data: company.sentiment_scores, // Sentiment scores
+                                        borderColor: getRandomColor(), // Function to get different colors
+                                        tension: 0.1,
+                                        fill: false
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: false,
+                                            title: { display: true, text: 'Sentiment' }
+                                        },
+                                        x: {
+                                            title: { display: true, text: 'Date' }
+                                        }
+                                    },
+                                    plugins: {
+                                        title: {
+                                            display: true,
+                                            text: `${company.name} Sentiment Trend`
+                                        },
+                                        legend: {
+                                            display: false // Can hide legend for individual small charts
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching or processing stock data:', error);
+                    const stockChartsContainer = document.getElementById('stockChartsContainer');
+                    const errorP = document.createElement('p');
+                    errorP.textContent = 'Error loading stock data: ' + error.message;
+                    stockChartsContainer.appendChild(errorP);
+                });
+        });
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+{% endblock %}
