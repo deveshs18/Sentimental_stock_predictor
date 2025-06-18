@@ -28,14 +28,51 @@ if not OPENAI_API_KEY:
     logger.error("OPENAI_API_KEY not found in .env file or environment variables.")
     sys.exit(1)
 
-def generate_dynamic_prompt(user_query, top_companies_df):
+def get_qualitative_market_sentiment():
     """
-    Generates a dynamic prompt for the LLM based on user query and company data.
+    Reads market_sentiment from ../data/predict_growth.csv and returns a qualitative description.
+    This function is intended to be called from scripts within the 'scripts' directory.
+    """
+    # Construct path relative to this script's location (scripts/)
+    current_dir = os.path.dirname(__file__)
+    predict_growth_file = os.path.join(current_dir, '..', 'data', 'predict_growth.csv')
+
+    try:
+        df = pd.read_csv(predict_growth_file)
+        if 'market_sentiment' not in df.columns:
+            logger.warning(f"'market_sentiment' column not found in {predict_growth_file}.")
+            return "Data not available"
+        if df.empty:
+            logger.warning(f"{predict_growth_file} is empty.")
+            return "Data not available"
+
+        # Assuming market_sentiment is the same for all rows, take from the first row.
+        market_sentiment_value = df['market_sentiment'].iloc[0]
+
+        if market_sentiment_value > 0.1:
+            qualitative_sentiment = "Positive"
+        elif market_sentiment_value < -0.1:
+            qualitative_sentiment = "Negative"
+        else:
+            qualitative_sentiment = "Neutral"
+        logger.info(f"Qualitative market sentiment from stock_predictor: {qualitative_sentiment} (Raw: {market_sentiment_value})")
+        return qualitative_sentiment
+    except FileNotFoundError:
+        logger.error(f"Market sentiment data file not found at {predict_growth_file}.")
+        return "Data not available"
+    except Exception as e:
+        logger.error(f"Error reading or processing market sentiment data in stock_predictor: {e}", exc_info=True)
+        return "Data not available"
+
+def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentiment_string):
+    """
+    Generates a dynamic prompt for the LLM based on user query, company data, and overall market sentiment.
     """
     prompt_lines = [
-        "You are a stock analyst assistant. Analyze the provided company data in the context of the user's query."
+        "You are a stock analyst assistant. Analyze the provided company data in the context of the user's query and the stated overall market sentiment."
     ]
     prompt_lines.append(f"\nUser Query: \"{user_query}\"\n")
+    prompt_lines.append(f"Overall Market Sentiment: {overall_market_sentiment_string}\n")
 
     prompt_lines.append("Company Data Context:")
     if top_companies_df.empty:
@@ -97,10 +134,21 @@ def get_openai_response(prompt_text):
 def prepare_llm_context_data(top_n=25):
     """
     Loads, processes, and filters data to prepare the context for the LLM.
-    Returns a DataFrame of top N companies.
+    Returns a tuple: (DataFrame of top N companies, qualitative market sentiment string).
     """
     logger.info("Loading data files for LLM context preparation...")
+    # Construct paths relative to this script's location (scripts/)
+    # Data files are expected to be in ../data/
+    current_dir = os.path.dirname(__file__)
     data_files = {
+        "company_df": os.path.join(current_dir, "..", "data", "company_sentiment_normalized.csv"),
+        "growth_df": os.path.join(current_dir, "..", "data", "predict_growth.csv"),
+        "macro_df": os.path.join(current_dir, "..", "data", "macro_sentiment.csv"),
+        "mapping_df": os.path.join(current_dir, "..", "data", "nasdaq_top_companies.csv")
+    }
+    dfs = {}
+
+    try:
         "company_df": "data/company_sentiment_normalized.csv",
         "growth_df": "data/predict_growth.csv",
         "macro_df": "data/macro_sentiment.csv",
@@ -159,16 +207,22 @@ def prepare_llm_context_data(top_n=25):
         logger.info(f"Selected {len(top_companies_df)} top companies for LLM context.")
         logger.debug(f"Top companies details for LLM:\n{top_companies_df.to_string()}")
 
-    return top_companies_df
+    # Get the overall market sentiment string
+    market_sentiment_str = get_qualitative_market_sentiment()
+    logger.info(f"Overall market sentiment for LLM context: {market_sentiment_str}")
+
+    return top_companies_df, market_sentiment_str
 
 # === Main script execution starts here ===
 if __name__ == "__main__":
     try:
-        top_companies_df = prepare_llm_context_data(top_n=25)
+        top_companies_df, market_sentiment_str = prepare_llm_context_data(top_n=25) # Adjusted to unpack two values
 
         if top_companies_df.empty:
             logger.warning("Pipeline did not identify any top companies based on current data. LLM will have limited context.")
             # Continue with an empty DataFrame, generate_dynamic_prompt will handle it.
+
+        logger.info(f"Main test: Overall market sentiment: {market_sentiment_str}")
 
         # Sample user query for testing
         sample_user_query = "Which stocks are looking good today based on sentiment and growth potential?"
@@ -177,7 +231,10 @@ if __name__ == "__main__":
         logger.info(f"Using sample user query: \"{sample_user_query}\"")
 
         # Generate the dynamic prompt
-        dynamic_prompt = generate_dynamic_prompt(sample_user_query, top_companies_df)
+        # Note: generate_dynamic_prompt currently only takes top_companies_df.
+        # If market_sentiment_str needs to be part of the prompt directly,
+        # that function would need to be updated. For now, it's just logged here.
+        dynamic_prompt = generate_dynamic_prompt(sample_user_query, top_companies_df, market_sentiment_str)
         logger.info("Generated Dynamic Prompt:")
         logger.info(dynamic_prompt) # Using logger.info for multiline, could also just print
 

@@ -212,7 +212,7 @@ with st.sidebar:
             try:
                 # 1. Get the latest company context data
                 logger.info("Streamlit App: Calling prepare_llm_context_data()")
-                top_companies_df = prepare_llm_context_data()
+                top_companies_df, market_sentiment_str = prepare_llm_context_data() # Unpack two values
 
                 if top_companies_df.empty:
                     logger.warning("Streamlit App: No company context data returned from prepare_llm_context_data().")
@@ -220,7 +220,7 @@ with st.sidebar:
 
                 # 2. Generate the dynamic prompt
                 logger.info(f"Streamlit App: Generating dynamic prompt for user query: {prompt}")
-                dynamic_prompt_text = generate_dynamic_prompt(prompt, top_companies_df)
+                dynamic_prompt_text = generate_dynamic_prompt(prompt, top_companies_df, market_sentiment_str) # Pass market_sentiment_str
                 logger.debug(f"Streamlit App: Generated prompt: {dynamic_prompt_text}")
 
                 # 3. Get response from OpenAI
