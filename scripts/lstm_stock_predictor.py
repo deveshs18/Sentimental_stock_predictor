@@ -1,0 +1,209 @@
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dropout, Dense
+from sklearn.metrics import mean_squared_error
+import matplotlib.pyplot as plt
+import math
+import os
+import pandas as pd # Added for predict_next_day
+
+# Assuming preprocess_lstm_data.py is in the same directory or accessible in PYTHONPATH
+from preprocess_lstm_data import load_and_preprocess_stock_data
+
+def build_and_train_lstm_model(X_train, y_train, X_test, y_test, scaler_obj, sequence_length, input_shape_dims, stock_ticker_symbol):
+    """
+    Builds, trains, evaluates, and saves an LSTM model.
+
+    Args:
+        X_train (np.array): Training input sequences.
+        y_train (np.array): Training output values.
+        X_test (np.array): Testing input sequences.
+        y_test (np.array): Testing output values (scaled).
+        scaler_obj (sklearn.preprocessing.MinMaxScaler): Scaler used for data.
+        sequence_length (int): The length of the input sequences.
+        input_shape_dims (tuple): The shape of the input data for LSTM (sequence_length, num_features).
+        stock_ticker_symbol (str): The stock ticker symbol (e.g., 'AAPL').
+
+    Returns:
+        tuple: (trained_model, y_test_actual, predictions_actual)
+    """
+    model = Sequential([
+        LSTM(units=50, return_sequences=True, input_shape=input_shape_dims),
+        Dropout(0.2),
+        LSTM(units=50, return_sequences=False),
+        Dropout(0.2),
+        Dense(units=25),
+        Dense(units=1)  # To predict the single next 'Close' price
+    ])
+
+    model.compile(optimizer='adam', loss='mean_squared_error')
+
+    # Train the model
+    # Note: 50 epochs can be time-consuming. For this subtask, using 10 epochs.
+    # For actual training, 50 or more epochs with early stopping would be more appropriate.
+    print("Training model...")
+    # Using epochs=10 for faster execution in this subtask
+    model.fit(X_train, y_train, batch_size=32, epochs=10, validation_data=(X_test, y_test), verbose=1)
+
+    # Evaluate the model
+    test_loss = model.evaluate(X_test, y_test, verbose=0)
+    print(f"Test Loss: {test_loss}")
+
+    # Make predictions
+    predictions_scaled = model.predict(X_test)
+
+    # Inverse transform predictions and y_test
+    predictions_actual = scaler_obj.inverse_transform(predictions_scaled)
+    y_test_actual = scaler_obj.inverse_transform(y_test.reshape(-1, 1))
+
+    # Calculate RMSE
+    rmse = math.sqrt(mean_squared_error(y_test_actual, predictions_actual))
+    print(f"Root Mean Squared Error (RMSE): {rmse}")
+
+    # Create models directory if it doesn't exist
+    if not os.path.exists('models'):
+        os.makedirs('models')
+
+    # Save the model
+    model_save_path = f'models/lstm_{stock_ticker_symbol.lower()}_model.h5'
+    model.save(model_save_path)
+    print(f"Model saved to {model_save_path}")
+
+    return model, y_test_actual, predictions_actual, rmse
+
+def plot_predictions(y_test_actual_scale, predictions_actual_scale, stock_ticker_symbol):
+    """
+    Plots actual vs. predicted stock prices.
+
+    Args:
+        y_test_actual_scale (np.array): Array of actual stock prices.
+        predictions_actual_scale (np.array): Array of predicted stock prices.
+        stock_ticker_symbol (str): The stock ticker symbol (e.g., 'AAPL').
+    """
+    plt.figure(figsize=(12, 6))
+    plt.plot(y_test_actual_scale, color='blue', label='Actual Prices')
+    plt.plot(predictions_actual_scale, color='red', label='Predicted Prices')
+    plt.title(f"{stock_ticker_symbol} Stock Price Prediction")
+    plt.xlabel("Time (days in test set)")
+    plt.ylabel("Price")
+    plt.legend()
+
+    # Create output directory if it doesn't exist
+    if not os.path.exists('output'):
+        os.makedirs('output')
+
+    plot_save_path = f'output/lstm_predictions_{stock_ticker_symbol.lower()}.png'
+    plt.savefig(plot_save_path)
+    print(f"Plot saved to {plot_save_path}")
+    # plt.show() # Would display plot if in interactive environment
+
+def predict_next_day(stock_ticker: str, sequence_length: int = 60) -> float | None:
+    """
+    Predicts the next day's closing price for a given stock.
+
+    Args:
+        stock_ticker (str): The stock ticker symbol (e.g., 'AAPL').
+        sequence_length (int): The length of the input sequences used for training.
+
+    Returns:
+        float | None: The predicted next day's closing price, or None if an error occurs.
+    """
+    model_path = f'models/lstm_{stock_ticker.lower()}_model.h5'
+    if not os.path.exists(model_path):
+        print(f"Error: Model file not found at {model_path}")
+        return None
+
+    try:
+        model = tf.keras.models.load_model(model_path)
+    except Exception as e:
+        print(f"Error loading model: {e}")
+        return None
+
+    data_file_path = f'data/historical_prices/{stock_ticker}.csv'
+    if not os.path.exists(data_file_path):
+        print(f"Error: Data file not found at {data_file_path}")
+        return None
+
+    # We need the scaler that was used during training.
+    # load_and_preprocess_stock_data fits a new scaler each time based on its input data (train split).
+    # For a robust prediction of the *absolute next day* based on *all* historical data,
+    # the scaler should ideally be fit on all historical data used to form the last_sequence.
+    # However, to keep it aligned with current structure and for simplicity in this subtask,
+    # we call load_and_preprocess_stock_data just to get A scaler instance.
+    # This scaler is fit on the training portion of the data by default in load_and_preprocess_stock_data.
+    # This is a simplification; a production system would handle scaler fitting more carefully for future predictions.
+    _, _, _, _, scaler = load_and_preprocess_stock_data(data_file_path, sequence_length)
+
+
+    # Load the raw data again to get the most recent sequence
+    try:
+        df = pd.read_csv(data_file_path, header=0, skiprows=[1])
+        if 'Close' not in df.columns:
+            print(f"Error: 'Close' column not found in {data_file_path}")
+            return None
+
+        # Ensure 'Close' is numeric and handle NaNs
+        df['Close'] = pd.to_numeric(df['Close'], errors='coerce')
+        df['Close'] = df['Close'].ffill() # Forward fill first
+        df.dropna(subset=['Close'], inplace=True) # Then drop if any NaNs remain at the beginning
+
+        if len(df) < sequence_length:
+            print(f"Error: Not enough data in {data_file_path} to form a sequence of length {sequence_length}. Data length: {len(df)}")
+            return None
+
+        close_prices = df['Close'].values
+        last_sequence_raw = close_prices[-sequence_length:]
+
+        # Scale this sequence
+        # Note: Using the scaler fitted on the original training set.
+        last_sequence_scaled = scaler.transform(last_sequence_raw.reshape(-1, 1))
+
+        # Reshape for model input
+        last_sequence_reshaped = np.reshape(last_sequence_scaled, (1, sequence_length, 1))
+
+        # Make prediction
+        predicted_scaled = model.predict(last_sequence_reshaped)
+
+        # Inverse transform the prediction
+        predicted_price = scaler.inverse_transform(predicted_scaled)
+
+        return predicted_price[0][0]
+
+    except Exception as e:
+        print(f"Error during prediction for {stock_ticker}: {e}")
+        return None
+
+
+if __name__ == "__main__":
+    stock_ticker = 'AAPL'
+    data_file_path = f'data/historical_prices/{stock_ticker}.csv'
+    sequence_length = 60
+
+    # Load and preprocess data
+    X_train_orig, y_train_orig, X_test_orig, y_test_orig_scaled, scaler = load_and_preprocess_stock_data(data_file_path, sequence_length)
+
+    # Reshape X_train and X_test to be 3D: (number_of_samples, sequence_length, 1)
+    X_train = np.reshape(X_train_orig, (X_train_orig.shape[0], X_train_orig.shape[1], 1))
+    X_test = np.reshape(X_test_orig, (X_test_orig.shape[0], X_test_orig.shape[1], 1))
+
+    print(f"X_train reshaped: {X_train.shape}")
+    print(f"X_test reshaped: {X_test.shape}")
+
+    # Build, train, evaluate and save the model
+    trained_model, y_test_actual, predictions_actual, rmse_value = build_and_train_lstm_model(
+        X_train, y_train_orig, X_test, y_test_orig_scaled, scaler,
+        sequence_length, (X_train.shape[1], 1), stock_ticker
+    )
+
+    # Plot predictions
+    plot_predictions(y_test_actual, predictions_actual, stock_ticker)
+
+    print(f"Successfully built, trained, evaluated, and saved LSTM model and predictions plot for {stock_ticker}.")
+
+    # Predict next day's price
+    next_day_prediction = predict_next_day(stock_ticker=stock_ticker, sequence_length=sequence_length)
+    if next_day_prediction is not None:
+        print(f"Predicted next day's closing price for {stock_ticker}: {next_day_prediction:.2f}")
+    else:
+        print(f"Could not predict next day's closing price for {stock_ticker}.")
