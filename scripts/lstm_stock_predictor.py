@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import math
 import os
 import pandas as pd # Added for predict_next_day
+import joblib
 
 # Assuming preprocess_lstm_data.py is in the same directory or accessible in PYTHONPATH
 from preprocess_lstm_data import load_and_preprocess_stock_data
@@ -70,6 +71,11 @@ def build_and_train_lstm_model(X_train, y_train, X_test, y_test, scaler_obj, seq
     model.save(model_save_path)
     print(f"Model saved to {model_save_path}")
 
+    # Save the scaler
+    scaler_save_path = f'models/lstm_{stock_ticker_symbol.lower()}_scaler.joblib'
+    joblib.dump(scaler_obj, scaler_save_path)
+    print(f"Scaler saved to {scaler_save_path}")
+
     return model, y_test_actual, predictions_actual, rmse
 
 def plot_predictions(y_test_actual_scale, predictions_actual_scale, stock_ticker_symbol):
@@ -120,21 +126,20 @@ def predict_next_day(stock_ticker: str, sequence_length: int = 60) -> float | No
         print(f"Error loading model: {e}")
         return None
 
-    data_file_path = f'data/historical_prices/{stock_ticker}.csv'
-    if not os.path.exists(data_file_path):
-        print(f"Error: Data file not found at {data_file_path}")
+    scaler_path = f'models/lstm_{stock_ticker.lower()}_scaler.joblib'
+    if not os.path.exists(scaler_path):
+        print(f"Error: Scaler file not found at {scaler_path}")
+        return None
+    try:
+        scaler = joblib.load(scaler_path)
+    except Exception as e:
+        print(f"Error loading scaler: {e}")
         return None
 
-    # We need the scaler that was used during training.
-    # load_and_preprocess_stock_data fits a new scaler each time based on its input data (train split).
-    # For a robust prediction of the *absolute next day* based on *all* historical data,
-    # the scaler should ideally be fit on all historical data used to form the last_sequence.
-    # However, to keep it aligned with current structure and for simplicity in this subtask,
-    # we call load_and_preprocess_stock_data just to get A scaler instance.
-    # This scaler is fit on the training portion of the data by default in load_and_preprocess_stock_data.
-    # This is a simplification; a production system would handle scaler fitting more carefully for future predictions.
-    _, _, _, _, scaler = load_and_preprocess_stock_data(data_file_path, sequence_length)
-
+    data_file_path = f'data/historical_prices/{stock_ticker}.csv'
+    if not os.path.exists(data_file_path):
+        print(f"Error: Data file not found at {data_file_path}") # Keep this check for the data file
+        return None
 
     # Load the raw data again to get the most recent sequence
     try:
