@@ -1,0 +1,50 @@
+2025-06-19 16:16:25,842 - stock_predictor - INFO - Successfully loaded top 5 news headlines from data\merged_sentiment_input.csv
+2025-06-19 16:16:25,848 - stock_predictor - INFO - Successfully loaded and processed stock performance data from data\predict_growth.csv
+2025-06-19 16:16:25,851 - stock_predictor - WARNING - 'market_sentiment' column not found in data\predict_growth.csv.
+2025-06-19 16:16:43,920 - stock_predictor - INFO - Successfully loaded top 5 news headlines from data\merged_sentiment_input.csv
+2025-06-19 16:16:43,924 - stock_predictor - INFO - Successfully loaded and processed stock performance data from data\predict_growth.csv
+2025-06-19 16:16:43,927 - stock_predictor - WARNING - 'market_sentiment' column not found in data\predict_growth.csv.
+2025-06-19 16:16:43,948 - stock_predictor - INFO - Streamlit App: Calling prepare_llm_context_data()
+2025-06-19 16:16:43,948 - stock_predictor - INFO - Preparing LLM context for query: 'what will be googles stock tomorrow' with top_n=25
+2025-06-19 16:16:43,968 - stock_predictor - INFO - All data files loaded successfully (or handled if missing).
+2025-06-19 16:16:43,981 - stock_predictor - INFO - Filtering main DataFrame to include only companies from NASDAQ list.
+2025-06-19 16:16:43,984 - stock_predictor - INFO - DataFrame reduced to 3 rows after filtering by NASDAQ list.
+2025-06-19 16:16:43,995 - stock_predictor - INFO - Normalized query terms to official company names: None found
+2025-06-19 16:16:43,999 - stock_predictor - INFO - Processed 0 queried companies. DataFrame shape: (0, 13)
+2025-06-19 16:16:44,002 - stock_predictor - INFO - Selected 3 additional top companies by adjusted_growth_score.
+2025-06-19 16:16:44,005 - stock_predictor - INFO - Final LLM context will include 3 unique companies (Top N by score + Queried).
+2025-06-19 16:16:44,005 - stock_predictor - INFO - Companies in final context: ['Amazon', 'Intel', 'Enphase Energy']
+2025-06-19 16:16:44,014 - stock_predictor - WARNING - 'market_sentiment' column not found in D:\Sentimental Stock Predictor\scripts\..\data\predict_growth.csv.
+2025-06-19 16:16:44,014 - stock_predictor - INFO - Overall market sentiment for LLM context: Data not available
+2025-06-19 16:16:44,015 - stock_predictor - INFO - Streamlit App: Generating dynamic prompt for user query: what will be googles stock tomorrow
+2025-06-19 16:16:44,015 - stock_predictor - INFO - Streamlit App: Calling get_openai_response()
+2025-06-19 16:16:44,016 - stock_predictor - INFO - 
+📡 Querying OpenAI...
+
+2025-06-19 16:16:48,242 - stock_predictor - INFO - 🔮 OpenAI Response:
+**1. Sector Analysis (Tomorrow's Outlook):**
+
+From the available data, the sectors mentioned include Consumer Discretionary and Information Technology. Both sectors have a 'MacroSentiment' score of 0.00, indicating a neutral sentiment outlook.
+
+**2. Specific Stock Analysis (Tomorrow's Outlook):**
+
+- **Amazon:**
+  - Amazon has a Positive Sentiment of 1.00 and a GrowthScore of 0.23. The LSTM Prediction for Amazon is not available. The sector, Consumer Discretionary, has a neutral 'MacroSentiment'.
+  - Despite the lack of an LSTM prediction, Amazon's positive sentiment and growth score suggest a bullish outlook. However, the neutral sector sentiment might limit potential gains. Overall, Amazon could see stable performance tomorrow but with limited upside potential due to the sector sentiment.
+
+- **Intel:**
+  - Intel has a Neutral Sentiment of 1.00 and a GrowthScore of 0.21. The LSTM Prediction for Intel is not available. Intel operates in the Information Technology sector, which also has a neutral 'MacroSentiment'.
+  - With neutral sentiment and growth score, coupled with a neutral sector sentiment, Intel is likely to exhibit stable performance tomorrow without significant fluctuations. The absence of an LSTM prediction makes it challenging to gauge potential price movements accurately.
+
+- **Enphase Energy:**
+  - Enphase Energy, like Intel, has a Neutral Sentiment of 1.00 and a GrowthScore of 0.17. The LSTM Prediction for Enphase Energy is not available. Enphase Energy operates in the Information Technology sector, which has a neutral 'MacroSentiment'.
+  - Given the neutral sentiment across the board for Enphase Energy and the sector, the stock is expected to have a relatively stable trading day tomorrow. The lack of an LSTM prediction adds uncertainty to price movements.
+
+**3. Addressing the User Query:**
+
+Based on the available data, it is challenging to provide a precise prediction for Google's stock for tomorrow as Google's specific data is not present in the dataset provided. The overall market sentiment is also not available, further complicating the analysis. However, considering the sentiment and growth scores for Amazon, Intel, and Enphase Energy, it appears that these stocks are likely to have stable trading days with limited volatility tomorrow.
+
+In conclusion, the absence of data for Google makes it difficult to provide a direct analysis for its stock performance tomorrow. However, based on the analysis of similar companies in the dataset, it is reasonable to expect a day of stable trading for Google unless external market factors significantly influence the overall sentiment.
+
+Please note that the analysis is based solely on the information provided in the dataset, and the absence of specific data for Google limits the depth of the analysis for that particular stock.
+2025-06-19 16:16:48,246 - stock_predictor - INFO - Streamlit App: Successfully received and displayed LLM response.

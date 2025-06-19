@@ -3,6 +3,7 @@ import os
 import sys
 from openai import OpenAI
 from dotenv import load_dotenv
+from lstm_stock_predictor import get_or_train_lstm_for_stock
 import logging
 
 # Load environment variables
@@ -10,15 +11,29 @@ load_dotenv()
 
 # Configure logging
 os.makedirs('output/logs', exist_ok=True) # Changed path
+
+# Define log format
 log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+# Create logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-file_handler = logging.FileHandler('output/logs/stock_predictor.log', mode='w') # Changed path
+# Clear any existing handlers
+logger.handlers = []
+
+# File handler with UTF-8 encoding
+file_handler = logging.FileHandler(
+    'output/logs/stock_predictor.log', 
+    mode='w', 
+    encoding='utf-8',
+    errors='replace'
+)
 file_handler.setFormatter(logging.Formatter(log_format))
 logger.addHandler(file_handler)
 
-stream_handler = logging.StreamHandler()
+# Stream handler with UTF-8 support
+stream_handler = logging.StreamHandler(sys.stdout)
 stream_handler.setFormatter(logging.Formatter(log_format))
 logger.addHandler(stream_handler)
 
@@ -84,7 +99,7 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
             macro_sentiment_val = row.get('macro_sentiment_score')
             macro_sentiment_str = f"{macro_sentiment_val:.2f}" if pd.notna(macro_sentiment_val) else "N/A"
 
-            line = (
+            company_info = (
                 f"- {row['company']}: Positive Sentiment={row['positive']:.2f}, Neutral Sentiment={row['neutral']:.2f}, "
                 f"Negative Sentiment={row['negative']:.2f}, GrowthScore={row['growth_score']:.2f}, "
 
@@ -92,44 +107,53 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
             )
             # Check if 'predicted_close_price' column exists and the value is not NaN
             if 'predicted_close_price' in row and pd.notna(row['predicted_close_price']):
-                line += f", LSTM Next Day Close: ${row['predicted_close_price']:.2f}"
-            prompt_lines.append(line)
+                company_info += f"\n  - 🚀 LSTM Next Day Close Prediction: ${row['predicted_close_price']:.2f}"
+                # Add some interpretation of the prediction
+                if 'current_price' in row and pd.notna(row['current_price']):
+                    current_price = row['current_price']
+                    predicted_price = row['predicted_close_price']
+                    pct_change = ((predicted_price - current_price) / current_price) * 100
+                    direction = "↑" if pct_change >= 0 else "↓"
+                    company_info += f" ({direction}{abs(pct_change):.2f}%)"
+            else:
+                company_info += "\n  - LSTM Prediction: Not available"
+            prompt_lines.append(company_info)
 
     prompt_lines.append("\n---") # Separator before instructions
 
-instructions = (
-    "Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow'. "
-    "To do this, you MUST synthesize insights from four key pillars of information: the 'Overall Market Sentiment', specific 'MacroSentiment' (sector sentiment), individual company news sentiment scores, and 'LSTM Next Day Close' price predictions, all found within the 'Company Data Context' and 'Overall Market Sentiment' sections provided below. "
-    "Use ONLY this provided information. Adhere strictly to these guidelines:\n\n"
-    "**1. Sector Analysis (Tomorrow's Outlook):**\n"
-    "   - Begin by identifying 2-3 sectors from the 'Company Data Context' that exhibit the most significant positive or "
-    "     negative 'MacroSentiment score'.\n"
-    "   - For each identified sector, explain what its 'MacroSentiment score' might imply for its potential performance "
-    "     tomorrow. Relate this to the 'Overall Market Sentiment'.\n\n"
-    "**2. Specific Stock Analysis (Tomorrow's Outlook):**\n"
-    "   - **Crucially, if the 'User Query' mentions specific stocks by name or ticker, YOU MUST provide a direct and individual analysis for EACH of those stocks, provided their data is available in the 'Company Data Context'.**\n"
-    "   - After addressing any directly queried stocks, you can then discuss other companies, prioritizing those within the sectors you've just "
-    "     analyzed or others that seem particularly relevant based on their data.\n"
-    "   - For EACH stock you analyze (whether directly queried or chosen by you), provide a brief outlook for tomorrow. Your justification MUST holistically synthesize all relevant data points provided for that stock:\n"
-    "       a. The stock's individual sentiment scores (Positive, Neutral, Negative news counts).\n"
-    "       b. Its 'GrowthScore'.\n"
-    "       c. Its 'LSTM Next Day Close' price prediction (if available).\n"
-    "       d. The 'MacroSentiment score' of its sector.\n"
-    "       e. The context of the 'Overall Market Sentiment'.\n"
-    "   - Explicitly discuss how these factors (a-e) interact. For instance, note if they are aligned (e.g., positive stock sentiment, strong sector sentiment, bullish LSTM prediction, within a positive overall market) or if they present a mixed picture (e.g., good individual stock sentiment but a bearish LSTM prediction or weak sector sentiment).\n"
-    "   - **If some data points for a queried stock are neutral, minimal, or absent (e.g., news sentiment counts are all zero, or GrowthScore is close to zero), explicitly state this. Then, proceed to make your best assessment for that stock based on the remaining available data (e.g., its LSTM prediction, its sector's MacroSentiment, and the Overall Market Sentiment). Do NOT avoid analyzing a queried stock simply because some of its individual metrics are weak or neutral.**\n"
-    "   - Explain *why* the combination of available factors leads to your outlook for that stock.\n\n"
-    "**3. Addressing the User Query:**\n"
-    "   - Ensure your entire analysis is framed to comprehensively answer the 'User Query'.\n"
-    "   - **Reiterate: If the query asks about specific stocks, your primary goal is to provide a detailed analysis for THOSE stocks using the methodology outlined in section 2.**\n"
-    "   - If the query is general (e.g., 'market outlook'), the structured sector and stock analysis (focusing on high-signal companies) serves as your response.\n\n"
-    "**4. General Guidelines:**\n"
-    "   - Base all predictions and analyses exclusively on the provided 'Company Data Context' and 'Overall Market Sentiment'.\n"
-    "   - Do NOT use any external knowledge or real-time market data.\n"
-    "   - When making an inference, clearly state it's derived from the provided dataset.\n"
-    "   - **For any stock mentioned in the user query but NOT found in the 'Company Data Context', you MUST explicitly state that its specific data is not available in the current analysis dataset.** Do not attempt to infer its performance indirectly through other stocks unless clearly stating it's a broad sector observation.\n"
-    "   - If the 'Company Data Context' is empty, inform the user that no specific company data is available to perform the requested analysis."
-)
+    instructions = (
+        "Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow'. "
+        "To do this, you MUST synthesize insights from four key pillars of information: the 'Overall Market Sentiment', specific 'MacroSentiment' (sector sentiment), individual company news sentiment scores, and 'LSTM Next Day Close' price predictions, all found within the 'Company Data Context' and 'Overall Market Sentiment' sections provided below. "
+        "Use ONLY this provided information. Adhere strictly to these guidelines:\n\n"
+        "**1. Sector Analysis (Tomorrow's Outlook):**\n"
+        "   - Begin by identifying 2-3 sectors from the 'Company Data Context' that exhibit the most significant positive or "
+        "     negative 'MacroSentiment score'.\n"
+        "   - For each identified sector, explain what its 'MacroSentiment score' might imply for its potential performance "
+        "     tomorrow. Relate this to the 'Overall Market Sentiment'.\n\n"
+        "**2. Specific Stock Analysis (Tomorrow's Outlook):**\n"
+        "   - **Crucially, if the 'User Query' mentions specific stocks by name or ticker, YOU MUST provide a direct and individual analysis for EACH of those stocks, provided their data is available in the 'Company Data Context'.**\n"
+        "   - After addressing any directly queried stocks, you can then discuss other companies, prioritizing those within the sectors you've just "
+        "     analyzed or others that seem particularly relevant based on their data.\n"
+        "   - For EACH stock you analyze (whether directly queried or chosen by you), provide a brief outlook for tomorrow. Your justification MUST holistically synthesize all relevant data points provided for that stock:\n"
+        "       a. The stock's individual sentiment scores (Positive, Neutral, Negative news counts).\n"
+        "       b. Its 'GrowthScore'.\n"
+        "       c. Its 'LSTM Next Day Close' price prediction (if available).\n"
+        "       d. The 'MacroSentiment score' of its sector.\n"
+        "       e. The context of the 'Overall Market Sentiment'.\n"
+        "   - Explicitly discuss how these factors (a-e) interact. For instance, note if they are aligned (e.g., positive stock sentiment, strong sector sentiment, bullish LSTM prediction, within a positive overall market) or if they present a mixed picture (e.g., good individual stock sentiment but a bearish LSTM prediction or weak sector sentiment).\n"
+        "   - **If some data points for a queried stock are neutral, minimal, or absent (e.g., news sentiment counts are all zero, or GrowthScore is close to zero), explicitly state this. Then, proceed to make your best assessment for that stock based on the remaining available data (e.g., its LSTM prediction, its sector's MacroSentiment, and the Overall Market Sentiment). Do NOT avoid analyzing a queried stock simply because some of its individual metrics are weak or neutral.**\n"
+        "   - Explain *why* the combination of available factors leads to your outlook for that stock.\n\n"
+        "**3. Addressing the User Query:**\n"
+        "   - Ensure your entire analysis is framed to comprehensively answer the 'User Query'.\n"
+        "   - **Reiterate: If the query asks about specific stocks, your primary goal is to provide a detailed analysis for THOSE stocks using the methodology outlined in section 2.**\n"
+        "   - If the query is general (e.g., 'market outlook'), the structured sector and stock analysis (focusing on high-signal companies) serves as your response.\n\n"
+        "**4. General Guidelines:**\n"
+        "   - Base all predictions and analyses exclusively on the provided 'Company Data Context' and 'Overall Market Sentiment'.\n"
+        "   - Do NOT use any external knowledge or real-time market data.\n"
+        "   - When making an inference, clearly state it's derived from the provided dataset.\n"
+        "   - **For any stock mentioned in the user query but NOT found in the 'Company Data Context', you MUST explicitly state that its specific data is not available in the current analysis dataset.** Do not attempt to infer its performance indirectly through other stocks unless clearly stating it's a broad sector observation.\n"
+        "   - If the 'Company Data Context' is empty, inform the user that no specific company data is available to perform the requested analysis."
+    )
     prompt_lines.append("\nInstructions:\n" + instructions)
     return "\n".join(prompt_lines)
 
@@ -237,10 +261,22 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
     # Merge LSTM predictions using the 'Ticker' column
     lstm_df = dfs["lstm_df"]
     if not lstm_df.empty and 'Ticker' in df.columns:
-        lstm_df['stock_ticker_clean'] = lstm_df['stock_ticker'].str.strip()
-        df = pd.merge(df, lstm_df[['stock_ticker_clean', 'predicted_close_price']], left_on='Ticker', right_on='stock_ticker_clean', how='left')
-        if 'stock_ticker_clean' in df.columns:
-            df = df.drop(columns=['stock_ticker_clean'])
+        # Clean and standardize ticker symbols
+        lstm_df['ticker_upper'] = lstm_df['stock_ticker'].str.strip().str.upper()
+        df['ticker_upper'] = df['Ticker'].str.strip().str.upper()
+        
+        # Merge on the cleaned ticker symbols
+        df = pd.merge(
+            df, 
+            lstm_df[['ticker_upper', 'predicted_close_price']], 
+            left_on='ticker_upper', 
+            right_on='ticker_upper', 
+            how='left'
+        )
+        
+        # Clean up temporary columns
+        if 'ticker_upper' in df.columns:
+            df = df.drop(columns=['ticker_upper'])
     else:
         # Ensure the column exists even if no LSTM data or no Ticker to merge on
         df['predicted_close_price'] = pd.NA
@@ -262,29 +298,137 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
     df = df[df['company'].isin(nasdaq_official_companies_set)].copy() # Use .copy() to avoid SettingWithCopyWarning
     logger.info(f"DataFrame reduced to {len(df)} rows after filtering by NASDAQ list.")
 
-    # === Identify companies from user_query using the NASDAQ list for normalization ===
-    logger.info(f"Identifying companies from user query: '{user_query}'")
+    def identify_companies_from_query(query, mapping_df):
+        """
+        Identifies company names from the user query by matching against the NASDAQ mapping.
+        Returns a list of normalized company names found in the query.
+        """
+        logger.info(f"Identifying companies from user query: '{query}'")
+        query_upper = query.upper()
+        found_companies = set()
+        
+        # Create a clean copy of the mapping dataframe
+        mapping_df = mapping_df.copy()
+        mapping_df['Company'] = mapping_df['Company'].str.strip()
+        mapping_df['Ticker'] = mapping_df['Ticker'].fillna('').astype(str).str.strip()
+        
+        # Enhanced mapping of variations to official names with more Google/Alphabet variations
+        company_variations = {
+            'GOOGLE': 'Alphabet Inc. (Class A)',
+            'GOOG': 'Alphabet Inc. (Class A)',
+            'ALPHABET': 'Alphabet Inc. (Class A)',
+            'ALPHABET INC': 'Alphabet Inc. (Class A)',
+            'ALPHABET INC.': 'Alphabet Inc. (Class A)',
+            'GOOGLE PARENT': 'Alphabet Inc. (Class A)',
+            'GOOGLE STOCK': 'Alphabet Inc. (Class A)',
+            'MSFT': 'Microsoft',
+            'MICROSOFT': 'Microsoft',
+            'AMZN': 'Amazon',
+            'AMAZON': 'Amazon',
+            'AAPL': 'Apple',
+            'APPLE': 'Apple',
+            'TSLA': 'Tesla',
+            'TESLA': 'Tesla',
+            'NVDA': 'NVIDIA',
+            'NVIDIA': 'NVIDIA',
+            'META': 'Meta Platforms',
+            'FACEBOOK': 'Meta Platforms',
+            'META PLATFORMS': 'Meta Platforms'
+        }
+        
+        # Special handling for Google/Alphabet variations
+        google_related_terms = ['GOOGLE', 'ALPHABET', 'GOOG']
+        if any(term in query_upper for term in google_related_terms):
+            # Check if we have Alphabet in our mapping
+            alphabet_matches = mapping_df[mapping_df['Company'].str.contains('Alphabet', case=False, na=False)]
+            if not alphabet_matches.empty:
+                official_name = alphabet_matches['Company'].iloc[0]
+                found_companies.add(official_name)
+        
+        # Check for common variations first
+        for variation, official_name in company_variations.items():
+            if variation in query_upper and official_name in mapping_df['Company'].values:
+                found_companies.add(official_name)
+        
+        # Check for exact matches in the query (case-insensitive)
+        for company in mapping_df['Company'].unique():
+            company_clean = company.strip()
+            if company_clean.upper() in query_upper:
+                found_companies.add(company_clean)
+        
+        # Check for ticker symbols
+        for _, row in mapping_df.iterrows():
+            ticker = row['Ticker']
+            if ticker and ticker.upper() in query_upper:
+                found_companies.add(row['Company'].strip())
+        
+        # Also check for partial matches in company names
+        for company in mapping_df['Company'].unique():
+            # Split company name into words and check if any word is in the query
+            words = [w.upper() for w in company.split() if len(w) > 2]  # Ignore short words
+            if words and any(word in query_upper for word in words):
+                found_companies.add(company)
+        
+        # If still no matches, try to find by partial match in the query
+        if not found_companies:
+            for company in mapping_df['Company'].unique():
+                company_words = set(word.upper() for word in company.split() if len(word) > 2)
+                query_words = set(query_upper.split())
+                if company_words.intersection(query_words):
+                    found_companies.add(company)
+        
+        logger.info(f"Normalized query terms to official company names: {found_companies}")
+        return list(found_companies)
 
     def robust_clean_name_for_matching(name):
-        if not isinstance(name, str): return ""
-        cleaned_name = name.lower()
-        cleaned_name = re.sub(r'[^\w\s.-]', '', cleaned_name)
-        suffixes = ['inc', 'corp', 'corporation', 'ltd', 'llc', 'co', 'company', 'plc', 'group',
-                    'holding', 'holdings', 'technologies', 'solutions', 'services', 'international']
-        for suffix in suffixes:
-            cleaned_name = re.sub(r'\b' + suffix + r'[.]?\b', '', cleaned_name, flags=re.IGNORECASE)
-        return ' '.join(cleaned_name.split()).strip()
-
-    query_to_official_map = {}
-    # Helper to get official name from mapping_df, ensures we use the exact name from the CSV
-    def get_official_name(ticker_or_common_name, default_if_not_found):
-        # Check if it's a ticker
-        ticker_match = mapping_df[mapping_df['Ticker'].str.fullmatch(ticker_or_common_name, case=False, na=False)]
-        if not ticker_match.empty:
-            return ticker_match['Company'].iloc[0]
-        # Check if it's a common name that needs to map to an official name (already handled by structure below)
-        # This is more for ensuring the default values are correct if a ticker isn't found for some reason.
-        return default_if_not_found
+        """
+        Robustly clean and standardize a company name for matching purposes.
+        Handles None values, non-string inputs, and performs comprehensive cleaning.
+        """
+        if not name or not isinstance(name, str):
+            return ""
+            
+        # Basic cleaning
+        cleaned = name.strip().lower()
+        
+        # Remove common suffixes and words that might cause mismatches
+        remove_phrases = [
+            'inc', 'llc', 'ltd', 'corp', 'corporation', 'holdings', 'technologies', 
+            'incorporated', 'company', 'plc', 'group', 'co', '& co', 'holding', 'holdings',
+            'class a', 'class b', 'class c', 'class d', 'class 1', 'class 2',
+            '(', ')', '[', ']', '{', '}', '&', ',', '.', ';', ':', "'", '\"',
+            'the ', ' and ', ' or '
+        ]
+        
+        for phrase in remove_phrases:
+            cleaned = cleaned.replace(phrase, ' ')
+        
+        # Replace multiple spaces with single space
+        cleaned = ' '.join(cleaned.split())
+        
+        return cleaned.strip()
+    
+    def get_official_name(ticker, default_name):
+        """
+        Helper function to get the official company name from ticker.
+        If the ticker is found in the mapping, returns the official name; otherwise returns the default.
+        """
+        try:
+            if not isinstance(mapping_df, pd.DataFrame) or 'Ticker' not in mapping_df.columns:
+                return default_name
+                
+            # Try to find the ticker in the mapping dataframe
+            ticker_upper = str(ticker).strip().upper()
+            ticker_match = mapping_df[mapping_df['Ticker'].apply(
+                lambda x: str(x).strip().upper() == ticker_upper if pd.notna(x) else False
+            )]
+            
+            if not ticker_match.empty and 'Company' in ticker_match.columns:
+                return ticker_match['Company'].iloc[0]
+            return default_name
+        except Exception as e:
+            logger.warning(f"Error in get_official_name for ticker {ticker}: {str(e)}")
+            return default_name
 
     # Populate query_to_official_map with common names -> official names from mapping_df
     common_name_mappings_tuples = [
@@ -298,6 +442,9 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
         ("facebook", "META", "Meta Platforms, Inc."),
         ("tesla", "TSLA", "Tesla, Inc.")
     ]
+    
+    # Initialize the query_to_official_map with common mappings
+    query_to_official_map = {}
     for common, ticker_val, default_name in common_name_mappings_tuples:
         query_to_official_map[common] = get_official_name(ticker_val, default_name)
 
@@ -433,18 +580,55 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
     # === Select top N companies by score ===
     # These are companies not necessarily in the query, selected by performance.
     # Filter out companies with null or zero growth scores for this selection.
-    df_for_top_n_selection = df[df["growth_score"].notnull() & (df["growth_score"] != 0)].copy() # Use .copy()
+    df_for_top_n_selection = df[df["growth_score"].notnull() & (df["growth_score"] != 0)].copy()
     top_n_by_score_df = df_for_top_n_selection.sort_values(by="adjusted_growth_score", ascending=False).head(top_n)
     logger.info(f"Selected {len(top_n_by_score_df)} additional top companies by adjusted_growth_score.")
 
-    # === Combine top N with queried companies, ensuring no duplicates ===
+    # Ensure queried companies are included even if they weren't in the top N
     if not queried_companies_data_df.empty:
-        final_context_df = pd.concat([top_n_by_score_df, queried_companies_data_df]).drop_duplicates(subset=['company']).reset_index(drop=True)
-    else:
-        final_context_df = top_n_by_score_df.reset_index(drop=True) # If no queried companies, top_n is final
-
+        # Get the official names from the mapping for queried companies
+        queried_official_names = set(queried_companies_data_df['company'])
+        
+        # Find any queried companies that might be missing from the top N
+        missing_queried = []
+        for company in queried_official_names:
+            if company not in top_n_by_score_df['company'].values:
+                missing_queried.append(company)
+        
+        # If we have missing queried companies, add them to the context
+        if missing_queried:
+            logger.info(f"Adding missing queried companies to final context: {missing_queried}")
+            # Get the company data for missing queried companies
+            missing_data = company_df[company_df['company'].isin(missing_queried)].copy()
+            
+            # Add LSTM predictions if available
+            if 'Ticker' in missing_data.columns and not lstm_df.empty:
+                missing_data = pd.merge(
+                    missing_data,
+                    lstm_df[['stock_ticker', 'predicted_close_price']],
+                    left_on='Ticker',
+                    right_on='stock_ticker',
+                    how='left'
+                ).drop(columns=['stock_ticker'])
+            
+            # Add sector information
+            missing_data['theme'] = missing_data['company'].map(theme_map)
+            missing_data['macro_sentiment_score'] = missing_data['theme'].map(macro_map).fillna(0)
+            
+            # Add to queried companies data
+            queried_companies_data_df = pd.concat([queried_companies_data_df, missing_data])
+    
+    # Combine batch top companies and queried companies data
+    final_context_df = pd.concat([top_n_by_score_df, queried_companies_data_df])
+    
+    # Remove duplicates, keeping the first occurrence (prioritize queried companies data)
+    final_context_df = final_context_df.drop_duplicates(subset=['company'], keep='first').reset_index(drop=True)
+    
     logger.info(f"Final LLM context will include {len(final_context_df)} unique companies (Top N by score + Queried).")
-
+    
+    # Log the final list of companies being returned
+    logger.info(f"Companies in final context: {final_context_df['company'].tolist()}")
+    
     if final_context_df.empty:
         logger.warning("LLM context is empty: No top companies met criteria and no queried companies identified/found in data.")
     else:

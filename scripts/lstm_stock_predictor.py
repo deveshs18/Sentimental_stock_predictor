@@ -9,6 +9,14 @@ import os
 import pandas as pd # Added for predict_next_day
 import joblib
 from datetime import datetime
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # Assuming preprocess_lstm_data.py is in the same directory or accessible in PYTHONPATH
 from preprocess_lstm_data import load_and_preprocess_stock_data

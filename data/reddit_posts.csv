@@ -12,7 +12,7 @@ Be aware of [Business Cycle Investing](https://eresearch.fidelity.com/eresearch/
 If you need help with a falling stock price, check out Investopedia's [The Art of Selling A Losing Position](https://www.investopedia.com/articles/02/022002.asp) and their [list of biases.](https://www.investopedia.com/articles/stocks/08/capital-losses.asp)
 
 Here's a list of all the [previous portfolio stickies.](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3A%22Rate+My+Portfolio%22&restrict_sr=on&sort=new&t=all)",1748768419.0,https://www.reddit.com/r/stocks/comments/1l0kgkw/rate_my_portfolio_rstocks_quarterly_thread_june/,stocks
-"r/Stocks Daily Discussion & Technicals Tuesday - Jun 17, 2025","This is the daily discussion, so anything stocks related is fine, but the theme for today is on technical analysis (TA), but if TA is not your thing then just ignore the theme.
+"r/Stocks Daily Discussion & Options Trading Thursday - Jun 19, 2025","This is the daily discussion, so anything stocks related is fine, but the theme for today is on stock options, but if options aren't your thing then just ignore the theme.
 
 Some helpful day to day links, including news:
 
@@ -24,19 +24,51 @@ Some helpful day to day links, including news:
 
 -----
 
-**Technical analysis (TA)** uses historical price movements, real time data, indicators based on math and/or statistics, and charts; all of which help **measure the trajectory of a security.**  TA can also be used to interpret the actions of other market participants and predict their actions.
-        
-The main benefit to TA is that everything shows up in the price (commonly known as **""priced in""**):  All news, investor sentiment, and changes to fundamentals are reflected in a security's price.
+Required info to start understanding options:
 
-TA can be useful on any timeframe, both short and long term.
+* [Call option Investopedia video](https://www.investopedia.com/terms/c/calloption.asp) basically a call option allows you to buy 100 shares of a stock at a certain price (strike price), but without the obligation to buy
+* [Put option Investopedia video](https://www.investopedia.com/terms/p/putoption.asp) a put option allows you to sell 100 shares of a stock at a certain price (strike price), but without the obligation to sell
+* Writing options switches the obligation to you and you'll be forced to buy someone else's shares (writing puts) or sell your shares (writing calls)
 
-Intro to technical analysis by [Stockcharts chartschool](https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:introduction_to_technical_indicators_and_oscillators#benefits_and_drawbacks_of_leading_indicators) and their [article on candlesticks](https://stockcharts.com/school/doku.php?id=chart_school:chart_analysis:introduction_to_candlesticks)
+See the following word cloud and click through for the wiki:
 
-If you have questions, please see the following word cloud and click through for the wiki:
+[Call option - Put option - Exercising an option - Strike price - ITM - OTM - ATM - Long options - Short options - Combo - Debit - Credit or Premium - Covered call - Naked - Debit call spread - Credit call spread - Strangle - Iron condor - Vertical debit spreads - Iron Fly](https://www.reddit.com/r/stocks/wiki/options-themed-post)
 
-[Indicator - Trade Signals - Lagging Indicator - Leading Indicator - Oversold - Overbought - Divergence - Whipsaw - Resistance - Support - Breakout/Breakdown - Alerts - Trend line - Market Participants - Moving average - RSI - VWAP - MACD - ATR - Bollinger Bands - Ichimoku clouds - Methods - Trend Following - Fading - Channels - Patterns - Pivots](https://www.reddit.com/r/stocks/wiki/ta-themed-post)
+If you have a basic question, for example ""what is delta,"" then google ""investopedia delta"" and click the investopedia article on it; do this for everything until you have a more in depth question or just want to share what you learned.
 
-See our past [daily discussions here.](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+%22r%2Fstocks+daily+discussion%22&restrict_sr=on&sort=new&t=all)  Also links for:  [Technicals](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3Atechnicals&restrict_sr=on&include_over_18=on&sort=new&t=all) Tuesday, [Options Trading](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3Aoptions&restrict_sr=on&include_over_18=on&sort=new&t=all) Thursday, and [Fundamentals](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3Afundamentals&restrict_sr=on&include_over_18=on&sort=new&t=all) Friday.",1750152620.0,https://www.reddit.com/r/stocks/comments/1ldiq22/rstocks_daily_discussion_technicals_tuesday_jun/,stocks
+See our past [daily discussions here.](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+%22r%2Fstocks+daily+discussion%22&restrict_sr=on&sort=new&t=all)  Also links for:  [Technicals](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3Atechnicals&restrict_sr=on&include_over_18=on&sort=new&t=all) Tuesday, [Options Trading](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3Aoptions&restrict_sr=on&include_over_18=on&sort=new&t=all) Thursday, and [Fundamentals](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3Afundamentals&restrict_sr=on&include_over_18=on&sort=new&t=all) Friday.",1750325431.0,https://www.reddit.com/r/stocks/comments/1lf6j5f/rstocks_daily_discussion_options_trading_thursday/,stocks
+Google likely to face $4.7 billion USD fine,"GOOG can't catch a break and likely to face fines in EU general court, however the penalty is not confirmed, only an advise by the Advocate General in EU court to dismiss Google's appeal against the fine that was proposed in 2022. This was the reason why goog took a dump before the market close on 18th June.
+
+I am long goog, have $180C for August; hoping this is not a big dent. 
+
+https://www.nbclosangeles.com/news/business/money-report/google-looks-likely-to-lose-appeal-against-record-4-7-billion-eu-fine/3727955/",1750355832.0,https://www.reddit.com/r/stocks/comments/1lfhex0/google_likely_to_face_47_billion_usd_fine/,stocks
+"Is this the Tesla narrative, really?","Can someone help me make sense of this narrative for 100x potential that is keeping TSLA afloat?
+
+Here’s a recap.
+
+1. “Electric cars can be fast, cool & desirable” (2008-2012)
+2. “Tesla is the Apple of autos” (2013-2019)
+3. “Tesla is not a car company - it’s an AI, energy, and robotics platform.” (2020-2021)
+4. “Tesla is building the future of AI & autonomy.” (2022-present)
+
+Note that during these 4 periods, Tesla just made cars (with declining sales now) and never delivered on any form of full autonomy.
+
+Am I missing something?",1750351575.0,https://www.reddit.com/r/stocks/comments/1lfflkx/is_this_the_tesla_narrative_really/,stocks
+The Genius ACT will likely pass the house next week. What stock plays are we interested in to play off the news?,"Looks like the GENIUS Act (federal rules for dollar-backed stablecoins) is probably hitting the House floor next week, meaning it will become law by the following... I’m thinking Coinbase (COIN) and Circle CRCL might continue to run, along with Microstrategy.
+
+If the GENIUS Act passes next week, here are my picks:
+
+* Robinhood : smoother USDC transfers could boost trading volume and adoption
+* CME Group (CME): clearer rules might drive more stablecoin derivatives flow
+
+What are you watching? Any sleeper picks that could surprise?",1750361995.0,https://www.reddit.com/r/stocks/comments/1lfjzqg/the_genius_act_will_likely_pass_the_house_next/,stocks
+Coinbase Launches Stablecoin Payments Service for E-Commerce,"https://www.bloomberg.com/news/articles/2025-06-18/coinbase-launches-stablecoin-payments-service-for-e-commerce
+
+> Coinbase Global Inc. is launching a platform designed to make stablecoins a go-to payment method for online transactions, a potentially big leap forward in the mainstream adoption of cryptocurrencies meant to track the US dollar.
+
+> The announcement follows the passage of landmark stablecoin legislation in the US Senate on Tuesday and comes as large retailers have expressed interest in exploring stablecoins for use as payments in online transactions, a roughly $6 trillion industry. Such use of this type of cryptocurrency threatens to circumvent card networks Visa Inc. and Mastercard Inc. and other online payment services.
+
+> Coinbase Payments is targeting online platforms like Shopify Inc. and eBay Inc., a prized client segment among payment processors since the websites provide distribution to thousands of small-to-medium sized businesses who are often looking for ways to avoid the fees associated with accepting card payments. Today, Coinbase makes most of its money through transaction fees on the exchange’s cryptocurrency trades. The payments initiative could help add new sources of revenue, according to Mark Palmer, analyst at Benchmark Co.",1750347720.0,https://www.reddit.com/r/stocks/comments/1lfe08t/coinbase_launches_stablecoin_payments_service_for/,stocks
 MSFT may terminate expanded OpenAI deal as tensions rise over control and equity,"According to the Financial Times Microsoft may terminate ongoing talks to deepen its partnership with OpenAI citing unresolved disputes over governance and future equity structure
 
 The core issue OpenAI is pushing to formally transition into a for-profit entity which could potentially dilute Microsoft influence and ownership stake in the company  especially concerning any future models beyond GPT-4
@@ -50,6 +82,18 @@ Despite the headlines, Microsoft commercial use case remains protected in the sh
 Is MSFT losing strategic leverage here? Or are they just protecting their current ROI？Could this open the door for Google, Amazon, or even Meta to get in bed with OpenAI?How would a fractured OpenAI impact Azure’s AI moat vs AWS and GCP?MSFT may terminate expanded OpenAI deal as tensions rise over control and equity
 
 ",1750278845.0,https://www.reddit.com/r/stocks/comments/1lertl9/msft_may_terminate_expanded_openai_deal_as/,stocks
+Eutelsat and France’s Armed Forces Ministry Reach Landmark Framework Agreement for Low Orbit Satellite Services in the NEXUS Program,"Eutelsat (ISIN: FR0010221234 - Euronext Paris / London Stock Exchange: ETL) and France’s armed forces ministry (Direction générale de l'armement) have today announced a landmark framework agreement on the occasion of the Paris Airshow.
+
+The agreement is the embodiment of the NEXUS (Neo-Espace pour de multiples Usages Sécurisés) program launched by the French Ministry of Defence, which aims to reinforce the current French military space communications model by combining military and civilian resources.
+
+France reaffirms its commitment to the European IRIS² program, which has been supported from the outset since the French Presidency of the Council of the European Union in 2022. However, the urgency of the international situation means that it cannot wait until then.
+
+As the first concrete step in the NEXUS project, the French defense procurement agency (DGA) has reached a 10-year framework agreement, valued at up to €1 billion in expenditure, with Eutelsat, covering the supply of priority-access space resources (notably capacity on Eutelsat’s OneWeb LEO constellation), the hosting of ancillary missions for the French armed forces, and operational and security maintenance. The agreement also covers the upgrading and securing of the constellation for military grade use.
+
+Jean-Francois Fallacher, Chief Executive Officer of Eutelsat commented: “We are honored at the prospect of supporting the French armed forces through this historic agreement, which underscores the crucial role of low earth orbit satellite capacity in responding to the requirements of contemporary operational theaters. Eutelsat today offers the only commercially operated LEO constellation capable of meeting stringent military standards ahead of the deployment of IRIS². It provides global coverage, low latency, rapid deployment, and adaptability to mobile use cases, attributes validated by successful large-scale experiments conducted with the French Armed Forces.”
+
+https://www.businesswire.com/news/home/20250618288915/en/Eutelsat-and-Frances-Armed-Forces-Ministry-Reach-Landmark-Framework-Agreement-for-Low-Orbit-Satellite-Services-in-the-Context-of-Frances-NEXUS-Program Eutelsat and France’s Armed Forces Ministry Reach Landmark Framework Agreement for Low Orbit Satellite Services in the Context of Frances’ NEXUS Program",1750316652.0,https://www.reddit.com/r/stocks/comments/1lf4cbs/eutelsat_and_frances_armed_forces_ministry_reach/,stocks
+I’m in the U.S.-my company is global and headquartered/publicly traded in Europe.  They are offering U.S. employees a stock purchase program,"Just to start off, I will say that the only stock that I currently own is in my 401(k). I have never owned or traded stocks directly. I am relatively new with this company, but just sat through a webinar about their stock purchase program.  There are two programs, one is essentially a guaranteed return which has a floor and a “performance payment” should the stock lose value. The second is just a straight full risk purchase.  Participants will get a 15% discount off of the reference price and a company match up to a certain amount.  I am inclined to purchase some stock under the guaranteed return program and some stock under the full risk program (we are permitted to do so), but I’m wondering, is it not otherwise possible for an individual in the U.S. to buy stock in a foreign company?  Just curious.  Obviously buying under this program has its advantages in the form of the discount and the match which I would not get just buying on the open market assuming I could even do so.  Finally, we are required to hold it for at least five years – just wondering if this is common, but in any event, I am seeing this as an opportunity to start a stock portfolio so I would not be in a hurry to sell it anyway.",1750359463.0,https://www.reddit.com/r/stocks/comments/1lfiy1q/im_in_the_usmy_company_is_global_and/,stocks
 "Waymo cars are coming to New York, but with a driver behind the wheel","Residents of New York City will soon start seeing Waymo cars cruising the avenues. But at least for now, a human will be in the driver’s seat.
 
 Alphabet’s self-driving car unit announced on Wednesday that it plans to drive vehicles manually in New York, marking the first step toward potentially cracking the largest U.S. city. Waymo said it applied for a permit with the New York City Department of Transportation to operate autonomously with a trained specialist behind the wheel in Manhattan.
@@ -67,7 +111,24 @@ Waymo has made a prior appearance in New York.
 The company brought its cars to parts of the city in 2021 for manual driving, data collection and testing. Ethan Teicher, a Waymo spokesperson, said “it was a planned trip with a start and an end.” The testing allowed Waymo to improve driving in icy and snowy conditions in a densely populated area, the company said.
 
 [https://www.cnbc.com/2025/06/18/waymo-cars-are-coming-to-new-york-with-a-driver-behind-the-wheel.html](https://www.cnbc.com/2025/06/18/waymo-cars-are-coming-to-new-york-with-a-driver-behind-the-wheel.html)",1750263966.0,https://www.reddit.com/r/stocks/comments/1leli4l/waymo_cars_are_coming_to_new_york_but_with_a/,stocks
-What will happen to TECH stocks if U.S. goes into a war?,"Hey everyone. Current war between israel and iran affected the tech stocks slightly. Some soared while some fell. But what will happen if U.S. gets involved in the war? Is this a good time to invest in stocks like APP, NVIDIA etc. ?",1750242359.0,https://www.reddit.com/r/stocks/comments/1ledlq0/what_will_happen_to_tech_stocks_if_us_goes_into_a/,stocks
+SK hynix Closes Market Cap Gap with Samsung Electronics Amid AI-Driven Rally,"[https://www.chosun.com/english/industry-en/2025/06/19/FZZHA6N3B5DUDEGUTWESRCWNWA/](https://www.chosun.com/english/industry-en/2025/06/19/FZZHA6N3B5DUDEGUTWESRCWNWA/)
+
+News highlights:
+
+**SK hynix’s market cap** hit ₩179.45T ($130B) as of June 18, now **surpassing 50% of Samsung Electronics'** ₩353.99T ($256.1B).
+
+* Just a year ago (July 2023), SK hynix's value was **only one-third** of Samsung’s at its peak ₩524.15T ($379.1B).
+* **Stock performance in 2024**:
+   * SK hynix: **+41.8%**
+   * Samsung Electronics: **+12.4%**
+* **Foreign investors** are driving the surge:
+   * SK hynix leads the Korea Exchange in net foreign purchases this year.
+   * **₩1.63T in net inflows**, more than double that of the second-place stock (Hanwha Aerospace).
+* **Key growth driver:** SK hynix is the **main supplier of high-bandwidth memory (HBM)** to Nvidia, vital for AI applications.
+* Analysts remain bullish:
+   * Shin Young Securities: “Strong market conviction in SK hynix’s HBM performance.”
+   * Daishin Securities raised target price from **₩280,000 to ₩300,000**, citing likely Q2 earnings beat.
+   * “The party’s not over yet,” says Daishin’s Ryu Hyung-geun.",1750364454.0,https://www.reddit.com/r/stocks/comments/1lfkzhi/sk_hynix_closes_market_cap_gap_with_samsung/,stocks
 Texas Instruments Unleashes $60 Billion Chip Investment Surge,"Texas Instruments *(TXN)* just announced a $60B commitment to expand U.S. semiconductor manufacturing, the largest in its history.
 
 * *""Texas Instruments plans to invest over $60 billion in US to make foundational chips""*  \- Reuters, Bloomberg. 
@@ -94,6 +155,37 @@ Timeline of Key Headlines:
 * 2:35 PM – Reuters, Investing: *Texas Instruments Formalizes $60 Billion Domestic Manufacturing Plan*
 
 \-Key Headlines Aggregated From: [Marketflux.io](https://Marketflux.io) ",1750280392.0,https://www.reddit.com/r/stocks/comments/1lesgko/texas_instruments_unleashes_60_billion_chip/,stocks
+Hedged and unhedged ETFs 50/50 split,"I'm UK based and going to invest a small proportion of my portfolio in Nasdaq100 ETFs. Over the long term I think most advice is not to bother hedging as FX rates can vary over time, sometimes you win, sometimes you lose. I was wondering however whether to invest 50/50 in hedged and unhedged funds to cover both bases and avoid any major fluctuations  i.e.
+
+[https://www.justetf.com/uk/etf-profile.html?isin=IE00BMFKG444](https://www.justetf.com/uk/etf-profile.html?isin=IE00BMFKG444)
+
+[https://www.justetf.com/uk/etf-profile.html?isin=IE00BYVTMW98](https://www.justetf.com/uk/etf-profile.html?isin=IE00BYVTMW98)
+
+The unhedged fund has a TER of 0.2% and hedged is 0.35%. The year to date the hedged fund has performed significantly better presumably due to the weaker dollar:
+
+[https://stockanalysis.com/stocks/compare/lon:eqgb-vs-lon:xnaq/](https://stockanalysis.com/stocks/compare/lon:eqgb-vs-lon:xnaq/)
+
+Is that a sensible strategy or a needless extra TER expense?   
+",1750361465.0,https://www.reddit.com/r/stocks/comments/1lfjs4y/hedged_and_unhedged_etfs_5050_split/,stocks
+What is the future of OKLO Inc,"Oklo as it is in it's current state feels to me like it's very overvalued, so would it be reasonable to assume that their stock price will come back down to 20s, given they will still be making no profits until 2027 at the minimum. It is still not profitable, and is no where close to deployment as their first deployment is expected to be in 2027. They still have a while to become profitable but their stock price went up almost 40 dollars on sheer hopium from recent news about contracts and government support. If anyone has been following more closely related to OKLO, you're insight would be appreciated. I don't want to end up bag holding for an entire year and want some clear rationale about whether or not the current price is volatile or it is the new norm for the stock. Mind you, I'm planning on buying stocks if that makes this any different.",1750365438.0,https://www.reddit.com/r/stocks/comments/1lfldhf/what_is_the_future_of_oklo_inc/,stocks
+What will happen to TECH stocks if U.S. goes into a war?,"Hey everyone. Current war between israel and iran affected the tech stocks slightly. Some soared while some fell. But what will happen if U.S. gets involved in the war? Is this a good time to invest in stocks like APP, NVIDIA etc. ?",1750242359.0,https://www.reddit.com/r/stocks/comments/1ledlq0/what_will_happen_to_tech_stocks_if_us_goes_into_a/,stocks
+What books do you recommend?,"I want to learn more about investing. I want to know the difference between ETF, Mutual fund, index fund, and everything about them. I want to learn about dividends and how that works. I want to learn how to read a stocks earnings or how to use fundamental analysis. I want to know where to keep my money. Let me know your favorite books. ",1750363997.0,https://www.reddit.com/r/stocks/comments/1lfksv4/what_books_do_you_recommend/,stocks
+That moment when your indicator finally signals... after the move is over,"You know that feeling when RSI finally hits ""overbought"" and you short... then watch the stock rip another 20%? Or when MACD crosses bearish after the stock already tanked?
+
+I swear half my losses came from indicators that need a week to tell me what happened yesterday. By the time they ""confirm"" anything, the real money's already been made by someone else.
+
+The whole thing is backwards. These indicators use moving averages - they're literally designed to be slow. Waiting for pivot confirmations, crossing signals, divergence ""proof""... meanwhile the stock's already moved 10%.
+
+I have been working on reading momentum differently. Instead of averaged prices over X periods, just watching the actual fight between buyers and sellers as it happens. Like, are buyers getting exhausted RIGHT NOW, not 5 bars from now.
+
+NVDA at $95 was a perfect example. Every traditional indicator said ""wait for confirmation."" But the real-time action was screaming that sellers were done. Next thing you know it's at $145.
+
+That 52% move? Most of it happened while traditional indicators were still ""waiting for confirmation.""
+
+Same story everywhere - SPX reversals, individual stocks, commodities. The exhaustion shows up immediately if you know what to look for. Not after the fact, not next week, but right when it matters.
+
+Anyone else tired of being late to every party because our tools are stuck in the stone age?",1750341125.0,https://www.reddit.com/r/stocks/comments/1lfbcsf/that_moment_when_your_indicator_finally_signals/,stocks
+ELI5 - Why are certain ETF dividends so much higher than others?,"I am getting weekly dividends from one of my ETFs (QQQY). The dividends add up, obviously, but I am getting WAY more monthly per stock than anything else. The distribution rate is like 40%. Now, I know next to nothing about trading as I am simply a blue chip investor - I was gifted a set of blue chip stocks and i have been reinvesting the dividends for like 20 years, and occassionaly i drop a grand or two into those, and my 401k is managed by the company who has it. But recently, I started ""playing"" on robinhood trying to learn more, and a coworker told me to invest in this ETF so I said why not, and dropped a few hundred into it. Please help me understand why this ETF gives more dividends than the others!",1750362141.0,https://www.reddit.com/r/stocks/comments/1lfk1ti/eli5_why_are_certain_etf_dividends_so_much_higher/,stocks
 Is SPOT overvalued?,"I understand that stocks can keep moving up longer than anyone expects, but I've been watching Spotify for over a year without buying or shorting, just thinking it has to come down. Especially from January to April when SPOT and many stocks seemed to be creating massive head and shoulders, and proceeded to just run and break that potential setup. 
 
 SPOT's market cap is $145b, they were profitable last year for the first time at $1.23b profit from $17b revenue, now with $8.56b cash and cash equivalents on hand, and with debt of $2.27b. 
@@ -104,6 +196,16 @@ Is it me, or is the company way overvalued and just floating up, not on any fund
 
 Like I said, I have no positions for or against the company, I just want to see what people think who have been in this for longer than myself.
 ",1750290837.0,https://www.reddit.com/r/stocks/comments/1lewg4m/is_spot_overvalued/,stocks
+"Why large conflicts, economic changes are not impacting stock markets in last 2 months?","There is something called risk fatigue that has gone into the minds of investors in recent weeks who have become tolerant to large economic shocks (war, fed rates, politics, tariffs etc. ) and are still putting in liquidity that is available. This is also a record stock buyback period which has kept tech stocks stable. AI stocks are a no brainer for many and the second factor to keep tech stocks up and stable. 
+
+The dollar degradation has also caused the USD value of a US traded stock remain stable as USD itself degrades in value. 
+
+The P/E ratios for the broad market are stretched, and yet capital keeps flowing in due to FOMO. It's like standing on what feels like solid ground, but in reality, the sea floor is dropping and no one knows how far down it goes. 
+
+Caution is needed, because the crash may not happen tomorrow, but there is a huge disconnect from fundamentals in this market. The reason bubbles burst and don't just deflate is because reality hits hard. 
+
+  
+SPY target for EOY 2026 - 580. ",1750262083.0,https://www.reddit.com/r/stocks/comments/1lekpe1/why_large_conflicts_economic_changes_are_not/,stocks
 GD lands $986.8M submarine development contract modification,"WASHINGTON  The U.S. Department of Defense has awarded General Dynamics Electric Boat a $986.8 million contract modification to support development work tied to the Columbiaclass ballistic missile submarine and related nuclear shipbuilding programs.
 
 The costplusfixedfee award supplements a previously issued contract enhancing design, supply chain and industrial base support across multiple platforms including the Virginiaclass submarines and Ford-class aircraft carriers.
@@ -125,17 +227,6 @@ With rising global maritime threats and mounting pressure on U.S. shipyards GD r
 Will GD continue to outperform or is the deck stacked against legacy defense primes in a changing budget environment? 
 
 ",1750282575.0,https://www.reddit.com/r/stocks/comments/1letcqu/gd_lands_9868m_submarine_development_contract/,stocks
-"Why large conflicts, economic changes are not impacting stock markets in last 2 months?","There is something called risk fatigue that has gone into the minds of investors in recent weeks who have become tolerant to large economic shocks (war, fed rates, politics, tariffs etc. ) and are still putting in liquidity that is available. This is also a record stock buyback period which has kept tech stocks stable. AI stocks are a no brainer for many and the second factor to keep tech stocks up and stable. 
-
-The dollar degradation has also caused the USD value of a US traded stock remain stable as USD itself degrades in value. 
-
-The P/E ratios for the broad market are stretched, and yet capital keeps flowing in due to FOMO. It's like standing on what feels like solid ground, but in reality, the sea floor is dropping and no one knows how far down it goes. 
-
-Caution is needed, because the crash may not happen tomorrow, but there is a huge disconnect from fundamentals in this market. The reason bubbles burst and don't just deflate is because reality hits hard. 
-
-  
-SPY target for EOY 2026 - 580. ",1750262083.0,https://www.reddit.com/r/stocks/comments/1lekpe1/why_large_conflicts_economic_changes_are_not/,stocks
-Should I sell half of my AMD shares and invest the money in Nvidia stock?,"I've been pretty consistently buying AMD shares for the past 5 years. I now have almost $50K invested into the stock, and I'm currently up by around 20%, but this is a pretty disappointing result compared to if I'd invested the same amount into Nvidia 5 years ago. I've so far been very stubborn and just continued to DCA into AMD despite Nvidia performing so much better. I think I was just trying to root for the underdog and hope that AMD would catch up to Nvidia and then their stock would skyrocket. But it's pretty clear now that that isn't going to happen. Would it be a good idea to sell half of my AMD shares and reinvest the proceeds into Nvidia stock to diversify? That way, if Nvidia continues to pop off, I will be able to enjoy some profit from that instead of continuously feeling disappointed that AMD is underperforming. Or should I stick to my guns and just keep investing in AMD?",1750252206.0,https://www.reddit.com/r/stocks/comments/1legpat/should_i_sell_half_of_my_amd_shares_and_invest/,stocks
 Palantir's little hardware bro Voyager Technologies (VOYG) and the Golden Dome,"Palantir is like 95% software and 5% hardware and Voyager (a **strategic partner with headquarters on the same street somewhere in Colorado**) is the opposite - it makes a bunch of space/national security stuff.
 
 They might be a ying and yang to the defense game of the future, think two sides of the same coin.
@@ -149,6 +240,10 @@ And with $150 billion still to be spent by January 2029 to make the Dome operati
 Also: ""This month, the Congressional Budget Office estimated that Golden Dome could cost as much as **$831 billion over two decades**"".
 
 [https://www.reuters.com/world/us/trump-make-golden-dome-announcement-tuesday-us-official-says-2025-05-20/](https://www.reuters.com/world/us/trump-make-golden-dome-announcement-tuesday-us-official-says-2025-05-20/)",1750279363.0,https://www.reddit.com/r/stocks/comments/1les1b6/palantirs_little_hardware_bro_voyager/,stocks
+Should I sell half of my AMD shares and invest the money in Nvidia stock?,"I've been pretty consistently buying AMD shares for the past 5 years. I now have almost $50K invested into the stock, and I'm currently up by around 20%, but this is a pretty disappointing result compared to if I'd invested the same amount into Nvidia 5 years ago. I've so far been very stubborn and just continued to DCA into AMD despite Nvidia performing so much better. I think I was just trying to root for the underdog and hope that AMD would catch up to Nvidia and then their stock would skyrocket. But it's pretty clear now that that isn't going to happen. Would it be a good idea to sell half of my AMD shares and reinvest the proceeds into Nvidia stock to diversify? That way, if Nvidia continues to pop off, I will be able to enjoy some profit from that instead of continuously feeling disappointed that AMD is underperforming. Or should I stick to my guns and just keep investing in AMD?",1750252206.0,https://www.reddit.com/r/stocks/comments/1legpat/should_i_sell_half_of_my_amd_shares_and_invest/,stocks
+Currently maxing out target date fund. Anything else I should be doing?,"Hello, I am currently maxing out my 403b by investing in the vanguard target date fund, and my Roth IRA. My work also offers a 457b account which I am considering maxing out from next year onwards once I have a decent emergency fund saved up this year. This would be a total of ~$47,000 in pretax investments per year. What I worry about is that this doesn’t leave me much to invest on my own. But I feel investing pretax and decreasing my AGI by doing so is a better way to go about this. Is there anything else I should be doing? All advice is appreciated. Thank you. 
+
+Also does anyone know the life time return on vanguard target date funds? Thanks. ",1750296152.0,https://www.reddit.com/r/stocks/comments/1ley9d3/currently_maxing_out_target_date_fund_anything/,stocks
 "Fed announces meeting to discuss easing capital rule, boosting banks' monetary power.","**Loosening of the supplementary leverage ratio would significantly increase the monetary power of banks.**
 
 * US regulators are considering changes to a key capital rule for major banks
@@ -158,9 +253,6 @@ Also: ""This month, the Congressional Budget Office estimated that Golden Dome c
 * They point to how big banks weathered the COVID-19 pandemic and their role in stabilizing regional banks during turmoil in 2023 as proof that they are resilient and do not need to tolerate more onerous rules.
 * Among the industry's goals are to lock in a much weaker version of the ""Basel Endgame"" capital rule[,](https://www.reuters.com/business/finance/what-is-basel-iii-endgame-why-are-banks-worked-up-about-it-2023-07-24/) reduce a capital surcharge levied on global banks, re-work a key leverage constraint, and overhaul the Federal Reserve's annual ""stress tests"" which assess whether a bank could withstand an economic shock, said three executives with knowledge of the ambitious lobbying plan.
 * If adopted, the changes would represent a significant loosening of post-2008 financial crisis rules designed to ensure banks can absorb losses and remain solvent during periods of market stress. ",1750250381.0,https://www.reddit.com/r/stocks/comments/1leg1ix/fed_announces_meeting_to_discuss_easing_capital/,stocks
-Currently maxing out target date fund. Anything else I should be doing?,"Hello, I am currently maxing out my 403b by investing in the vanguard target date fund, and my Roth IRA. My work also offers a 457b account which I am considering maxing out from next year onwards once I have a decent emergency fund saved up this year. This would be a total of ~$47,000 in pretax investments per year. What I worry about is that this doesn’t leave me much to invest on my own. But I feel investing pretax and decreasing my AGI by doing so is a better way to go about this. Is there anything else I should be doing? All advice is appreciated. Thank you. 
-
-Also does anyone know the life time return on vanguard target date funds? Thanks. ",1750296152.0,https://www.reddit.com/r/stocks/comments/1ley9d3/currently_maxing_out_target_date_fund_anything/,stocks
 Question regarding stable coin and Visa/Mastercard,"We have in Asia many QR based payment systems such as Alipay Kakaopay and Paypay in lieu of credit card which offers better rewards and sometimes more lenient credit check. Vendors are also offered lowered fees for them to accept and promote such payment methods. However, these companies are struggling with lower margins and heavy initial marketing costs. It's basically another competitor in the sector.
 
 How's the introduction of stable coin by Walmart or Amazon any different? In fact, wouldn't it be most costly for them to introduce their own stablecoin? In fact, in the US don't you have to deal with anti money laundering and other finance regulations etc on top of everything else?
@@ -233,6 +325,9 @@ Source: https://news.archer.com/archer-joins-transportation-secretary-and-acting
 
 
 ACHR still ~0.46 (-4.43%) today.. Just something to watch ",1750218761.0,https://www.reddit.com/r/stocks/comments/1le7hyu/achr_just_made_a_global_power_move_faa_and_dot/,stocks
+Fed Widens Uncertainty,"Yesterday, the Federal Reserve voted to leave interest rates unchanged.The Fed lowered its economic growth forecast while raising its inflation forecast.Despite recent labor market data, the Fed believes unemployment will rise.The Fed is trying to maintain flexibility, but that flexibility is fueling uncertainty.
+
+Despite Jay Powell's claim in his press conference that uncertainty is declining, I think the opposite is true. The Fed has lowered its unemployment and inflation expectations while the economic data continues to defy those trends. The Fed believes that the survey data will eventually be reflected in the economic data, but they can not determine the exact time. Even if the data goes in the opposite direction, the Fed is leaving itself breathing room to adjust monetary policy. Whether the market will appreciate this flexibility or see more volatility remains to be seen.",1750334031.0,https://www.reddit.com/r/stocks/comments/1lf8voe/fed_widens_uncertainty/,stocks
 How Trump's G7 Trade Stance Will Affect U.S. Stocks,"Reuters reports that President Trump abruptly left the G7 summit after blasting the EU for not offering a “fair deal” and calling Japan “tough” in stalled talks He’s also floating new pharmaceutical and energy tariffs to boost domestic production   
   
 Tariff Risk: Trump's comments suggest he could unilaterally impose tariffs or expand tariffs on EU auto and pharmaceutical imports, and possibly even impose more tariffs - a move that has historically devastated related stock groups  
@@ -241,23 +336,6 @@ Sector exposure: Watch autos (GM, F, TSLA), large-cap pharma (PFE, MRK) and indu
   
 Market sentiment: Despite Middle East tensions, major indices barely flinched on Monday, but a fresh bout of trade uncertainty could undermine recent gains  
 ",1750185423.0,https://www.reddit.com/r/stocks/comments/1ldv316/how_trumps_g7_trade_stance_will_affect_us_stocks/,stocks
-"My Financial Advisor's Tech Picks - NVDA +38%, ANET +15%... Time to Rebalance?","In the past year, I strictly followed the advice of financial advisors and held positions, and the results were pleasantly surprised (all compliant mid-cap stocks):
-
-
-
-NVDA (NVIDIA): +38.55% | Cloud computing + AI dual drive  Buy: 105
-
-ANET (Arista Networks): +15.13% | Data center hidden champion Buy: 78.378
-
-Large institutional holdings: BlackRock/Vanguard both hold these stocks heavily
-
-ANET: Switch component market share exceeds Microsoft/Google, but competition increases risks
-
-Advisor's new recommendation: an ""undervalued AI infrastructure stock"" (not a low-priced stock, market value > 50 billion)
-
-Will you take some profits now, or wait for Q2 earnings?
-
-Is it too risky to have technology stocks account for more than 70% of the portfolio?",1750278243.0,https://www.reddit.com/r/stocks/comments/1lerku2/my_financial_advisors_tech_picks_nvda_38_anet_15/,stocks
 Microsoft & AMD team up on next gen Xbox chips  what does this mean for Nvidia and Sony?,"Big news just dropped  Microsoft and AMD just announced a multi-year partnership to develop custom chips for the next wave of Xbox console  from in-home to handhelds
 
 This comes right after Microsoft showed off their new handhelds (Xbox Ally and Ally X) with ASUS. Seems like they’re going all-in on mobile gaming and cloud-based access. Sarah Bond even mentioned AI-enhanced visuals and full backward compatibility
@@ -363,9 +441,6 @@ Perpetua Resources Hosted Stibnite Gold Project Webinar with John Paulson,"* Pre
 * I personally like that they mentioned that when current pits are mined out, they will back fill and restore the original river/stream flows in a way making it better for fish habitat
 * Antimony will be separated out as part of normal gold processing and then turned into concentrate to be refined elsewhere
 * All in all a very positive presentation, which I have to say, is long overdue",1750265808.0,https://www.reddit.com/r/stocks/comments/1lemalq/perpetua_resources_hosted_stibnite_gold_project/,stocks
-Investment help,"Higher returns with research reports and potential management might be possible only if investor is stable and not trying to climb out of debt. Anyone interested in medium to long term investments hit me up. Strict conditions apply. Will only help manage a strict amount of capital with flat fee. If you are in debt don’t contact as I have my personal morals that I abide by.  I cannot manage too many clients as I will not allow my service to suffer simply for greater financial gains. 
-
-",1750305888.0,https://www.reddit.com/r/stocks/comments/1lf1em1/investment_help/,stocks
 What in the weird candle formation…?,"I’m not one who knows exactly what I’m doing in the market. Like many others. Can I ask why the candles don’t really show much information for $WAR? I’m used to seeing a little more info than what is showing. Please know I understand I should not use RH, but no one has the UI they have yet… right?",1750262215.0,https://www.reddit.com/r/stocks/comments/1lekrdb/what_in_the_weird_candle_formation/,stocks
 Question about same stock but 2 different listings,"Hi all, I am looking to buy into Denison Mines, which is listed on TSE and Nasdaq too. It is a Canadian owned company. What happens if people keep buying or selling one version but not the other so much?
 
@@ -463,113 +538,6 @@ Greg Pavlik, executive vice president of AI and data management services for Ora
 xAI is the maker of the Grok chatbot, co-founded by Warren Buffett and Elon Musk and officially unveiled to the world in July 2023.
 
 Oracle last week gave an upbeat outlook for fiscal 2026, causing shares to soar.",1750167108.0,https://www.reddit.com/r/stocks/comments/1ldn7tf/oracle_says_xai_models_are_now_available_on/,stocks
-Thoughts on Palantir,"I was wondering what you guys think of Palantir. I'm a relatively new investor but I'm focusing on long term growth primarily. Today I saw the dip, which I know indicates nothing nowadays, but I begin wondering what the overall opinion is on PLTR, do you think there's potential on it, or is it just a trend.",1750278664.0,https://www.reddit.com/r/stocks/comments/1lerqwc/thoughts_on_palantir/,stocks
-"Biotech, examples of stock price impact on successful new med launch?","I've been wanting to invest in what I view as the treatments that we don't have yet but, in my lifetime, will likely become commonplace.  Gene-tailored drugs, and novel preventative medicines that will replace statins, etc.
-
-I'm new to this sector from and I'd like to know if anyone has examples of when an unprofitable research company successfully gets a new drug through approval, what kind of upside does that generally result in for the equity, assuming its publicly traded already?  More or less trying to get the sense of the average upside in an ideal outcome to weigh against the risk.
-
-I'm wanting to make some stock picks rather than just an ETF or fund because I want control over being able to separate moon-shot attempts from treatments that are more likely to play out.",1750178565.0,https://www.reddit.com/r/stocks/comments/1lds2iy/biotech_examples_of_stock_price_impact_on/,stocks
-LULU might be one of the best long-term plays no one’s talking about right now,"Ive kept an eye on LULU for a while, and honestly the recent pullback looks odd to me if were talking long horizons.
-
-First off, the fundamentals are rock solid. This isnt one of those flashy growth stories that eats cash at every turn. Lululemon posts steady revenue gains, gross margin still sits above 55, and the bottom line is healthy. Their balance sheet reads like a textbook-very little debt and strong cash flow. You rarely find that mix in retail.
-
-The brand story is even better. Lululemon isnt just pushing leggings; theyre selling a lifestyle. Loyalty is off the charts. They hardly ever discount, yet shoppers keep returning. Unlike Nike or Adidas, nobody seems tired of the logo. Among younger crowds LULU is still gaining cool points, not losing them.
-
-What most folks overlook, though, is the overseas prize, especially India.
-
-They just unveiled a major entry plan for that market. Anyone tracking Indias middle class knows how big this can be. Rising incomes plus a booming fitness ethos are perfect soil for Lululemons seeds. The premium athleisure space there is still mostly wide open.
-",1750257037.0,https://www.reddit.com/r/stocks/comments/1leildp/lulu_might_be_one_of_the_best_longterm_plays_no/,stocks
-Trump threatens to set unilateral tariff rates within 2 weeks,"Unilateral “take it or leave it” tariffs in 1-2 weeks
-Trump announced he'll mail formal letters to dozens of trading partners (roughly 15 key countries like Japan, South Korea, EU, Canada, Mexico) within the next week or two, demanding acceptance of new tariff terms or else face punitive tariffs
-
-The plan builds on a universal 10% baseline tariff and steep reciprocal tariffs for specific countries
-
-Legal backing secured - temporarily - after an appeals court ruling allow these tariffs to stay in effect for at least two more months
-
-The regime is shifting from broad multilateral deals to one-on-one negotiations, with the EU expected to be the toughest and last to be resolved
-
-Futures are looking surprisingly strong today, despite high geopolitical tensions and the spark reality that tariffs will not be going away any time soon. 
-
-Expect a lot of volatility over the coming days as key economic reports are coming out and tariff news is drip fed too.
-
-VIX is one to watch as usual now.
-
-[Full story from Yahoo Finance](https://finance.yahoo.com/news/live/trump-tariffs-live-updates-trump-threatens-to-set-unilateral-tariff-rates-within-weeks-200619147.html)
-
-",1750061553.0,https://www.reddit.com/r/stocks/comments/1lcn9x8/trump_threatens_to_set_unilateral_tariff_rates/,stocks
-"EU prepared to accept flat 10% US tariff with conditions, Handelsblatt reports","No paywall: [https://finance.yahoo.com/news/investors-and-trump-are-about-to-find-out-if-fed-still-wants-rate-cuts-in-2025-080022936.html](https://finance.yahoo.com/news/investors-and-trump-are-about-to-find-out-if-fed-still-wants-rate-cuts-in-2025-080022936.html)
-
-Paywall: [https://www.reuters.com/business/eu-prepared-accept-flat-10-us-tariff-with-conditions-handelsblatt-reports-2025-06-16/](https://www.reuters.com/business/eu-prepared-accept-flat-10-us-tariff-with-conditions-handelsblatt-reports-2025-06-16/)
-
-(Reuters) -Brussels negotiators hope that offering to accept U.S. tariffs of 10% across all of the European Union's exports into the United States will avert any higher duties on cars, drugs and electronics, newspaper Handelsblatt reported on Monday.
-
-Citing high-ranking EU negotiators, the paper said the offer to U.S. counterparts would come only under certain conditions and would not be billed as permanent.
-
-Handelsblatt also said the EU was, in return, ready to cut its tariffs on US-made vehicles, and to possibly change technical or legal hurdles to make it easier for US manufacturers to sell their cars in Europe.
-
-The EU has also offered to completely ban purchases of Russian natural gas, potentially creating more demand for US producers.
-
-The EU Commission did not immediately respond to a request for comment.
-
-The EU's position comes partly from the realisation that President Donald Trump will rely on some tariff revenues to fund planned tax cuts.
-
-US negotiators, however, have so far not agreed to limit their import duties on EU cars to 10%, the paper added.",1750074081.0,https://www.reddit.com/r/stocks/comments/1lcqkym/eu_prepared_to_accept_flat_10_us_tariff_with/,stocks
-Cathie Wood Just Bought Millions in Archer Aviation,"June 14 Ark Invest's Cathie Wood bought a large stake in Archer Aviation (NYSE:ACHR) after the stock slid nearly 15% Friday on a fresh equity sale.
-
-According to recent news, Wood added about $40 million worth of ACHR shares across three of her exchange-traded funds. The Ark Innovation ETF (ARKK) led the move with over 2.8 million shares, while Ark Autonomous Technology & Robotics ETF (ARKQ) and Ark Space Exploration & Innovation ETF (ARKX) picked up smaller amounts.
-
-
-The buying spree followed Archer's announcement of an $850 million direct stock offering priced at $10 per share. Investors reacted to the dilution risk, sending shares lower.
-
-Archer, which builds electric vertical takeoff and landing (eVTOL) aircraft, has laid out bold plans to launch air taxi services ahead of the 2028 Summer Olympics in Los Angeles.
-
-Separately, Wood's funds cut exposure to the defense sector, selling nearly $2 million worth of Kratos Defense & Security Solutions (NASDAQ:KTOS) stock.
-
-The recent executive order from former President Donald Trump, aimed at fast-tracking eVTOL integration, could create tailwinds for companies like Archer.
-
-https://finance.yahoo.com/news/cathie-wood-just-bought-millions-122912459.html
-",1750083124.0,https://www.reddit.com/r/stocks/comments/1lctupr/cathie_wood_just_bought_millions_in_archer/,stocks
-Trump Says Trade Deal With Canada ‘Achievable’ as G-7 Opens,"https://www.bloomberg.com/news/articles/2025-06-16/trump-says-trade-deal-with-canada-achievable-as-g-7-opens
-
-> President Donald Trump expressed optimism about settling a trade dispute with Canada during his time at the Group of Seven summit, calling a deal in the coming weeks between the US and its northern neighbor “achievable.”
-
-> “I think we have different concepts. I have a tariff concept,” Trump said during a meeting with Canadian Prime Minister Mark Carney. “Mark has a different concept, which is something that some people like, but we’re going to see if we can get to the bottom of it today.”
-
-> While Trump said he favored tariffs because they were “simple” and “easy,” he indicated a willingness to hear out the proposal from Carney, who is seeking to limit punishing levies on key industries, including steel, aluminum and autos.
-
-> “I think Mark has a more complex idea, but also very good,” Trump said. “So we’re going to look at both, and we’re going to see what we’re going to come out with something.”",1750091007.0,https://www.reddit.com/r/stocks/comments/1lcx9q7/trump_says_trade_deal_with_canada_achievable_as/,stocks
-Why isn't Cactus Inc (WHD) a strong buy?,"Hello, I'm looking for input on [Cactus Inc](https://www.google.com/finance/quote/WHD:NYSE?hl=en&rapt=AEjHL4PQoEuMu1bH_eqVVi8FxQcOZILUKnYJzSLxIT-bCt_QnawXWk0JN2HecBwnWXN84vX5c-POMReD_RoFZ3GPORX7vRcOa7_oU-DbaJNT3718_u2fjaY)? It seems like a great growth stock, with good-great revenue and income growth, although 2024 is a little unimpressive compared to the previous years. It has low debt, low P/E ratio, it's also small cap with a lot of room to grow. If you needed a small cap or energy sector stock, why wouldn't you buy Cactus?",1750190521.0,https://www.reddit.com/r/stocks/comments/1ldxa8h/why_isnt_cactus_inc_whd_a_strong_buy/,stocks
-BYDDY / BY6 - $vs€?,"Hey guys
-
-I’ve recently been wanting to pick up some shares of BYD recently and want to get further opinion. I’m from the UK and trade via Stocks and shares ISA, BY6 is traded on the Gettex in € and BYDDY via OTC markets in $. I’m leaning on buying in € as the $ is still weakening and I don’t have much faith in Trump atm. Am I wrong in saying that the only difference in these in theory is the FX impact?
-
-Many thanks",1750156801.0,https://www.reddit.com/r/stocks/comments/1ldjt7w/byddy_by6_vs/,stocks
-"U.S. households to keep buying stocks this year, Goldman Sachs says","I just want to share this news:
-
-U.S. households to keep buying stocks this year, Goldman Sachs says
-
-Jun 16, 2025
-
-U.S. households are expected to remain major buyers of equities in 2025, according to a note from Goldman Sachs, which estimates they will purchase $425 billion in stocks this year, second only to corporates at $675 billion.
-
-“The resilience of household demand for equities is vital,” the analysts said, noting that households “directly own 38% of the U.S. equity market and control an even larger share including indirect ownership through funds.” 
-
-That demand is said to have persisted even as Goldman’s Sentiment Indicator “registers -1.2 this week, remaining in negative territory despite a 21% rally in the S&P 500 from its April trough.”
-
-Retail trading activity also remains robust, according to the bank. 
-
-“Goldman Sachs trading desk estimates of flows from retail trading activity suggests close to $20 billion of net buying during the past three months,” the note said.
-
-Goldman attributes this sustained buying to a favourable macro backdrop. “The typical macro drivers of equity flows suggest households will keep buying this year,” with outflows generally linked to “weakening household balance sheets, rising unemployment, and increasing interest rates,” none of which are dominant now.
-
-The bank added that the equity exposure of U.S. households has reached historic levels. 
-
-“Households allocate 49% of their total financial assets to equities, the highest level on record,” slightly surpassing the previous peak in 2000. In contrast, households in Japan and the Euro Area allocate only 13% and 10%, respectively.
-
-Retirement savings continue to play a key role. “We estimate contributions to 401(k) plans drive roughly $500 billion of annual equity demand,” Goldman said, noting the average equity allocation in those plans has increased from 66% in 2013 to 71% in 2022.",1750075616.0,https://www.reddit.com/r/stocks/comments/1lcr2ph/us_households_to_keep_buying_stocks_this_year/,stocks
-Aero/Defense fund recs?,"Current US posturing over Middle East tensions has me looking for a good fund that tracks the aerospace and defense sector. Any recommendations? 
-
-I dug through a few and can’t say any reasonably stand out aside from Fidelity’s FSDAX. Trying to stay away from any of the leveraged stuff. Looking for a possible short to mid-term hold to add to a self-directed retirement plan while this whole situation plays out. ",1750179865.0,https://www.reddit.com/r/stocks/comments/1ldsn8b/aerodefense_fund_recs/,stocks
 "Daily General Discussion and Advice Thread - June 17, 2025","Have a general question?  Want to offer some commentary on markets?  Maybe you would just like to throw out a neat fact that doesn't warrant a self post?  Feel free to post here! 
 
 Please consider consulting our FAQ first - https://www.reddit.com/r/investing/wiki/faq
@@ -595,18 +563,134 @@ If your question is ""I have $XXXXXXX, what do I do?"" or other ""advice for my 
 Check the resources in the sidebar.
 
 Be aware that these answers are just opinions of Redditors and should be used as a starting point for your research. You should strongly consider seeing a registered investment adviser if you need professional support before making any financial decisions!",1750150876.0,https://www.reddit.com/r/investing/comments/1ldia9c/daily_general_discussion_and_advice_thread_june/,investing
+Amazon's $84M stake on AMD. A sleeper AI bet?,"Amazon bought 822,234 shares of AMD, worth about $84.5 million as of March 31. It’s the first time Amazon has ever disclosed a stake in the semiconductor company. It also happened to be the only new position in their entire portfolio last quarter.
+
+At the time of the filing, AMD’s stock was down \~6% YTD while the broader chip sector was almost flat. Then, just one week after the 13F dropped, AMD announced a $6B stock buyback boosting its total repurchase capacity to $10B. This came right after unveiling a $10B AI partnership with Saudi-backed startup Humain, which is building Arabic LLMs and data center infrastructure across the Middle East.
+
+Amazon’s cloud division, AWS, already uses AMD’s EPYC chips in some of its instances. With Nvidia supply tight and AMD pushing its MI300X AI accelerators, the move might hint at deeper strategic alignment. It’s also possible Amazon wanted to lock in a chip partner for its growing AI infrastructure push especially as it faces off with Microsoft and Google.
+
+AMD was trading nearly 40% off its 52-week high when Amazon bought in.
+
+Think AMD’s a smart AI play this year? What other AI stocks are you holding for the long haul?",1750347087.0,https://www.reddit.com/r/investing/comments/1lfdr0v/amazons_84m_stake_on_amd_a_sleeper_ai_bet/,investing
+From Decentralized Hype to Centralized Risk: The Stablecoin Trap,"
+The new stablecoin legislation that was pushed through the Senate this week effectively ties the U.S. Treasury to crypto, because nothing says “sound fiscal footing” like betting the government’s cash flow on digital tokens and market hype. 
+
+This new plan forces stablecoins to be backed by short-term T-bills. That creates an estimated $2–$3 trillion in new demand for government debt, which is nearly half the current size of the T-bill market. On paper, that looks like a win. In reality, it’s a circular feedback loop: Crypto demand fuels stablecoins, stablecoins buy T-bills, T-bills fund deficits. The government becomes addicted to speculative capital flows. And round and round we go.
+
+It’ll work great, until it doesn’t. The whole setup depends on risk appetite staying high. Thing is, crypto isn’t some stable, predictable pillar of the economy. It’s a sentiment-driven casino, where whales move markets and retail euphoria inflates bubbles. Confidence in that environment can evaporate overnight.
+
+When the music stops, we will see a wave of stablecoin redemptions. To meet those redemptions, issuers have to dump T-bills into the open market. Yields will then spike and liquidity will dry up. Government borrowing costs jump at exactly the worst time. Suddenly, the entire short end of the Treasury curve is caught in a feedback loop running in reverse.
+
+Crypto is becoming exactly what it claimed to replace: a systemic risk the government can’t afford to let fail. And it won’t be the VC whales or offshore exchanges who foot the bill. It’ll be the taxpayers, either directly or through backdoor rescues and Fed liquidity if things unravel.
+
+Once you tie public finance to crypto flows, the line between a market correction and a fiscal crisis starts to blur. A major stablecoin unwind won’t just hit DeFi yield chasers, it’ll slam the short end of the Treasury market. That’s when the Fed and Treasury will have no choice but to step in, to stabilize yields, backstop liquidity, and calm foreign holders.
+
+So yeah, we’re already halfway to a too-big-to-fail bailout economy for crypto. Not because it earned that privilege, but because we let it entangle itself in the core plumbing of the financial system.
+
+This isn’t just risky, it’s desperate. You don’t latch public finances to speculative manias unless you’re out of conventional tools. And if your fiscal strategy depends on token demand holding up, you’ve already lost the plot.
+
+What makes this even more dangerous is the moral hazard baked in. We’re handing fiscal stability to unregulated private actors, namely stablecoin issuers, hedge funds, and crypto exchanges, many of whom have no oversight and no skin in the game if it blows up. Just like the shadow banks in 2008, they profit on the way up and vanish when the tide goes out.
+
+They’re calling this “financial innovation,” and anyone who questions it a Luddite. But let’s be clear: this isn’t modernization. It’s monetizing the mania and papering over structural deficits by plugging them into whatever speculative engine happens to be hot this cycle.
+
+If this goes sideways, and history says it eventually will, it won’t just hurt crypto. It could shake global trust in U.S. debt markets, and by extension, the dollar itself. Because now our “risk-free” assets are being propped up by the same forces that gave us meme coins and NFT rug pulls. That’s how systems collapse, not with one catastrophic decision, but with a series of reckless bets made under the illusion that the good times will last forever.",1750342239.0,https://www.reddit.com/r/investing/comments/1lfbs8t/from_decentralized_hype_to_centralized_risk_the/,investing
+Acquired a UTMA account yesterday at 38 years old- and ~1300% gains,"I received a letter from E*trade this week about a brokerage account in mine and my dad’s name and after some research I discovered it was an old UTMA. It took a 5 min phone call for them to transfer the account into my taxable brokerage. 24 shares of Microsoft purchased at $34 now worth $11.5k.
+
+A couple questions:
+
+Will I owe capital gains taxes this year for receiving the account, even if I don’t withdraw?
+
+Should I just leave it in MSFT and let it ride? I don’t follow MSFT and most of my other investing is in ETFs. 
+
+There’s also a couple thousand in cash which I might move into the emergency fund that I’ve been aggressively building or hold for my backdoor Roth conversion in 2026 (both accounts with Fidelity). ",1750329593.0,https://www.reddit.com/r/investing/comments/1lf7lcl/acquired_a_utma_account_yesterday_at_38_years_old/,investing
+How do long term capital gains income tax brackets work?,"Iv seen the brackets and this seems simple enough but there seems to be some loopholes and I’m not sure how they are handled.
+
+I had a taxable account in college because I did not earn enough to pay capital gains taxes. The plan was to invest in that, sell right before I got a job incurring no taxes and just reinvest. I ended up having to use the money so not sure if this would have worked. 
+
+As far as I can tell an even bigger loophole if you have a lot in a taxable account is just to take 1 year off work, earn no income or just below the threshold, cash out and with income below the threshold pay no taxes on the gains? 
+
+This also seems like a loophole with retirement making a taxable account functionally a Roth IRA? Could you not just in your first year of retirement with 0 income to report, withdraw all the money from your taxable account tax free? 
+
+Feel like I’m probably missing something here. ",1750338701.0,https://www.reddit.com/r/investing/comments/1lfagtw/how_do_long_term_capital_gains_income_tax/,investing
 What stock did you sell too early and deeply regret? or deeply regret sold too late ?,"You know. Every investor has that one stock they sold way too early, only to watch it skyrocket afterward... and another one they held onto for too long, hoping it would bounce back.. but it never did.
 
 What are yours? In my case, I regret selling TSMC too soon because of Taiwan invasion threat. On the contrast, I regret missing selling opportunity of Lcid stock when it became double(24$ → 48$) and I still have it in 2$ price.  ",1750296003.0,https://www.reddit.com/r/investing/comments/1ley7km/what_stock_did_you_sell_too_early_and_deeply/,investing
+How do you explain MSCI China not being higher?,"I was looking at the MSCI of some countries out of curiosity (maybe to invest?) and was surprised to see that China (among other countries) didn't have some hockey stick. When I think of what this country was like 30 years ago and today (compared to the USA)
+
+How can this be explained? What is your intuition behind that?",1750315471.0,https://www.reddit.com/r/investing/comments/1lf412c/how_do_you_explain_msci_china_not_being_higher/,investing
+What to look for in asset management services,"I'm going to be working with a financial advising firm that also offers asset management services, which I would like to do since I just have too much else going on in my life right now. I did my due diligence in searching for them - they're fiduciary, CFP, fee-only.
+
+I'm going to have an introductory call with them to get into the details of their asset management stuff, and I'd like some advice on what kind of questions to ask them. They say they utilize their own platform where I would move my existing assets over to be managed. Any help would be appreciated.",1750353447.0,https://www.reddit.com/r/investing/comments/1lfgeho/what_to_look_for_in_asset_management_services/,investing
+Are brokerage bonuses usually once per lifetime?,"I have about 500k in taxable brokerage accounts and another 500k in tax advantaged brokerage accounts.
+
+I’m interested in getting brokerage bonuses but I’m worried that if I get them now I’d lose my chance to get them at a higher bonus rate when I have a higher net worth.
+
+Is it worth waiting until I have like 10 million net worth to begin getting brokerage bonuses or should I get them now because it’s likely I can get the bonus again in the future?",1750341455.0,https://www.reddit.com/r/investing/comments/1lfbh5e/are_brokerage_bonuses_usually_once_per_lifetime/,investing
+T rowe price asking for social,Hey all weird question and im not sure if this is even the right sub. I have a really really old roth retirement account with t rowe price (from costco) and they tried to mail me a check last year due to me quitting and i never cashed it so im calling to get it re mailed. When i called the number on the letter mailed with the check they asked for my full social. I hung up. Is this normal? I just wanna get all the money they were trying to send me. ,1750350930.0,https://www.reddit.com/r/investing/comments/1lffc1d/t_rowe_price_asking_for_social/,investing
+Investment of data center REITs with AI,"I personally don't know a lot about the tech world but recently with the implementation of AI chatbots and advisors within data centers, this requires a shift of resources (aka even bigger data centers to handle AI).
+
+I'm currently writing a paper briefly researching these effects, and my question is if it's currently a good idea to invest in these REITs, considering mega data centers will begin to decline, making room for new companies that have special infrastructure designed to implement AI. 
+
+Will there be a general uphill trend of these stocks? Or is this bound to crash?",1750362543.0,https://www.reddit.com/r/investing/comments/1lfk7i3/investment_of_data_center_reits_with_ai/,investing
+Thoughts on XAR given the conflict in the Middle East and elsewhere?,"I have been considering picking up some XAR to add to my portfolio (Aerospace & Defense ETF). Is there a better EFT or stock to consider in these times of heightened potential for conflict? Currently holding VOO and VTI, so perhaps those already cover the holdings in XAR.
+
+If not XAR, what is a good alternative?",1750348249.0,https://www.reddit.com/r/investing/comments/1lfe86y/thoughts_on_xar_given_the_conflict_in_the_middle/,investing
 Buying Apple on It’s Decline Versus Minimal NVDA buys,"I regularly DCA by virtue of not having thousands to invest at a time (shocker), and have keep buying Apple on its way down. I also have NVDA which I’ve barely bought since its come up so much. Currently around -9% on Apple and in the +20’s% on NVDA. 
 
 Is anyone else doing the same or similar? I’m still not yet 30 fwiw so my timeframes are pretty long. ",1750292919.0,https://www.reddit.com/r/investing/comments/1lex62f/buying_apple_on_its_decline_versus_minimal_nvda/,investing
+Thoughts on investment strategy,"Hi everyone, 
+
+I'm 39/m, living in Europe, with inherited US dollars in a Schwab international account, so I cannot invest in mutual funds or ETFs, only individual stocks and bonds. Initially I bought multiple US treasuries with various maturity dates from 2025-2032, just to avoid having to think about it. Then, about a year ago, I started investing 750$/month in 15 individual stocks via Schwab's ""stock slices"" service (so 50$ per stock per month), thus slowly increasing the stocks percentage as bonds start maturing and freeing cash. Since I can't just buy a S&P500-ETF, my idea was to represent it with these 15 stocks, focusing mostly on growth/tech, with a few defensive dividend positions as well, and avoiding big finance, fossile energy and defense industry (just personal preference). I'd be curious to hear what people think of my picks: 
+
+Apple / Microsoft / Nvidia / Broadcom / Adobe / PaloAlto Networks / ServiceNow / Merck / Abbvie / Vertex Pharmaceuticals / Procter&Gamble / NextEra Energy / MainStreet Capital / Realty Income REIT / WasteManagement 
+
+I realize scientifically speaking ""time in the market beats timing the market"", but I just feel more comfortable psychologically with the approach of slowly building the stock portion, as opposed to just buying lump sums of all these stocks at one random moment. 
+
+Any thoughts or improvement ideas would be appreciated! ",1750346877.0,https://www.reddit.com/r/investing/comments/1lfdnu4/thoughts_on_investment_strategy/,investing
+Anyone here investing in land? Curious about long-term potential,"I’ve been exploring land as a long-term investment and recently started looking through Mossy Oak Properties to get a feel for what’s out there. There’s a surprising range depending on location and land use, some geared toward recreation, others with development or timber value.
+
+For example, I saw a 40-acre parcel in southern Missouri listed for about $160K with a mix of timber and pasture, seems like it could generate some income through leases. Then there’s a 20-acre property in Georgia around $95K that’s already cleared and has road access, which feels like a safer hold. They also had a 300+ acre hunting tract in Mississippi for over $800K, which is way out of my budget but interesting from a land portfolio angle.
+
+I’m mostly focused on under-$200K properties with potential appreciation or light use (timber, lease, etc). Anyone here already investing in rural land? What do you look for in terms of return, upkeep, or exit strategy? Curious how others approach it.",1750329765.0,https://www.reddit.com/r/investing/comments/1lf7n49/anyone_here_investing_in_land_curious_about/,investing
+Curious to gain real world feedback for EJ Financial Advisor experience.,"We have a great friend who is a FA with EJ and we opened an account 10/2020 \~515k Today's value 700k 
+
+\~180k gain over \~5yrs   Fees have probably been \~6-7k per year (call it 25k)  
+
+So \~150k over 5 years  - I think that's pretty good and really no reason to move things around unnecessarily.    I'm  53 - we want to quit corporate in \~7 years.   We're inheriting about 400k in cash soon. 
+
+Thinking about buying some land or mixed use RE somewhere but haven't decided if we should do that or put in market and gain another 200k in 5-6 years.    
+
+  
+Thoughts?  (generally, I know there is a lot of unknowns) ",1750358085.0,https://www.reddit.com/r/investing/comments/1lfidfc/curious_to_gain_real_world_feedback_for_ej/,investing
+Switching from GIA to ISA,"I jumped on the NVDA bandwagon in January last year. I made a GIA with free trade and through some cash into it as I saw the profits I kept buying in more. I knew nothing about investing at the time and was unaware of the CGT allowance.
+
+I've learnt a lot about investing since then and now have a stocks and shares isa with trading 212.
+My question is should I leave my NVDA stock with Freetrade and sell before I hit the 3k threshold? Or should I just sell now while the price is decent and buy back in on my ISA?
+
+My current value is $4,412.89 with an average price per share of $77.738. An 87.05% gain.",1750343960.0,https://www.reddit.com/r/investing/comments/1lfcgjq/switching_from_gia_to_isa/,investing
+are equity transfers worth it when switching brokerages?,"I currently have Charles Schwab and would like to switch over to Fidelity in order auto invest in fractional ETFs. sometimes i dont have the money to buy a full ETF such as VOO. schwab can buy fractional shares of individual stocks but not ETFs.
+
+it costs $50 to transfer over. is it worth it? are there any other fees based on experience?",1750348462.0,https://www.reddit.com/r/investing/comments/1lfeba6/are_equity_transfers_worth_it_when_switching/,investing
+Where to invest if I want to bet on stablecoins?,"I think stablecoin usage is going to grow exponentially with all the benefits that brings in and most banks are adapting to this change.
+
+Where can I invest for better returns? Is it companies like Coinbase, block etc.? Owning stablecoin itself isn’t beneficial as it’s like saving cash. Are there any public stablecoin offering companies that could grow? Or any companies offering stablecoin services?",1750369098.0,https://www.reddit.com/r/investing/comments/1lfmtsp/where_to_invest_if_i_want_to_bet_on_stablecoins/,investing
+E trade offering  No fee index funds,"
+Curious on everyone’s opinions…. Was logging in to my e trade account and saw E*Trade advertising No fee index funds, initial pricing on all 5 funds is under $12 and absolutely no fees anywhere, Got me thinking about my current holdings in SWPPX - 500 index fund which is trading @ $92.37 with fees - minimal, but there. Any how got me thinking about E*Trade offering basically same fund -ETLGX at a way lower price, and whether or not i should get out of SWPPX and into ETLGX.  Would appreciate feedback from the wiser on getting in on these brand new no fee  funds vs. staying in on current.
+",1750346768.0,https://www.reddit.com/r/investing/comments/1lfdm9e/e_trade_offering_no_fee_index_funds/,investing
 "What do low, average, and high rolling S&P500 returns actually look like? Every source I check comes up with wildly different numbers.","I’m trying to gather what to expect over different intervals, particularly 30 years inflation adjusted with dividends reinvested.
 
 I have seen sources on the lowest inflation adjusted return over 30 years range from 1.3%-5.9% per year. No clue how different sites come to such wildly different answers. A good 90% also neglect to mention if dividends are being reinvested. 
 
 Anyone know the actual answer to this? Looking particularly for the lowest- average for planning purposes. ",1750251455.0,https://www.reddit.com/r/investing/comments/1legf78/what_do_low_average_and_high_rolling_sp500/,investing
-Does TMC have a long life?,"I’ve been following TMC and it boomed like crazy, and it’s so cheap. I take it that it’s part of the critical minerals rhetoric, but big agencies don’t have an advice on whether to buy or not. Reviews are mixed, and they seem to have a good niche, but is this just hype or something real and durable? $6.69 sounds like a great price and +491% ytd sounds promising. ",1750254122.0,https://www.reddit.com/r/investing/comments/1lehfjv/does_tmc_have_a_long_life/,investing
+Investing & Trying to Understand the Risks with this,"My FA is proposing investing a sum for a fixed 2-year period with 8% per annum fixed income bond. The returns are 4% every 6 months. It is through an SVP set up to provide the return from invoice financing.
+
+I have the funds available and I like the returns, but it I am concerned about it being a SVP without a credit rating and it’s jurisdiction is Mauritius.
+
+There is also a structured bank note proposal being offered with the same investment 
+
+I am needing to find a passive income as my work is finishing. I would appreciate your advice.
+
+I have several hundred thousand dollars that I am ready to find the right home for with the best returns and least risk",1750309385.0,https://www.reddit.com/r/investing/comments/1lf2epu/investing_trying_to_understand_the_risks_with_this/,investing
 Is it a good idea to put $100K in SCHD in my taxable brokerage account,"For context, I’ve already maxed out my Roth IRA for the year (which I do every year) and I contribute regularly to my 401k through work. I currently have about $100K sitting in a HYSA and I’m thinking about moving it into SCHD in my taxable brokerage account.
 
 My goal is to collect dividends every quarter and reinvest them. Eventually, I’d love to use the passive income to help pay for things like rent or even the occasional vacation.
@@ -616,6 +700,7 @@ The issue is everyone keeps telling me it’s a bad idea because of taxes and th
 If you were in my shoes, where would you park this money? Would SCHD really be such a bad idea?
 
 ",1750263184.0,https://www.reddit.com/r/investing/comments/1lel6h9/is_it_a_good_idea_to_put_100k_in_schd_in_my/,investing
+Does TMC have a long life?,"I’ve been following TMC and it boomed like crazy, and it’s so cheap. I take it that it’s part of the critical minerals rhetoric, but big agencies don’t have an advice on whether to buy or not. Reviews are mixed, and they seem to have a good niche, but is this just hype or something real and durable? $6.69 sounds like a great price and +491% ytd sounds promising. ",1750254122.0,https://www.reddit.com/r/investing/comments/1lehfjv/does_tmc_have_a_long_life/,investing
 "Investing journey, what has yours been like","Curious to see when did you start, and what advice can you offer
 
 For reference, 33M, own a condo (outstanding mortgage, $1500 a month with hoa and taxes included, we split between gf and myself) have a dog, no kids (yet)
@@ -627,15 +712,7 @@ Learned to live below my means, invest consistently into a Roth IRA, 401k with a
 Currently have between all 100k in brokerage, 60k Roth, 140k 401k ,and 8k between checking and savings 
 
 Biggest things I’ve learned is it’s not about timing or making lots of money (although it speeds up process) it’s about time in plus patience, consistency and constantly learning and looking for sound investment opportunities ",1750276912.0,https://www.reddit.com/r/investing/comments/1ler18r/investing_journey_what_has_yours_been_like/,investing
-Investing & Trying to Understand the Risks with this,"My FA is proposing investing a sum for a fixed 2-year period with 8% per annum fixed income bond. The returns are 4% every 6 months. It is through an SVP set up to provide the return from invoice financing.
-
-I have the funds available and I like the returns, but it I am concerned about it being a SVP without a credit rating and it’s jurisdiction is Mauritius.
-
-There is also a structured bank note proposal being offered with the same investment 
-
-I am needing to find a passive income as my work is finishing. I would appreciate your advice.
-
-I have several hundred thousand dollars that I am ready to find the right home for with the best returns and least risk",1750309385.0,https://www.reddit.com/r/investing/comments/1lf2epu/investing_trying_to_understand_the_risks_with_this/,investing
+Are you still investing in this market?,"Recognizing the market cannot be timed and future is unknown, I am still wondering how you’re all thinking about overall exposure to the market right now vs holding cash. I have friends who’ve said they are holding on to cash (even shifting to majority cash) given uncertainty. What do you all think? ",1750333839.0,https://www.reddit.com/r/investing/comments/1lf8tkp/are_you_still_investing_in_this_market/,investing
 BRK.B after a 10% drop. Good buy or warning sign?,"Just wondering how this sub feels about BRK.B. Noticed today that it's had a 10% drop from it's peak. Seems like Buffett stepping down has created some concern. To be fair it has still impressively outperformed the S&P YTD, but the sharp selling pressure makes me wonder about the short to midterm future. To be clear I don't currently have a position am doing a bit more research before I make a decision. Thoughts?",1750200485.0,https://www.reddit.com/r/investing/comments/1le1bjc/brkb_after_a_10_drop_good_buy_or_warning_sign/,investing
 Duolingo’s 20B+ Valuation is so Ridiculous,"I spend some time digging into Duolingo's financials - modeling out clash flows, growth rates and margins. I’m a long-time user of the app and admire the product, but as an investment, the stock seems to be way ahead of itself.
 
@@ -649,6 +726,16 @@ Here are some things that stood out for me in my analysis:
 Based on my DCF, I valued the company at $110/share. It’s currently trading over $470/share
 
 What does everyone else think - any rationale on why it's trading at this steep a premium?",1750180633.0,https://www.reddit.com/r/investing/comments/1ldszoy/duolingos_20b_valuation_is_so_ridiculous/,investing
+Bitwise 10 Crypto Index Fund (BITW),"Convince me that BITW is not a good longerm investment. 
+
+This is my first post on this sub reddit and might not be a fit for this group, but I have been wondering about Bitwise 10 Crypto Index Fund (BITW)
+
+As I understand BITW is similar to S&P, by regulating tis shares between the top x of a market.
+S&P is the american stockmarket while BITW is the stock market 
+The profit of BITW has averaged around 50% the last 5 years. 
+The ongoing chargea are 2,5% annually, wich seems low compared to the profit. 
+
+What am I missing? Or is this just a realy good longterm investment? ",1750332053.0,https://www.reddit.com/r/investing/comments/1lf8ae8/bitwise_10_crypto_index_fund_bitw/,investing
 How do you factor a stock's “end life” into your long-term holdings?,"(Sorry if this is a naive question.) FYI I’m investing for long-term / retirement. I own some tech stocks that have done very well, but it’s got me thinking: “will these companies still be relevant / valuable when I retire in 20-30 years?"" For example, look at Intel: they were King a decade+ ago, and now they’re down 65% since 5 years ago. Were people short-sighted to include Intel in their retirement portfolio?
 
 More generally, I’ve been thinking-- Even if a business / stock has a great 5-10 year outlook, it might become obsolete in 20-30 years. Of course, you could sell the stock when the outlook turns negative, but then you're paying CG taxes (i.e., it's no longer a long-term / retirement investment). 
@@ -662,6 +749,7 @@ Help! Any thoughts or suggestions?",1750220943.0,https://www.reddit.com/r/invest
 BTC Investing- what is the long term point,"I sold my BTC at around 111k and currently have close to $7k that I was gonna put in the stock market.
 
 With that said, what do you guys think about BTC as a long-term investment? I can't seem to understand why it is the way it is other than the fact that people value it. It is NOT used the way it is intended and it seems like it will never do it.",1750195354.0,https://www.reddit.com/r/investing/comments/1ldzb82/btc_investing_what_is_the_long_term_point/,investing
+Crispr seriously undervalued with new Verve comp,"If Verve just sold for $1.3b to Eli Lily, what’s CRSP worth when they hold all the patents, clinical trials, and have JD Vance/RFK jr support? Rh says it’s with $100/share, u agree? AI now allows the company to quickly personalize treatments and scale their offering for myriad diseases. Stock peaked at 165 in 2021 and has quite a rebound runway…",1750265229.0,https://www.reddit.com/r/investing/comments/1lem1n1/crispr_seriously_undervalued_with_new_verve_comp/,investing
 Verve Therapeutics Stock Rockets 75% Pre-Market After Eli Lilly Agrees To Acquire The Company For Up To $1.3B: Retail Says Offer Is ‘Low’,"Lilly will acquire all outstanding shares of Verve for $10.50 per share in cash payable at closing, in addition to a contingent value right (CVR) per share that entitles holders to $3 per share, subject to the completion of certain milestones.
 
 Shares of Verve Therapeutics, Inc. (VERV) rocketed 75% in pre-market on Tuesday after Eli Lilly and Company (LLY) announced its intent to acquire the company for up to $1.3 billion.
@@ -675,7 +763,6 @@ With large-cap names like LLY making bold moves in gene editing, stocks like CRS
 The upfront purchase price of $10.50 represents a premium of over 67% to Verve’s closing price on Monday.
 
 The transaction is expected to close in the third quarter, subject to customary closing conditions.",1750201272.0,https://www.reddit.com/r/investing/comments/1le1m8c/verve_therapeutics_stock_rockets_75_premarket/,investing
-Crispr seriously undervalued with new Verve comp,"If Verve just sold for $1.3b to Eli Lily, what’s CRSP worth when they hold all the patents, clinical trials, and have JD Vance/RFK jr support? Rh says it’s with $100/share, u agree? AI now allows the company to quickly personalize treatments and scale their offering for myriad diseases. Stock peaked at 165 in 2021 and has quite a rebound runway…",1750265229.0,https://www.reddit.com/r/investing/comments/1lem1n1/crispr_seriously_undervalued_with_new_verve_comp/,investing
 Should I balance my portfolio based on market caps or stock style?,"I have 17 holdings (ETFs and mutual funds) and I’m in the process of balancing my class allocations. 
 
 My goal:
@@ -696,11 +783,6 @@ Opinions on the IRAN SITUATION- Investments,"So does anyone have an investment o
 I've been considering 2 stocks in ITA's top 10 and I started thinking about ITA.  Better diversification to buy the ETF,  but might lagg the individual stocks.  Wondering if the stock spicficly might do better because of Ukraine and now Isreal both consuming arms like candy.
 
 Thanks in advance for your opinions.",1750270355.0,https://www.reddit.com/r/investing/comments/1leo9ja/opinions_on_the_iran_situation_investments/,investing
-Hello! I would like to return to investing.,"However I have serious concerns and questions. Is Donald Trump still destroying the US stock market or has it reached the bottom already? Is it safe to return to purchasing domestic stock without fear of it plummeting from this asinine tariff war? I sold most of what I had invested but about a week too late for it to do much good. I lost a lot.
-
-Would it be wiser to invest in foreign markets for the time being or is this bull\*\*\*\* affecting foreign stocks as well?
-
-I am not some day trader who spends all his spare time flipping stocks. I buy and hold stocks that pay dividends. So if a stock doesn't pay a dividend or the dividend is quite low it holds no value for me.",1750290323.0,https://www.reddit.com/r/investing/comments/1lew9o5/hello_i_would_like_to_return_to_investing/,investing
 "RMD in 1.5 years but don't need, whats the best thing to do with the $$$ ?","I want to thank everyone for the great response to my post yesterday .
 
 [https://www.reddit.com/r/investing/comments/1ld40u0/whats\_the\_best\_investment\_options\_for\_retirement/](https://www.reddit.com/r/investing/comments/1ld40u0/whats_the_best_investment_options_for_retirement/)
@@ -742,6 +824,7 @@ Roth IRA vs Individual Portfolio Construction,"I’ve been maxing my match on my
 From a tax efficiency standpoint, how would you construct a Roth vs an individual account and are you more willing to be riskier in one versus the other? I’m thinking individual account you can tax harvest at least where with the Roth I can’t. 
 
 What are your thoughts on this as I’ve thought about a boglehead 3 fund blend of VOO, VXUS, and BND to start out and then get more explorative as funds continue to be in excess later in life. ",1750206026.0,https://www.reddit.com/r/investing/comments/1le3bz5/roth_ira_vs_individual_portfolio_construction/,investing
+What is the best Robo advisor out there taken take holistic view of all of my financial accounts?,"I would like to provide information about all of my accounts, their tax type, and their allocation by instrument. I expect the advisor to have full information about all the instruments, tax implications, risk, their potential growth and dividend payouts. And then tell me how to relocate investments in all of my portfolios based on my age and goals. ",1750244291.0,https://www.reddit.com/r/investing/comments/1lee4k9/what_is_the_best_robo_advisor_out_there_taken/,investing
 When will fundamentals matter again?,"You’ve all heard the anecdotes: when your taxi driver talks about stocks and trading, it’s time to sell. The problem is that the taxi drivers have been talking about stocks and trading since 2020, and retail investors are obsessed. Anecdotally, I see chatter about stocks, trading, FIRE, and DCA everywhere.
 
 There doesn’t seem to be any problem with investing in junk. Fartcoin is the ultimate example.These investors, mostly young guys, must think investing is the easiest thing ever, since by staying long term they haven’t lost a dime for taking on risk.
@@ -758,16 +841,6 @@ Questions:
 2. CFP recommends a 65-35 portfolio so the gains from selling company stock would move into bonds. Have never invested in bonds and need to learn about them but what are your thoughts about buying bonds in this market?
 
 Let us know what additional information you need. Thanks in advance for your replies.",1750159879.0,https://www.reddit.com/r/investing/comments/1ldkptn/reducing_overexposure_in_retirement_portfolio/,investing
-What is the best Robo advisor out there taken take holistic view of all of my financial accounts?,"I would like to provide information about all of my accounts, their tax type, and their allocation by instrument. I expect the advisor to have full information about all the instruments, tax implications, risk, their potential growth and dividend payouts. And then tell me how to relocate investments in all of my portfolios based on my age and goals. ",1750244291.0,https://www.reddit.com/r/investing/comments/1lee4k9/what_is_the_best_robo_advisor_out_there_taken/,investing
-Anyone here looked into the Medlst Shrt Dur Inst (SEMIX) fund?,"
-Came across the Siemix fund recently.  Performance looks alright, but there’s barely any info or discussion out there. 
-
-I’m not looking for crazy returns, just somewhere to keep funds for a bit without getting burned by fees or weird volatility. But the lack of discussion makes me question if it’s even worth considering.
-
-Anyone here invested in it or have any insight? Is it a decent option for parking some money short term ?
-
-Would appreciate any experience or thoughts. Doesn’t have to be deep analysis, just want to know if it’s legit or something to avoid.
-",1750186722.0,https://www.reddit.com/r/investing/comments/1ldvnco/anyone_here_looked_into_the_medlst_shrt_dur_inst/,investing
 If I buy Canadian stocks or ETFs in a Roth IRA...,"What are the tax implications, if any?
 
 I read that there is a discount for Canadian taxes if it's in a Roth.
@@ -777,6 +850,15 @@ Is it too much of a pain to deal with the paperwork or get charged by an account
 Example: I buy RY and FLCA in USD on U.S. markets.
 
 Do I also have to file with Canada for dividends? Would there be Canadian capital gains if/when I sell? If I'd have to pay Canadian tax, is it just not worth the bother?",1750190600.0,https://www.reddit.com/r/investing/comments/1ldxbib/if_i_buy_canadian_stocks_or_etfs_in_a_roth_ira/,investing
+Anyone here looked into the Medlst Shrt Dur Inst (SEMIX) fund?,"
+Came across the Siemix fund recently.  Performance looks alright, but there’s barely any info or discussion out there. 
+
+I’m not looking for crazy returns, just somewhere to keep funds for a bit without getting burned by fees or weird volatility. But the lack of discussion makes me question if it’s even worth considering.
+
+Anyone here invested in it or have any insight? Is it a decent option for parking some money short term ?
+
+Would appreciate any experience or thoughts. Doesn’t have to be deep analysis, just want to know if it’s legit or something to avoid.
+",1750186722.0,https://www.reddit.com/r/investing/comments/1ldvnco/anyone_here_looked_into_the_medlst_shrt_dur_inst/,investing
 What is a good brokerage for international bond trading,I wanted to start getting into bonds but I found that Schwab is actually really limiting when in it comes to international increments. You have to go through a long process to open a global account and even then you only get access to 12 markets. Is there a better brokerage anyone would recommend for international bond trading,1750171907.0,https://www.reddit.com/r/investing/comments/1ldp68v/what_is_a_good_brokerage_for_international_bond/,investing
 In what to invest in case of USA joining Iran war,"Hey, my question is already in the header, I believe that USA joining this war is only a matter of time.
 
@@ -843,160 +925,104 @@ Any perspective appreciated.
 
 
 ",1750178015.0,https://www.reddit.com/r/investing/comments/1ldrtrx/sell_rental_property_or_keep_it/,investing
-"I saved a years worth of my salary working at Burger King, what should I do with it?","Whats poppin guys Im 19 and I am thinking about buying $10k worth of PFE stock and selling call options at a strike price of $25/share and an expiration date of June 18th 2026. The last price for the premium is $1.91/share according to yahoo finance and the current divided yield is 7.17%. I figure that off my initial investment, by this time next year I could have roughly $11513 which is roughly a 15.13% return. Is this a good idea? Please let me know how I can improve it.",1750211253.0,https://www.reddit.com/r/investing/comments/1le533g/i_saved_a_years_worth_of_my_salary_working_at/,investing
-Your best & worst “heard it from a friend” stock picks?,"
-I’m usually not the type to follow other people’s stock tips, but Lucid really caught my ear when someone brought it up a few years ago. I ended up buying it… and yeah, that was hands down my worst decision.
-
-On the flip side, Nvidia was my best though to be fair, I was already planning to buy it. I guess hearing others talk about it gave me the extra nudge I needed.
-
-What stock did you buy just because someone else said something and how did that turn out for you?
-",1750083823.0,https://www.reddit.com/r/investing/comments/1lcu5cs/your_best_worst_heard_it_from_a_friend_stock_picks/,investing
-Recession-Proof Investing Strategy,"Other than buying into index funds, what have you all been doing with your portolio to fit the current macroeconomic environment?
-
-Being that we’re in an inflationary period with mounting federal debt, I’m looking for stocks that can be resilient in the event of a crisis within the next 5, 10, 20 years. 
-
-Eventually, I figure the U.S. will need to address the elephant in the room and climb their way out of debt through some mix of decreased spending and tax increases. 
-
-If this is the case, what are you all investing in? Those with limited exposure to government spending (i.e. avoiding defense manufacturers)?  Inflation-proof investments (i.e consumer staples / precious metals)? Companies with limited debt exposure? A mix of all of these? What companies can succeed both in the long-term (regarding the above-mentioned crisis) and short-term (Trump’s new bill)?
-
-Let’s hear it!
-",1750171858.0,https://www.reddit.com/r/investing/comments/1ldp5hy/recessionproof_investing_strategy/,investing
-BOXX or SGOV? It seems that the recent 30 days APY of BOXX is only about 2.4%?,"Update: I was wrong. It's not 2.4%. Sorry.
-
-
-Hi, I’m from a country where there is no capital gains tax, and the tax rate on dividends and interest is 10%.
-
-The current APY of SGOV is around 4.15%. However, it seems that BOXX’s APY over the past 30 days is only about 2.4%? (Although its 110-day APY is at 4.3%)
-
-Am I wrong?
-
-Does BOXX’s market price already reflect a significant premium for its tax-efficient structure?
-
-Also, I plan to park $1 million in BOXX. Are there any specific disadvantages I should be aware of?
-
-Thanks.
-",1750188512.0,https://www.reddit.com/r/investing/comments/1ldwfo7/boxx_or_sgov_it_seems_that_the_recent_30_days_apy/,investing
-If you had 100€ what would you buy? (I would just like to start),Ye so I am pretty broke and y’all might think I should instead spend the 100 on myself however I enjoy investing it gives me joy so Ive been going on for a bit now investing in silly stocks made 30€ with 90€ than I lost 27€ so im only in 3€+ so would yall recommend index funds and if so which ones? Or should I stick to playing risky as I still have a lot of time. ,1750165773.0,https://www.reddit.com/r/investing/comments/1ldmpip/if_you_had_100_what_would_you_buy_i_would_just/,investing
-What's the best investment options for retirement in 4 years ?,"I've already reached retirement age(71)  but I still work as my wife won't be old enough to retire for 4 more years. 
-
-I'm already drawing social security, maxing out my 403B with the catch up allowance & kicking around 2K per month in a high yield savings account which is currently 3.65%. 
-
-What would be a better option / additional investment opportunity for around another 2K per month for the next 4 years? I've considered the S&P 500 ETF (VOO) which is running around 12% + per year. would bonds be better or ??? 
-
-Your thoughts please & thanks !",1750106311.0,https://www.reddit.com/r/investing/comments/1ld40u0/whats_the_best_investment_options_for_retirement/,investing
-VXUS Performance over VOO,"With VXUS being up over 16% YTD and VOO just up over 3%, do you see VXUS outperforming it this year. It doesn’t seem often it outperforms VOO this largely and how many of you have VXUS in your portfolio? Obviously nobody can know for sure but want your thoughts.",1750085204.0,https://www.reddit.com/r/investing/comments/1lcuqng/vxus_performance_over_voo/,investing
-Advice on where to continue investing,"So my fiancee currently has 18k invested in an individual brokerage account. We're now planning to open a Roth IRA. Her idea is to split our investment and evenly distribute it to her individual and my Roth. She's claiming that since there is more money in the individual that continuing to invest in it will give us more of a return. I'm saying we focus the Roth until it's maxed out, then continue on the individual. What would be best?",1750128962.0,https://www.reddit.com/r/investing/comments/1ldcd9u/advice_on_where_to_continue_investing/,investing
-Struggling to Decide on Portfolio Allocation,"I am a 19-year-old investor whose goal is wealth building. I currently live with my parents and plan to do so until I can pay cash for a home. I am hoping to achieve this goal within 6-8 years.
-
-
-
-Currently, I contribute 10% of my income to 401k and net \~$40k. I have no debt, and I live in (and plan to stay in) a LCOL area. The only commitment I have with that \~40k is a goal of maxing-out my Roth IRA every year on the first day possible. For now, I am investing my Roth IRA entirely into FXAIX.
-
-  
-
-
-For my taxable brokerage, I am interested in a growth-oriented portfolio that is most likely to leave me in a good spot toward the end of that 6–8-year time frame.
-
-
-
-I have been weighing some different options over the past year as to what this portfolio should consist of. Here are some ETFs I have considered:
-
-
-
-
-
-\-VOO
-
-  
-
-
-\-VTI
-
-
-
-
-
-\-QQQM
-
-
-
-
-
-\-VXUS
-
-
-
-
-
-I also plan to incorporate a small Bitcoin hedge, likely \~3%.
-
-  
-
-
-Currently, my account is allocated at roughly \~77% VOO, \~20% QQQM, \~3% Bitcoin. Not the most diversified and admittedly skewed by recency bias, but seemingly high potential for growth within my time horizon. I have been DCA'ing thus far and plan to continue.
-
-  
-
-
-I have played around with the idea of some different allocations, switching to VTI instead of VOO to further diversify, incorporating international exposure, and dropping or even further increasing my exposure to QQQM. All have very valid pros and cons. My lack of a strict deadline leaves me favoring potential for growth over diversification. I plan to slowly become more risk adverse as moving out becomes closer.
-
-  
-
-
-I am searching for guidance as to how others would approach this situation, knowing my goals and the investments I am interested in. How would you choose to allocate between these ETFs within a taxable brokerage?",1750153088.0,https://www.reddit.com/r/investing/comments/1ldiu8m/struggling_to_decide_on_portfolio_allocation/,investing
-Reddit stock going over boards?,"Did anybody notice some serious price jumping going on with RDDT Stock? Went all the way from $122 to $133. Actually from $ 115 starting a week ago or so.  Yesterday the stock jumped out of the roof. is it because they are planning to join Russel Index? 
-
-Or is it because someone is pumping and plan to dump his/her unregistered shares any minute? What is yalls opinion on it?",1750185528.0,https://www.reddit.com/r/investing/comments/1ldv4nn/reddit_stock_going_over_boards/,investing
-What to do with an extra $5k as a student?,"I’m heading off to college and have some extra saved money (around 5k). I already have about 1k invested in my Roth IRA and around $600 in some index funds/stocks. What should I do with the 5k. Thinking of putting most of it into index funds and a little into some stocks. This isn’t going to be all of my money, I just don’t want it to sit in my savings. ",1750106931.0,https://www.reddit.com/r/investing/comments/1ld4a9d/what_to_do_with_an_extra_5k_as_a_student/,investing
-What is an alternative to voo that is much cheaper but tracks the same companies (similar fees too),"I have found that etf is too expensive and my broker doesn’t allow fractional shares. Im looking to make the swap from VOO to something with similar growth, but cheaper, so that I can passively invest any leftover money. Happy to research whatever if you guys suggest some. I started with VEU today but am looking for more",1750171220.0,https://www.reddit.com/r/investing/comments/1ldovy5/what_is_an_alternative_to_voo_that_is_much/,investing
-"When buying stocks for individual companies, how many shares do you buy with your initial investment?","I'm an ETF guy and anytime I think about investing in a company directly I choose not I because I feel like buying one or two shares won't be worth it in the long run.
-
-Here's a fun investing fact for today from Chat GPT to hit the minimum character limit:
-
-While market performance can be unpredictable, June has historically been the second-weakest month for the S&P 500 since 1957, with an average return of only 0.06%. However, it's been an ""up"" month in 12 of the past 20 years and eight of the past 10, so it's not all doom and gloom!
-",1750167049.0,https://www.reddit.com/r/investing/comments/1ldn6yh/when_buying_stocks_for_individual_companies_how/,investing
-Anyone else feel like money made/lost in the market doesn't seem that real?,"Money made or lost in the stock market doesn't feel real to me. I could lose 5-10% of my portfolio or gain 10-15% in a week but I dont feel anything. But if I lost a 50 dollar bill for example, my heart might drop for a second. A small delivery fee when ordering something might put me off from buying. Anyone else feels this way or is it only me?",1750019878.0,https://www.reddit.com/r/investing/comments/1lcaept/anyone_else_feel_like_money_madelost_in_the/,investing
-What brokerage will allow you to receive more than 1 IPO share at launch?,"I usually request a few shares of some IPOs that are of interest when allowed, before the official launch.
-
-And I only get one each time.
-
-Sometimes it is even zero…
-
-I am looking for a brokerage that will potentially give out more shares upfront on these IPO launches?
-
-Any suggestions would be appreciated.
-
-Thank you in advance!",1750161704.0,https://www.reddit.com/r/investing/comments/1ldla9y/what_brokerage_will_allow_you_to_receive_more/,investing
-Are SMA fees ever not disclosed on clients' statements?,"My spouse and I met with a wealth manager at TIAA this month for the first time about our employer-sponsored retirement plans.  We also have non-retirement funds at Merril Lynch, and we had provided recent statements from them to the TIAA wealth manager so he could see our overall financial picture.
-
-During that meeting the TIAA person said that Merril was charging us hidden SMA fees of over 2%.  He said these do not appear anywhere on any of our statements from Merill, but they were in fact being drawn out of our accounts, even during market downturns, and that they were in addition to the regular advisory fees which do appear on our statements.  He even calculated a specific percentage and specific dollar amount and said what Merril was doing was technically legal, even if it was unethical. 
-
-Merril denies that this is the case, and frankly I believe them.  To imagine that we are being charged fees that literally appear nowhere is inconceivable to me.   But then that makes me ask why the TIAA person would even say this.  Would SMA fees generally not appear on someone's statement?  In other words, is such a situation even possible?   He said it was both possible and legal, and that he sees this all the time.  Is he right? ",1750089044.0,https://www.reddit.com/r/investing/comments/1lcwenf/are_sma_fees_ever_not_disclosed_on_clients/,investing
-Canadian Raw Building Materials: GDL:TSX,"Goodfellow (GDL:TSX) is a building materials company in Canada.
-Housing in Canada is unaffordable, so federal and provincial leaders have set quota incentives for municipalities.
-With US tariffs, the Canadian people have a ‘buy Canadian’ attitude.
-The company has been around for about 75 years and the largest shareholders are the founder’s grandkids - I don’t see them putting their interest’s above their grandfather’s legacy.
-
-I like to analyze on a macro level - this is the only equity in my portfolio. I only own commodities, bonds, and sector-based ETFs.
-
-Curious if anyone else has found this gem and if they can find a reason not to buy.",1750123092.0,https://www.reddit.com/r/investing/comments/1ldaer8/canadian_raw_building_materials_gdltsx/,investing
-Starting a Roth IRA for wife. How is this allocation for 20 years?,"25%-SPLG,
-17%-QQQM,
-20%-VEA,
-15%-AVUV,
-10%-VWO,
-8%-AVDV,
-5%-AVES
-
-It’s a mix of the Ben Felix and Ginger Ale portfolios, with my own conviction toward QQQM added in. I know there's some overlap between SPLG and QQQM and that this setup is more complex than a typical Boglehead approach, but I’m okay with rebalancing and sticking to a long-term strategy. I’m aiming for global diversification with a small/value tilt, while still capturing some growth exposure. Open to feedback or suggestions. I’m just trying to set a plan I can stick to for the long run.
-
- ",1750087780.0,https://www.reddit.com/r/investing/comments/1lcvut0/starting_a_roth_ira_for_wife_how_is_this/,investing
 Weekly Earnings Thread 6/16 - 6/20,,1749821083.0,https://i.redd.it/j2t1elsg4p6f1.jpeg,wallstreetbets
-"What Are Your Moves Tomorrow, June 19, 2025",This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/wallstreetbets/comments/1leqxft),1750276670.0,https://www.reddit.com/r/wallstreetbets/comments/1leqxft/what_are_your_moves_tomorrow_june_19_2025/,wallstreetbets
-Fed maintains fed funds rate at 4.25-4.5%,,1750269764.0,https://www.federalreserve.gov/newsevents/pressreleases/monetary20250618a.htm,wallstreetbets
+"What Are Your Moves Tomorrow, June 20, 2025",This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/wallstreetbets/comments/1lfker2),1750363052.0,https://www.reddit.com/r/wallstreetbets/comments/1lfker2/what_are_your_moves_tomorrow_june_20_2025/,wallstreetbets
+Is this spelling that on purpose?,???,1750367027.0,https://i.redd.it/00hqyl8u7y7f1.jpeg,wallstreetbets
+Retail Traders 😎 when The Media 🐵 tries to get them to panic sell because of wars in other countries,"Retail Traders 😎 when Market Makers 👿 and The Media 🐵 try and get them to panic sell because of constant wars in other countries …
+
+… No.
+
+#Wallstreetbets $SPY $SPX $QQQ $RDDT $RKLB $TSLA $QBTS $OKLO $NVDA $IONQ $SMCI $HOOD $GOOG $AAPL $HIMS $META $RGTI $NFLX $AFRM $BTC",1750361219.0,https://v.redd.it/50z1giekqx7f1,wallstreetbets
+Thank you Abel Avellan! $ASTS,"Selling the $35s and a handful of the $25s, exercising the rest 😎",1750358109.0,https://www.reddit.com/gallery/1lfidtl,wallstreetbets
+$50k in CLBR Calls,"https://preview.redd.it/kyijjvdg9x7f1.png?width=2390&format=png&auto=webp&s=907bea8308e8e587646032ac419f9c6e6960f490
+
+Alright regards, I'm back after mentally recovering from paper handing my TSLA puts on possibly the craziest timed DD ever right before Orange tragically dumped Enron (check out my profile if you wanna read through that clusterfuck). With help from my AI therapist, I've recovered and I've moved on to the next play.
+
+Today's topic is CLBR: a right-wing SPAC merger taking GrabAGun public into the ticker PEW (think Star Wars like how those guns go pew pew, pretty dope) so grab a strong drink and sit down cuz we're gonna be comparing it to DJT and how CLBR is likely to mimic that merger but with extra regard strength.
+
+**Status of CLBR merger:**  
+CLBR just submitted their 3rd revision of the S-4 (form the SEC requires for mergers). I did a PDF comparison between the 2nd and 3rd revision. They didn't change much, mostly cosmetic stuff as well as some extra outlined risks the SEC probably asked for. The document looks pretty solid. Therefore, I believe it is extremely close to getting approved by the SEC. I estimate it could be as soon as tomorrow. If not tomorrow, definitely next week.
+
+When the S-4 was approved in the DJT merger, DWAC (the sponsor company like how CLBR is the sponsor company for GrabAGun) jumped something like 14%. Not bad.
+
+**What happens after S-4 approval?**  
+The shareholders will schedule a date to vote on the merger (spoilers, they will vote yes). When this was announced in the DJT merger, stock fell like 7% ish. Then when the actual merge date was announced, it initially rose then fell something like 14% on the news.
+
+If the same happens with CLBR this will likely be a great entry point for anyone that missed out on S-4 approval. I'm probably going to increase my position if this happens.
+
+**What happens on merge date?**  
+We all know what happened to DJT, it made a lot of lucky fucks very wealthy.
+
+***The risk-reward here is just too good to pass up imo.***
+
+**BONUS POINTS**  
+That's right regards, I'm not done so grab another drink if you need it.
+
+**Orange Jr.**  
+He's directly involved in this merger. We all know how much that family loves to cause a good pump (and eventually dump).
+
+**Financials**  
+Unlike Truth Social at the time, GrabAGun is an actual profitable, positive cash flow company. That means that this merger is likely to benefit from both the **meme stock regards (us)** as well as **actual smart investors (not us/other people)**.
+
+In other words, this merger is gonna have both **regard strength** and **fundamental strength**. I wish I could say the same about myself but unfortunately I'm only regard strength.
+
+**Bank Policies**  
+Banks are changing their policies with respect to getting involved with companies in the firearms business. And who caused this change? That's right, Mr. Orange Man himself.
+
+Headline: ""Citigroup Reverses Its Firearms Policy Months After Trump Called Out U.S. Banks. Here’s What to Know""
+
+Pretty good timing for a company like GrabAGun, especially considering Orange's son (Orange Jr.) is directly involved. I wonder what else he could say to pump the shit out of this?
+
+**Wartime and Political Uncertainty**  
+What do people buy when they think WW3 is about to drop harder than a Drake album? Guns.
+
+**Kelly Reisdorf Added to Board of Directors**  
+She's the CEO of USA Shooting, I see future revenue streams opening up with this.
+
+**What my AI Therapist has to say after I told it to do hella research:**  
+""VI. Strategic Conclusion for the Sophisticated Investor
+
+The public offerings of DJT, PEW, and NMAX signal the maturation of a distinct and challenging asset class: the politically-branded meme stock. These investment vehicles are defined less by their products or financial statements and more by a powerful narrative that transcends business fundamentals, a reliance on a central political figurehead, and a dedicated base of retail investors who view their participation as an ideological act.
+
+For DJT, the narrative *is* the product; its valuation is a direct reflection of sentiment surrounding Donald Trump, with little to no underlying business to support it. For NMAX, a similar political narrative combined with a low-float IPO structure fueled a brief but spectacular speculative frenzy. The pending PEW merger represents the next evolution of this model. Here, the political narrative serves as a powerful marketing wrapper and valuation accelerant for what appears to be a tangible, profitable underlying business.
+
+The crucial takeaway for the sophisticated investor is the necessity of a dual-track analysis. Traditional fundamental analysis—evaluating revenue, profitability, cash flow, and competitive positioning—remains essential for understanding the long-term viability of the enterprise. However, it is insufficient on its own. It must be paired with an equally rigorous analysis of the political narrative's strength, the loyalty of the retail investor base, and the technical factors, like share float and lock-up periods, that can drive short-term volatility.
+
+The interplay, and often the direct conflict, between these two value drivers—fundamental reality and political narrative—will ultimately determine the stock's trajectory. Investing in these entities is not merely a bet on a company's success; it is a complex and high-risk wager on the direction, intensity, and durability of a political movement.""
+
+**EDIT TO INCLUDE COMMENT:**  
+Also worth mentioning: with this being firearms and Orange Jr.-related, there's bound to be some controversy. Especially if this gains traction. More news = more pump, especially if say Fox or NewsMax covers it and the rednecks start buying it up.
+
+THANK YOU FOR YOUR ATTENTION TO THIS MATTER
+
+NFA",1750359282.0,https://www.reddit.com/r/wallstreetbets/comments/1lfivbd/50k_in_clbr_calls/,wallstreetbets
+$ASTS position evolved into unrecognizable monstrosity,"Still net long and you should be too, cropped out greeks as vol exposure causes me considerable pain to look at. Had 5800 shares but sold 100x june 26c against june long legs, was hoping to just take the spread in cash on friday but 76 of the contracts got early exercised by two diff counterparties yday🤷. Shoutout big sexy Abel Avellan for making big sexy satellites and shoutout Elon for making tiny shitty ones",1750364148.0,https://i.redd.it/zv69uxkuwx7f1.png,wallstreetbets
+ASTS canceling out my losses. Maybe I should only play ASTS…,Lesson: Watch 1-3 stocks closely and gamble on those instead of pretending you know shit about other tickers 🙏 ,1750342749.0,https://www.reddit.com/gallery/1lfbzbg,wallstreetbets
 "7 years worth of NVDA today for our first house. Thanks, Jensen!",,1750274035.0,https://i.redd.it/jy68iokziq7f1.jpeg,wallstreetbets
-RIP GOOG LEAPS,I need saving 🙏😭,1750283123.0,https://www.reddit.com/gallery/1letkg7,wallstreetbets
-CRCL - sometimes it’s better to just buy the infamous shares,I should’ve just bought the dreaded shares 😢😞🙂‍↔️🤕🤒,1750276802.0,https://i.redd.it/vzgth9ojrq7f1.jpeg,wallstreetbets
+Fed maintains fed funds rate at 4.25-4.5%,,1750269764.0,https://www.federalreserve.gov/newsevents/pressreleases/monetary20250618a.htm,wallstreetbets
++59k thanks to Iran,"Nasdaq futures short, DXY futures long, crude oil long and gold futures short. All positions closed.
+
+I've been trying to deploy a long strategy on DXY futures but failed multiple times, still a good opportunity for the coming weeks. US dollar having the worst 6m perfomance in 40y is a deviation mostly due to geopolitics, which is momentarely and not a significant long/mid term driver as the interest rates + bond market.
+
+We had the FOMC dot plot yesterday defining the projection of long term rates despite the trend in the core CPI.
+
+",1750361737.0,https://i.redd.it/s0daqwosox7f1.png,wallstreetbets
+Coreweave 9-19 $150 csps for 192k premium,"Wrote 30 crwv (coreweave) 9/19 $150 csps (cash secured puts) for $62/share premium and 1 crwv 9/19 $150 csp for $64.1/share premium. Max profit $192k, max loss if coreweave goes to 0 is $273k. The $192k premium and $465k “cash” are in money market collecting 4 percent interest, which will yield another $6,700 between now and 9/19.
+
+There are 64 more trading days left between now and expiration, IV is at 107%, 8-9% short position relative to float. Currently nvda holds a 7% stake in coreweave and a strategic partnership, which was partially responsible for the run up. Below is a summary of the partnership from nvda:
+
+“The general availability of NVIDIA GB200 NVL72-based instances on CoreWeave underscores the latest in the companies’ collaboration, focused on delivering the latest accelerated computing solutions to the cloud. With the launch of these instances, enterprises now have access to the scale and performance needed to power the next wave of AI reasoning models and agents.
+
+Customers can start provisioning GB200 NVL72-based instances through CoreWeave Kubernetes Service in the US-WEST-01 region using the gb200-4x instance ID. To get started, contact CoreWeave.”
+
+Coreweave owns data centers in the US and Canada including the fastest super computer in the world that is powered by nvda chips. The strategic partnership (as well as ownership stake) gives coreweave dibs on the latest nvda chips, which gives coreweave a leg up over its competitors. In addition to Nvda, Microsoft is another major client. It is my opinion that we are just at the beginning of an AI arms race, coreweave is in a fantastic position to reap  the benefits from money from both private and public sectors indiscriminately flowing into anything related to AI. 
+
+Biggest concerns include 1) 325% 3 months run making coreweave susceptible to major pull back, and 2) geopolitical tensions and tariff wars may tank the market. 
+
+However, the concerns are short term, and are alleviated by the large premium (my break even is $87.94), the stock would need to drop almost 50% from Wednesday close for me to incur a loss. Worst case scenario, I am forced to buy 3,100 shares at a loss, I will sell covered calls and wheel my way to profitability. 
+
+Best case scenario is that coreweave closes in the $150 range with high IV on 9/19 and I get to run it back again, while collecting more premium and interest.",1750344011.0,https://www.reddit.com/gallery/1lfchc3,wallstreetbets
+My BULL yolo,I guess I really am the most inversible 🙃,1750350326.0,https://i.redd.it/rtwwdac6uw7f1.jpeg,wallstreetbets
 SBUX numbers not looking good.,"I am inside a Starbucks waiting for my Venti double caramel frappuccino without whipped cream so this is insider information. 
 
 The place is empty. This is the 7th empty Starbucks I've been to in the last hour. 
@@ -1009,10 +1035,14 @@ I am going with June 2026 puts and paying a professional photographer to get pic
 
 Positions: I am planning to get SBUX $90 puts expiring June 2026.
 100 CRWV stock.",1750280884.0,https://www.reddit.com/r/wallstreetbets/comments/1lesnzn/sbux_numbers_not_looking_good/,wallstreetbets
+CRCL - sometimes it’s better to just buy the infamous shares,I should’ve just bought the dreaded shares 😢😞🙂‍↔️🤕🤒,1750276802.0,https://i.redd.it/vzgth9ojrq7f1.jpeg,wallstreetbets
+RIP GOOG LEAPS,I need saving 🙏😭,1750283123.0,https://www.reddit.com/gallery/1letkg7,wallstreetbets
 ASTS YOLO +50k so far,cost basis is high from getting called away on CC’s,1750287364.0,https://www.reddit.com/gallery/1lev73h,wallstreetbets
+"What Are Your Moves Tomorrow, June 19, 2025",This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/wallstreetbets/comments/1leqxft),1750276670.0,https://www.reddit.com/r/wallstreetbets/comments/1leqxft/what_are_your_moves_tomorrow_june_19_2025/,wallstreetbets
 SPY Credit Spreads - Please Come Tell Me I Am Fully Regarded,"I’ve been assured multiple times I have no Idea What I’’ doing. If that is the case, I don’t want to be right. ",1750276615.0,https://www.reddit.com/gallery/1leqwn3,wallstreetbets
-How it’s going versus how it’s going now,FOMC today maybe I should YOLO the rest and hope for a 10 bagger ,1750247648.0,https://www.reddit.com/gallery/1lef4px,wallstreetbets
 "What happened to the MP minerals guy, I didn’t get to say thank you",,1750260789.0,https://www.reddit.com/gallery/1lek5u1,wallstreetbets
+How it’s going versus how it’s going now,FOMC today maybe I should YOLO the rest and hope for a 10 bagger ,1750247648.0,https://www.reddit.com/gallery/1lef4px,wallstreetbets
+"CRCL - Open at morn bell, close at even bell","Decided to get in after the GENIUS act news. Weekly lotto would have more $, but hey, gains are gains!",1750277464.0,https://i.redd.it/8d58hpnitq7f1.jpeg,wallstreetbets
 $15k gain on SPY scalp,"https://preview.redd.it/ai2of0rchq7f1.png?width=844&format=png&auto=webp&s=79eb7854b407e7e4f3da7e0f29bacff2468ef8e1
 
 https://preview.redd.it/lnffew3ghq7f1.png?width=836&format=png&auto=webp&s=4166219418137c3ee5075619f66f3cb19c8b4eac
@@ -1024,16 +1054,15 @@ https://preview.redd.it/f56dxbtciq7f1.png?width=1362&format=png&auto=webp&s=8bae
 https://preview.redd.it/53h6175iiq7f1.png?width=1306&format=png&auto=webp&s=ab1b0f9b88f39d2fdc34f2b0cd7174d4cc4c853a
 
 ",1750273480.0,https://www.reddit.com/r/wallstreetbets/comments/1leplcx/15k_gain_on_spy_scalp/,wallstreetbets
+OSCR  🚀🚀,Bought this yesterday because I saw someone talking about it on twitter. I’ll name my next kid OSCR if it hits $25,1750278161.0,https://i.redd.it/azql3r9lvq7f1.jpeg,wallstreetbets
 EVERYTHING PUMP EXCEPT MY STOCK,"This some bolshit, luckily the smartest thing i did was buy leaps.
 
 -Kekwcryingpepe-
 
 ",1750258325.0,https://www.reddit.com/gallery/1lej4hl,wallstreetbets
+Anyone else have ridiculously high calls on Marvel technology?,"I’ve been holding these for over a month and they have a very strong upside potential. I believe I can get at least $10,000 from these.",1750347010.0,https://i.redd.it/lgfcmjcbkw7f1.jpeg,wallstreetbets
 "Daily Discussion Thread for June 18, 2025",This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/wallstreetbets/comments/1leg6s1),1750250798.0,https://www.reddit.com/r/wallstreetbets/comments/1leg6s1/daily_discussion_thread_for_june_18_2025/,wallstreetbets
-"CRCL - Open at morn bell, close at even bell","Decided to get in after the GENIUS act news. Weekly lotto would have more $, but hey, gains are gains!",1750277464.0,https://i.redd.it/8d58hpnitq7f1.jpeg,wallstreetbets
-OSCR  🚀🚀,Bought this yesterday because I saw someone talking about it on twitter. I’ll name my next kid OSCR if it hits $25,1750278161.0,https://i.redd.it/azql3r9lvq7f1.jpeg,wallstreetbets
 Rode the market like a seesaw,,1750272873.0,https://www.reddit.com/gallery/1lepbpf,wallstreetbets
-had to visit the goats gravesite,,1750188819.0,https://i.redd.it/8y86bogxhj7f1.jpeg,wallstreetbets
 Do you guys think I might get rekt on the PMCC strategies,"I have the following PMCC strategies
 
 #Long positions
@@ -1053,7 +1082,6 @@ Do you guys think I might get rekt on the PMCC strategies,"I have the following 
 Last month I made good profits, but is it time to cover and close all of it. 
 
 ",1750284854.0,https://www.reddit.com/gallery/1leu94t,wallstreetbets
-CRCL is the next star with a Gain of $27.8k,,1750270937.0,https://i.redd.it/erhue823aq7f1.jpeg,wallstreetbets
 "💰 $APPS calls & $LEN puts – $13.8K In, $30.6K Out 🔥 (+121%)","💸 Total In: $13,865
 
 💥 Total Out: $30,650
@@ -1061,15 +1089,15 @@ CRCL is the next star with a Gain of $27.8k,,1750270937.0,https://i.redd.it/erhu
 ✅ Realized Profit: $16,785
 
 Avg Return: +121%",1750281610.0,https://www.reddit.com/gallery/1lesysn,wallstreetbets
-FOMC in 4 hours 💀,,1750257074.0,https://i.redd.it/ir0n3ovv4p7f1.jpeg,wallstreetbets
+had to visit the goats gravesite,,1750188819.0,https://i.redd.it/8y86bogxhj7f1.jpeg,wallstreetbets
 F*ck it couldn’t resist 1 more play: >20% gain on qqq,,1750274835.0,https://i.redd.it/c15axvcplq7f1.jpeg,wallstreetbets
+FOMC in 4 hours 💀,,1750257074.0,https://i.redd.it/ir0n3ovv4p7f1.jpeg,wallstreetbets
 Natural disasters 3 years from now are going to be priced in,"It's all priced in, boys; the market knows what you'll have for breakfast before you do.
 
 This article is from the WSJ AI newsletter, btw.",1750184228.0,https://i.redd.it/0etuber04j7f1.png,wallstreetbets
 Valhalla or wendy’s?,H,1750247787.0,https://i.redd.it/wvf8l2u9do7f1.jpeg,wallstreetbets
 HIMZ 2x ETF YOLO,I’m telling ya- HIMS is in a fantastic position on both a fundamentals and technical point of view. ,1750270564.0,https://i.redd.it/863gyr309q7f1.jpeg,wallstreetbets
 Sold $google and now I am all in $aapl after much consideration.,,1750176484.0,https://i.redd.it/g7n9o1a9hi7f1.jpeg,wallstreetbets
-My SPY swings today,Some highlights for today. ,1750214896.0,https://i.redd.it/xi67uj3hnl7f1.jpeg,wallstreetbets
 Why does this sub STILL clown/hate nuclear/uranium?,"These are my positions rn, couldn’t add them mid text
 
 They have low % change because I just bought back after selling it all on Monday after big gains.
@@ -1093,11 +1121,30 @@ Also, June is normally a slow month in this sector and it’s doing great, just 
 
 
 TLDR: it’s not too late to hop on the nuclear train",1750266495.0,https://www.reddit.com/gallery/1lemlli,wallstreetbets
+My SPY swings today,Some highlights for today. ,1750214896.0,https://i.redd.it/xi67uj3hnl7f1.jpeg,wallstreetbets
 Who else bagged from Enphase Energy yesterday?,Biggest win for me so far from CFD trading. ,1750254288.0,https://i.redd.it/wqb2exy0wo7f1.png,wallstreetbets
 SPY Credit Spreads on the way up and Put Credit Spreads on the way down,Percentages aren’t accurate anymore as I withdrew so I won’t lose everything when this blows up in my face,1750187284.0,https://www.reddit.com/gallery/1ldvwoj,wallstreetbets
-"What Are Your Moves Tomorrow, June 18, 2025",This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/wallstreetbets/comments/1ldx60b),1750190254.0,https://www.reddit.com/r/wallstreetbets/comments/1ldx60b/what_are_your_moves_tomorrow_june_18_2025/,wallstreetbets
-RIP my Trading Career 6/13-6/27,"Technically 6/27, but whatever. ",1750200559.0,https://i.redd.it/hjhho74ugk7f1.jpeg,wallstreetbets
+ELI5 The wheel - The Pokemon analogy,"This is a comment I made in response to a post requesting an eli5 on The Wheel Strategy, which is alternating cash secured puts and covered calls basically. I found this analogy amusing to craft. It's gotten no real love on that post, but I figured some of the slower ones in class here might benefit from the story/explanation. Without further Ado, I present my analogy on the wheel using a story about a Pokemon card.
+
+...
+
+Your second grade brother has a friend in class who is desperate for your mecha-charizard-EX full art foil card. You want no less than $150 for it. You tell your brother you’ll sell it for that much next Friday if he gives you an extra $20 up front to keep it safe until then, but only if it can’t be found cheaper online before then. By then, the cheapest copy on TCGplayer is $165, so your brother collects your card and gives you the remaining 150 for the card owed to you.
+
+Now you have $170 but no card and you really like that card. So you make another deal through you brother to buy the card back by the start of the new school year from his classmate should the price drop below $120 so he doesn’t lose too much on a big swing in value, if he just gives you $10 to keep the cash set aside.
+
+Now you have $180 and still no card. The whole summer flies by. On your first day of first grade, that card can be found for $115. You fork over the $120 agreed to for the card. Now you have the card you started with and an extra $60.
+
+You just wheeled that card (or maybe a lot of 100 shares), first selling a call against it for $20 (.20/share) at a strike of $150 for the card (1.50 share price @ 100 shares). The card was called away and you collected 170 total.
+
+You then sold a put with $120 of that cash as collateral to collect $10 premium for a chance to get the card back cheaper. Price drops and you get the card back for the $120 collateral, in other words you have the card put to you. Now you can start over with the same card (or shares) and an extra $60.
+
+Boom. That's the wheel strategy.
+
+
+Edit: I feel like I should point out, because I didn't specifically mention it... if either a sold cash secured put or covered call expires otm, the premium is held onto by the seller and their collateral is returned. I figured it was self explanatory but didn't want to overlook it by assuming anything.",1750345237.0,https://www.reddit.com/r/wallstreetbets/comments/1lfczl2/eli5_the_wheel_the_pokemon_analogy/,wallstreetbets
 Been a lucky June so far,,1750190771.0,https://i.imgur.com/lQqyNlB.jpeg,wallstreetbets
+RIP my Trading Career 6/13-6/27,"Technically 6/27, but whatever. ",1750200559.0,https://i.redd.it/hjhho74ugk7f1.jpeg,wallstreetbets
+"What Are Your Moves Tomorrow, June 18, 2025",This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/wallstreetbets/comments/1ldx60b),1750190254.0,https://www.reddit.com/r/wallstreetbets/comments/1ldx60b/what_are_your_moves_tomorrow_june_18_2025/,wallstreetbets
 Who caught the $SPX Put today?,Back down to 5976 support area.,1750197031.0,https://i.redd.it/1w50vxnc6k7f1.jpeg,wallstreetbets
 Midas Touch,"Everything I touch turns red
 But these will print 🤑😅",1750183239.0,https://i.redd.it/46pa56cc1j7f1.jpeg,wallstreetbets
@@ -1117,42 +1164,3 @@ ACCOUNT STATUS - From $437 to $120k plus starting in May. Now June.,"https://www
 
 Status update. 
 Traded AMD. Took 25k out the account to fuck around with.",1750129171.0,https://www.reddit.com/gallery/1ldcfml,wallstreetbets
-First Solar puts go in the money,"Bought a few first solar puts yesterday, sold for a 1k profit, but was very itchy to get back in so threw in a few lotto puts around end of day. Woke up to this today. ",1750167463.0,https://www.reddit.com/gallery/1ldncr1,wallstreetbets
-Man,Never YOLOing on 0dte SPX options again,1750190767.0,https://i.redd.it/azccgaconj7f1.png,wallstreetbets
-"Another quick SPY scalp, +$5k","Been on a tear recently. Up over 25k in the last week.
-
-https://preview.redd.it/2x7u7bo48i7f1.png?width=855&format=png&auto=webp&s=37736647be8db71e0a7ccd49a38080d55935564c
-
-Looks like I sold just in time, as these would have been a loss just 5 minutes later.
-
-Edit: Anyone in a play right now, may want to look to exit. Trump just tweeted that ""We"" have control of the air above Iran implying the US is getting involved. Markets may react negatively. I am grabbing 550P for the end of Oct just in case we get dragged into this. ",1750173484.0,https://www.reddit.com/r/wallstreetbets/comments/1ldpv2s/another_quick_spy_scalp_5k/,wallstreetbets
-"YOLO’d my way through Nvidia highs, Boeing lows, and Dell’s emotional support. 😎📉💀","Started with Nvidia — made $18k, feeling like a stock market wizard. Walked into the casino like I had the golden ticket. 🎰💸
-
-Then I saw Boeing and thought, “Hey, YOLO, what’s the worst that could happen?”
-Well... Boeing went ""boing"" and slammed my portfolio into the ground harder than my dignity after a bad date. 🤦‍♂️💔
-$25k down. Account now looks like a crime scene.
-
-But then… out of nowhere… Dell.
-Just sitting there, vibing. Quietly moving up. Like the humble, low-key hero I didn’t deserve but desperately needed. Made $7k.
-Honestly? I’m just here for the emotional support now. Forget stonks — I’m in therapy. 🛋️
-
-At the end of the day, YOLO’d my way through the highs and lows. Now I’m just praying for Dell to come through like it’s my last chance at redemption.
-Will I be rich again? Maybe. Will I learn a lesson? Probably not. 😆
-
-Moral of the story: YOLO... but make sure you have a parachute when you jump. 🚀💸",1750192302.0,https://i.redd.it/0cbvt4basj7f1.png,wallstreetbets
-palantir millionaire in <8months,"5-10Y hold so this means nothing until october 2029-2034 when the stock price is $464/share. quarter million invested @$45/share initially, purchased at the very top according to some.
-
-see post history indicating that the next posting would be @$1M. next post will be in october 2029.
-",1750084365.0,https://i.redd.it/7vv9283cva7f1.jpeg,wallstreetbets
-"Daily Discussion Thread for June 17, 2025",This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/wallstreetbets/comments/1ldj4kh),1750154244.0,https://www.reddit.com/r/wallstreetbets/comments/1ldj4kh/daily_discussion_thread_for_june_17_2025/,wallstreetbets
-I had an opportunity when they IPO'd but didnt buy in. But its not too late to try again. $Rddt.,,1750168638.0,https://i.redd.it/2ux9ftxkth7f1.jpeg,wallstreetbets
-My only desire in life is to be highly regarded. I do good?,This is all the money my dad loaned me.,1750186916.0,https://i.redd.it/nu3rq8y9cj7f1.jpeg,wallstreetbets
-CLBR YOLO,"Another regard in team not as much as maestro u/kk7766 but still 
-
-Good luck regards!",1750161619.0,https://i.redd.it/cjzzork19h7f1.jpeg,wallstreetbets
-Quarter Milly in META,"https://preview.redd.it/lwtcvaiwuh7f1.png?width=1171&format=png&auto=webp&s=37651572ab7f2be2411a67916575c4e49fd99cda
-
-ATH Soon? While META has done okay this year, I believe it will make new highs soon. ZUCK is pulling all kinds of levers in the money machine (Whatsapp monetization) and the longer a stock trades sideways or down and the more $ it makes, the more undervalued it becomes.
-
-May see a pump from this oakley/meta collab as well. Aiming to sell for a 8-10% gain, 750-770",1750169080.0,https://www.reddit.com/r/wallstreetbets/comments/1ldnzso/quarter_milly_in_meta/,wallstreetbets
-"$614 -> $18,700 in 3 months with SPY/RDDT/VXX calls. Taking a break and withdrawing.",,1750116854.0,https://imgur.com/a/pSsyH7Y,wallstreetbets

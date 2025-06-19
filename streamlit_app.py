@@ -212,7 +212,7 @@ with st.sidebar:
             try:
                 # 1. Get the latest company context data
                 logger.info("Streamlit App: Calling prepare_llm_context_data()")
-                top_companies_df, market_sentiment_str = prepare_llm_context_data() # Unpack two values
+                top_companies_df, market_sentiment_str = prepare_llm_context_data(user_query=prompt) # Pass user query
 
                 if top_companies_df.empty:
                     logger.warning("Streamlit App: No company context data returned from prepare_llm_context_data().")
