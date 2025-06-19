@@ -13,7 +13,7 @@ from datetime import datetime
 # Assuming preprocess_lstm_data.py is in the same directory or accessible in PYTHONPATH
 from preprocess_lstm_data import load_and_preprocess_stock_data
 
-def build_and_train_lstm_model(X_train, y_train, X_test, y_test, scaler_obj, sequence_length, input_shape_dims, stock_ticker_symbol):
+def build_and_train_lstm_model(X_train, y_train, X_test, y_test, scaler_obj, sequence_length, input_shape_dims, stock_ticker_symbol, epochs=10): # Added epochs
     """
     Builds, trains, evaluates, and saves an LSTM model.
 
@@ -45,8 +45,8 @@ def build_and_train_lstm_model(X_train, y_train, X_test, y_test, scaler_obj, seq
     # Note: 50 epochs can be time-consuming. For this subtask, using 10 epochs.
     # For actual training, 50 or more epochs with early stopping would be more appropriate.
     print("Training model...")
-    # Using epochs=10 for faster execution in this subtask
-    model.fit(X_train, y_train, batch_size=32, epochs=10, validation_data=(X_test, y_test), verbose=1)
+    # Using epochs=epochs for configurable training duration
+    model.fit(X_train, y_train, batch_size=32, epochs=epochs, validation_data=(X_test, y_test), verbose=1)
 
     # Evaluate the model
     test_loss = model.evaluate(X_test, y_test, verbose=0)
@@ -179,6 +179,126 @@ def predict_next_day(stock_ticker: str, sequence_length: int = 60) -> float | No
     except Exception as e:
         print(f"Error during prediction for {stock_ticker}: {e}")
         return None
+
+def get_or_train_lstm_for_stock(
+    ticker: str,
+    sequence_length: int = 60,
+    data_dir: str = 'data/historical_prices/',
+    models_dir: str = 'models/',
+    lstm_predictions_csv: str = 'data/lstm_daily_predictions.csv',
+    training_epochs: int = 10  # Default epochs for on-demand training
+) -> float | None:
+    """
+    Gets a prediction from an existing LSTM model or trains a new one if not found,
+    then updates the shared predictions CSV.
+    """
+    model_path = os.path.join(models_dir, f'lstm_{ticker.lower()}_model.h5')
+    scaler_path = os.path.join(models_dir, f'lstm_{ticker.lower()}_scaler.joblib')
+    data_file_path = os.path.join(data_dir, f'{ticker.upper()}.csv') # Ticker is upper in historical_prices
+
+    if not os.path.exists(data_file_path):
+        print(f"Error: Historical data file not found at {data_file_path} for ticker {ticker}.")
+        # Log this instead of just printing for production
+        logging.error(f"Historical data file not found at {data_file_path} for ticker {ticker}.")
+        return None
+
+    predicted_price = None
+
+    if os.path.exists(model_path) and os.path.exists(scaler_path):
+        print(f"Found existing model and scaler for {ticker}. Attempting prediction.")
+        # Log this
+        logging.info(f"Using existing LSTM model and scaler for {ticker}.")
+        predicted_price = predict_next_day(ticker, sequence_length) # predict_next_day uses paths relative to its own constants/structure
+                                                                 # We need to ensure predict_next_day can find models in models_dir and data in data_dir
+                                                                 # predict_next_day currently hardcodes paths like 'models/lstm_{stock_ticker.lower()}_model.h5'
+                                                                 # This is compatible if models_dir is 'models/'
+    else:
+        print(f"Model and/or scaler not found for {ticker}. Training new model.")
+        logging.info(f"Attempting to train a new LSTM model for {ticker}.")
+        try:
+            X_train_orig, y_train_orig, X_test_orig, y_test_orig_scaled, scaler_obj_for_training = \
+                load_and_preprocess_stock_data(data_file_path, sequence_length)
+
+            if X_train_orig.size == 0 or X_test_orig.size == 0:
+                print(f"Warning: Not enough data to train model for {ticker} after preprocessing from {data_file_path}. Skipping training.")
+                logging.warning(f"Insufficient data for {ticker} from {data_file_path} for LSTM training.")
+                return None
+
+            # Reshape X_train and X_test to be 3D for LSTM
+            X_train = np.reshape(X_train_orig, (X_train_orig.shape[0], X_train_orig.shape[1], 1))
+            X_test = np.reshape(X_test_orig, (X_test_orig.shape[0], X_test_orig.shape[1], 1))
+
+            print(f"Data preprocessed for {ticker}. X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
+            logging.info(f"Data preprocessed for {ticker}. X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
+
+            # Build, train, evaluate and save the model
+            # Note: build_and_train_lstm_model saves the scaler_obj_for_training and model
+            # Pass training_epochs to the function
+            trained_model, _, _, _ = build_and_train_lstm_model(
+                X_train, y_train_orig, X_test, y_test_orig_scaled, scaler_obj_for_training,
+                sequence_length, (X_train.shape[1], 1), ticker, epochs=training_epochs # Pass epochs
+            )
+            print(f"Successfully trained and saved model for {ticker}.")
+            logging.info(f"Successfully trained LSTM model for {ticker} with {training_epochs} epochs.")
+
+            # Predict next day's price using the newly trained model
+            predicted_price = predict_next_day(ticker, sequence_length)
+
+        except Exception as e:
+            print(f"An error occurred during training or prediction for {ticker}: {e}")
+            logging.error(f"Error training LSTM model for {ticker}: {e}", exc_info=True)
+            return None
+
+    if predicted_price is not None:
+        print(f"Predicted next day's closing price for {ticker}: {predicted_price:.2f}")
+        logging.info(f"LSTM Predicted price for {ticker}: {predicted_price:.2f}")
+        try:
+            predictions_df = pd.DataFrame(columns=['stock_ticker', 'predicted_close_price', 'prediction_timestamp'])
+            if os.path.exists(lstm_predictions_csv):
+                try:
+                    predictions_df = pd.read_csv(lstm_predictions_csv)
+                except pd.errors.EmptyDataError:
+                    print(f"Warning: {lstm_predictions_csv} was empty. Initializing new DataFrame.")
+                    logging.warning(f"{lstm_predictions_csv} was empty. Initializing new DataFrame.")
+                except Exception as e:
+                    print(f"Error reading {lstm_predictions_csv}: {e}. Initializing new DataFrame.")
+                    logging.error(f"Error reading {lstm_predictions_csv}: {e}. Initializing new DataFrame.")
+
+            # Ensure correct dtypes, especially if file was empty or just created
+            predictions_df['stock_ticker'] = predictions_df['stock_ticker'].astype(str)
+            predictions_df['predicted_close_price'] = pd.to_numeric(predictions_df['predicted_close_price'], errors='coerce')
+            # 'prediction_timestamp' can remain object/string or be converted to datetime if needed for other ops
+
+            # Remove existing rows for the current ticker
+            predictions_df = predictions_df[predictions_df['stock_ticker'] != ticker].copy() # Use .copy() to avoid SettingWithCopyWarning
+
+            # Create new prediction entry
+            new_prediction_data = {
+                'stock_ticker': ticker,
+                'predicted_close_price': predicted_price,
+                'prediction_timestamp': datetime.now().isoformat()
+            }
+            new_prediction_df = pd.DataFrame([new_prediction_data])
+
+            # Concatenate old and new predictions
+            predictions_df = pd.concat([predictions_df, new_prediction_df], ignore_index=True)
+
+            # Save updated predictions
+            predictions_csv_dir = os.path.dirname(lstm_predictions_csv)
+            if predictions_csv_dir and not os.path.exists(predictions_csv_dir): # Check if dirname is not empty string
+                os.makedirs(predictions_csv_dir, exist_ok=True)
+
+            predictions_df.to_csv(lstm_predictions_csv, index=False)
+            print(f"Updated LSTM predictions saved to {lstm_predictions_csv} for ticker {ticker}.")
+            logging.info(f"Updated {lstm_predictions_csv} with prediction for {ticker}.")
+
+        except Exception as e:
+            print(f"Error updating {lstm_predictions_csv} for {ticker}: {e}")
+            logging.error(f"Error updating {lstm_predictions_csv} for {ticker}: {e}", exc_info=True)
+            # Do not return None here, as prediction was successful, only CSV update failed.
+            # The function should still return the predicted_price.
+
+    return predicted_price
 
 
 if __name__ == "__main__":
