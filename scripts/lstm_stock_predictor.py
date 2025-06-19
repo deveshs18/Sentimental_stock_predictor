@@ -8,6 +8,7 @@ import math
 import os
 import pandas as pd # Added for predict_next_day
 import joblib
+from datetime import datetime
 
 # Assuming preprocess_lstm_data.py is in the same directory or accessible in PYTHONPATH
 from preprocess_lstm_data import load_and_preprocess_stock_data
@@ -181,34 +182,80 @@ def predict_next_day(stock_ticker: str, sequence_length: int = 60) -> float | No
 
 
 if __name__ == "__main__":
-    stock_ticker = 'AAPL'
-    data_file_path = f'data/historical_prices/{stock_ticker}.csv'
-    sequence_length = 60
+    target_stocks = ['AAPL', 'MSFT', 'GOOGL'] # Example list
+    all_predictions_data = []
+    sequence_length = 60  # Define sequence length
 
-    # Load and preprocess data
-    X_train_orig, y_train_orig, X_test_orig, y_test_orig_scaled, scaler = load_and_preprocess_stock_data(data_file_path, sequence_length)
+    for stock_ticker in target_stocks:
+        print(f"\nProcessing stock: {stock_ticker}")
+        data_file_path = f'data/historical_prices/{stock_ticker}.csv'
+        model_path = f'models/lstm_{stock_ticker.lower()}_model.h5'
+        scaler_path = f'models/lstm_{stock_ticker.lower()}_scaler.joblib'
 
-    # Reshape X_train and X_test to be 3D: (number_of_samples, sequence_length, 1)
-    X_train = np.reshape(X_train_orig, (X_train_orig.shape[0], X_train_orig.shape[1], 1))
-    X_test = np.reshape(X_test_orig, (X_test_orig.shape[0], X_test_orig.shape[1], 1))
+        if not os.path.exists(data_file_path):
+            print(f"Warning: Data file not found for {stock_ticker} at {data_file_path}. Skipping.")
+            continue
 
-    print(f"X_train reshaped: {X_train.shape}")
-    print(f"X_test reshaped: {X_test.shape}")
+        predicted_price = None
+        if os.path.exists(model_path) and os.path.exists(scaler_path):
+            print(f"Found existing model and scaler for {stock_ticker}.")
+            # predict_next_day loads the model and scaler internally by path
+            predicted_price = predict_next_day(stock_ticker=stock_ticker, sequence_length=sequence_length)
+        else:
+            print(f"Model and/or scaler not found for {stock_ticker}. Training new model.")
+            try:
+                # Load and preprocess data
+                X_train_orig, y_train_orig, X_test_orig, y_test_orig_scaled, scaler_obj_for_training = \
+                    load_and_preprocess_stock_data(data_file_path, sequence_length)
 
-    # Build, train, evaluate and save the model
-    trained_model, y_test_actual, predictions_actual, rmse_value = build_and_train_lstm_model(
-        X_train, y_train_orig, X_test, y_test_orig_scaled, scaler,
-        sequence_length, (X_train.shape[1], 1), stock_ticker
-    )
+                if X_train_orig.size == 0 or X_test_orig.size == 0 :
+                    print(f"Warning: Not enough data to train model for {stock_ticker} after preprocessing. Skipping.")
+                    continue
 
-    # Plot predictions
-    plot_predictions(y_test_actual, predictions_actual, stock_ticker)
+                # Reshape X_train and X_test to be 3D
+                X_train = np.reshape(X_train_orig, (X_train_orig.shape[0], X_train_orig.shape[1], 1))
+                X_test = np.reshape(X_test_orig, (X_test_orig.shape[0], X_test_orig.shape[1], 1))
 
-    print(f"Successfully built, trained, evaluated, and saved LSTM model and predictions plot for {stock_ticker}.")
+                print(f"X_train reshaped: {X_train.shape}")
+                print(f"X_test reshaped: {X_test.shape}")
 
-    # Predict next day's price
-    next_day_prediction = predict_next_day(stock_ticker=stock_ticker, sequence_length=sequence_length)
-    if next_day_prediction is not None:
-        print(f"Predicted next day's closing price for {stock_ticker}: {next_day_prediction:.2f}")
+                # Build, train, evaluate and save the model
+                # Note: build_and_train_lstm_model saves the scaler_obj_for_training
+                trained_model, y_test_actual, predictions_actual, rmse_value = build_and_train_lstm_model(
+                    X_train, y_train_orig, X_test, y_test_orig_scaled, scaler_obj_for_training,
+                    sequence_length, (X_train.shape[1], 1), stock_ticker
+                )
+
+                # Plot predictions only if training occurred
+                plot_predictions(y_test_actual, predictions_actual, stock_ticker)
+                print(f"Successfully trained and saved model/plot for {stock_ticker}.")
+
+                # Predict next day's price using the newly trained model
+                predicted_price = predict_next_day(stock_ticker=stock_ticker, sequence_length=sequence_length)
+
+            except FileNotFoundError:
+                print(f"Error: Data file {data_file_path} confirmed present but load_and_preprocess_stock_data failed to find it. Skipping {stock_ticker}.")
+                continue
+            except Exception as e:
+                print(f"An error occurred during training or initial prediction for {stock_ticker}: {e}. Skipping.")
+                continue
+
+        if predicted_price is not None:
+            print(f"Predicted next day's closing price for {stock_ticker}: {predicted_price:.2f}")
+            all_predictions_data.append({
+                'stock_ticker': stock_ticker,
+                'predicted_close_price': predicted_price,
+                'prediction_timestamp': datetime.now().isoformat()
+            })
+        else:
+            print(f"Could not generate prediction for {stock_ticker}.")
+
+    if all_predictions_data:
+        predictions_df = pd.DataFrame(all_predictions_data)
+        output_csv_path = 'data/lstm_daily_predictions.csv'
+        # Ensure data directory exists
+        os.makedirs(os.path.dirname(output_csv_path), exist_ok=True)
+        predictions_df.to_csv(output_csv_path, index=False)
+        print(f"\nLSTM predictions saved to {output_csv_path}")
     else:
-        print(f"Could not predict next day's closing price for {stock_ticker}.")
+        print("\nNo predictions were generated to save.")
