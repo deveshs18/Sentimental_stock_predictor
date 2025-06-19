@@ -182,7 +182,10 @@ def predict_next_day(stock_ticker: str, sequence_length: int = 60) -> float | No
 
 
 if __name__ == "__main__":
+
     target_stocks = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'ENPH'] # Expanded list
+
+
     all_predictions_data = []
     sequence_length = 60  # Define sequence length
 

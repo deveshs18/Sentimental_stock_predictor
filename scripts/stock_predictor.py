@@ -85,6 +85,7 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
             line = (
                 f"- {row['company']}: Positive Sentiment={row['positive']:.2f}, Neutral Sentiment={row['neutral']:.2f}, "
                 f"Negative Sentiment={row['negative']:.2f}, GrowthScore={row['growth_score']:.2f}, "
+
                 f"MacroSentiment={macro_sentiment_str}, Sector={row['theme']}"
             )
             # Check if 'predicted_close_price' column exists and the value is not NaN
@@ -278,8 +279,9 @@ if __name__ == "__main__":
         logger.info(f"Main test: Overall market sentiment: {market_sentiment_str}")
 
         # Sample user query for testing
+
         sample_user_query = "What's the market outlook for tomorrow? Highlight key sectors and specific stocks to watch, considering all available data."
-        # sample_user_query = "What's the outlook for tech stocks like MSFT and GOOGL for tomorrow?"
+
         # sample_user_query = "Any news on semiconductor stocks?"
         logger.info(f"Using sample user query: \"{sample_user_query}\"")
 
