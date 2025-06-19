@@ -1,0 +1,51 @@
+2025-06-19 07:09:11,927 - __main__ - INFO - Loading data files for LLM context preparation...
+2025-06-19 07:09:11,942 - __main__ - INFO - All data files loaded successfully (or handled if missing).
+2025-06-19 07:09:11,962 - __main__ - INFO - Filtering and selecting top companies...
+2025-06-19 07:09:11,966 - __main__ - INFO - Selected 2 top companies for LLM context.
+2025-06-19 07:09:11,974 - __main__ - WARNING - 'market_sentiment' column not found in /app/scripts/../data/predict_growth.csv.
+2025-06-19 07:09:11,974 - __main__ - INFO - Overall market sentiment for LLM context: Data not available
+2025-06-19 07:09:11,975 - __main__ - INFO - Main test: Overall market sentiment: Data not available
+2025-06-19 07:09:11,975 - __main__ - INFO - Using sample user query: "What's the market outlook for tomorrow? Highlight key sectors and specific stocks to watch, considering all available data."
+2025-06-19 07:09:11,975 - __main__ - INFO - Generated Dynamic Prompt:
+2025-06-19 07:09:11,975 - __main__ - INFO - You are a stock analyst assistant. Analyze the provided company data in the context of the user's query and the stated overall market sentiment.
+
+User Query: "What's the market outlook for tomorrow? Highlight key sectors and specific stocks to watch, considering all available data."
+
+Overall Market Sentiment: Data not available
+
+Company Data Context:
+- Microsoft: Positive Sentiment=3.00, Neutral Sentiment=0.00, Negative Sentiment=1.00, GrowthScore=0.37, MacroSentiment=0.00, Sector=Information Technology, LSTM Next Day Close: $354.32
+- Nvidia: Positive Sentiment=1.00, Neutral Sentiment=1.00, Negative Sentiment=0.00, GrowthScore=0.26, MacroSentiment=0.00, Sector=Information Technology
+
+---
+
+Instructions:
+Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow', using ONLY the provided 'Company Data Context' and 'Overall Market Sentiment'. Adhere strictly to these guidelines:
+
+**1. Sector Analysis (Tomorrow's Outlook):**
+   - Begin by identifying 2-3 sectors from the 'Company Data Context' that exhibit the most significant positive or      negative 'MacroSentiment score'.
+   - For each identified sector, explain what its 'MacroSentiment score' might imply for its potential performance      tomorrow. Relate this to the 'Overall Market Sentiment' (e.g., 'Strong positive sector sentiment in a generally      neutral market could indicate specific investor confidence in this area.').
+
+**2. Specific Stock Analysis (Tomorrow's Outlook):**
+   - After discussing sectors, focus on specific companies. Prioritize companies within the sectors you've just      analyzed or those directly relevant to the 'User Query'.
+   - For each highlighted stock, provide a brief outlook for tomorrow. Your justification MUST synthesize:
+       a. The stock's individual sentiment scores (Positive, Neutral, Negative).
+       b. Its 'GrowthScore'.
+       c. Its 'LSTM Next Day Close' prediction (mention what the predicted price suggests about potential movement, e.g., 'LSTM predicts a price of $X.XX, suggesting potential stability/uptrend/downtrend from current levels if known, or simply state the prediction').
+       d. The 'MacroSentiment score' of its sector.
+   - Clearly state if these indicators are generally aligned (e.g., 'all point positive'), conflicting (e.g., 'good sentiment but LSTM predicts a drop'), or if some data points are missing.
+   - Explain *why* these factors lead to your outlook for that stock.
+
+**3. Addressing the User Query:**
+   - Ensure your entire analysis is framed to comprehensively answer the 'User Query'.
+   - If the query is general (e.g., 'market outlook'), the above structured analysis serves as your response.
+   - If the query is about specific stocks or sectors, focus your detailed analysis on them, using the same multi-factor justification.
+
+**4. General Guidelines:**
+   - Base all predictions and analyses exclusively on the provided 'Company Data Context' and 'Overall Market Sentiment'.
+   - Do NOT use any external knowledge or real-time market data.
+   - When making an inference, clearly state it's derived from the provided dataset (e.g., 'Based on the growth score of X and positive sentiment...').
+   - Do NOT refuse to make a prediction if the user asks for one. Make the best possible interpretation grounded in the data, even if limited. Clearly state any limitations due to the data.
+   - If specific companies mentioned in the query are not in the 'Company Data Context', state that they are not in the current analysis dataset.
+   - If the 'Company Data Context' is empty, inform the user that no specific company data is available to perform the requested analysis.
+2025-06-19 07:09:11,976 - __main__ - WARNING - OPENAI_API_KEY not found. Skipping OpenAI API call and output file generation.

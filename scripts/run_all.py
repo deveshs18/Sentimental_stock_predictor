@@ -14,6 +14,8 @@ SCRIPTS = [
     "predict_growth.py",
     "generate_company_sentiment.py",
     "macro_sentiment_analysis.py",
+    "fetch_historical_prices.py",
+    "lstm_stock_predictor.py",
     "stock_predictor.py"
 ]
 

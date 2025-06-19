@@ -9,12 +9,12 @@ import logging
 load_dotenv()
 
 # Configure logging
-os.makedirs('../logs', exist_ok=True)
+os.makedirs('output/logs', exist_ok=True) # Changed path
 log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-file_handler = logging.FileHandler('../logs/stock_predictor.log', mode='w')
+file_handler = logging.FileHandler('output/logs/stock_predictor.log', mode='w') # Changed path
 file_handler.setFormatter(logging.Formatter(log_format))
 logger.addHandler(file_handler)
 
@@ -24,9 +24,9 @@ logger.addHandler(stream_handler)
 
 # Check for OpenAI API Key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-if not OPENAI_API_KEY:
-    logger.error("OPENAI_API_KEY not found in .env file or environment variables.")
-    sys.exit(1)
+# if not OPENAI_API_KEY: # Temporarily allowing to proceed without key for prompt verification
+#     logger.error("OPENAI_API_KEY not found in .env file or environment variables.")
+#     sys.exit(1)
 
 def get_qualitative_market_sentiment():
     """
@@ -79,30 +79,51 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
         prompt_lines.append("No specific company data is available from the latest pipeline run.")
     else:
         for _, row in top_companies_df.iterrows():
+            macro_sentiment_val = row.get('macro_sentiment_score')
+            macro_sentiment_str = f"{macro_sentiment_val:.2f}" if pd.notna(macro_sentiment_val) else "N/A"
+
             line = (
-                f"- {row['company']}: Positive Sentiment={row['positive']}, Neutral Sentiment={row['neutral']}, "
-                f"Negative Sentiment={row['negative']}, GrowthScore={row['growth_score']:.2f}, "
-                f"MacroSentiment={row['macro_sentiment_score']:.2f}, Sector={row['theme']}"
+                f"- {row['company']}: Positive Sentiment={row['positive']:.2f}, Neutral Sentiment={row['neutral']:.2f}, "
+                f"Negative Sentiment={row['negative']:.2f}, GrowthScore={row['growth_score']:.2f}, "
+                f"MacroSentiment={macro_sentiment_str}, Sector={row['theme']}"
             )
+            # Check if 'predicted_close_price' column exists and the value is not NaN
+            if 'predicted_close_price' in row and pd.notna(row['predicted_close_price']):
+                line += f", LSTM Next Day Close: ${row['predicted_close_price']:.2f}"
             prompt_lines.append(line)
 
     prompt_lines.append("\n---") # Separator before instructions
 
     instructions = (
-        "Your primary role is to answer the user's query using ONLY the provided 'Company Data Context'. "
-        "Adhere to the following guidelines strictly:\n"
-        "- If the user asks for a prediction (e.g., 'which stock will go up/down?', 'what might happen next?'), "
-        "base your prediction or inference exclusively on the trends, sentiment (positive, neutral, negative scores), "
-        "GrowthScore, and MacroSentiment visible in the 'Company Data Context'.\n"
-        "- When making such an inference, clearly state that your analysis is derived from this specific dataset and its current indicators. "
-        "For example, start your explanation with 'Based on the provided data (GrowthScore, sentiment)...' or similar phrasing.\n"
-        "- Do NOT use any external knowledge or information outside of the 'Company Data Context' to make predictions or analyses.\n"
-        "- Do NOT refuse to make a prediction or inference if the user is asking for one. Instead, make the best possible interpretation "
-        "grounded in the provided data, even if the data is limited.\n"
-        "- If the query is about specific companies, focus your analysis on them if they are present in the 'Company Data Context'. "
-        "If they are not listed, state that they are not in the current analysis dataset.\n"
-        "- If the 'Company Data Context' is empty, you MUST inform the user that no specific company data is available from the "
-        "latest pipeline run to answer the query and that you cannot perform the requested analysis without it."
+        "Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow', "
+        "using ONLY the provided 'Company Data Context' and 'Overall Market Sentiment'. Adhere strictly to these guidelines:\n\n"
+        "**1. Sector Analysis (Tomorrow's Outlook):**\n"
+        "   - Begin by identifying 2-3 sectors from the 'Company Data Context' that exhibit the most significant positive or "
+        "     negative 'MacroSentiment score'.\n"
+        "   - For each identified sector, explain what its 'MacroSentiment score' might imply for its potential performance "
+        "     tomorrow. Relate this to the 'Overall Market Sentiment' (e.g., 'Strong positive sector sentiment in a generally "
+        "     neutral market could indicate specific investor confidence in this area.').\n\n"
+        "**2. Specific Stock Analysis (Tomorrow's Outlook):**\n"
+        "   - After discussing sectors, focus on specific companies. Prioritize companies within the sectors you've just "
+        "     analyzed or those directly relevant to the 'User Query'.\n"
+        "   - For each highlighted stock, provide a brief outlook for tomorrow. Your justification MUST synthesize:\n"
+        "       a. The stock's individual sentiment scores (Positive, Neutral, Negative).\n"
+        "       b. Its 'GrowthScore'.\n"
+        "       c. Its 'LSTM Next Day Close' prediction (mention what the predicted price suggests about potential movement, e.g., 'LSTM predicts a price of $X.XX, suggesting potential stability/uptrend/downtrend from current levels if known, or simply state the prediction').\n"
+        "       d. The 'MacroSentiment score' of its sector.\n"
+        "   - Clearly state if these indicators are generally aligned (e.g., 'all point positive'), conflicting (e.g., 'good sentiment but LSTM predicts a drop'), or if some data points are missing.\n"
+        "   - Explain *why* these factors lead to your outlook for that stock.\n\n"
+        "**3. Addressing the User Query:**\n"
+        "   - Ensure your entire analysis is framed to comprehensively answer the 'User Query'.\n"
+        "   - If the query is general (e.g., 'market outlook'), the above structured analysis serves as your response.\n"
+        "   - If the query is about specific stocks or sectors, focus your detailed analysis on them, using the same multi-factor justification.\n\n"
+        "**4. General Guidelines:**\n"
+        "   - Base all predictions and analyses exclusively on the provided 'Company Data Context' and 'Overall Market Sentiment'.\n"
+        "   - Do NOT use any external knowledge or real-time market data.\n"
+        "   - When making an inference, clearly state it's derived from the provided dataset (e.g., 'Based on the growth score of X and positive sentiment...').\n"
+        "   - Do NOT refuse to make a prediction if the user asks for one. Make the best possible interpretation grounded in the data, even if limited. Clearly state any limitations due to the data.\n"
+        "   - If specific companies mentioned in the query are not in the 'Company Data Context', state that they are not in the current analysis dataset.\n"
+        "   - If the 'Company Data Context' is empty, inform the user that no specific company data is available to perform the requested analysis."
     )
     prompt_lines.append("\nInstructions:\n" + instructions)
     return "\n".join(prompt_lines)
@@ -144,23 +165,24 @@ def prepare_llm_context_data(top_n=25):
         "company_df": os.path.join(current_dir, "..", "data", "company_sentiment_normalized.csv"),
         "growth_df": os.path.join(current_dir, "..", "data", "predict_growth.csv"),
         "macro_df": os.path.join(current_dir, "..", "data", "macro_sentiment.csv"),
-        "mapping_df": os.path.join(current_dir, "..", "data", "nasdaq_top_companies.csv")
+        "mapping_df": os.path.join(current_dir, "..", "data", "nasdaq_top_companies.csv"),
     }
-    dfs = {}
-
-    try:
-        "company_df": "data/company_sentiment_normalized.csv",
-        "growth_df": "data/predict_growth.csv",
-        "macro_df": "data/macro_sentiment.csv",
-        "mapping_df": "data/nasdaq_top_companies.csv"
-    }
+    lstm_predictions_df_path = os.path.join(current_dir, '..', 'data', 'lstm_daily_predictions.csv')
     dfs = {}
 
     try:
         for df_name, path in data_files.items():
             logger.debug(f"Loading {path}...")
             dfs[df_name] = pd.read_csv(path)
-        logger.info("All data files loaded successfully.")
+
+        try:
+            logger.debug(f"Loading {lstm_predictions_df_path}...")
+            dfs["lstm_df"] = pd.read_csv(lstm_predictions_df_path)
+        except FileNotFoundError:
+            logger.warning(f"LSTM predictions file not found at {lstm_predictions_df_path}. Creating empty DataFrame.")
+            dfs["lstm_df"] = pd.DataFrame(columns=['stock_ticker', 'predicted_close_price'])
+
+        logger.info("All data files loaded successfully (or handled if missing).")
     except FileNotFoundError as e:
         logger.error(f"Error loading data: {e}. Please ensure all prerequisite scripts have run.")
         raise  # Re-raise to be caught by the caller or main script
@@ -175,7 +197,7 @@ def prepare_llm_context_data(top_n=25):
 
     # === Clean column names ===
     logger.debug("Cleaning column names in mapping_df.")
-    mapping_df.columns = mapping_df.columns.str.replace("\xa0", " ")
+    mapping_df.columns = [col.strip().replace("\xa0", " ") for col in mapping_df.columns] # More robust cleaning
 
     # === Macro mapping ===
     logger.debug("Creating theme and macro maps.")
@@ -185,8 +207,39 @@ def prepare_llm_context_data(top_n=25):
     # === Merge sentiment and growth ===
     logger.debug("Merging company sentiment and growth data.")
     df = pd.merge(company_df, growth_df, on="company", how="inner")
+
+    # Add ticker symbol to df from mapping_df to be used as a key for LSTM predictions
+    # Assuming the ticker column in nasdaq_top_companies.csv is 'Ticker'
+    # Clean 'Company' names in mapping_df and 'company' in df for robust merging
+    mapping_df['Company_clean'] = mapping_df['Company'].str.strip() # Assumes 'Company' exists
+    df['company_clean'] = df['company'].str.strip()
+
+    # Attempt to merge using 'Ticker' as the symbol column name from mapping_df
+    # This assumes 'Ticker' is the correct column name in the CSV after cleaning.
+    if 'Ticker' in mapping_df.columns and 'Company_clean' in mapping_df.columns:
+        df = pd.merge(df, mapping_df[['Company_clean', 'Ticker']], left_on='company_clean', right_on='Company_clean', how='left')
+    else:
+        logger.warning("Could not find 'Ticker' or 'Company_clean' in mapping_df. Skipping addition of ticker symbols.")
+        df['Ticker'] = pd.NA # Ensure 'Ticker' column exists for consistency, even if empty
+
+    # Clean up columns added for merging
+    df = df.drop(columns=['company_clean'])
+    if 'Company_clean' in df.columns:
+        df = df.drop(columns=['Company_clean'])
+
+    # Merge LSTM predictions using the 'Ticker' column
+    lstm_df = dfs["lstm_df"]
+    if not lstm_df.empty and 'Ticker' in df.columns:
+        lstm_df['stock_ticker_clean'] = lstm_df['stock_ticker'].str.strip()
+        df = pd.merge(df, lstm_df[['stock_ticker_clean', 'predicted_close_price']], left_on='Ticker', right_on='stock_ticker_clean', how='left')
+        if 'stock_ticker_clean' in df.columns:
+            df = df.drop(columns=['stock_ticker_clean'])
+    else:
+        # Ensure the column exists even if no LSTM data or no Ticker to merge on
+        df['predicted_close_price'] = pd.NA
+
     df["theme"] = df["company"].map(theme_map)
-    df["macro_sentiment_score"] = df["theme"].map(macro_map).fillna(0)
+    df["macro_sentiment_score"] = df["theme"].map(macro_map).fillna(pd.NA) # Changed from .fillna(0)
 
     # === Adjust growth score ===
     logger.debug("Calculating adjusted growth score.")
@@ -225,8 +278,8 @@ if __name__ == "__main__":
         logger.info(f"Main test: Overall market sentiment: {market_sentiment_str}")
 
         # Sample user query for testing
-        sample_user_query = "Which stocks are looking good today based on sentiment and growth potential?"
-        # sample_user_query = "What's the outlook for Apple and Microsoft?"
+        sample_user_query = "What's the market outlook for tomorrow? Highlight key sectors and specific stocks to watch, considering all available data."
+        # sample_user_query = "What's the outlook for tech stocks like MSFT and GOOGL for tomorrow?"
         # sample_user_query = "Any news on semiconductor stocks?"
         logger.info(f"Using sample user query: \"{sample_user_query}\"")
 
@@ -237,6 +290,10 @@ if __name__ == "__main__":
         dynamic_prompt = generate_dynamic_prompt(sample_user_query, top_companies_df, market_sentiment_str)
         logger.info("Generated Dynamic Prompt:")
         logger.info(dynamic_prompt) # Using logger.info for multiline, could also just print
+
+        if not OPENAI_API_KEY:
+            logger.warning("OPENAI_API_KEY not found. Skipping OpenAI API call and output file generation.")
+            sys.exit(0) # Exit gracefully after printing prompt
 
         # Get OpenAI response
         llm_response = get_openai_response(dynamic_prompt)
