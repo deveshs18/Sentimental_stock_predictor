@@ -22,6 +22,8 @@ stream_handler = logging.StreamHandler()
 stream_handler.setFormatter(logging.Formatter(log_format))
 logger.addHandler(stream_handler)
 
+import re # Import re for simple_clean_name
+
 # Check for OpenAI API Key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 # if not OPENAI_API_KEY: # Temporarily allowing to proceed without key for prompt verification
@@ -95,39 +97,39 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
 
     prompt_lines.append("\n---") # Separator before instructions
 
-    instructions = (
-        "Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow'. "
-        "To do this, you MUST synthesize insights from four key pillars of information: the 'Overall Market Sentiment', specific 'MacroSentiment' (sector sentiment), individual company news sentiment scores, and 'LSTM Next Day Close' price predictions, all found within the 'Company Data Context' and 'Overall Market Sentiment' sections provided below. "
-        "Use ONLY this provided information. Adhere strictly to these guidelines:\n\n"
-        "**1. Sector Analysis (Tomorrow's Outlook):**\n"
-        "   - Begin by identifying 2-3 sectors from the 'Company Data Context' that exhibit the most significant positive or "
-        "     negative 'MacroSentiment score'.\n"
-        "   - For each identified sector, explain what its 'MacroSentiment score' might imply for its potential performance "
-        "     tomorrow. Relate this to the 'Overall Market Sentiment' (e.g., 'Strong positive sector sentiment in a generally "
-        "     neutral market could indicate specific investor confidence in this area.').\n\n"
-        "**2. Specific Stock Analysis (Tomorrow's Outlook):**\n"
-        "   - After discussing sectors, focus on specific companies. Prioritize companies within the sectors you've just "
-        "     analyzed or those directly relevant to the 'User Query'.\n"
-        "   - For each highlighted stock, provide a brief outlook for tomorrow. Your justification MUST holistically synthesize all relevant data points provided:\n"
-        "       a. The stock's individual sentiment scores (Positive, Neutral, Negative news counts).\n"
-        "       b. Its 'GrowthScore'.\n"
-        "       c. Its 'LSTM Next Day Close' price prediction.\n"
-        "       d. The 'MacroSentiment score' of its sector.\n"
-        "       e. The context of the 'Overall Market Sentiment'.\n"
-        "   - Explicitly discuss how these factors (a-e) interact. For instance, note if they are aligned (e.g., positive stock sentiment, strong sector sentiment, bullish LSTM prediction, within a positive overall market) or if they present a mixed picture (e.g., good individual stock sentiment but a bearish LSTM prediction or weak sector sentiment).\n"
-        "   - Explain *why* this combination of factors leads to your outlook for that stock.\n\n"
-        "**3. Addressing the User Query:**\n"
-        "   - Ensure your entire analysis is framed to comprehensively answer the 'User Query'.\n"
-        "   - If the query is general (e.g., 'market outlook'), the above structured analysis serves as your response.\n"
-        "   - If the query is about specific stocks or sectors, focus your detailed analysis on them, using the same multi-factor justification.\n\n"
-        "**4. General Guidelines:**\n"
-        "   - Base all predictions and analyses exclusively on the provided 'Company Data Context' and 'Overall Market Sentiment'.\n"
-        "   - Do NOT use any external knowledge or real-time market data.\n"
-        "   - When making an inference, clearly state it's derived from the provided dataset (e.g., 'Based on the growth score of X and positive sentiment...').\n"
-        "   - Do NOT refuse to make a prediction if the user asks for one. Make the best possible interpretation grounded in the data, even if limited. Clearly state any limitations due to the data.\n"
-        "   - If specific companies mentioned in the query are not in the 'Company Data Context', state that they are not in the current analysis dataset.\n"
-        "   - If the 'Company Data Context' is empty, inform the user that no specific company data is available to perform the requested analysis."
-    )
+instructions = (
+    "Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow'. "
+    "To do this, you MUST synthesize insights from four key pillars of information: the 'Overall Market Sentiment', specific 'MacroSentiment' (sector sentiment), individual company news sentiment scores, and 'LSTM Next Day Close' price predictions, all found within the 'Company Data Context' and 'Overall Market Sentiment' sections provided below. "
+    "Use ONLY this provided information. Adhere strictly to these guidelines:\n\n"
+    "**1. Sector Analysis (Tomorrow's Outlook):**\n"
+    "   - Begin by identifying 2-3 sectors from the 'Company Data Context' that exhibit the most significant positive or "
+    "     negative 'MacroSentiment score'.\n"
+    "   - For each identified sector, explain what its 'MacroSentiment score' might imply for its potential performance "
+    "     tomorrow. Relate this to the 'Overall Market Sentiment'.\n\n"
+    "**2. Specific Stock Analysis (Tomorrow's Outlook):**\n"
+    "   - **Crucially, if the 'User Query' mentions specific stocks by name or ticker, YOU MUST provide a direct and individual analysis for EACH of those stocks, provided their data is available in the 'Company Data Context'.**\n"
+    "   - After addressing any directly queried stocks, you can then discuss other companies, prioritizing those within the sectors you've just "
+    "     analyzed or others that seem particularly relevant based on their data.\n"
+    "   - For EACH stock you analyze (whether directly queried or chosen by you), provide a brief outlook for tomorrow. Your justification MUST holistically synthesize all relevant data points provided for that stock:\n"
+    "       a. The stock's individual sentiment scores (Positive, Neutral, Negative news counts).\n"
+    "       b. Its 'GrowthScore'.\n"
+    "       c. Its 'LSTM Next Day Close' price prediction (if available).\n"
+    "       d. The 'MacroSentiment score' of its sector.\n"
+    "       e. The context of the 'Overall Market Sentiment'.\n"
+    "   - Explicitly discuss how these factors (a-e) interact. For instance, note if they are aligned (e.g., positive stock sentiment, strong sector sentiment, bullish LSTM prediction, within a positive overall market) or if they present a mixed picture (e.g., good individual stock sentiment but a bearish LSTM prediction or weak sector sentiment).\n"
+    "   - **If some data points for a queried stock are neutral, minimal, or absent (e.g., news sentiment counts are all zero, or GrowthScore is close to zero), explicitly state this. Then, proceed to make your best assessment for that stock based on the remaining available data (e.g., its LSTM prediction, its sector's MacroSentiment, and the Overall Market Sentiment). Do NOT avoid analyzing a queried stock simply because some of its individual metrics are weak or neutral.**\n"
+    "   - Explain *why* the combination of available factors leads to your outlook for that stock.\n\n"
+    "**3. Addressing the User Query:**\n"
+    "   - Ensure your entire analysis is framed to comprehensively answer the 'User Query'.\n"
+    "   - **Reiterate: If the query asks about specific stocks, your primary goal is to provide a detailed analysis for THOSE stocks using the methodology outlined in section 2.**\n"
+    "   - If the query is general (e.g., 'market outlook'), the structured sector and stock analysis (focusing on high-signal companies) serves as your response.\n\n"
+    "**4. General Guidelines:**\n"
+    "   - Base all predictions and analyses exclusively on the provided 'Company Data Context' and 'Overall Market Sentiment'.\n"
+    "   - Do NOT use any external knowledge or real-time market data.\n"
+    "   - When making an inference, clearly state it's derived from the provided dataset.\n"
+    "   - **For any stock mentioned in the user query but NOT found in the 'Company Data Context', you MUST explicitly state that its specific data is not available in the current analysis dataset.** Do not attempt to infer its performance indirectly through other stocks unless clearly stating it's a broad sector observation.\n"
+    "   - If the 'Company Data Context' is empty, inform the user that no specific company data is available to perform the requested analysis."
+)
     prompt_lines.append("\nInstructions:\n" + instructions)
     return "\n".join(prompt_lines)
 
@@ -155,12 +157,14 @@ def get_openai_response(prompt_text):
         # Depending on desired behavior, could re-raise, return None, or a specific error message
         raise  # Re-raise for the main block to handle for now
 
-def prepare_llm_context_data(top_n=25):
+def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
     """
     Loads, processes, and filters data to prepare the context for the LLM.
-    Returns a tuple: (DataFrame of top N companies, qualitative market sentiment string).
+    Ensures companies mentioned in user_query are included.
+    Returns a tuple: (DataFrame of top N companies + queried companies, qualitative market sentiment string).
     """
-    logger.info("Loading data files for LLM context preparation...")
+    logger.info(f"Preparing LLM context for query: '{user_query}' with top_n={top_n}") # Updated log
+    # Construct paths relative to this script's location (scripts/)
     # Construct paths relative to this script's location (scripts/)
     # Data files are expected to be in ../data/
     current_dir = os.path.dirname(__file__)
@@ -246,54 +250,143 @@ def prepare_llm_context_data(top_n=25):
 
     # === Adjust growth score ===
     logger.debug("Calculating adjusted growth score.")
-    df["adjusted_growth_score"] = df["growth_score"].fillna(0) + df["macro_sentiment_score"] * 5
+    # Ensure relevant columns are numeric before arithmetic operations
+    df["macro_sentiment_score"] = pd.to_numeric(df["macro_sentiment_score"], errors='coerce').fillna(0)
+    df["growth_score"] = pd.to_numeric(df["growth_score"], errors='coerce').fillna(0)
+    df["adjusted_growth_score"] = df["growth_score"] + df["macro_sentiment_score"] * 5
 
-    # === Filter only top NASDAQ companies & remove NaN/zero scores ===
-    logger.info("Filtering and selecting top companies...")
-    nasdaq_companies = set(mapping_df["Company"].str.strip())
-    df = df[df["company"].isin(nasdaq_companies)]
-    df = df[df["growth_score"].notnull() & (df["growth_score"] != 0)]
+    # === Filter main df to include only companies present in the NASDAQ list ===
+    # This ensures all companies in 'df' are known entities from our primary reference (mapping_df).
+    logger.info("Filtering main DataFrame to include only companies from NASDAQ list.")
+    nasdaq_official_companies_set = set(mapping_df["Company"].str.strip())
+    df = df[df['company'].isin(nasdaq_official_companies_set)].copy() # Use .copy() to avoid SettingWithCopyWarning
+    logger.info(f"DataFrame reduced to {len(df)} rows after filtering by NASDAQ list.")
 
-    # === Select top companies ===
-    top_companies_df = df.sort_values(by="adjusted_growth_score", ascending=False).head(top_n)
+    # === Identify companies from user_query using the NASDAQ list for normalization ===
+    logger.info(f"Identifying companies from user query: '{user_query}'")
 
-    if top_companies_df.empty:
-        logger.warning("No companies found after filtering and ranking. LLM context will be empty.")
+    def robust_clean_name_for_matching(name):
+        if not isinstance(name, str): return ""
+        cleaned_name = name.lower()
+        cleaned_name = re.sub(r'[^\w\s.-]', '', cleaned_name)
+        suffixes = ['inc', 'corp', 'corporation', 'ltd', 'llc', 'co', 'company', 'plc', 'group',
+                    'holding', 'holdings', 'technologies', 'solutions', 'services', 'international']
+        for suffix in suffixes:
+            cleaned_name = re.sub(r'\b' + suffix + r'[.]?\b', '', cleaned_name, flags=re.IGNORECASE)
+        return ' '.join(cleaned_name.split()).strip()
+
+    query_to_official_map = {}
+    # Helper to get official name from mapping_df, ensures we use the exact name from the CSV
+    def get_official_name(ticker_or_common_name, default_if_not_found):
+        # Check if it's a ticker
+        ticker_match = mapping_df[mapping_df['Ticker'].str.fullmatch(ticker_or_common_name, case=False, na=False)]
+        if not ticker_match.empty:
+            return ticker_match['Company'].iloc[0]
+        # Check if it's a common name that needs to map to an official name (already handled by structure below)
+        # This is more for ensuring the default values are correct if a ticker isn't found for some reason.
+        return default_if_not_found
+
+    # Populate query_to_official_map with common names -> official names from mapping_df
+    common_name_mappings_tuples = [
+        ("google", "GOOGL", "Alphabet Inc. (Class A)"), # common, ticker, default official
+        ("alphabet", "GOOGL", "Alphabet Inc. (Class A)"),
+        ("apple", "AAPL", "Apple Inc."),
+        ("microsoft", "MSFT", "Microsoft Corporation"),
+        ("amazon", "AMZN", "Amazon.com, Inc."),
+        ("nvidia", "NVDA", "NVIDIA Corporation"),
+        ("meta", "META", "Meta Platforms, Inc."),
+        ("facebook", "META", "Meta Platforms, Inc."),
+        ("tesla", "TSLA", "Tesla, Inc.")
+    ]
+    for common, ticker_val, default_name in common_name_mappings_tuples:
+        query_to_official_map[common] = get_official_name(ticker_val, default_name)
+
+    # Add all tickers (lowercase) and cleaned official names (lowercase) from NASDAQ list
+    for _, row in mapping_df.iterrows():
+        official_name = row['Company']
+        ticker = row['Ticker']
+        if pd.notna(official_name):
+            cleaned_official = robust_clean_name_for_matching(official_name)
+            if cleaned_official and cleaned_official not in query_to_official_map:
+                query_to_official_map[cleaned_official] = official_name
+            if official_name.lower() not in query_to_official_map:
+                 query_to_official_map[official_name.lower()] = official_name
+        if pd.notna(ticker):
+            if ticker.lower() not in query_to_official_map:
+                query_to_official_map[ticker.lower()] = official_name # official_name here is from the current row
+
+    potential_queried_normalized_names = set()
+    cleaned_user_query = robust_clean_name_for_matching(user_query)
+    query_parts = cleaned_user_query.split()
+    max_n = 3
+    for n in range(max_n, 0, -1):
+        for i in range(len(query_parts) - n + 1):
+            ngram = " ".join(query_parts[i:i+n])
+            if ngram in query_to_official_map:
+                potential_queried_normalized_names.add(query_to_official_map[ngram])
+
+    logger.info(f"Normalized query terms to official company names: {potential_queried_normalized_names if potential_queried_normalized_names else 'None found'}")
+
+    queried_companies_data_df = pd.DataFrame()
+    if potential_queried_normalized_names:
+        # Filter the main 'df' (which is already filtered by NASDAQ list)
+        queried_companies_data_df = df[df['company'].isin(list(potential_queried_normalized_names))].copy()
+        logger.info(f"Found {len(queried_companies_data_df)} queried companies in the dataset.")
+        if not queried_companies_data_df.empty:
+            logger.debug(f"Data for queried companies:\n{queried_companies_data_df.to_string()}")
+
+    # === Select top N companies by score ===
+    # These are companies not necessarily in the query, selected by performance.
+    # Filter out companies with null or zero growth scores for this selection.
+    df_for_top_n_selection = df[df["growth_score"].notnull() & (df["growth_score"] != 0)].copy() # Use .copy()
+    top_n_by_score_df = df_for_top_n_selection.sort_values(by="adjusted_growth_score", ascending=False).head(top_n)
+    logger.info(f"Selected {len(top_n_by_score_df)} additional top companies by adjusted_growth_score.")
+
+    # === Combine top N with queried companies, ensuring no duplicates ===
+    if not queried_companies_data_df.empty:
+        final_context_df = pd.concat([top_n_by_score_df, queried_companies_data_df]).drop_duplicates(subset=['company']).reset_index(drop=True)
     else:
-        logger.info(f"Selected {len(top_companies_df)} top companies for LLM context.")
-        logger.debug(f"Top companies details for LLM:\n{top_companies_df.to_string()}")
+        final_context_df = top_n_by_score_df.reset_index(drop=True) # If no queried companies, top_n is final
 
-    # Get the overall market sentiment string
+    logger.info(f"Final LLM context will include {len(final_context_df)} unique companies (Top N by score + Queried).")
+
+    if final_context_df.empty:
+        logger.warning("LLM context is empty: No top companies met criteria and no queried companies identified/found in data.")
+    else:
+        # Sort the final list by adjusted_growth_score for consistent presentation in the prompt, if desired
+        final_context_df = final_context_df.sort_values(by="adjusted_growth_score", ascending=False).reset_index(drop=True)
+        logger.debug(f"Final companies for LLM context (sorted by score):\n{final_context_df.to_string()}")
+
     market_sentiment_str = get_qualitative_market_sentiment()
     logger.info(f"Overall market sentiment for LLM context: {market_sentiment_str}")
 
-    return top_companies_df, market_sentiment_str
+    return final_context_df, market_sentiment_str
 
 # === Main script execution starts here ===
 if __name__ == "__main__":
     try:
-        top_companies_df, market_sentiment_str = prepare_llm_context_data(top_n=25) # Adjusted to unpack two values
+        # Sample user query for testing
+        sample_user_query = "What's the market outlook for tomorrow? Highlight key sectors and specific stocks to watch, considering all available data. Any news on Google or Microsoft?"
+        # sample_user_query = "Any news on semiconductor stocks like Nvidia?"
+        # sample_user_query = "Tell me about TSLA and AAPL."
 
-        if top_companies_df.empty:
-            logger.warning("Pipeline did not identify any top companies based on current data. LLM will have limited context.")
+        logger.info(f"Using sample user query for main execution: \"{sample_user_query}\"")
+
+        # Pass user_query to prepare_llm_context_data
+        context_df, market_sentiment_str = prepare_llm_context_data(user_query=sample_user_query, top_n=25)
+
+        if context_df.empty:
+            logger.warning("Pipeline did not identify any top companies or queried companies based on current data. LLM will have limited context.")
             # Continue with an empty DataFrame, generate_dynamic_prompt will handle it.
 
         logger.info(f"Main test: Overall market sentiment: {market_sentiment_str}")
 
-        # Sample user query for testing
+        logger.info(f"Main test: Overall market sentiment: {market_sentiment_str}")
 
-        sample_user_query = "What's the market outlook for tomorrow? Highlight key sectors and specific stocks to watch, considering all available data."
-
-        # sample_user_query = "Any news on semiconductor stocks?"
-        logger.info(f"Using sample user query: \"{sample_user_query}\"")
-
-        # Generate the dynamic prompt
-        # Note: generate_dynamic_prompt currently only takes top_companies_df.
-        # If market_sentiment_str needs to be part of the prompt directly,
-        # that function would need to be updated. For now, it's just logged here.
-        dynamic_prompt = generate_dynamic_prompt(sample_user_query, top_companies_df, market_sentiment_str)
+        # Generate the dynamic prompt using the combined context_df
+        dynamic_prompt = generate_dynamic_prompt(sample_user_query, context_df, market_sentiment_str)
         logger.info("Generated Dynamic Prompt:")
-        logger.info(dynamic_prompt) # Using logger.info for multiline, could also just print
+        logger.info(dynamic_prompt)
 
         if not OPENAI_API_KEY:
             logger.warning("OPENAI_API_KEY not found. Skipping OpenAI API call and output file generation.")
