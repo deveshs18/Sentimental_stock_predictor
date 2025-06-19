@@ -66,6 +66,17 @@ def get_qualitative_market_sentiment():
         logger.error(f"Error reading or processing market sentiment data in stock_predictor: {e}", exc_info=True)
         return "Data not available"
 
+# Helper function for formatting values in the prompt
+def format_value_for_prompt(value):
+    if isinstance(value, str):
+        return value  # Return string indicators like "N/A (No Batch Data)" directly
+    if pd.notna(value):
+        try:
+            return f"{float(value):.2f}" # Ensure it's a float before formatting
+        except ValueError:
+            return str(value) # If it can't be float (e.g. already a different string), return as is
+    return "N/A" # For pd.NA or None
+
 def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentiment_string):
     """
     Generates a dynamic prompt for the LLM based on user query, company data, and overall market sentiment.
@@ -85,12 +96,15 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
             macro_sentiment_str = f"{macro_sentiment_val:.2f}" if pd.notna(macro_sentiment_val) else "N/A"
 
             line = (
-                f"- {row['company']}: Positive Sentiment={row['positive']:.2f}, Neutral Sentiment={row['neutral']:.2f}, "
-                f"Negative Sentiment={row['negative']:.2f}, GrowthScore={row['growth_score']:.2f}, "
-
-                f"MacroSentiment={macro_sentiment_str}, Sector={row['theme']}"
+                f"- {row['company']}: Positive Sentiment={format_value_for_prompt(row.get('positive'))}, Neutral Sentiment={format_value_for_prompt(row.get('neutral'))}, "
+                f"Negative Sentiment={format_value_for_prompt(row.get('negative'))}, GrowthScore={format_value_for_prompt(row.get('growth_score'))}, "
+                f"MacroSentiment={macro_sentiment_str}, Sector={row['theme']}" # macro_sentiment_str and theme are usually fine
             )
-            # Check if 'predicted_close_price' column exists and the value is not NaN
+            # Check if 'predicted_close_price' column exists and the value is not NaN or a placeholder string
+            # The format_value_for_prompt could be used here too if predicted_close_price could also be "N/A (No Batch Data)"
+            # However, current logic sets it to pd.NA for minimal entries if LSTM fails, which is handled by the existing pd.notna check.
+            # If LSTM on-demand consistently provides a float or pd.NA, existing check is fine.
+            # Let's assume predicted_close_price is either float or pd.NA from previous steps.
             if 'predicted_close_price' in row and pd.notna(row['predicted_close_price']):
                 line += f", LSTM Next Day Close: ${row['predicted_close_price']:.2f}"
             prompt_lines.append(line)
@@ -117,7 +131,7 @@ instructions = (
     "       d. The 'MacroSentiment score' of its sector.\n"
     "       e. The context of the 'Overall Market Sentiment'.\n"
     "   - Explicitly discuss how these factors (a-e) interact. For instance, note if they are aligned (e.g., positive stock sentiment, strong sector sentiment, bullish LSTM prediction, within a positive overall market) or if they present a mixed picture (e.g., good individual stock sentiment but a bearish LSTM prediction or weak sector sentiment).\n"
-    "   - **If some data points for a queried stock are neutral, minimal, or absent (e.g., news sentiment counts are all zero, or GrowthScore is close to zero), explicitly state this. Then, proceed to make your best assessment for that stock based on the remaining available data (e.g., its LSTM prediction, its sector's MacroSentiment, and the Overall Market Sentiment). Do NOT avoid analyzing a queried stock simply because some of its individual metrics are weak or neutral.**\n"
+    "   - **If some data points for a queried stock are neutral, minimal, absent (e.g., news sentiment counts are all zero, GrowthScore is close to zero, or key metrics like 'News Sentiment' or 'GrowthScore' are explicitly stated as 'N/A (No Batch Data)' or similar 'N/A' indicators), you MUST explicitly acknowledge this lack of specific batch-processed data. Then, proceed to make your best assessment for that stock based on the remaining available data (e.g., its LSTM prediction, its sector's MacroSentiment, and the Overall Market Sentiment). Do NOT avoid analyzing a queried stock simply because some of its individual metrics were not available from the batch news pipeline or are otherwise weak/neutral.**\n"
     "   - Explain *why* the combination of available factors leads to your outlook for that stock.\n\n"
     "**3. Addressing the User Query:**\n"
     "   - Ensure your entire analysis is framed to comprehensively answer the 'User Query'.\n"
@@ -201,6 +215,14 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
     growth_df = dfs["growth_df"]
     macro_df = dfs["macro_df"]
     mapping_df = dfs["mapping_df"]
+
+    # Standardize non-breaking spaces in 'Company' names in mapping_df
+    if 'Company' in mapping_df.columns:
+        mapping_df['Company'] = mapping_df['Company'].str.replace(' ', ' ', regex=False)
+        logger.info("Replaced non-breaking spaces in mapping_df['Company'] names.")
+    else:
+        logger.warning("'Company' column not found in mapping_df. Skipping non-breaking space replacement.")
+
 
     # === Clean column names ===
     logger.debug("Cleaning column names in mapping_df.")
@@ -291,39 +313,78 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
         ("google", "GOOGL", "Alphabet Inc. (Class A)"), # common, ticker, default official
         ("alphabet", "GOOGL", "Alphabet Inc. (Class A)"),
         ("apple", "AAPL", "Apple Inc."),
-        ("microsoft", "MSFT", "Microsoft Corporation"),
+        ("microsoft", "MSFT", "Microsoft Corporation"), # Default name if MSFT ticker not found
         ("amazon", "AMZN", "Amazon.com, Inc."),
         ("nvidia", "NVDA", "NVIDIA Corporation"),
         ("meta", "META", "Meta Platforms, Inc."),
         ("facebook", "META", "Meta Platforms, Inc."),
         ("tesla", "TSLA", "Tesla, Inc.")
     ]
+    logger.info(f"DEBUG: Initial common_name_mappings_tuples for Microsoft: {next(item for item in common_name_mappings_tuples if item[0] == 'microsoft')}")
     for common, ticker_val, default_name in common_name_mappings_tuples:
-        query_to_official_map[common] = get_official_name(ticker_val, default_name)
+        # get_official_name now uses mapping_df where 'Company' is already cleaned of non-breaking spaces
+        official_map_value = get_official_name(ticker_val, default_name)
+        query_to_official_map[common] = official_map_value
+        if common == "microsoft":
+            logger.info(f"DEBUG: Mapping for 'microsoft' (common name): Key='{common}', Value='{official_map_value}' (from get_official_name using Ticker: {ticker_val}, Default: {default_name})")
 
     # Add all tickers (lowercase) and cleaned official names (lowercase) from NASDAQ list
+    # mapping_df['Company'] has already been cleaned of non-breaking spaces at this point
     for _, row in mapping_df.iterrows():
-        official_name = row['Company']
+        official_name = row['Company'] # This is the cleaned name (regular spaces)
         ticker = row['Ticker']
+
+        # Debug logging for Microsoft specifically
+        is_microsoft_debug = False
+        if pd.notna(ticker) and ticker == 'MSFT':
+            is_microsoft_debug = True
+            logger.info(f"DEBUG: Processing MSFT row: Official Name='{official_name}', Ticker='{ticker}'")
+
         if pd.notna(official_name):
-            cleaned_official = robust_clean_name_for_matching(official_name)
+            cleaned_official = robust_clean_name_for_matching(official_name) # robust_clean also lowercases
             if cleaned_official and cleaned_official not in query_to_official_map:
                 query_to_official_map[cleaned_official] = official_name
+                if is_microsoft_debug:
+                    logger.info(f"DEBUG: MSFT mapping: Key (cleaned_official)='{cleaned_official}', Value='{official_name}'")
+
+            # Also add the lowercase version of the (already space-cleaned) official name as a key
+            # if it's not already there (e.g. covered by common_name or cleaned_official)
             if official_name.lower() not in query_to_official_map:
                  query_to_official_map[official_name.lower()] = official_name
+                 if is_microsoft_debug:
+                    logger.info(f"DEBUG: MSFT mapping: Key (official_name.lower())='{official_name.lower()}', Value='{official_name}'")
+
         if pd.notna(ticker):
             if ticker.lower() not in query_to_official_map:
-                query_to_official_map[ticker.lower()] = official_name # official_name here is from the current row
+                query_to_official_map[ticker.lower()] = official_name
+                if is_microsoft_debug:
+                    logger.info(f"DEBUG: MSFT mapping: Key (ticker.lower())='{ticker.lower()}', Value='{official_name}'")
+
+    logger.info(f"DEBUG: Query map contains MSFT ticker key ('msft'): {'msft' in query_to_official_map}, maps to: {query_to_official_map.get('msft')}")
+    logger.info(f"DEBUG: Query map contains 'microsoft' common key: {'microsoft' in query_to_official_map}, maps to: {query_to_official_map.get('microsoft')}")
+    # Log a few more cleaned keys for Microsoft if they exist
+    if 'microsoft corporation' in query_to_official_map: # Example of a cleaned name
+        logger.info(f"DEBUG: Query map contains 'microsoft corporation': maps to {query_to_official_map['microsoft corporation']}")
+    if 'microsoft corp' in query_to_official_map:
+        logger.info(f"DEBUG: Query map contains 'microsoft corp': maps to {query_to_official_map['microsoft corp']}")
+
 
     potential_queried_normalized_names = set()
-    cleaned_user_query = robust_clean_name_for_matching(user_query)
+    cleaned_user_query = robust_clean_name_for_matching(user_query) # e.g., "any news on google or microsoft"
     query_parts = cleaned_user_query.split()
+    logger.info(f"DEBUG: Cleaned user query: '{cleaned_user_query}', Query parts: {query_parts}")
     max_n = 3
     for n in range(max_n, 0, -1):
         for i in range(len(query_parts) - n + 1):
             ngram = " ".join(query_parts[i:i+n])
+            logger.debug(f"DEBUG: Checking ngram: '{ngram}'")
             if ngram in query_to_official_map:
-                potential_queried_normalized_names.add(query_to_official_map[ngram])
+                mapped_name = query_to_official_map[ngram]
+                potential_queried_normalized_names.add(mapped_name)
+                logger.info(f"DEBUG: Ngram match! Ngram='{ngram}', Mapped Official Name='{mapped_name}'. Added to potential_queried_normalized_names.")
+            # else: # Optional: log non-matches for very verbose debugging
+                # logger.debug(f"DEBUG: Ngram '{ngram}' not found in query_to_official_map.")
+
 
     logger.info(f"Normalized query terms to official company names: {potential_queried_normalized_names if potential_queried_normalized_names else 'None found'}")
 
@@ -396,19 +457,36 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
                 current_macro_score = macro_map.get(sector, 0.0)
                 if pd.isna(current_macro_score): current_macro_score = 0.0
 
-                minimal_data_dict = {col: pd.NA for col in df.columns}
+                na_batch_str = "N/A (No Batch Data)" # Define the placeholder string
+
+                minimal_data_dict = {col: pd.NA for col in df.columns} # Initialize with NA for all df columns
+
+                # Update with specific values for the minimal entry
                 minimal_data_dict.update({
                     'company': official_name,
                     'Ticker': ticker,
-                    'positive': 0, 'neutral': 0, 'negative': 0,
-                    'sum_sentiment': 0, 'news_count': 0,
-                    'growth_score': 0.0,
-                    'theme': sector,
-                    'macro_sentiment_score': current_macro_score,
+                    # Columns to be set to na_batch_str
+                    'positive': na_batch_str,
+                    'neutral': na_batch_str,
+                    'negative': na_batch_str,
+                    'sum_sentiment': na_batch_str, # Assuming this comes from batch news processing
+                    'news_count': na_batch_str,    # Assuming this comes from batch news processing
+                    'growth_score': na_batch_str,
+                    'adjusted_growth_score': na_batch_str, # Since growth_score is string
+
+                    # Columns with actual or derived values
+                    'theme': sector, # Derived from mapping_df
+                    'macro_sentiment_score': current_macro_score, # Derived from macro_map
+
+                    # Predicted close price will be from on-demand LSTM or pd.NA
                     'predicted_close_price': lstm_pred_on_demand if lstm_pred_on_demand is not None else pd.NA,
-                    'adjusted_growth_score': (0.0 + current_macro_score * 5)
+
+                    # Other columns from df structure will remain pd.NA unless explicitly set
+                    # e.g., 'date' from company_sentiment_normalized.csv would be pd.NA
                 })
-                current_stock_data_series = pd.Series({k: v for k, v in minimal_data_dict.items() if k in df.columns})
+
+                # Ensure only columns that exist in the main 'df' are included, maintaining original NA for unspecified ones
+                current_stock_data_series = pd.Series(minimal_data_dict).reindex(df.columns)
             else:
                 logger.warning(f"Skipping '{official_name}': Not found in batch data and no historical data file present (even after attempting fetch) or no ticker.")
 
