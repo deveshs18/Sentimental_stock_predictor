@@ -1,88 +1,113 @@
 company,negative,neutral,positive
-A24,0,1,0
-ACHR YOLO,0,1,0
-AI,1,0,0
-AMD,1,0,1
+ACBFF,0,0,1
+ACHR,0,1,0
+AI,0,0,2
+AMD,1,0,0
+AMD Chip,0,0,1
 AMD Soars,0,1,0
-Archer Announces,0,0,1
+APPS,0,0,1
+ASTS,0,0,1
+Airbus,0,0,1
+Amazon,0,0,2
+"Amedisys,",0,0,1
+"Amer Sports,",0,0,1
+Android,0,1,0
+Apple,0,1,0
 Archer Aviation,0,0,1
-BNTX,0,1,0
-BRKB V SP500,0,0,1
+Aurora Innovations,0,1,0
+AvalonBay Communities,0,1,0
+BCB Bancorp,0,0,1
+BVHBB,0,0,1
 BYDDY / BY6 - $,0,0,1
-Bazan,0,0,1
 Biotech,0,0,1
+Bird Construction,0,0,1
 Boeing,0,0,1
-Borderlands 4 Collector’s Edition,0,0,1
-Brokerage,0,0,1
-CHYM,0,0,1
+Brixmor Property Group,0,1,0
+Burger King,0,0,1
+CNBC,0,0,1
+CVB Financial,0,0,1
 Cactus Inc,0,1,0
 Canadian Raw Building Materials,0,0,1
-Chess,0,1,0
-Citigroup,0,0,1
-Collaborative Camp Snacks - Hello Fresh,0,0,1
-Dada Announces Completion of Going Private Transaction,0,0,1
-Digital Marketing,0,0,1
+Comparing Motorsport Games,0,0,1
+Comparing Retail Opportunity Investments,0,0,1
 Duolingo’s 20B+ Valuation,0,1,0
 EU,0,0,1
+EVERYTHING PUMP EXCEPT MY STOCK,0,0,1
+Eli Lilly Agrees,0,0,1
+Enphase Energy,0,1,0
 Eutelsat,0,0,1
-F,0,0,1
-Fleet Air Defense Role,0,1,0
-General Atomics,0,0,1
-Globus Maritime Limited Reports Financial Results,0,0,1
+FIFA Club World Cup Group Stage,0,0,1
+Fed,0,0,1
+Fiera Capital Co.,0,0,1
+GD,0,0,1
+Galaxy S25,0,0,1
+"Glacier Bancorp,",0,0,1
+Glenmark,1,0,0
+Globant S.A.,0,0,1
 Goldman Sachs,0,0,1
-Google,1,1,0
 IPO,0,0,1
-Industrial Trust,0,0,1
-IonQ,0,0,1
-JPMorgan,0,1,0
-Kimco Realty® Announces,0,0,1
-LMT,0,0,1
-Latest Google Home,0,0,1
-Marvel Mystic Mayhem Confirms,0,0,1
-Microsoft,1,0,3
-NBA Finals,0,1,0
-NVIDIA,0,0,1
-Nintendo Switch 2 Welcome,0,0,1
-Nvidia,0,1,1
+Inter,0,0,1
+Investing & Trying,0,0,1
+JMP Securities,0,1,0
+Jacobs Solutions,0,1,0
+KLA,0,1,0
+Kraken,1,0,0
+LULU,0,1,0
+MITSUMI,0,0,1
+MSFT,0,0,1
+Mercury Systems,0,0,1
+Microsoft & AMD,0,1,0
+Mitsubishi Motors,0,0,1
+Morgan Stanley Increases Automatic Data Processing,0,0,1
+NUVB,0,1,0
+NVIDIA,0,1,0
+NYSE,1,4,3
+OSCR  🚀,0,0,1
 Oakley,0,0,1
-Old Inland Steel Company,0,0,1
+"Ocular Therapeutix,",0,0,1
 Oracle,0,1,0
-PLBY Group,0,0,1
-PLTR,0,0,3
+PMCC,0,0,1
+Perpetua Resources Hosted,0,1,0
+"Perspective Therapeutics,",0,0,1
 PureCycle,0,1,0
 Quarter Milly,0,1,0
-ROSEN,0,0,1
-ROTH,0,0,1
+RIP GOOG LEAPS,0,0,1
 Recession-Proof Investing Strategy,0,0,1
-Release Date & More,0,0,1
-Release Times Revealed,0,0,1
+Rocket Pharmaceuticals,0,1,0
+Roku’s,0,1,0
+Roth Capital,0,1,0
+"RxSight,",0,0,1
+S&P500,0,0,1
+SAP,0,1,0
+SBUX,0,0,1
+SEED,0,1,0
 SGOV,0,0,1
 SMA,0,0,1
-SPY,1,0,1
+SPY,1,0,2
 SPY Credit Spreads,0,0,1
-Samsung One UI 8 Watch Update Brings New Health Metrics,0,0,1
-SaskTel,0,0,1
-Senate,0,0,1
+SPY Credit Spreads - Please Come Tell Me I Am Fully Regarded,0,0,1
+Samsung,0,1,0
+Sarepta Therapeutics,2,0,0
+Senate,0,0,2
+Slurrp Farm,0,1,0
+Sonicware,0,0,1
 Sunrun -35%,0,0,2
-TMC,0,1,1
+TMC,0,1,0
 TSMC,0,1,0
-The First Copy of Richie Mensah’s Book,0,0,1
-Thougts,0,1,0
-TikTok,0,0,1
-Trump,1,0,3
-Trump Organization,0,0,1
-Trump Rating Tracker,0,0,1
-Twice,0,0,1
-UNH,0,1,0
-US Steel Stock Rallies,0,0,1
+Taiwan Semiconductor Manufacturing,0,1,0
+Tamboran Resources Corporation,0,0,1
+Tech Picks - NVDA,0,1,0
+Tenet Healthcare Corporation,0,0,1
+Texas Instruments Unleashes,0,0,1
+Trump,1,0,4
+Trump Weighs Iran Options,0,0,1
+UGC NET,1,0,0
+UNH,0,0,1
+UTRS) & Brainsway,0,1,0
 VOO,0,0,1
-Vanguard Mutual Fund/Money Market Fund Help,0,0,1
-Vine Financial Secures Seed Funding for AI-Powered Commercial Lending Platform,0,0,1
-Visa Scandal Chaos,0,1,0
-WhatsApp,1,0,2
-YOLO,0,0,1
-Yale,0,0,1
-quantum,1,0,0
-r/Stocks Daily Discussion,0,0,1
+Verve,0,1,0
+Visa/Mastercard,1,0,0
+Voyager Technologies,0,0,1
+Wolfe Research Initiates Coverage,0,1,0
+hubstaff-mcp,0,0,1
 r/Stocks Daily Discussion & Technicals,0,0,1
-the Reuters Institute Digital News Report,0,0,1

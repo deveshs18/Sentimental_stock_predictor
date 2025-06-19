@@ -793,3 +793,419 @@
 2025-06-17 14:29:54,809 - INFO - Matched 'nan' to 'Analog Devices' with score 72
 2025-06-17 14:29:54,814 - INFO - Saved name mapping to data/company_name_mapping.csv
 2025-06-17 14:29:54,816 - INFO - Filtered out 23 records without valid company matches
+2025-06-19 00:33:59,454 - INFO - Loaded input files. Found 236 records and 101 NASDAQ companies.
+2025-06-19 00:33:59,457 - INFO - Starting company name normalization...
+2025-06-19 00:33:59,460 - INFO - Matched 'Investing & Trying' to 'Intel' with score 60
+2025-06-19 00:33:59,461 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,462 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,464 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,464 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,465 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,466 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,467 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,467 - INFO - Matched 'ASTS' to 'AstraZeneca' with score 77
+2025-06-19 00:33:59,468 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,469 - INFO - Matched 'PMCC' to 'Paccar' with score 68
+2025-06-19 00:33:59,469 - INFO - Matched 'RIP GOOG LEAPS' to 'ADP' with score 60
+2025-06-19 00:33:59,470 - INFO - Matched 'GD' to 'ASML Holding' with score 60
+2025-06-19 00:33:59,471 - INFO - Matched 'APPS' to 'Applied Materials' with score 77
+2025-06-19 00:33:59,474 - INFO - Matched 'Texas Instruments Unleashes' to 'Texas Instruments' with score 90
+2025-06-19 00:33:59,475 - INFO - Matched 'MSFT' to 'Microsoft' with score 68
+2025-06-19 00:33:59,476 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,476 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,477 - INFO - Matched 'Tech Picks - NVDA' to 'Nvidia' with score 72
+2025-06-19 00:33:59,598 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,599 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,600 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,601 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,603 - INFO - Matched 'SPY' to 'Synopsys' with score 72
+2025-06-19 00:33:59,604 - INFO - Matched 'Visa/Mastercard' to 'Comcast' with score 62
+2025-06-19 00:33:59,604 - INFO - Matched 'UNH' to 'Baker Hughes' with score 60
+2025-06-19 00:33:59,605 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,606 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,607 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,608 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,610 - INFO - Matched 'Verve' to 'Vertex Pharmaceuticals' with score 72
+2025-06-19 00:33:59,611 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,611 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,612 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,615 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,616 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,617 - INFO - Matched 'LULU' to 'Lululemon' with score 90
+2025-06-19 00:33:59,617 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,618 - INFO - Matched 'TMC' to 'Align Technology' with score 60
+2025-06-19 00:33:59,619 - INFO - Matched 'AMD' to 'Adobe Inc.' with score 72
+2025-06-19 00:33:59,619 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,621 - INFO - Matched 'Fed' to 'Advanced Micro Devices Inc.' with score 60
+2025-06-19 00:33:59,622 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,623 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,624 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,625 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,626 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,627 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,628 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:33:59,628 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,628 - INFO - Matched 'AI' to 'Airbnb' with score 90
+2025-06-19 00:33:59,629 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,631 - INFO - Matched 'CNBC' to 'Airbnb' with score 60
+2025-06-19 00:33:59,631 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,631 - INFO - Matched 'AI' to 'Airbnb' with score 90
+2025-06-19 00:33:59,632 - INFO - Matched 'Android' to 'ADP' with score 60
+2025-06-19 00:33:59,632 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,634 - INFO - Matched 'Sonicware' to 'Electronic Arts' with score 60
+2025-06-19 00:33:59,634 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,635 - INFO - Matched 'FIFA Club World Cup Group Stage' to 'Amgen' with score 68
+2025-06-19 00:33:59,635 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,635 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,637 - INFO - Matched 'Mercury Systems' to 'Cadence Design Systems' with score 60
+2025-06-19 00:33:59,638 - INFO - Matched 'Galaxy S25' to 'KLA Corporation' with score 60
+2025-06-19 00:33:59,639 - INFO - Matched 'Glenmark' to 'Amgen' with score 60
+2025-06-19 00:33:59,639 - INFO - Matched 'AvalonBay Communities' to 'eBay' with score 68
+2025-06-19 00:33:59,640 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:33:59,640 - INFO - Matched 'Taiwan Semiconductor Manufacturing' to 'Atlassian' with score 60
+2025-06-19 00:33:59,641 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,641 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,642 - INFO - Matched 'NUVB' to 'Airbnb' with score 60
+2025-06-19 00:33:59,643 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:33:59,644 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,644 - INFO - Matched 'SAP' to 'Apple Inc.' with score 72
+2025-06-19 00:33:59,645 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,646 - INFO - Matched 'Comparing Motorsport Games' to 'Copart' with score 75
+2025-06-19 00:33:59,647 - INFO - Matched 'Sarepta Therapeutics' to 'CSX Corporation' with score 72
+2025-06-19 00:33:59,648 - INFO - Matched 'Sarepta Therapeutics' to 'CSX Corporation' with score 72
+2025-06-19 00:33:59,648 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:33:59,649 - INFO - Matched 'Airbus' to 'Airbnb' with score 67
+2025-06-19 00:33:59,649 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,649 - INFO - Matched 'UTRS) & Brainsway' to 'eBay' with score 60
+2025-06-19 00:33:59,650 - INFO - Matched 'Mitsubishi Motors' to 'Lucid Motors' with score 63
+2025-06-19 00:33:59,651 - INFO - Matched 'Tamboran Resources Corporation' to 'CSX Corporation' with score 60
+2025-06-19 00:33:59,651 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:33:59,652 - INFO - Matched 'MITSUMI' to 'Intuit' with score 62
+2025-06-19 00:33:59,652 - INFO - Matched 'SEED' to 'Enphase Energy' with score 68
+2025-06-19 00:33:59,653 - INFO - Matched 'Kraken' to 'AstraZeneca' with score 60
+2025-06-19 00:33:59,655 - INFO - Matched 'Brixmor Property Group' to 'Copart' with score 60
+2025-06-19 00:33:59,656 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,657 - INFO - Matched 'Fiera Capital Co.' to 'Fiserv' with score 72
+2025-06-19 00:33:59,657 - INFO - Matched 'Amedisys, Inc.' to 'Amgen' with score 68
+2025-06-19 00:33:59,660 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:33:59,661 - INFO - Matched 'Comparing Retail Opportunity Investments' to 'Copart' with score 75
+2025-06-19 00:33:59,661 - INFO - Matched 'Glacier Bancorp, Inc.' to 'KLA Corporation' with score 60
+2025-06-19 00:33:59,661 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,662 - INFO - Matched 'RxSight, Inc.' to 'Old Dominion Freight Line' with score 64
+2025-06-19 00:33:59,663 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:33:59,664 - INFO - Matched 'Perspective Therapeutics, Inc.' to 'Vertex Pharmaceuticals' with score 61
+2025-06-19 00:33:59,665 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:33:59,665 - INFO - Matched 'Ocular Therapeutix, Inc.' to 'ADP' with score 60
+2025-06-19 00:33:59,666 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,666 - INFO - Matched 'Bird Construction Inc.' to 'CoStar Group' with score 75
+2025-06-19 00:33:59,668 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,668 - INFO - Matched 'Amer Sports, Inc.' to 'Amgen' with score 68
+2025-06-19 00:33:59,669 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,669 - INFO - Matched 'AI' to 'Airbnb' with score 90
+2025-06-19 00:33:59,669 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,670 - INFO - Matched 'Fire TV' to 'Fiserv' with score 62
+2025-06-19 00:33:59,672 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,674 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,674 - INFO - Matched 'NYSEARCA' to 'Ansys' with score 68
+2025-06-19 00:33:59,675 - INFO - Matched 'Rodrygo, Mbappe, Vinicius, Modric' to 'Apple Inc.' with score 72
+2025-06-19 00:33:59,677 - INFO - Matched 'Sampo Group' to 'ADP' with score 60
+2025-06-19 00:33:59,677 - INFO - Matched 'Redmi Pad 2' to 'ADP' with score 60
+2025-06-19 00:33:59,677 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,677 - INFO - Matched 'AI' to 'Airbnb' with score 90
+2025-06-19 00:33:59,679 - INFO - Matched 'AEON' to 'Amazon' with score 68
+2025-06-19 00:33:59,680 - INFO - Matched 'Ernexa Therapeutics' to 'CSX Corporation' with score 72
+2025-06-19 00:33:59,682 - INFO - Matched 'Horizons Intl Developed Markets Equity' to 'Intel' with score 72
+2025-06-19 00:33:59,682 - INFO - Matched 'Coveo Solutions' to 'Zoom Video Communications' with score 60
+2025-06-19 00:33:59,683 - INFO - Matched 'bioAffinity Technologies' to 'Intuit' with score 65
+2025-06-19 00:33:59,684 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,685 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,685 - INFO - Matched 'Global Blockchain Acquisition' to 'Biogen' with score 60
+2025-06-19 00:33:59,686 - INFO - Matched 'Esports Entertainment Group' to 'Amgen' with score 60
+2025-06-19 00:33:59,686 - INFO - Matched 'Kao Co.' to 'KLA Corporation' with score 67
+2025-06-19 00:33:59,688 - INFO - Matched 'Vor Biopharma Inc.' to 'Vertex Pharmaceuticals' with score 62
+2025-06-19 00:33:59,690 - INFO - Matched 'T. Rowe Price Floating Rate' to 'T-Mobile US' with score 86
+2025-06-19 00:33:59,691 - INFO - Matched 'Trump Media & Technology Group Corp.' to 'Align Technology' with score 73
+2025-06-19 00:33:59,692 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,693 - INFO - Matched 'Society Pass' to 'Ansys' with score 68
+2025-06-19 00:33:59,694 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,695 - INFO - Matched 'KLRS' to 'Applied Materials' with score 60
+2025-06-19 00:33:59,695 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,698 - INFO - Matched 'ACHR' to 'Charter Communications' with score 68
+2025-06-19 00:33:59,698 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,698 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,702 - INFO - Matched 'SPY' to 'Synopsys' with score 72
+2025-06-19 00:33:59,702 - INFO - Matched 'Burger King' to 'Booking Holdings' with score 65
+2025-06-19 00:33:59,704 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,706 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,708 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,709 - INFO - Matched 'Microsoft & AMD' to 'Microsoft' with score 95
+2025-06-19 00:33:59,710 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,711 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,711 - INFO - Matched 'Boeing' to 'Booking Holdings' with score 77
+2025-06-19 00:33:59,714 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,714 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,716 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,717 - INFO - Matched 'Cactus Inc' to 'Activision Blizzard' with score 60
+2025-06-19 00:33:59,718 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,718 - INFO - Matched 'SGOV' to 'Warner Bros. Discovery' with score 68
+2025-06-19 00:33:59,719 - INFO - Matched 'SPY Credit Spreads' to 'ADP' with score 60
+2025-06-19 00:33:59,720 - INFO - Matched 'Oakley' to 'eBay' with score 60
+2025-06-19 00:33:59,721 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,724 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,725 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,726 - INFO - Matched 'Trump' to 'Texas Instruments' with score 72
+2025-06-19 00:33:59,727 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,727 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,728 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,728 - INFO - Matched 'Duolingo’s 20B+ Valuation' to 'Biogen' with score 60
+2025-06-19 00:33:59,729 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,731 - INFO - Matched 'Biotech' to 'Microchip Technology' with score 64
+2025-06-19 00:33:59,732 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,732 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,733 - INFO - Matched 'SPY' to 'Synopsys' with score 72
+2025-06-19 00:33:59,734 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,735 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,736 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,736 - INFO - Matched 'Oracle' to 'Vertex Pharmaceuticals' with score 60
+2025-06-19 00:33:59,736 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,737 - INFO - Matched 'TSMC' to 'Electronic Arts' with score 60
+2025-06-19 00:33:59,740 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,741 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,742 - INFO - Matched 'IPO' to 'Activision Blizzard' with score 60
+2025-06-19 00:33:59,743 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,744 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,744 - INFO - Matched 'Eutelsat' to 'Tesla, Inc.' with score 72
+2025-06-19 00:33:59,744 - INFO - Matched 'BYDDY / BY6 - $' to 'eBay' with score 60
+2025-06-19 00:33:59,745 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,745 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,747 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,747 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,748 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,748 - INFO - Matched 'Canadian Raw Building Materials' to 'Applied Materials' with score 86
+2025-06-19 00:33:59,748 - INFO - Matched 'Senate' to 'Seagen' with score 67
+2025-06-19 00:33:59,749 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,749 - INFO - Matched 'Trump' to 'Texas Instruments' with score 72
+2025-06-19 00:33:59,750 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,751 - INFO - Matched 'AMD Soars' to 'ADP' with score 60
+2025-06-19 00:33:59,751 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,752 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,752 - INFO - Matched 'Trump' to 'Texas Instruments' with score 72
+2025-06-19 00:33:59,753 - INFO - Matched 'SMA' to 'Marriott International' with score 72
+2025-06-19 00:33:59,753 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,754 - INFO - Matched 'VOO' to 'Align Technology' with score 60
+2025-06-19 00:33:59,755 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,755 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,756 - INFO - Matched 'Archer Aviation' to 'Biogen' with score 60
+2025-06-19 00:33:59,756 - INFO - Matched 'Goldman Sachs' to 'CSX Corporation' with score 60
+2025-06-19 00:33:59,757 - INFO - Matched 'EU' to 'Adobe Inc.' with score 60
+2025-06-19 00:33:59,757 - INFO - Matched 'Trump' to 'Texas Instruments' with score 72
+2025-06-19 00:33:59,758 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,759 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:33:59,765 - INFO - Saved name mapping to data/company_name_mapping.csv
+2025-06-19 00:33:59,767 - INFO - Filtered out 25 records without valid company matches
+2025-06-19 00:39:54,964 - INFO - Loaded input files. Found 235 records and 101 NASDAQ companies.
+2025-06-19 00:39:54,966 - INFO - Starting company name normalization...
+2025-06-19 00:39:54,966 - INFO - Matched 'Investing & Trying' to 'Intel' with score 60
+2025-06-19 00:39:54,968 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:54,969 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:54,969 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:54,971 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:54,971 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:54,972 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:54,973 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:54,973 - INFO - Matched 'ASTS' to 'AstraZeneca' with score 77
+2025-06-19 00:39:54,975 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:54,975 - INFO - Matched 'PMCC' to 'Paccar' with score 68
+2025-06-19 00:39:54,976 - INFO - Matched 'RIP GOOG LEAPS' to 'ADP' with score 60
+2025-06-19 00:39:54,977 - INFO - Matched 'GD' to 'ASML Holding' with score 60
+2025-06-19 00:39:54,977 - INFO - Matched 'APPS' to 'Applied Materials' with score 77
+2025-06-19 00:39:54,979 - INFO - Matched 'Texas Instruments Unleashes' to 'Texas Instruments' with score 90
+2025-06-19 00:39:54,981 - INFO - Matched 'MSFT' to 'Microsoft' with score 68
+2025-06-19 00:39:54,981 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:54,982 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:54,986 - INFO - Matched 'Tech Picks - NVDA' to 'Nvidia' with score 72
+2025-06-19 00:39:54,999 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,002 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,002 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,003 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,006 - INFO - Matched 'SPY' to 'Synopsys' with score 72
+2025-06-19 00:39:55,006 - INFO - Matched 'Visa/Mastercard' to 'Comcast' with score 62
+2025-06-19 00:39:55,007 - INFO - Matched 'UNH' to 'Baker Hughes' with score 60
+2025-06-19 00:39:55,007 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,008 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,009 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,009 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,011 - INFO - Matched 'Verve' to 'Vertex Pharmaceuticals' with score 72
+2025-06-19 00:39:55,012 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,013 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,014 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,014 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,014 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,015 - INFO - Matched 'LULU' to 'Lululemon' with score 90
+2025-06-19 00:39:55,016 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,018 - INFO - Matched 'TMC' to 'Align Technology' with score 60
+2025-06-19 00:39:55,019 - INFO - Matched 'AMD' to 'Adobe Inc.' with score 72
+2025-06-19 00:39:55,020 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,022 - INFO - Matched 'Fed' to 'Advanced Micro Devices Inc.' with score 60
+2025-06-19 00:39:55,023 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,023 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,023 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,024 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,024 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,024 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,025 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,027 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,027 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,029 - INFO - Matched 'Inter' to 'Intel' with score 80
+2025-06-19 00:39:55,030 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,030 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,032 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,032 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,033 - INFO - Matched 'Roth Capital' to 'ADP' with score 60
+2025-06-19 00:39:55,036 - INFO - Matched 'Wolfe Research Initiates Coverage' to 'Lam Research' with score 86
+2025-06-19 00:39:55,036 - INFO - Matched 'Roku’s' to 'Palo Alto Networks' with score 60
+2025-06-19 00:39:55,037 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,039 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,039 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,040 - INFO - Matched 'Morgan Stanley Increases Automatic Data Processing' to 'Moderna' with score 60
+2025-06-19 00:39:55,040 - INFO - Matched 'Rocket Pharmaceuticals' to 'Vertex Pharmaceuticals' with score 82
+2025-06-19 00:39:55,041 - INFO - Matched 'JMP Securities' to 'Tesla, Inc.' with score 60
+2025-06-19 00:39:55,042 - INFO - Matched 'AMD Chip' to 'ADP' with score 60
+2025-06-19 00:39:55,044 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,045 - INFO - Matched 'Trump' to 'Texas Instruments' with score 72
+2025-06-19 00:39:55,045 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,047 - INFO - Matched 'Senate' to 'Seagen' with score 67
+2025-06-19 00:39:55,048 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,048 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,049 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:39:55,049 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,051 - INFO - Matched 'AI' to 'Airbnb' with score 90
+2025-06-19 00:39:55,052 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,052 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,053 - INFO - Matched 'CNBC' to 'Airbnb' with score 60
+2025-06-19 00:39:55,056 - INFO - Matched 'FIFA Club World Cup Group Stage' to 'Amgen' with score 68
+2025-06-19 00:39:55,057 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,060 - INFO - Matched 'Sonicware' to 'Electronic Arts' with score 60
+2025-06-19 00:39:55,060 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,061 - INFO - Matched 'Android' to 'ADP' with score 60
+2025-06-19 00:39:55,061 - INFO - Matched 'AI' to 'Airbnb' with score 90
+2025-06-19 00:39:55,063 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,065 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,065 - INFO - Matched 'Mercury Systems' to 'Cadence Design Systems' with score 60
+2025-06-19 00:39:55,067 - INFO - Matched 'Galaxy S25' to 'KLA Corporation' with score 60
+2025-06-19 00:39:55,069 - INFO - Matched 'Glenmark' to 'Amgen' with score 60
+2025-06-19 00:39:55,070 - INFO - Matched 'AvalonBay Communities' to 'eBay' with score 68
+2025-06-19 00:39:55,072 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,073 - INFO - Matched 'Taiwan Semiconductor Manufacturing' to 'Atlassian' with score 60
+2025-06-19 00:39:55,073 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:39:55,076 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,077 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:39:55,078 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,078 - INFO - Matched 'NUVB' to 'Airbnb' with score 60
+2025-06-19 00:39:55,081 - INFO - Matched 'SAP' to 'Apple Inc.' with score 72
+2025-06-19 00:39:55,082 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,082 - INFO - Matched 'Comparing Motorsport Games' to 'Copart' with score 75
+2025-06-19 00:39:55,083 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:39:55,085 - INFO - Matched 'Sarepta Therapeutics' to 'CSX Corporation' with score 72
+2025-06-19 00:39:55,085 - INFO - Matched 'Sarepta Therapeutics' to 'CSX Corporation' with score 72
+2025-06-19 00:39:55,086 - INFO - Matched 'Airbus' to 'Airbnb' with score 67
+2025-06-19 00:39:55,086 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,089 - INFO - Matched 'UTRS) & Brainsway' to 'eBay' with score 60
+2025-06-19 00:39:55,090 - INFO - Matched 'Mitsubishi Motors' to 'Lucid Motors' with score 63
+2025-06-19 00:39:55,092 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:39:55,093 - INFO - Matched 'MITSUMI' to 'Intuit' with score 62
+2025-06-19 00:39:55,094 - INFO - Matched 'Tamboran Resources Corporation' to 'CSX Corporation' with score 60
+2025-06-19 00:39:55,094 - INFO - Matched 'SEED' to 'Enphase Energy' with score 68
+2025-06-19 00:39:55,095 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,096 - INFO - Matched 'Kraken' to 'AstraZeneca' with score 60
+2025-06-19 00:39:55,097 - INFO - Matched 'Brixmor Property Group' to 'Copart' with score 60
+2025-06-19 00:39:55,099 - INFO - Matched 'Fiera Capital Co.' to 'Fiserv' with score 72
+2025-06-19 00:39:55,100 - INFO - Matched 'Amedisys, Inc.' to 'Amgen' with score 68
+2025-06-19 00:39:55,100 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:39:55,101 - INFO - Matched 'Glacier Bancorp, Inc.' to 'KLA Corporation' with score 60
+2025-06-19 00:39:55,102 - INFO - Matched 'Comparing Retail Opportunity Investments' to 'Copart' with score 75
+2025-06-19 00:39:55,103 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,103 - INFO - Matched 'Perspective Therapeutics, Inc.' to 'Vertex Pharmaceuticals' with score 61
+2025-06-19 00:39:55,104 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:39:55,105 - INFO - Matched 'RxSight, Inc.' to 'Old Dominion Freight Line' with score 64
+2025-06-19 00:39:55,106 - INFO - Matched 'NYSE' to 'Cadence Design Systems' with score 68
+2025-06-19 00:39:55,107 - INFO - Matched 'Ocular Therapeutix, Inc.' to 'ADP' with score 60
+2025-06-19 00:39:55,109 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,110 - INFO - Matched 'Bird Construction Inc.' to 'CoStar Group' with score 75
+2025-06-19 00:39:55,111 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,113 - INFO - Matched 'Amer Sports, Inc.' to 'Amgen' with score 68
+2025-06-19 00:39:55,113 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,114 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,115 - INFO - Matched 'ACHR' to 'Charter Communications' with score 68
+2025-06-19 00:39:55,115 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,115 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,117 - INFO - Matched 'SPY' to 'Synopsys' with score 72
+2025-06-19 00:39:55,118 - INFO - Matched 'Burger King' to 'Booking Holdings' with score 65
+2025-06-19 00:39:55,118 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,119 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,120 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,122 - INFO - Matched 'Microsoft & AMD' to 'Microsoft' with score 95
+2025-06-19 00:39:55,122 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,123 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,124 - INFO - Matched 'Boeing' to 'Booking Holdings' with score 77
+2025-06-19 00:39:55,125 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,127 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,127 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,128 - INFO - Matched 'Cactus Inc' to 'Activision Blizzard' with score 60
+2025-06-19 00:39:55,129 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,130 - INFO - Matched 'SGOV' to 'Warner Bros. Discovery' with score 68
+2025-06-19 00:39:55,131 - INFO - Matched 'SPY Credit Spreads' to 'ADP' with score 60
+2025-06-19 00:39:55,132 - INFO - Matched 'Oakley' to 'eBay' with score 60
+2025-06-19 00:39:55,132 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,133 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,134 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,135 - INFO - Matched 'Trump' to 'Texas Instruments' with score 72
+2025-06-19 00:39:55,136 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,137 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,137 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,138 - INFO - Matched 'Duolingo’s 20B+ Valuation' to 'Biogen' with score 60
+2025-06-19 00:39:55,138 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,139 - INFO - Matched 'Biotech' to 'Microchip Technology' with score 64
+2025-06-19 00:39:55,140 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,140 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,141 - INFO - Matched 'SPY' to 'Synopsys' with score 72
+2025-06-19 00:39:55,143 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,144 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,145 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,146 - INFO - Matched 'Oracle' to 'Vertex Pharmaceuticals' with score 60
+2025-06-19 00:39:55,147 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,148 - INFO - Matched 'TSMC' to 'Electronic Arts' with score 60
+2025-06-19 00:39:55,149 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,151 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,152 - INFO - Matched 'IPO' to 'Activision Blizzard' with score 60
+2025-06-19 00:39:55,153 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,153 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,154 - INFO - Matched 'Eutelsat' to 'Tesla, Inc.' with score 72
+2025-06-19 00:39:55,155 - INFO - Matched 'BYDDY / BY6 - $' to 'eBay' with score 60
+2025-06-19 00:39:55,157 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,157 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,159 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,160 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,161 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,162 - INFO - Matched 'Canadian Raw Building Materials' to 'Applied Materials' with score 86
+2025-06-19 00:39:55,163 - INFO - Matched 'Senate' to 'Seagen' with score 67
+2025-06-19 00:39:55,164 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,164 - INFO - Matched 'Trump' to 'Texas Instruments' with score 72
+2025-06-19 00:39:55,164 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,166 - INFO - Matched 'AMD Soars' to 'ADP' with score 60
+2025-06-19 00:39:55,167 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,168 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,169 - INFO - Matched 'Trump' to 'Texas Instruments' with score 72
+2025-06-19 00:39:55,170 - INFO - Matched 'SMA' to 'Marriott International' with score 72
+2025-06-19 00:39:55,170 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,172 - INFO - Matched 'VOO' to 'Align Technology' with score 60
+2025-06-19 00:39:55,173 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,173 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,174 - INFO - Matched 'Archer Aviation' to 'Biogen' with score 60
+2025-06-19 00:39:55,176 - INFO - Matched 'Goldman Sachs' to 'CSX Corporation' with score 60
+2025-06-19 00:39:55,177 - INFO - Matched 'EU' to 'Adobe Inc.' with score 60
+2025-06-19 00:39:55,177 - INFO - Matched 'Trump' to 'Texas Instruments' with score 72
+2025-06-19 00:39:55,177 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,180 - INFO - Matched 'nan' to 'Analog Devices' with score 72
+2025-06-19 00:39:55,186 - INFO - Saved name mapping to data/company_name_mapping.csv
+2025-06-19 00:39:55,190 - INFO - Filtered out 26 records without valid company matches

@@ -5,17 +5,25 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from torch.nn.functional import softmax
 from dotenv import load_dotenv
 import logging
+import sys
 
-# Set up logging
-os.makedirs('../logs', exist_ok=True) # Create top-level logs directory
+# Set up logging with Windows compatibility
+os.makedirs('logs', exist_ok=True)  # Local logs directory
 log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-logging.basicConfig(level=logging.INFO, format=log_format)
 
-# Get root logger and add FileHandler
+# Configure root logger
 root_logger = logging.getLogger()
-file_handler = logging.FileHandler('../logs/sentiment_analysis.log', mode='w')
+root_logger.setLevel(logging.INFO)
+
+# Add file handler with UTF-8 encoding
+file_handler = logging.FileHandler('logs/sentiment_analysis.log', mode='w', encoding='utf-8')
 file_handler.setFormatter(logging.Formatter(log_format))
 root_logger.addHandler(file_handler)
+
+# Add console handler that can handle Unicode
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(logging.Formatter(log_format))
+root_logger.addHandler(console_handler)
 
 logger = logging.getLogger(__name__)
 
@@ -66,20 +74,25 @@ def run_sentiment_analysis(input_csv, output_csv):
         result_df = pd.DataFrame(results)
         os.makedirs("data", exist_ok=True)
         result_df.to_csv(output_csv, index=False)
-        logger.info(f"✅ Saved sentiment results → {output_csv}")
+        logger.info(f"[SUCCESS] Saved sentiment results → {output_csv}")
     except Exception as e:
         logger.error(f"Error during sentiment analysis: {e}", exc_info=True)
         raise
 
 if __name__ == "__main__":
+    # Set console output to UTF-8 on Windows
+    if sys.platform == "win32":
+        import io
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+
     input_file = "data/merged_sentiment_output_with_companies.csv"
     output_file = "data/merged_sentiment_output_with_companies_and_sentiment.csv"
 
     logger.info(f"Starting sentiment analysis for input: {input_file}, output: {output_file}")
     try:
-        # Check if input file exists and is not empty, handled in run_sentiment_analysis
         run_sentiment_analysis(input_file, output_file)
-        logger.info("Sentiment analysis script finished.")
+        logger.info("Sentiment analysis script finished successfully.")
     except FileNotFoundError:
         logger.error(f"Input file not found: {input_file}. Please ensure previous steps ran successfully.")
     except Exception as e:
