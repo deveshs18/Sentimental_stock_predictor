@@ -327,13 +327,108 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
 
     logger.info(f"Normalized query terms to official company names: {potential_queried_normalized_names if potential_queried_normalized_names else 'None found'}")
 
-    queried_companies_data_df = pd.DataFrame()
+    data_for_queried_companies = []
+    # Define expected columns based on the fully processed 'df' structure later,
+    # or a predefined list if 'df' could be empty at this stage.
+    # For now, 'df.columns' will be used once 'df' is fully processed.
+
     if potential_queried_normalized_names:
-        # Filter the main 'df' (which is already filtered by NASDAQ list)
-        queried_companies_data_df = df[df['company'].isin(list(potential_queried_normalized_names))].copy()
-        logger.info(f"Found {len(queried_companies_data_df)} queried companies in the dataset.")
-        if not queried_companies_data_df.empty:
-            logger.debug(f"Data for queried companies:\n{queried_companies_data_df.to_string()}")
+        for official_name in potential_queried_normalized_names:
+            current_stock_data_series = None
+            ticker = None # Initialize ticker for this scope
+
+            # Try to get ticker first, as it's needed for LSTM and potentially for minimal data historical check
+            ticker_series = mapping_df.loc[mapping_df['Company'] == official_name, 'Ticker']
+            if not ticker_series.empty and pd.notna(ticker_series.iloc[0]):
+                ticker = ticker_series.iloc[0]
+            else:
+                logger.warning(f"No ticker found for '{official_name}' in NASDAQ list. Cannot perform on-demand LSTM or ensure historical data presence for minimal entry.")
+                # Decide if we should still attempt to create a minimal entry without a ticker, or skip.
+                # For now, we will skip if no ticker, as LSTM is a key part of this integration.
+                # If a minimal entry without LSTM was desired, logic could be different.
+
+            lstm_pred_on_demand = None
+            if ticker: # Only proceed if ticker is valid
+                # Check for historical data for the ticker (and fetch if missing)
+                # This re-uses logic from previous subtask (Phase 1 historical data fetch)
+                historical_data_path = os.path.join("data/historical_prices/", f"{ticker.upper()}.csv")
+                if not os.path.exists(historical_data_path):
+                    logger.info(f"Historical data file not found for {ticker} at {historical_data_path}. Attempting to fetch on-demand (Phase 1 type fetch).")
+                    try:
+                        # This is the historical prices fetch, not LSTM model training
+                        # from scripts.fetch_historical_prices import fetch_single_stock_data <- ensure this is imported
+                        fetched_hist_path = fetch_single_stock_data(ticker)
+                        if fetched_hist_path:
+                            logger.info(f"Successfully fetched historical price data for {ticker} to {fetched_hist_path}.")
+                        else:
+                            logger.warning(f"Failed to fetch historical price data for {ticker} on-demand.")
+                    except Exception as e:
+                        logger.error(f"Error during on-demand historical price data fetch for {ticker}: {e}", exc_info=True)
+
+                # Now, attempt on-demand LSTM prediction/training
+                try:
+                    logger.info(f"Attempting on-demand LSTM prediction/training for {ticker}...")
+                    # from scripts.lstm_stock_predictor import get_or_train_lstm_for_stock <- ensure this is imported
+                    lstm_pred_on_demand = get_or_train_lstm_for_stock(ticker, training_epochs=10) # Using 10 epochs for on-demand
+                    if lstm_pred_on_demand is not None:
+                        logger.info(f"On-demand LSTM prediction for {ticker}: {lstm_pred_on_demand:.2f}")
+                    else:
+                        logger.warning(f"On-demand LSTM prediction/training for {ticker} returned None.")
+                except Exception as e:
+                    logger.error(f"Error calling get_or_train_lstm_for_stock for {ticker}: {e}", exc_info=True)
+
+            # Check if company data is in the main batch-processed df
+            company_data_from_main_df_row = df[df['company'] == official_name]
+
+            if not company_data_from_main_df_row.empty:
+                current_stock_data_series = company_data_from_main_df_row.iloc[0].copy()
+                if lstm_pred_on_demand is not None:
+                    current_stock_data_series['predicted_close_price'] = lstm_pred_on_demand
+                    logger.info(f"Updated LSTM prediction for batch-processed '{official_name}' with on-demand value: {lstm_pred_on_demand:.2f}")
+                else:
+                    logger.info(f"Using batch LSTM prediction (if any) for '{official_name}'. On-demand LSTM did not yield a prediction.")
+            elif ticker and os.path.exists(os.path.join("data/historical_prices/", f"{ticker.upper()}.csv")):
+                # Not in batch df, but historical data exists (either pre-existing or fetched in this process)
+                # Create a minimal entry
+                logger.info(f"Creating minimal data entry for '{official_name}' (Ticker: {ticker}) as it was not in batch data.")
+                sector_series = mapping_df.loc[mapping_df['Company'] == official_name, 'GICS Sector']
+                sector = sector_series.iloc[0] if not sector_series.empty and pd.notna(sector_series.iloc[0]) else "N/A"
+                current_macro_score = macro_map.get(sector, 0.0)
+                if pd.isna(current_macro_score): current_macro_score = 0.0
+
+                minimal_data_dict = {col: pd.NA for col in df.columns}
+                minimal_data_dict.update({
+                    'company': official_name,
+                    'Ticker': ticker,
+                    'positive': 0, 'neutral': 0, 'negative': 0,
+                    'sum_sentiment': 0, 'news_count': 0,
+                    'growth_score': 0.0,
+                    'theme': sector,
+                    'macro_sentiment_score': current_macro_score,
+                    'predicted_close_price': lstm_pred_on_demand if lstm_pred_on_demand is not None else pd.NA,
+                    'adjusted_growth_score': (0.0 + current_macro_score * 5)
+                })
+                current_stock_data_series = pd.Series({k: v for k, v in minimal_data_dict.items() if k in df.columns})
+            else:
+                logger.warning(f"Skipping '{official_name}': Not found in batch data and no historical data file present (even after attempting fetch) or no ticker.")
+
+            if current_stock_data_series is not None:
+                data_for_queried_companies.append(current_stock_data_series)
+
+    if data_for_queried_companies:
+        queried_companies_data_df = pd.DataFrame(data_for_queried_companies).reindex(columns=df.columns)
+        # Ensure 'predicted_close_price' is float after potential pd.NA or numeric values
+        if 'predicted_close_price' in queried_companies_data_df.columns:
+             queried_companies_data_df['predicted_close_price'] = pd.to_numeric(queried_companies_data_df['predicted_close_price'], errors='coerce')
+        # Ensure column order and presence matches 'df' - crucial for concat
+        # If df might be empty here (e.g. all data files failed to load), this needs a fallback.
+        # However, df is formed much earlier, so it should have its columns defined.
+        queried_companies_data_df = queried_companies_data_df.reindex(columns=df.columns, fill_value=pd.NA)
+    else:
+        # Create an empty DataFrame with columns from 'df' if no queried companies processed
+        queried_companies_data_df = pd.DataFrame(columns=df.columns)
+
+    logger.info(f"Processed {len(data_for_queried_companies)} queried companies. DataFrame shape: {queried_companies_data_df.shape}")
 
     # === Select top N companies by score ===
     # These are companies not necessarily in the query, selected by performance.
