@@ -44,30 +44,108 @@ def clean_company_name(name):
 # Create cleaned versions for matching
 nasdaq_df['clean_name'] = nasdaq_df['Company'].fillna('').apply(clean_company_name)
 name_mapping = dict(zip(nasdaq_df['clean_name'], nasdaq_df['Company']))
-clean_names = list(name_mapping.keys())
+clean_names = list(name_mapping.keys()) # list of cleaned official Nasdaq names
+
+# Create ticker_map
+ticker_map = {}
+for _, row in nasdaq_df.iterrows():
+    ticker = row['Ticker']
+    company_name = row['Company']
+    if pd.notna(ticker) and pd.notna(company_name):
+        ticker_map[ticker.upper()] = company_name
+logging.info(f"Created ticker_map with {len(ticker_map)} entries.")
+
+# Create common_name_map
+common_name_map = {
+    "google": "Alphabet Inc. (Class A)",  # Or Class C, decide on a standard, typically A for primary
+    "alphabet": "Alphabet Inc. (Class A)",
+    "apple": "Apple Inc.",
+    "microsoft": "Microsoft",
+    "amazon": "Amazon",
+    "nvidia": "Nvidia",
+    "meta": "Meta Platforms",
+    "tesla": "Tesla, Inc."
+    # Add more common names as needed, ensuring they map to the *exact* names from nasdaq_top_companies.csv
+}
+# Ensure common_name_map values are in official names, if not, find the closest official name
+for common, official_guess in common_name_map.items():
+    if official_guess not in name_mapping.values():
+        logging.warning(f"Common name '{common}' maps to '{official_guess}' which is not an official Nasdaq name. Attempting to find a match.")
+        # Attempt to find a match in official names
+        cleaned_guess = clean_company_name(official_guess)
+        if cleaned_guess in name_mapping:
+            common_name_map[common] = name_mapping[cleaned_guess]
+            logging.info(f"Updated common_name_map: '{common}' now maps to '{name_mapping[cleaned_guess]}'")
+        else:
+            # Fallback to fuzzy match for the guess against official names
+            match, score = process.extractOne(cleaned_guess, clean_names)
+            if score >= 90: # High threshold for this auto-correction
+                common_name_map[common] = name_mapping[match]
+                logging.info(f"Fuzzy matched common_name_map: '{common}' now maps to '{name_mapping[match]}' (score: {score})")
+            else:
+                logging.error(f"Could not confidently map common name '{common}' (guessed '{official_guess}') to an official Nasdaq name. Please check mapping.")
+
+
+logging.info(f"Created common_name_map with {len(common_name_map)} entries.")
+
 
 def normalize_name(name):
     if not isinstance(name, str) or not name.strip():
         return ""
-    
-    cleaned = clean_company_name(name)
-    if not cleaned:
+
+    # 1. Direct Ticker Match
+    # Attempt to extract potential tickers (e.g., all-caps words of 1-5 length)
+    potential_tickers = re.findall(r'\b([A-Z]{1,5})\b', name)
+    for ticker in potential_tickers:
+        if ticker in ticker_map:
+            official_name = ticker_map[ticker]
+            logging.info(f"Normalized '{name}' to '{official_name}' via direct ticker map ('{ticker}')")
+            return official_name
+
+    cleaned_name_lower = clean_company_name(name) # Also converts to lowercase
+    if not cleaned_name_lower:
+        logging.debug(f"Could not normalize '{name}' after cleaning, result is empty.")
         return ""
+
+    # 2. Common Name Match
+    if cleaned_name_lower in common_name_map:
+        official_name = common_name_map[cleaned_name_lower]
+        logging.info(f"Normalized '{name}' (cleaned: '{cleaned_name_lower}') to '{official_name}' via common name map")
+        return official_name
+
+    # 3. Exact Cleaned Match (Existing Logic)
+    if cleaned_name_lower in name_mapping:
+        official_name = name_mapping[cleaned_name_lower]
+        logging.info(f"Normalized '{name}' (cleaned: '{cleaned_name_lower}') to '{official_name}' via exact cleaned match")
+        return official_name
     
-    # Try exact match first
-    if cleaned in name_mapping:
-        return name_mapping[cleaned]
-    
-    # Try fuzzy match
+    # 4. Fuzzy Match (Existing Logic as Fallback)
     try:
-        match, score = process.extractOne(cleaned, clean_names)
-        if score >= 60:  # Lowered threshold from 65
-            logging.info(f"Matched '{name}' to '{name_mapping[match]}' with score {score}")
-            return name_mapping[match]
+        # Ensure clean_names is not empty and cleaned_name_lower is not empty
+        if not clean_names:
+            logging.warning("clean_names list is empty, skipping fuzzy match.")
+            return ""
+        if not cleaned_name_lower: # Should be caught earlier, but as a safeguard
+            logging.warning(f"Cleaned name for '{name}' is empty, skipping fuzzy match.")
+            return ""
+
+        match_result = process.extractOne(cleaned_name_lower, clean_names)
+        if match_result:
+            match, score = match_result
+            # Consider adjusting the score threshold if necessary (e.g., to 70 or 75)
+            if score >= 70: # Adjusted score from 60 to 70 for potentially better accuracy
+                official_name = name_mapping[match]
+                logging.info(f"Normalized '{name}' (cleaned: '{cleaned_name_lower}') to '{official_name}' via fuzzy match (score: {score})")
+                return official_name
+            else:
+                logging.info(f"Fuzzy match score for '{name}' (cleaned: '{cleaned_name_lower}') was {score}, below threshold 70. No match.")
+        else:
+            logging.info(f"No fuzzy match found for '{name}' (cleaned: '{cleaned_name_lower}'). process.extractOne returned None.")
+
     except Exception as e:
-        logging.warning(f"Error matching '{name}': {str(e)}")
+        logging.warning(f"Error during fuzzy matching for '{name}' (cleaned: '{cleaned_name_lower}'): {str(e)}")
     
-    logging.debug(f"No match found for: {name}")
+    logging.info(f"No normalization match found for: '{name}' (cleaned: '{cleaned_name_lower}')")
     return ""
 
 # Apply normalization
