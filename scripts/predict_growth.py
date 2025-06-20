@@ -1,4 +1,5 @@
 import os
+import numpy as np
 import pandas as pd
 import logging
 from thefuzz import fuzz
@@ -311,9 +312,15 @@ def main():
         
         # Add market sentiment metrics to output
         if market_data:
-            growth_scores['market_sentiment'] = market_sentiment
+            logger.info(f"Adding market data to growth_scores: Sentiment={market_sentiment}, VIX={market_data['vix_current']}, S&P500 Return={market_data['sp500_30d_return']}")
+            growth_scores['market_sentiment'] = market_sentiment # market_sentiment variable is defined from market_data['market_sentiment'] or default
             growth_scores['vix'] = market_data['vix_current']
             growth_scores['sp500_30d_return'] = market_data['sp500_30d_return']
+        else:
+            logger.warning("No market data available. Adding default values for market_sentiment, vix, and sp500_30d_return to growth_scores.")
+            growth_scores['market_sentiment'] = 0.0  # Default neutral sentiment
+            growth_scores['vix'] = np.nan
+            growth_scores['sp500_30d_return'] = np.nan
         
         # Save results
         output_file = 'data/predict_growth.csv'
