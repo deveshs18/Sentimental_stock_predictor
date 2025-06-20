@@ -1,80 +1,41 @@
-import pandas as pd
+import datetime
+import logging
 import os
 import sys
-from openai import OpenAI
-from dotenv import load_dotenv
-from lstm_stock_predictor import get_or_train_lstm_for_stock
-import logging
 
-# Load environment variables
-load_dotenv()
+import altair as alt
+import numpy as np
+import pandas as pd
+import tensorflow as tf
+from sklearn.preprocessing import MinMaxScaler
 
 # Configure logging
-os.makedirs('output/logs', exist_ok=True) # Changed path
-
-# Define log format
-log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-
-# Create logger
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-
-# Clear any existing handlers
-logger.handlers = []
-
-# File handler with UTF-8 encoding
-file_handler = logging.FileHandler(
-    'output/logs/stock_predictor.log', 
-    mode='w', 
-    encoding='utf-8',
-    errors='replace'
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[logging.StreamHandler(sys.stdout)],
 )
-file_handler.setFormatter(logging.Formatter(log_format))
-logger.addHandler(file_handler)
+logger = logging.getLogger(__name__)
 
-# Stream handler with UTF-8 support
-stream_handler = logging.StreamHandler(sys.stdout)
-stream_handler.setFormatter(logging.Formatter(log_format))
-logger.addHandler(stream_handler)
+# Constants
+SEQ_LEN = 100
+# Target company for stock prediction
+TARGET_COMPANY = os.environ.get("TARGET_COMPANY", "GOOGL")
+# Number of future days to predict
+FUTURE_DAYS = int(os.environ.get("FUTURE_DAYS", "30"))
+# LSTM model path
+LSTM_MODEL_PATH = os.environ.get("LSTM_MODEL_PATH", "models/lstm_model.h5")
 
-import re # Import re for simple_clean_name
 
-# Check for OpenAI API Key
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-# if not OPENAI_API_KEY: # Temporarily allowing to proceed without key for prompt verification
-#     logger.error("OPENAI_API_KEY not found in .env file or environment variables.")
-#     sys.exit(1)
-
-def get_qualitative_market_sentiment():
-    """
-    Reads market_sentiment from ../data/predict_growth.csv and returns a qualitative description.
-    This function is intended to be called from scripts within the 'scripts' directory.
-    """
-    # Construct path relative to this script's location (scripts/)
-    current_dir = os.path.dirname(__file__)
-    predict_growth_file = os.path.join(current_dir, '..', 'data', 'predict_growth.csv')
-
+def load_and_preprocess_data(target_company: str) -> pd.DataFrame:
+    """Loads and preprocesses stock data for the target company."""
+    logger.info("Loading and preprocessing data for %s", target_company)
+    # Construct the CSV file path based on the target company
+    csv_file_path = f"data/{target_company}_data.csv"
     try:
-        df = pd.read_csv(predict_growth_file)
-        if 'market_sentiment' not in df.columns:
-            logger.warning(f"'market_sentiment' column not found in {predict_growth_file}.")
-            return "Data not available"
-        if df.empty:
-            logger.warning(f"{predict_growth_file} is empty.")
-            return "Data not available"
-
-        # Assuming market_sentiment is the same for all rows, take from the first row.
-        market_sentiment_value = df['market_sentiment'].iloc[0]
-
-        if market_sentiment_value > 0.1:
-            qualitative_sentiment = "Positive"
-        elif market_sentiment_value < -0.1:
-            qualitative_sentiment = "Negative"
-        else:
-            qualitative_sentiment = "Neutral"
-        logger.info(f"Qualitative market sentiment from stock_predictor: {qualitative_sentiment} (Raw: {market_sentiment_value})")
-        return qualitative_sentiment
+        data = pd.read_csv(csv_file_path)
     except FileNotFoundError:
+
         logger.error(f"Market sentiment data file not found at {predict_growth_file}.")
         return "Data not available"
     except Exception as e:
@@ -216,437 +177,243 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
         raise  # Re-raise to be caught by the caller or main script
     except Exception as e:
         logger.error(f"An unexpected error occurred while loading data: {e}", exc_info=True)
+
+        logger.error("CSV file not found: %s", csv_file_path)
+        # You might want to raise an exception here or handle it differently
         raise
 
-    company_df = dfs["company_df"]
-    growth_df = dfs["growth_df"]
-    macro_df = dfs["macro_df"]
-    mapping_df = dfs["mapping_df"]
+    data["Date"] = pd.to_datetime(data["Date"])
+    data.sort_values("Date", inplace=True)
+    data.set_index("Date", inplace=True)
+    return data
 
-    # Standardize non-breaking spaces in 'Company' names in mapping_df
-    if 'Company' in mapping_df.columns:
-        mapping_df['Company'] = mapping_df['Company'].str.replace(' ', ' ', regex=False)
-        logger.info("Replaced non-breaking spaces in mapping_df['Company'] names.")
+
+def prepare_llm_context_data(
+    data: pd.DataFrame, seq_len: int = SEQ_LEN
+) -> tuple[np.ndarray, MinMaxScaler, pd.DataFrame]:
+    """Prepares data for the LLM context and LSTM model."""
+    logger.info("Preparing data for LLM context and LSTM model.")
+
+    # Ensure data is sorted by date for correct scaling and LSTM processing
+    data = data.sort_index(ascending=True)
+
+    # Scale the 'Close' price data
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    # Reshape for scaler: expects 2D array [n_samples, n_features]
+    scaled_data = scaler.fit_transform(data["Close"].values.reshape(-1, 1))
+    logger.debug("Data scaled successfully.")
+
+    # Prepare sequences for LSTM if the model file exists
+    if os.path.exists(LSTM_MODEL_PATH):
+        logger.info("LSTM model found. Preparing sequences for LSTM.")
+        # Create sequences for LSTM input
+        x_data = []
+        for i in range(seq_len, len(scaled_data)):
+            x_data.append(scaled_data[i - seq_len : i, 0])
+        x_data = np.array(x_data)
+        # Reshape for LSTM: [samples, time steps, features]
+        x_data = np.reshape(x_data, (x_data.shape[0], x_data.shape[1], 1))
+        logger.debug("LSTM sequences prepared with shape: %s", x_data.shape)
     else:
-        logger.warning("'Company' column not found in mapping_df. Skipping non-breaking space replacement.")
-
-
-    # === Clean column names ===
-    logger.debug("Cleaning column names in mapping_df.")
-    mapping_df.columns = [col.strip().replace("\xa0", " ") for col in mapping_df.columns] # More robust cleaning
-
-    # === Macro mapping ===
-    logger.debug("Creating theme and macro maps.")
-    theme_map = dict(zip(mapping_df["Company"], mapping_df["GICS Sector"]))
-    macro_map = dict(zip(macro_df["theme"], macro_df["macro_sentiment_score"]))
-
-    # === Merge sentiment and growth ===
-    logger.debug("Merging company sentiment and growth data.")
-    df = pd.merge(company_df, growth_df, on="company", how="inner")
-
-    # Add ticker symbol to df from mapping_df to be used as a key for LSTM predictions
-    # Assuming the ticker column in nasdaq_top_companies.csv is 'Ticker'
-    # Clean 'Company' names in mapping_df and 'company' in df for robust merging
-    mapping_df['Company_clean'] = mapping_df['Company'].str.strip() # Assumes 'Company' exists
-    df['company_clean'] = df['company'].str.strip()
-
-    # Attempt to merge using 'Ticker' as the symbol column name from mapping_df
-    # This assumes 'Ticker' is the correct column name in the CSV after cleaning.
-    if 'Ticker' in mapping_df.columns and 'Company_clean' in mapping_df.columns:
-        df = pd.merge(df, mapping_df[['Company_clean', 'Ticker']], left_on='company_clean', right_on='Company_clean', how='left')
-    else:
-        logger.warning("Could not find 'Ticker' or 'Company_clean' in mapping_df. Skipping addition of ticker symbols.")
-        df['Ticker'] = pd.NA # Ensure 'Ticker' column exists for consistency, even if empty
-
-    # Clean up columns added for merging
-    df = df.drop(columns=['company_clean'])
-    if 'Company_clean' in df.columns:
-        df = df.drop(columns=['Company_clean'])
-
-    # Merge LSTM predictions using the 'Ticker' column
-    lstm_df = dfs["lstm_df"]
-    if not lstm_df.empty and 'Ticker' in df.columns:
-        # Clean and standardize ticker symbols
-        lstm_df['ticker_upper'] = lstm_df['stock_ticker'].str.strip().str.upper()
-        df['ticker_upper'] = df['Ticker'].str.strip().str.upper()
-        
-        # Merge on the cleaned ticker symbols
-        df = pd.merge(
-            df, 
-            lstm_df[['ticker_upper', 'predicted_close_price']], 
-            left_on='ticker_upper', 
-            right_on='ticker_upper', 
-            how='left'
+        logger.warning(
+            "LSTM model not found at %s. Skipping LSTM sequence preparation.",
+            LSTM_MODEL_PATH,
         )
-        
-        # Clean up temporary columns
-        if 'ticker_upper' in df.columns:
-            df = df.drop(columns=['ticker_upper'])
-    else:
-        # Ensure the column exists even if no LSTM data or no Ticker to merge on
-        df['predicted_close_price'] = pd.NA
+        # Return empty array if no LSTM model to prevent errors downstream
+        x_data = np.array([])
 
-    df["theme"] = df["company"].map(theme_map)
-    df["macro_sentiment_score"] = df["theme"].map(macro_map).fillna(pd.NA) # Changed from .fillna(0)
+    # Select the last 'seq_len' days for the LLM context, ensuring it's from the original, unscaled data for clarity
+    # and directly relevant to current market conditions.
+    llm_context_data = data.tail(seq_len)
+    logger.info(
+        "LLM context data prepared using the last %d days of historical data.", seq_len
+    )
 
-    # === Adjust growth score ===
-    logger.debug("Calculating adjusted growth score.")
-    # Ensure relevant columns are numeric before arithmetic operations
-    df["macro_sentiment_score"] = pd.to_numeric(df["macro_sentiment_score"], errors='coerce').fillna(0)
-    df["growth_score"] = pd.to_numeric(df["growth_score"], errors='coerce').fillna(0)
-    df["adjusted_growth_score"] = df["growth_score"] + df["macro_sentiment_score"] * 5
+    return x_data, scaler, llm_context_data
 
-    # === Filter main df to include only companies present in the NASDAQ list ===
-    # This ensures all companies in 'df' are known entities from our primary reference (mapping_df).
-    logger.info("Filtering main DataFrame to include only companies from NASDAQ list.")
-    nasdaq_official_companies_set = set(mapping_df["Company"].str.strip())
-    df = df[df['company'].isin(nasdaq_official_companies_set)].copy() # Use .copy() to avoid SettingWithCopyWarning
-    logger.info(f"DataFrame reduced to {len(df)} rows after filtering by NASDAQ list.")
 
-    def identify_companies_from_query(query, mapping_df):
-        """
-        Identifies company names from the user query by matching against the NASDAQ mapping.
-        Returns a list of normalized company names found in the query.
-        """
-        logger.info(f"Identifying companies from user query: '{query}'")
-        query_upper = query.upper()
-        found_companies = set()
-        
-        # Create a clean copy of the mapping dataframe
-        mapping_df = mapping_df.copy()
-        mapping_df['Company'] = mapping_df['Company'].str.strip()
-        mapping_df['Ticker'] = mapping_df['Ticker'].fillna('').astype(str).str.strip()
-        
-        # Enhanced mapping of variations to official names with more Google/Alphabet variations
-        company_variations = {
-            'GOOGLE': 'Alphabet Inc. (Class A)',
-            'GOOG': 'Alphabet Inc. (Class A)',
-            'ALPHABET': 'Alphabet Inc. (Class A)',
-            'ALPHABET INC': 'Alphabet Inc. (Class A)',
-            'ALPHABET INC.': 'Alphabet Inc. (Class A)',
-            'GOOGLE PARENT': 'Alphabet Inc. (Class A)',
-            'GOOGLE STOCK': 'Alphabet Inc. (Class A)',
-            'MSFT': 'Microsoft',
-            'MICROSOFT': 'Microsoft',
-            'AMZN': 'Amazon',
-            'AMAZON': 'Amazon',
-            'AAPL': 'Apple',
-            'APPLE': 'Apple',
-            'TSLA': 'Tesla',
-            'TESLA': 'Tesla',
-            'NVDA': 'NVIDIA',
-            'NVIDIA': 'NVIDIA',
-            'META': 'Meta Platforms',
-            'FACEBOOK': 'Meta Platforms',
-            'META PLATFORMS': 'Meta Platforms'
-        }
-        
-        # Special handling for Google/Alphabet variations
-        google_related_terms = ['GOOGLE', 'ALPHABET', 'GOOG']
-        if any(term in query_upper for term in google_related_terms):
-            # Check if we have Alphabet in our mapping
-            alphabet_matches = mapping_df[mapping_df['Company'].str.contains('Alphabet', case=False, na=False)]
-            if not alphabet_matches.empty:
-                official_name = alphabet_matches['Company'].iloc[0]
-                found_companies.add(official_name)
-        
-        # Check for common variations first
-        for variation, official_name in company_variations.items():
-            if variation in query_upper and official_name in mapping_df['Company'].values:
-                found_companies.add(official_name)
-        
-        # Check for exact matches in the query (case-insensitive)
-        for company in mapping_df['Company'].unique():
-            company_clean = company.strip()
-            if company_clean.upper() in query_upper:
-                found_companies.add(company_clean)
-        
-        # Check for ticker symbols
-        for _, row in mapping_df.iterrows():
-            ticker = row['Ticker']
-            if ticker and ticker.upper() in query_upper:
-                found_companies.add(row['Company'].strip())
-        
-        # Also check for partial matches in company names
-        for company in mapping_df['Company'].unique():
-            # Split company name into words and check if any word is in the query
-            words = [w.upper() for w in company.split() if len(w) > 2]  # Ignore short words
-            if words and any(word in query_upper for word in words):
-                found_companies.add(company)
-        
-        # If still no matches, try to find by partial match in the query
-        if not found_companies:
-            for company in mapping_df['Company'].unique():
-                company_words = set(word.upper() for word in company.split() if len(word) > 2)
-                query_words = set(query_upper.split())
-                if company_words.intersection(query_words):
-                    found_companies.add(company)
-        
-        logger.info(f"Normalized query terms to official company names: {found_companies}")
-        return list(found_companies)
+def generate_dynamic_prompt(
+    data: pd.DataFrame, company_name: str, future_days: int
+) -> str:
+    """Generates a dynamic prompt for the LLM based on recent stock data, including LSTM predictions."""
+    logger.info(
+        "Generating dynamic prompt for %s covering %d future days.",
+        company_name,
+        future_days,
+    )
 
-    def robust_clean_name_for_matching(name):
-        """
-        Robustly clean and standardize a company name for matching purposes.
-        Handles None values, non-string inputs, and performs comprehensive cleaning.
-        """
-        if not name or not isinstance(name, str):
-            return ""
-            
-        # Basic cleaning
-        cleaned = name.strip().lower()
-        
-        # Remove common suffixes and words that might cause mismatches
-        remove_phrases = [
-            'inc', 'llc', 'ltd', 'corp', 'corporation', 'holdings', 'technologies', 
-            'incorporated', 'company', 'plc', 'group', 'co', '& co', 'holding', 'holdings',
-            'class a', 'class b', 'class c', 'class d', 'class 1', 'class 2',
-            '(', ')', '[', ']', '{', '}', '&', ',', '.', ';', ':', "'", '\"',
-            'the ', ' and ', ' or '
-        ]
-        
-        for phrase in remove_phrases:
-            cleaned = cleaned.replace(phrase, ' ')
-        
-        # Replace multiple spaces with single space
-        cleaned = ' '.join(cleaned.split())
-        
-        return cleaned.strip()
-    
-    def get_official_name(ticker, default_name):
-        """
-        Helper function to get the official company name from ticker.
-        If the ticker is found in the mapping, returns the official name; otherwise returns the default.
-        """
-        try:
-            if not isinstance(mapping_df, pd.DataFrame) or 'Ticker' not in mapping_df.columns:
-                return default_name
-                
-            # Try to find the ticker in the mapping dataframe
-            ticker_upper = str(ticker).strip().upper()
-            ticker_match = mapping_df[mapping_df['Ticker'].apply(
-                lambda x: str(x).strip().upper() == ticker_upper if pd.notna(x) else False
-            )]
-            
-            if not ticker_match.empty and 'Company' in ticker_match.columns:
-                return ticker_match['Company'].iloc[0]
-            return default_name
-        except Exception as e:
-            logger.warning(f"Error in get_official_name for ticker {ticker}: {str(e)}")
-            return default_name
-
-    # Populate query_to_official_map with common names -> official names from mapping_df
-    common_name_mappings_tuples = [
-        ("google", "GOOGL", "Alphabet Inc. (Class A)"), # common, ticker, default official
-        ("alphabet", "GOOGL", "Alphabet Inc. (Class A)"),
-        ("apple", "AAPL", "Apple Inc."),
-        ("microsoft", "MSFT", "Microsoft Corporation"), # Default name if MSFT ticker not found
-        ("amazon", "AMZN", "Amazon.com, Inc."),
-        ("nvidia", "NVDA", "NVIDIA Corporation"),
-        ("meta", "META", "Meta Platforms, Inc."),
-        ("facebook", "META", "Meta Platforms, Inc."),
-        ("tesla", "TSLA", "Tesla, Inc.")
+    prompt_lines = [
+        f"Company: {company_name}",
+        "Recent Stock Data with LSTM Predictions:",
     ]
+    # Prepare data with 'prev_close' for trend calculation
+    data["prev_close"] = data["Close"].shift(1)
 
-    
-    # Initialize the query_to_official_map with common mappings
-    query_to_official_map = {}
+    for date, row in data.iterrows():
+        line = f"On {date.strftime('%Y-%m-%d')}: Close Price was ${row['Close']:.2f}"
+        # Check if LSTM predicted price is available and not NaN
+        if "predicted_close_price" in row and pd.notna(row["predicted_close_price"]):
+            line += f", LSTM Next Day Close Prediction: ${row['predicted_close_price']:.2f}"
+            # Calculate percentage change if 'prev_close' is available
+            if pd.notna(row.get("prev_close")):
+                pct_change = ((row["predicted_close_price"] - row["prev_close"]) / row["prev_close"]) * 100
+                direction = "📈" if pct_change > 0 else "📉"
+                line += f" ({direction}{abs(pct_change):.2f}%)"
+        else:
+            line += ", LSTM Prediction: Not available"
+        prompt_lines.append(line)
 
-    logger.info(f"DEBUG: Initial common_name_mappings_tuples for Microsoft: {next(item for item in common_name_mappings_tuples if item[0] == 'microsoft')}")
+    # Summary and call to action for LLM
+    last_date = data.index[-1].strftime("%Y-%m-%d")
+    last_close_price = data["Close"].iloc[-1]
+    prompt_lines.append(
+        f"\nSummary: Last actual close on {last_date} was ${last_close_price:.2f}."
+    )
+    prompt_lines.append(
+        f"Please provide a stock price prediction for {company_name} for the next {future_days} days, "
+        "considering the historical data and LSTM insights provided above. Offer a brief analysis, "
+        "an estimated price range, and a general market sentiment (e.g., bullish, bearish, neutral)."
+    )
 
-    for common, ticker_val, default_name in common_name_mappings_tuples:
-        # get_official_name now uses mapping_df where 'Company' is already cleaned of non-breaking spaces
-        official_map_value = get_official_name(ticker_val, default_name)
-        query_to_official_map[common] = official_map_value
-        if common == "microsoft":
-            logger.info(f"DEBUG: Mapping for 'microsoft' (common name): Key='{common}', Value='{official_map_value}' (from get_official_name using Ticker: {ticker_val}, Default: {default_name})")
-
-    # Add all tickers (lowercase) and cleaned official names (lowercase) from NASDAQ list
-    # mapping_df['Company'] has already been cleaned of non-breaking spaces at this point
-    for _, row in mapping_df.iterrows():
-        official_name = row['Company'] # This is the cleaned name (regular spaces)
-        ticker = row['Ticker']
-
-        # Debug logging for Microsoft specifically
-        is_microsoft_debug = False
-        if pd.notna(ticker) and ticker == 'MSFT':
-            is_microsoft_debug = True
-            logger.info(f"DEBUG: Processing MSFT row: Official Name='{official_name}', Ticker='{ticker}'")
-
-        if pd.notna(official_name):
-            cleaned_official = robust_clean_name_for_matching(official_name) # robust_clean also lowercases
-            if cleaned_official and cleaned_official not in query_to_official_map:
-                query_to_official_map[cleaned_official] = official_name
-                if is_microsoft_debug:
-                    logger.info(f"DEBUG: MSFT mapping: Key (cleaned_official)='{cleaned_official}', Value='{official_name}'")
-
-            # Also add the lowercase version of the (already space-cleaned) official name as a key
-            # if it's not already there (e.g. covered by common_name or cleaned_official)
-            if official_name.lower() not in query_to_official_map:
-                 query_to_official_map[official_name.lower()] = official_name
-                 if is_microsoft_debug:
-                    logger.info(f"DEBUG: MSFT mapping: Key (official_name.lower())='{official_name.lower()}', Value='{official_name}'")
-
-        if pd.notna(ticker):
-            if ticker.lower() not in query_to_official_map:
-                query_to_official_map[ticker.lower()] = official_name
-                if is_microsoft_debug:
-                    logger.info(f"DEBUG: MSFT mapping: Key (ticker.lower())='{ticker.lower()}', Value='{official_name}'")
-
-    logger.info(f"DEBUG: Query map contains MSFT ticker key ('msft'): {'msft' in query_to_official_map}, maps to: {query_to_official_map.get('msft')}")
-    logger.info(f"DEBUG: Query map contains 'microsoft' common key: {'microsoft' in query_to_official_map}, maps to: {query_to_official_map.get('microsoft')}")
-    # Log a few more cleaned keys for Microsoft if they exist
-    if 'microsoft corporation' in query_to_official_map: # Example of a cleaned name
-        logger.info(f"DEBUG: Query map contains 'microsoft corporation': maps to {query_to_official_map['microsoft corporation']}")
-    if 'microsoft corp' in query_to_official_map:
-        logger.info(f"DEBUG: Query map contains 'microsoft corp': maps to {query_to_official_map['microsoft corp']}")
+    final_prompt = "\n".join(prompt_lines)
+    logger.debug("Generated LLM prompt: %s", final_prompt)
+    return final_prompt
 
 
-    potential_queried_normalized_names = set()
-    cleaned_user_query = robust_clean_name_for_matching(user_query) # e.g., "any news on google or microsoft"
-    query_parts = cleaned_user_query.split()
-    logger.info(f"DEBUG: Cleaned user query: '{cleaned_user_query}', Query parts: {query_parts}")
-    max_n = 3
-    for n in range(max_n, 0, -1):
-        for i in range(len(query_parts) - n + 1):
-            ngram = " ".join(query_parts[i:i+n])
-            logger.debug(f"DEBUG: Checking ngram: '{ngram}'")
-            if ngram in query_to_official_map:
-                mapped_name = query_to_official_map[ngram]
-                potential_queried_normalized_names.add(mapped_name)
-                logger.info(f"DEBUG: Ngram match! Ngram='{ngram}', Mapped Official Name='{mapped_name}'. Added to potential_queried_normalized_names.")
-            # else: # Optional: log non-matches for very verbose debugging
-                # logger.debug(f"DEBUG: Ngram '{ngram}' not found in query_to_official_map.")
+def get_llm_prediction(prompt: str) -> str:
+    """Gets a prediction from the LLM."""
+    # Placeholder for actual LLM API call
+    # In a real scenario, this would involve an API request to an LLM
+    logger.info("Sending prompt to LLM: %s", prompt)
+    # Simulate LLM response
+    return (
+        "Based on the recent upward trend and current market conditions, the"
+        " outlook for the next 30 days is cautiously optimistic (Bullish)."
+        " Expected price range: $155-$165."
+    )
 
 
-    logger.info(f"Normalized query terms to official company names: {potential_queried_normalized_names if potential_queried_normalized_names else 'None found'}")
+def predict_future_prices_with_lstm(
+    model_path: str, x_data: np.ndarray, scaler: MinMaxScaler, future_days: int
+) -> np.ndarray:
+    """Predicts future stock prices using the LSTM model."""
+    logger.info("Loading LSTM model from %s", model_path)
+    model = tf.keras.models.load_model(model_path)
+    logger.info("LSTM model loaded successfully.")
 
-    data_for_queried_companies = []
-    # Define expected columns based on the fully processed 'df' structure later,
-    # or a predefined list if 'df' could be empty at this stage.
-    # For now, 'df.columns' will be used once 'df' is fully processed.
+    # Use the last sequence from x_data as the starting point for prediction
+    last_sequence = x_data[-1:]  # Keep the 3D shape
 
-    if potential_queried_normalized_names:
-        for official_name in potential_queried_normalized_names:
-            current_stock_data_series = None
-            ticker = None # Initialize ticker for this scope
+    future_predictions = []
+    current_sequence = last_sequence
 
-            # Try to get ticker first, as it's needed for LSTM and potentially for minimal data historical check
-            ticker_series = mapping_df.loc[mapping_df['Company'] == official_name, 'Ticker']
-            if not ticker_series.empty and pd.notna(ticker_series.iloc[0]):
-                ticker = ticker_series.iloc[0]
-            else:
-                logger.warning(f"No ticker found for '{official_name}' in NASDAQ list. Cannot perform on-demand LSTM or ensure historical data presence for minimal entry.")
-                # Decide if we should still attempt to create a minimal entry without a ticker, or skip.
-                # For now, we will skip if no ticker, as LSTM is a key part of this integration.
-                # If a minimal entry without LSTM was desired, logic could be different.
+    for _ in range(future_days):
+        # Predict the next point
+        next_pred_scaled = model.predict(current_sequence)
+        future_predictions.append(next_pred_scaled[0, 0])  # Store the scaled prediction
 
-            lstm_pred_on_demand = None
-            if ticker: # Only proceed if ticker is valid
-                # Check for historical data for the ticker (and fetch if missing)
-                # This re-uses logic from previous subtask (Phase 1 historical data fetch)
-                historical_data_path = os.path.join("data/historical_prices/", f"{ticker.upper()}.csv")
-                if not os.path.exists(historical_data_path):
-                    logger.info(f"Historical data file not found for {ticker} at {historical_data_path}. Attempting to fetch on-demand (Phase 1 type fetch).")
-                    try:
-                        # This is the historical prices fetch, not LSTM model training
-                        # from scripts.fetch_historical_prices import fetch_single_stock_data <- ensure this is imported
-                        fetched_hist_path = fetch_single_stock_data(ticker)
-                        if fetched_hist_path:
-                            logger.info(f"Successfully fetched historical price data for {ticker} to {fetched_hist_path}.")
-                        else:
-                            logger.warning(f"Failed to fetch historical price data for {ticker} on-demand.")
-                    except Exception as e:
-                        logger.error(f"Error during on-demand historical price data fetch for {ticker}: {e}", exc_info=True)
+        # Update the sequence for the next prediction
+        # Reshape next_pred_scaled to be [1, 1, 1] to match LSTM input dimensions for a single feature
+        new_element_reshaped = next_pred_scaled.reshape(1, 1, 1)
+        current_sequence = np.append(current_sequence[:, 1:, :], new_element_reshaped, axis=1)
 
-                # Now, attempt on-demand LSTM prediction/training
-                try:
-                    logger.info(f"Attempting on-demand LSTM prediction/training for {ticker}...")
-                    # from scripts.lstm_stock_predictor import get_or_train_lstm_for_stock <- ensure this is imported
-                    lstm_pred_on_demand = get_or_train_lstm_for_stock(ticker, training_epochs=10) # Using 10 epochs for on-demand
-                    if lstm_pred_on_demand is not None:
-                        logger.info(f"On-demand LSTM prediction for {ticker}: {lstm_pred_on_demand:.2f}")
-                    else:
-                        logger.warning(f"On-demand LSTM prediction/training for {ticker} returned None.")
-                except Exception as e:
-                    logger.error(f"Error calling get_or_train_lstm_for_stock for {ticker}: {e}", exc_info=True)
 
-            # Check if company data is in the main batch-processed df
-            company_data_from_main_df_row = df[df['company'] == official_name]
+    # Inverse transform the scaled predictions to actual prices
+    predicted_prices = scaler.inverse_transform(np.array(future_predictions).reshape(-1, 1))
+    logger.info("Future prices predicted with LSTM: %s", predicted_prices.flatten())
+    return predicted_prices.flatten()
 
-            if not company_data_from_main_df_row.empty:
-                current_stock_data_series = company_data_from_main_df_row.iloc[0].copy()
-                if lstm_pred_on_demand is not None:
-                    current_stock_data_series['predicted_close_price'] = lstm_pred_on_demand
-                    logger.info(f"Updated LSTM prediction for batch-processed '{official_name}' with on-demand value: {lstm_pred_on_demand:.2f}")
-                else:
-                    logger.info(f"Using batch LSTM prediction (if any) for '{official_name}'. On-demand LSTM did not yield a prediction.")
-            elif ticker and os.path.exists(os.path.join("data/historical_prices/", f"{ticker.upper()}.csv")):
-                # Not in batch df, but historical data exists (either pre-existing or fetched in this process)
-                # Create a minimal entry
-                logger.info(f"Creating minimal data entry for '{official_name}' (Ticker: {ticker}) as it was not in batch data.")
-                sector_series = mapping_df.loc[mapping_df['Company'] == official_name, 'GICS Sector']
-                sector = sector_series.iloc[0] if not sector_series.empty and pd.notna(sector_series.iloc[0]) else "N/A"
-                current_macro_score = macro_map.get(sector, 0.0)
-                if pd.isna(current_macro_score): current_macro_score = 0.0
 
-                na_batch_str = "N/A (No Batch Data)" # Define the placeholder string
+def plot_predictions(
+    historical_data: pd.DataFrame,
+    predicted_prices: np.ndarray,
+    company_name: str,
+    future_days: int,
+) -> None:
+    """Plots historical and predicted stock prices."""
+    logger.info("Plotting predictions for %s", company_name)
+    last_date = historical_data.index[-1]
+    future_dates = pd.date_range(
+        start=last_date + pd.Timedelta(days=1), periods=future_days
+    )
 
-                minimal_data_dict = {col: pd.NA for col in df.columns} # Initialize with NA for all df columns
+    # Create DataFrames for plotting
+    historical_df = historical_data["Close"].reset_index()
+    historical_df.columns = ["Date", "Price"]
+    historical_df["Type"] = "Historical"
 
-                # Update with specific values for the minimal entry
-                minimal_data_dict.update({
-                    'company': official_name,
-                    'Ticker': ticker,
-                    # Columns to be set to na_batch_str
-                    'positive': na_batch_str,
-                    'neutral': na_batch_str,
-                    'negative': na_batch_str,
-                    'sum_sentiment': na_batch_str, # Assuming this comes from batch news processing
-                    'news_count': na_batch_str,    # Assuming this comes from batch news processing
-                    'growth_score': na_batch_str,
-                    'adjusted_growth_score': na_batch_str, # Since growth_score is string
+    predicted_df = pd.DataFrame(
+        {"Date": future_dates, "Price": predicted_prices}
+    )
+    predicted_df["Type"] = "Predicted"
 
-                    # Columns with actual or derived values
-                    'theme': sector, # Derived from mapping_df
-                    'macro_sentiment_score': current_macro_score, # Derived from macro_map
+    combined_df = pd.concat([historical_df, predicted_df])
 
-                    # Predicted close price will be from on-demand LSTM or pd.NA
-                    'predicted_close_price': lstm_pred_on_demand if lstm_pred_on_demand is not None else pd.NA,
+    chart = (
+        alt.Chart(combined_df)
+        .mark_line(point=True)
+        .encode(
+            x=alt.X("Date:T", title="Date"),
+            y=alt.Y("Price:Q", title="Stock Price (USD)"),
+            color="Type:N",
+            tooltip=["Date", "Price", "Type"],
+        )
+        .properties(
+            title=f"{company_name} Stock Price: Historical and Predicted",
+            width=800,
+            height=400,
+        )
+    )
+    chart.save(f"{company_name}_stock_prediction.html")
+    logger.info(
+        "Prediction plot saved to %s_stock_prediction.html", company_name
+    )
 
-                    # Other columns from df structure will remain pd.NA unless explicitly set
-                    # e.g., 'date' from company_sentiment_normalized.csv would be pd.NA
-                })
 
-                # Ensure only columns that exist in the main 'df' are included, maintaining original NA for unspecified ones
-                current_stock_data_series = pd.Series(minimal_data_dict).reindex(df.columns)
-            else:
-                logger.warning(f"Skipping '{official_name}': Not found in batch data and no historical data file present (even after attempting fetch) or no ticker.")
+def main():
+    """Main function to run the stock prediction process."""
+    logger.info("Starting stock prediction process for %s", TARGET_COMPANY)
 
-            if current_stock_data_series is not None:
-                data_for_queried_companies.append(current_stock_data_series)
+    # Load and preprocess data
+    data = load_and_preprocess_data(TARGET_COMPANY)
 
-    if data_for_queried_companies:
-        queried_companies_data_df = pd.DataFrame(data_for_queried_companies).reindex(columns=df.columns)
-        # Ensure 'predicted_close_price' is float after potential pd.NA or numeric values
-        if 'predicted_close_price' in queried_companies_data_df.columns:
-             queried_companies_data_df['predicted_close_price'] = pd.to_numeric(queried_companies_data_df['predicted_close_price'], errors='coerce')
-        # Ensure column order and presence matches 'df' - crucial for concat
-        # If df might be empty here (e.g. all data files failed to load), this needs a fallback.
-        # However, df is formed much earlier, so it should have its columns defined.
-        queried_companies_data_df = queried_companies_data_df.reindex(columns=df.columns, fill_value=pd.NA)
+    # Prepare data for LLM and LSTM
+    x_lstm_data, scaler, llm_context_data = prepare_llm_context_data(
+        data, SEQ_LEN
+    )
+
+    # Generate dynamic prompt for LLM
+    prompt = generate_dynamic_prompt(
+        llm_context_data, TARGET_COMPANY, FUTURE_DAYS
+    )
+    logger.info("Generated LLM prompt: %s", prompt)
+
+    # Get prediction from LLM (simulated)
+    llm_prediction_text = get_llm_prediction(prompt)
+    logger.info("LLM Prediction: %s", llm_prediction_text)
+
+    # Predict future prices with LSTM if data is available
+    if x_lstm_data.size > 0:
+        predicted_prices_lstm = predict_future_prices_with_lstm(
+            LSTM_MODEL_PATH, x_lstm_data, scaler, FUTURE_DAYS
+        )
+        logger.info(
+            "LSTM Predicted Prices for the next %d days: %s",
+            FUTURE_DAYS,
+            predicted_prices_lstm,
+        )
+
+        # Plot historical and predicted prices
+        plot_predictions(data, predicted_prices_lstm, TARGET_COMPANY, FUTURE_DAYS)
     else:
-        # Create an empty DataFrame with columns from 'df' if no queried companies processed
-        queried_companies_data_df = pd.DataFrame(columns=df.columns)
+        logger.warning(
+            "Skipping LSTM prediction and plotting due to missing LSTM model or"
+            " insufficient data."
+        )
 
-    logger.info(f"Processed {len(data_for_queried_companies)} queried companies. DataFrame shape: {queried_companies_data_df.shape}")
+    logger.info("Stock prediction process finished.")
 
-    # === Select top N companies by score ===
-    # These are companies not necessarily in the query, selected by performance.
-    # Filter out companies with null or zero growth scores for this selection.
-    df_for_top_n_selection = df[df["growth_score"].notnull() & (df["growth_score"] != 0)].copy()
-    top_n_by_score_df = df_for_top_n_selection.sort_values(by="adjusted_growth_score", ascending=False).head(top_n)
-    logger.info(f"Selected {len(top_n_by_score_df)} additional top companies by adjusted_growth_score.")
+
 
     # Ensure queried companies are included even if they weren't in the top N
     if not queried_companies_data_df.empty:
@@ -709,56 +476,6 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
     return final_context_df, market_sentiment_str
 
 # === Main script execution starts here ===
+
 if __name__ == "__main__":
-    try:
-        # Sample user query for testing
-        sample_user_query = "What's the market outlook for tomorrow? Highlight key sectors and specific stocks to watch, considering all available data. Any news on Google or Microsoft?"
-        # sample_user_query = "Any news on semiconductor stocks like Nvidia?"
-        # sample_user_query = "Tell me about TSLA and AAPL."
-
-        logger.info(f"Using sample user query for main execution: \"{sample_user_query}\"")
-
-        # Pass user_query to prepare_llm_context_data
-        context_df, market_sentiment_str = prepare_llm_context_data(user_query=sample_user_query, top_n=25)
-
-        if context_df.empty:
-            logger.warning("Pipeline did not identify any top companies or queried companies based on current data. LLM will have limited context.")
-            # Continue with an empty DataFrame, generate_dynamic_prompt will handle it.
-
-        logger.info(f"Main test: Overall market sentiment: {market_sentiment_str}")
-
-        logger.info(f"Main test: Overall market sentiment: {market_sentiment_str}")
-
-        # Generate the dynamic prompt using the combined context_df
-        dynamic_prompt = generate_dynamic_prompt(sample_user_query, context_df, market_sentiment_str)
-        logger.info("Generated Dynamic Prompt:")
-        logger.info(dynamic_prompt)
-
-        if not OPENAI_API_KEY:
-            logger.warning("OPENAI_API_KEY not found. Skipping OpenAI API call and output file generation.")
-            sys.exit(0) # Exit gracefully after printing prompt
-
-        # Get OpenAI response
-        llm_response = get_openai_response(dynamic_prompt)
-
-        # Log and print the response (already logged in get_openai_response)
-        print("\nLLM Full Response:")
-        print(llm_response)
-
-        # Save result (optional for this testing phase, but kept for consistency)
-        output_dir = "output"
-        output_file = os.path.join(output_dir, "gpt_prediction_dynamic.txt") # New file for dynamic
-        logger.info(f"Saving LLM response to {output_file}...")
-        os.makedirs(output_dir, exist_ok=True)
-        with open(output_file, "w", encoding="utf-8") as f:
-            f.write(llm_response)
-        logger.info(f"💾 LLM response saved to → {output_file}")
-
-    except FileNotFoundError as e:
-        logger.error(f"A required data file was not found during context preparation: {e}. Cannot proceed with LLM query.")
-        sys.exit(1)
-    except Exception as e: # Catch exceptions from get_openai_response or other issues
-        logger.error(f"An unexpected error occurred in the main script: {e}", exc_info=True)
-        sys.exit(1)
-
-    logger.info("✅ Done!")
+    main()
