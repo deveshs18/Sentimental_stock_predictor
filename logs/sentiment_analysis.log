@@ -1,4 +1,4 @@
-2025-06-19 18:49:31,317 - __main__ - INFO - Starting sentiment analysis for input: data/merged_sentiment_output_with_companies.csv, output: data/merged_sentiment_output_with_companies_and_sentiment.csv
-2025-06-19 18:49:31,325 - __main__ - INFO - Running sentiment analysis...
-2025-06-19 18:49:56,668 - __main__ - INFO - [SUCCESS] Saved sentiment results → data/merged_sentiment_output_with_companies_and_sentiment.csv
-2025-06-19 18:49:56,669 - __main__ - INFO - Sentiment analysis script finished successfully.
+2025-06-20 13:37:25,039 - __main__ - INFO - Starting sentiment analysis for input: data/merged_sentiment_output_with_companies.csv, output: data/merged_sentiment_output_with_companies_and_sentiment.csv
+2025-06-20 13:37:25,042 - __main__ - INFO - Running sentiment analysis...
+2025-06-20 13:37:43,257 - __main__ - INFO - [SUCCESS] Saved sentiment results → data/merged_sentiment_output_with_companies_and_sentiment.csv
+2025-06-20 13:37:43,258 - __main__ - INFO - Sentiment analysis script finished successfully.

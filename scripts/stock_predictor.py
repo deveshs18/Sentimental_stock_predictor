@@ -31,16 +31,46 @@ def load_and_preprocess_data(target_company: str) -> pd.DataFrame:
     """Loads and preprocesses stock data for the target company."""
     logger.info("Loading and preprocessing data for %s", target_company)
     # Construct the CSV file path based on the target company
-    csv_file_path = f"data/{target_company}_data.csv"
+    csv_file_path = f"data/historical_prices/{target_company}.csv"
     try:
-        data = pd.read_csv(csv_file_path)
+        # Read the CSV file, skipping the first two rows (headers and ticker row)
+        # and using the third row as the header
+        data = pd.read_csv(csv_file_path, skiprows=2, header=0)
+        
+        # Log the first few rows and column names for debugging
+        logger.debug("Raw data columns: %s", data.columns.tolist())
+        logger.debug("First few rows of raw data:\n%s", data.head())
+        
+        # Drop any empty rows or columns
+        data = data.dropna(how='all')
+        data = data.dropna(axis=1, how='all')
+        
+        # The first column should be the date column
+        date_col = data.columns[0]
+        
+        # Convert the date column to datetime and set as index
+        data[date_col] = pd.to_datetime(data[date_col])
+        data.set_index(date_col, inplace=True)
+        
+        # Convert all columns to numeric, coercing errors to NaN
+        for col in data.columns:
+            data[col] = pd.to_numeric(data[col], errors='coerce')
+            
+        # Drop any rows with all NaN values
+        data = data.dropna(how='all')
+        
+        # Standardize column names to lowercase for consistency
+        data.columns = [col.lower() for col in data.columns]
+        logger.debug("Processed data columns: %s", data.columns.tolist())
+            
+        return data
     except FileNotFoundError:
-
-        logger.error(f"Market sentiment data file not found at {predict_growth_file}.")
-        return "Data not available"
+        logger.error(f"Stock data file not found at {csv_file_path}")
+        logger.error("Please run 'python scripts/fetch_historical_prices.py' to download the required data.")
+        return pd.DataFrame()
     except Exception as e:
-        logger.error(f"Error reading or processing market sentiment data in stock_predictor: {e}", exc_info=True)
-        return "Data not available"
+        logger.error(f"Error reading or processing stock data in stock_predictor: {e}", exc_info=True)
+        return pd.DataFrame()
 
 # Helper function for formatting values in the prompt
 def format_value_for_prompt(value):
@@ -193,14 +223,25 @@ def prepare_llm_context_data(
 ) -> tuple[np.ndarray, MinMaxScaler, pd.DataFrame]:
     """Prepares data for the LLM context and LSTM model."""
     logger.info("Preparing data for LLM context and LSTM model.")
+    
+    # Log available columns for debugging
+    logger.debug("Available columns in data: %s", data.columns.tolist())
 
     # Ensure data is sorted by date for correct scaling and LSTM processing
     data = data.sort_index(ascending=True)
+    
+    # Find the close price column (case insensitive)
+    close_col = next((col for col in data.columns if 'close' in col.lower()), None)
+    if close_col is None:
+        logger.error("No 'Close' price column found in the data. Available columns: %s", data.columns.tolist())
+        raise ValueError("No 'Close' price column found in the data")
+        
+    logger.info("Using column '%s' for closing prices", close_col)
 
     # Scale the 'Close' price data
     scaler = MinMaxScaler(feature_range=(0, 1))
     # Reshape for scaler: expects 2D array [n_samples, n_features]
-    scaled_data = scaler.fit_transform(data["Close"].values.reshape(-1, 1))
+    scaled_data = scaler.fit_transform(data[close_col].values.reshape(-1, 1))
     logger.debug("Data scaled successfully.")
 
     # Prepare sequences for LSTM if the model file exists
@@ -376,11 +417,20 @@ def main():
 
     # Load and preprocess data
     data = load_and_preprocess_data(TARGET_COMPANY)
+    
+    # Check if data loading was successful
+    if data.empty:
+        logger.error("Failed to load stock data. Please ensure the data file exists at 'data/%s_data.csv'", TARGET_COMPANY)
+        return
 
-    # Prepare data for LLM and LSTM
-    x_lstm_data, scaler, llm_context_data = prepare_llm_context_data(
-        data, SEQ_LEN
-    )
+    try:
+        # Prepare data for LLM and LSTM
+        x_lstm_data, scaler, llm_context_data = prepare_llm_context_data(
+            data, SEQ_LEN
+        )
+    except Exception as e:
+        logger.error("Error preparing data for LSTM: %s", str(e))
+        return
 
     # Generate dynamic prompt for LLM
     prompt = generate_dynamic_prompt(
