@@ -101,6 +101,20 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
     ]
     prompt_lines.append(f"\nUser Query: \"{user_query}\"\n")
     prompt_lines.append(f"Overall Market Sentiment: {overall_market_sentiment_string}\n")
+    
+    instructions = """Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow'. 
+    Focus on the following key aspects:
+    1. Overall Market Sentiment: Summarize the general market mood based on the provided sentiment data.
+    2. Sector Analysis: Highlight which sectors are showing strength or weakness.
+    3. Company Analysis: For companies mentioned in the query or showing significant movement, provide:
+       - Sentiment analysis (positive/negative/neutral)
+       - Growth score and its implications
+       - Macro sentiment impact on the sector
+       - LSTM next day close price prediction (if available)
+    4. Actionable Insights: Provide clear, data-driven recommendations based on the analysis.
+    
+    Always consider the context of the user's query and provide specific, relevant information.
+    If data is missing or unclear, acknowledge it and explain any limitations in the analysis."""
 
     prompt_lines.append("Company Data Context:")
     if top_companies_df.empty:
@@ -117,11 +131,10 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
                 f"MacroSentiment={macro_sentiment_str}, Sector={row['theme']}" # macro_sentiment_str and theme are usually fine
 
             )
+            # Initialize company_info with the base line
+            company_info = line
+            
             # Check if 'predicted_close_price' column exists and the value is not NaN or a placeholder string
-            # The format_value_for_prompt could be used here too if predicted_close_price could also be "N/A (No Batch Data)"
-            # However, current logic sets it to pd.NA for minimal entries if LSTM fails, which is handled by the existing pd.notna check.
-            # If LSTM on-demand consistently provides a float or pd.NA, existing check is fine.
-            # Let's assume predicted_close_price is either float or pd.NA from previous steps.
             if 'predicted_close_price' in row and pd.notna(row['predicted_close_price']):
                 company_info += f"\n  - 🚀 LSTM Next Day Close Prediction: ${row['predicted_close_price']:.2f}"
                 # Add some interpretation of the prediction
@@ -137,40 +150,6 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
 
     prompt_lines.append("\n---") # Separator before instructions
 
-
-instructions = (
-    "Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow'. "
-    "To do this, you MUST synthesize insights from four key pillars of information: the 'Overall Market Sentiment', specific 'MacroSentiment' (sector sentiment), individual company news sentiment scores, and 'LSTM Next Day Close' price predictions, all found within the 'Company Data Context' and 'Overall Market Sentiment' sections provided below. "
-    "Use ONLY this provided information. Adhere strictly to these guidelines:\n\n"
-    "**1. Sector Analysis (Tomorrow's Outlook):**\n"
-    "   - Begin by identifying 2-3 sectors from the 'Company Data Context' that exhibit the most significant positive or "
-    "     negative 'MacroSentiment score'.\n"
-    "   - For each identified sector, explain what its 'MacroSentiment score' might imply for its potential performance "
-    "     tomorrow. Relate this to the 'Overall Market Sentiment'.\n\n"
-    "**2. Specific Stock Analysis (Tomorrow's Outlook):**\n"
-    "   - **Crucially, if the 'User Query' mentions specific stocks by name or ticker, YOU MUST provide a direct and individual analysis for EACH of those stocks, provided their data is available in the 'Company Data Context'.**\n"
-    "   - After addressing any directly queried stocks, you can then discuss other companies, prioritizing those within the sectors you've just "
-    "     analyzed or others that seem particularly relevant based on their data.\n"
-    "   - For EACH stock you analyze (whether directly queried or chosen by you), provide a brief outlook for tomorrow. Your justification MUST holistically synthesize all relevant data points provided for that stock:\n"
-    "       a. The stock's individual sentiment scores (Positive, Neutral, Negative news counts).\n"
-    "       b. Its 'GrowthScore'.\n"
-    "       c. Its 'LSTM Next Day Close' price prediction (if available).\n"
-    "       d. The 'MacroSentiment score' of its sector.\n"
-    "       e. The context of the 'Overall Market Sentiment'.\n"
-    "   - Explicitly discuss how these factors (a-e) interact. For instance, note if they are aligned (e.g., positive stock sentiment, strong sector sentiment, bullish LSTM prediction, within a positive overall market) or if they present a mixed picture (e.g., good individual stock sentiment but a bearish LSTM prediction or weak sector sentiment).\n"
-    "   - **If some data points for a queried stock are neutral, minimal, absent (e.g., news sentiment counts are all zero, GrowthScore is close to zero, or key metrics like 'News Sentiment' or 'GrowthScore' are explicitly stated as 'N/A (No Batch Data)' or similar 'N/A' indicators), you MUST explicitly acknowledge this lack of specific batch-processed data. Then, proceed to make your best assessment for that stock based on the remaining available data (e.g., its LSTM prediction, its sector's MacroSentiment, and the Overall Market Sentiment). Do NOT avoid analyzing a queried stock simply because some of its individual metrics were not available from the batch news pipeline or are otherwise weak/neutral.**\n"
-    "   - Explain *why* the combination of available factors leads to your outlook for that stock.\n\n"
-    "**3. Addressing the User Query:**\n"
-    "   - Ensure your entire analysis is framed to comprehensively answer the 'User Query'.\n"
-    "   - **Reiterate: If the query asks about specific stocks, your primary goal is to provide a detailed analysis for THOSE stocks using the methodology outlined in section 2.**\n"
-    "   - If the query is general (e.g., 'market outlook'), the structured sector and stock analysis (focusing on high-signal companies) serves as your response.\n\n"
-    "**4. General Guidelines:**\n"
-    "   - Base all predictions and analyses exclusively on the provided 'Company Data Context' and 'Overall Market Sentiment'.\n"
-    "   - Do NOT use any external knowledge or real-time market data.\n"
-    "   - When making an inference, clearly state it's derived from the provided dataset.\n"
-    "   - **For any stock mentioned in the user query but NOT found in the 'Company Data Context', you MUST explicitly state that its specific data is not available in the current analysis dataset.** Do not attempt to infer its performance indirectly through other stocks unless clearly stating it's a broad sector observation.\n"
-    "   - If the 'Company Data Context' is empty, inform the user that no specific company data is available to perform the requested analysis."
-)
 
     prompt_lines.append("\nInstructions:\n" + instructions)
     return "\n".join(prompt_lines)
@@ -717,6 +696,9 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
     if final_context_df.empty:
         logger.warning("LLM context is empty: No top companies met criteria and no queried companies identified/found in data.")
     else:
+        # Ensure adjusted_growth_score is numeric before sorting
+        final_context_df['adjusted_growth_score'] = pd.to_numeric(final_context_df['adjusted_growth_score'], errors='coerce')
+        
         # Sort the final list by adjusted_growth_score for consistent presentation in the prompt, if desired
         final_context_df = final_context_df.sort_values(by="adjusted_growth_score", ascending=False).reset_index(drop=True)
         logger.debug(f"Final companies for LLM context (sorted by score):\n{final_context_df.to_string()}")

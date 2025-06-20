@@ -1,50 +1,70 @@
-2025-06-19 16:16:25,842 - stock_predictor - INFO - Successfully loaded top 5 news headlines from data\merged_sentiment_input.csv
-2025-06-19 16:16:25,848 - stock_predictor - INFO - Successfully loaded and processed stock performance data from data\predict_growth.csv
-2025-06-19 16:16:25,851 - stock_predictor - WARNING - 'market_sentiment' column not found in data\predict_growth.csv.
-2025-06-19 16:16:43,920 - stock_predictor - INFO - Successfully loaded top 5 news headlines from data\merged_sentiment_input.csv
-2025-06-19 16:16:43,924 - stock_predictor - INFO - Successfully loaded and processed stock performance data from data\predict_growth.csv
-2025-06-19 16:16:43,927 - stock_predictor - WARNING - 'market_sentiment' column not found in data\predict_growth.csv.
-2025-06-19 16:16:43,948 - stock_predictor - INFO - Streamlit App: Calling prepare_llm_context_data()
-2025-06-19 16:16:43,948 - stock_predictor - INFO - Preparing LLM context for query: 'what will be googles stock tomorrow' with top_n=25
-2025-06-19 16:16:43,968 - stock_predictor - INFO - All data files loaded successfully (or handled if missing).
-2025-06-19 16:16:43,981 - stock_predictor - INFO - Filtering main DataFrame to include only companies from NASDAQ list.
-2025-06-19 16:16:43,984 - stock_predictor - INFO - DataFrame reduced to 3 rows after filtering by NASDAQ list.
-2025-06-19 16:16:43,995 - stock_predictor - INFO - Normalized query terms to official company names: None found
-2025-06-19 16:16:43,999 - stock_predictor - INFO - Processed 0 queried companies. DataFrame shape: (0, 13)
-2025-06-19 16:16:44,002 - stock_predictor - INFO - Selected 3 additional top companies by adjusted_growth_score.
-2025-06-19 16:16:44,005 - stock_predictor - INFO - Final LLM context will include 3 unique companies (Top N by score + Queried).
-2025-06-19 16:16:44,005 - stock_predictor - INFO - Companies in final context: ['Amazon', 'Intel', 'Enphase Energy']
-2025-06-19 16:16:44,014 - stock_predictor - WARNING - 'market_sentiment' column not found in D:\Sentimental Stock Predictor\scripts\..\data\predict_growth.csv.
-2025-06-19 16:16:44,014 - stock_predictor - INFO - Overall market sentiment for LLM context: Data not available
-2025-06-19 16:16:44,015 - stock_predictor - INFO - Streamlit App: Generating dynamic prompt for user query: what will be googles stock tomorrow
-2025-06-19 16:16:44,015 - stock_predictor - INFO - Streamlit App: Calling get_openai_response()
-2025-06-19 16:16:44,016 - stock_predictor - INFO - 
+2025-06-19 18:51:50,971 - stock_predictor - INFO - Successfully loaded top 5 news headlines from data\merged_sentiment_input.csv
+2025-06-19 18:51:51,088 - stock_predictor - INFO - Successfully loaded and processed stock performance data from data\predict_growth.csv
+2025-06-19 18:51:51,093 - stock_predictor - WARNING - 'market_sentiment' column not found in data\predict_growth.csv.
+2025-06-19 18:53:40,476 - stock_predictor - INFO - Successfully loaded top 5 news headlines from data\merged_sentiment_input.csv
+2025-06-19 18:53:40,480 - stock_predictor - INFO - Successfully loaded and processed stock performance data from data\predict_growth.csv
+2025-06-19 18:53:40,485 - stock_predictor - WARNING - 'market_sentiment' column not found in data\predict_growth.csv.
+2025-06-19 18:53:40,507 - stock_predictor - INFO - Streamlit App: Calling prepare_llm_context_data()
+2025-06-19 18:53:40,508 - stock_predictor - INFO - Preparing LLM context for query: 'What will be the stock of google tomorrow' with top_n=25
+2025-06-19 18:53:40,534 - stock_predictor - INFO - All data files loaded successfully (or handled if missing).
+2025-06-19 18:53:40,536 - stock_predictor - INFO - Replaced non-breaking spaces in mapping_df['Company'] names.
+2025-06-19 18:53:40,550 - stock_predictor - INFO - Filtering main DataFrame to include only companies from NASDAQ list.
+2025-06-19 18:53:40,552 - stock_predictor - INFO - DataFrame reduced to 1 rows after filtering by NASDAQ list.
+2025-06-19 18:53:40,552 - stock_predictor - INFO - DEBUG: Initial common_name_mappings_tuples for Microsoft: ('microsoft', 'MSFT', 'Microsoft Corporation')
+2025-06-19 18:53:40,556 - stock_predictor - INFO - DEBUG: Mapping for 'microsoft' (common name): Key='microsoft', Value='Microsoft' (from get_official_name using Ticker: MSFT, Default: Microsoft Corporation)
+2025-06-19 18:53:40,562 - stock_predictor - INFO - DEBUG: Processing MSFT row: Official Name='Microsoft', Ticker='MSFT'
+2025-06-19 18:53:40,563 - stock_predictor - INFO - DEBUG: MSFT mapping: Key (ticker.lower())='msft', Value='Microsoft'
+2025-06-19 18:53:40,566 - stock_predictor - INFO - DEBUG: Query map contains MSFT ticker key ('msft'): True, maps to: Microsoft
+2025-06-19 18:53:40,567 - stock_predictor - INFO - DEBUG: Query map contains 'microsoft' common key: True, maps to: Microsoft
+2025-06-19 18:53:40,567 - stock_predictor - INFO - DEBUG: Cleaned user query: 'what will be stock of google tomorrow', Query parts: ['what', 'will', 'be', 'stock', 'of', 'google', 'tomorrow']
+2025-06-19 18:53:40,567 - stock_predictor - INFO - DEBUG: Ngram match! Ngram='google', Mapped Official Name='Alphabet Inc. (Class A)'. Added to potential_queried_normalized_names.
+2025-06-19 18:53:40,567 - stock_predictor - INFO - Normalized query terms to official company names: {'Alphabet Inc. (Class A)'}
+2025-06-19 18:53:40,569 - stock_predictor - INFO - Attempting on-demand LSTM prediction/training for GOOGL...
+2025-06-19 18:53:41,063 - stock_predictor - INFO - On-demand LSTM prediction for GOOGL: 133.05
+2025-06-19 18:53:41,064 - stock_predictor - INFO - Creating minimal data entry for 'Alphabet Inc. (Class A)' (Ticker: GOOGL) as it was not in batch data.
+2025-06-19 18:53:41,075 - stock_predictor - INFO - Processed 1 queried companies. DataFrame shape: (1, 13)
+2025-06-19 18:53:41,077 - stock_predictor - INFO - Selected 1 additional top companies by adjusted_growth_score.
+2025-06-19 18:53:41,078 - stock_predictor - INFO - Adding missing queried companies to final context: ['Alphabet Inc. (Class A)']
+2025-06-19 18:53:41,088 - stock_predictor - INFO - Final LLM context will include 2 unique companies (Top N by score + Queried).
+2025-06-19 18:53:41,088 - stock_predictor - INFO - Companies in final context: ['Enphase Energy', 'Alphabet Inc. (Class A)']
+2025-06-19 18:53:41,098 - stock_predictor - WARNING - 'market_sentiment' column not found in D:\Sentimental Stock Predictor\scripts\..\data\predict_growth.csv.
+2025-06-19 18:53:41,098 - stock_predictor - INFO - Overall market sentiment for LLM context: Data not available
+2025-06-19 18:53:41,099 - stock_predictor - INFO - Streamlit App: Generating dynamic prompt for user query: What will be the stock of google tomorrow
+2025-06-19 18:53:41,100 - stock_predictor - INFO - Streamlit App: Calling get_openai_response()
+2025-06-19 18:53:41,106 - stock_predictor - INFO - 
 📡 Querying OpenAI...
 
-2025-06-19 16:16:48,242 - stock_predictor - INFO - 🔮 OpenAI Response:
-**1. Sector Analysis (Tomorrow's Outlook):**
+2025-06-19 18:53:44,464 - stock_predictor - INFO - 🔮 OpenAI Response:
+Given the user's query about the stock of Google for tomorrow and the lack of specific data on Google or the overall market sentiment, I will provide an analysis based on the available company data and market context.
 
-From the available data, the sectors mentioned include Consumer Discretionary and Information Technology. Both sectors have a 'MacroSentiment' score of 0.00, indicating a neutral sentiment outlook.
+### 1. Overall Market Sentiment:
+Unfortunately, specific data on the overall market sentiment is not available. As a result, we are unable to provide a summary of the general market mood.
 
-**2. Specific Stock Analysis (Tomorrow's Outlook):**
+### 2. Sector Analysis:
+- Enphase Energy operates in the Information Technology sector.
+- Alphabet Inc. (Class A) operates in the Communication Services sector.
+- The Information Technology sector typically experiences volatility based on technological advancements and market trends.
+- The Communication Services sector can be influenced by regulatory changes, competition, and macroeconomic factors.
 
-- **Amazon:**
-  - Amazon has a Positive Sentiment of 1.00 and a GrowthScore of 0.23. The LSTM Prediction for Amazon is not available. The sector, Consumer Discretionary, has a neutral 'MacroSentiment'.
-  - Despite the lack of an LSTM prediction, Amazon's positive sentiment and growth score suggest a bullish outlook. However, the neutral sector sentiment might limit potential gains. Overall, Amazon could see stable performance tomorrow but with limited upside potential due to the sector sentiment.
+### 3. Company Analysis:
+- **Enphase Energy**:
+  - Sentiment Analysis: Neutral sentiment with a GrowthScore of 0.15.
+  - The company is in the Information Technology sector, which can be impacted by technological innovations and market demands.
+  - No specific LSTM Prediction available for Enphase Energy for the next day.
 
-- **Intel:**
-  - Intel has a Neutral Sentiment of 1.00 and a GrowthScore of 0.21. The LSTM Prediction for Intel is not available. Intel operates in the Information Technology sector, which also has a neutral 'MacroSentiment'.
-  - With neutral sentiment and growth score, coupled with a neutral sector sentiment, Intel is likely to exhibit stable performance tomorrow without significant fluctuations. The absence of an LSTM prediction makes it challenging to gauge potential price movements accurately.
+- **Alphabet Inc. (Class A)**:
+  - Sentiment Analysis: Data not available for sentiment or GrowthScore.
+  - The company is in the Communication Services sector, which can be influenced by various external factors.
+  - LSTM Next Day Close Prediction: $133.05
 
-- **Enphase Energy:**
-  - Enphase Energy, like Intel, has a Neutral Sentiment of 1.00 and a GrowthScore of 0.17. The LSTM Prediction for Enphase Energy is not available. Enphase Energy operates in the Information Technology sector, which has a neutral 'MacroSentiment'.
-  - Given the neutral sentiment across the board for Enphase Energy and the sector, the stock is expected to have a relatively stable trading day tomorrow. The lack of an LSTM prediction adds uncertainty to price movements.
+### 4. Actionable Insights:
+- Without specific data on Google or the overall market sentiment, it's challenging to provide a precise prediction for Google's stock for tomorrow.
+- Investors should closely monitor news related to Google, tech sector trends, and broader market movements to make informed decisions.
+- Given the prediction for Alphabet Inc. (Class A) of $133.05, it might indicate a potential trend for other tech companies, including Google.
 
-**3. Addressing the User Query:**
+### Limitations:
+- The lack of overall market sentiment data limits the comprehensive analysis of potential impacts on Google's stock for tomorrow.
+- The absence of specific sentiment and growth data for Alphabet Inc. (Class A) limits the depth of analysis for this company.
 
-Based on the available data, it is challenging to provide a precise prediction for Google's stock for tomorrow as Google's specific data is not present in the dataset provided. The overall market sentiment is also not available, further complicating the analysis. However, considering the sentiment and growth scores for Amazon, Intel, and Enphase Energy, it appears that these stocks are likely to have stable trading days with limited volatility tomorrow.
-
-In conclusion, the absence of data for Google makes it difficult to provide a direct analysis for its stock performance tomorrow. However, based on the analysis of similar companies in the dataset, it is reasonable to expect a day of stable trading for Google unless external market factors significantly influence the overall sentiment.
-
-Please note that the analysis is based solely on the information provided in the dataset, and the absence of specific data for Google limits the depth of the analysis for that particular stock.
-2025-06-19 16:16:48,246 - stock_predictor - INFO - Streamlit App: Successfully received and displayed LLM response.
+In summary, while we don't have specific data on Google, monitoring related companies like Alphabet Inc. (Class A) and sector trends can provide insights into potential movements. Stay informed and consider broader market trends for a more informed approach to trading.
+2025-06-19 18:53:44,469 - stock_predictor - INFO - Streamlit App: Successfully received and displayed LLM response.
