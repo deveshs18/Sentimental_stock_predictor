@@ -10703,3 +10703,627 @@
 2025-06-23 13:48:36,022 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
 2025-06-23 13:48:36,028 - INFO - Saved name mapping to data/company_name_mapping.csv
 2025-06-23 13:48:36,032 - INFO - Filtered out 64 records without valid company matches
+2025-06-23 14:18:05,125 - INFO - Loaded input files. Found 228 records and 101 NASDAQ companies.
+2025-06-23 14:18:05,132 - INFO - Created ticker_map with 101 entries.
+2025-06-23 14:18:05,133 - WARNING - Common name 'google' maps to 'Alphabet Inc. (Class A)' which is not an official Nasdaq name. Attempting to find a match.
+2025-06-23 14:18:05,133 - INFO - Updated common_name_map: 'google' now maps to 'Alphabet Inc. (Class A)'
+2025-06-23 14:18:05,133 - WARNING - Common name 'alphabet' maps to 'Alphabet Inc. (Class A)' which is not an official Nasdaq name. Attempting to find a match.
+2025-06-23 14:18:05,133 - INFO - Updated common_name_map: 'alphabet' now maps to 'Alphabet Inc. (Class A)'
+2025-06-23 14:18:05,133 - INFO - Created common_name_map with 8 entries.
+2025-06-23 14:18:05,133 - INFO - Starting company name normalization...
+2025-06-23 14:18:05,136 - INFO - Fuzzy match score for 'Humble Beginnings' (cleaned: 'humble beginnings') was 54, below threshold 70. No match.
+2025-06-23 14:18:05,138 - INFO - No normalization match found for: 'Humble Beginnings' (cleaned: 'humble beginnings')
+2025-06-23 14:18:05,139 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,141 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,142 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,143 - INFO - Fuzzy match score for 'HIMS' (cleaned: 'hims') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,144 - INFO - No normalization match found for: 'HIMS' (cleaned: 'hims')
+2025-06-23 14:18:05,145 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,146 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,148 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,149 - INFO - Fuzzy match score for 'First YOLO' (cleaned: 'first yolo') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,149 - INFO - No normalization match found for: 'First YOLO' (cleaned: 'first yolo')
+2025-06-23 14:18:05,150 - INFO - Normalized 'CI' (cleaned: 'ci') to 'Cintas' via fuzzy match (score: 90)
+2025-06-23 14:18:05,150 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,152 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,153 - INFO - Fuzzy match score for 'Archer Aviation Smoke' (cleaned: 'archer aviation smoke') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,153 - INFO - No normalization match found for: 'Archer Aviation Smoke' (cleaned: 'archer aviation smoke')
+2025-06-23 14:18:05,154 - INFO - Normalized 'Google' (cleaned: 'google') to 'Alphabet Inc. (Class A)' via common name map
+2025-06-23 14:18:05,155 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,156 - INFO - Fuzzy match score for 'Korea Zinc Investing' (cleaned: 'korea zinc investing') was 57, below threshold 70. No match.
+2025-06-23 14:18:05,157 - INFO - No normalization match found for: 'Korea Zinc Investing' (cleaned: 'korea zinc investing')
+2025-06-23 14:18:05,157 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,158 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,160 - INFO - Fuzzy match score for 'YOLO' (cleaned: 'yolo') was 68, below threshold 70. No match.
+2025-06-23 14:18:05,160 - INFO - No normalization match found for: 'YOLO' (cleaned: 'yolo')
+2025-06-23 14:18:05,162 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,163 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,164 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,165 - INFO - Fuzzy match score for 'CLBR' (cleaned: 'clbr') was 68, below threshold 70. No match.
+2025-06-23 14:18:05,165 - INFO - No normalization match found for: 'CLBR' (cleaned: 'clbr')
+2025-06-23 14:18:05,165 - INFO - Fuzzy match score for 'IPO' (cleaned: 'ipo') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,166 - INFO - No normalization match found for: 'IPO' (cleaned: 'ipo')
+2025-06-23 14:18:05,166 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,168 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,169 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,170 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,171 - INFO - Normalized 'TESLA' (cleaned: 'tesla') to 'Tesla, Inc.' via common name map
+2025-06-23 14:18:05,172 - INFO - Normalized 'TTMI - Advanced PCB Manufacturer & RF Supplier' (cleaned: 'ttmi advanced pcb manufacturer rf supplier') to 'Advanced Micro Devices Inc.' via fuzzy match (score: 86)
+2025-06-23 14:18:05,173 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,174 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,175 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,176 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,176 - INFO - Normalized 'GOOG' to 'Alphabet Inc. (Class C)' via direct ticker map ('GOOG')
+2025-06-23 14:18:05,177 - INFO - Normalized 'SPY' (cleaned: 'spy') to 'Synopsys' via fuzzy match (score: 72)
+2025-06-23 14:18:05,178 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,180 - INFO - Fuzzy match score for 'SPY 0DTE' (cleaned: 'spy 0dte') was 51, below threshold 70. No match.
+2025-06-23 14:18:05,180 - INFO - No normalization match found for: 'SPY 0DTE' (cleaned: 'spy 0dte')
+2025-06-23 14:18:05,180 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,181 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,182 - INFO - Fuzzy match score for 'CRCL' (cleaned: 'crcl') was 68, below threshold 70. No match.
+2025-06-23 14:18:05,182 - INFO - No normalization match found for: 'CRCL' (cleaned: 'crcl')
+2025-06-23 14:18:05,183 - INFO - Normalized 'TRBCX' (cleaned: 'trbcx') to 'CSX Corporation' via fuzzy match (score: 72)
+2025-06-23 14:18:05,184 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,184 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,185 - INFO - Normalized 'CC' (cleaned: 'cc') to 'Paccar' via fuzzy match (score: 90)
+2025-06-23 14:18:05,185 - INFO - Fuzzy match score for 'Offer Own Stablecoin' (cleaned: 'offer own stablecoin') was 55, below threshold 70. No match.
+2025-06-23 14:18:05,187 - INFO - No normalization match found for: 'Offer Own Stablecoin' (cleaned: 'offer own stablecoin')
+2025-06-23 14:18:05,188 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,188 - INFO - Fuzzy match score for 'HIMS' (cleaned: 'hims') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,189 - INFO - No normalization match found for: 'HIMS' (cleaned: 'hims')
+2025-06-23 14:18:05,190 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,191 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,191 - INFO - Fuzzy match score for 'Trump Media Announces Share Repurchase Authorization' (cleaned: 'trump media announces share repurchase authorization') was 53, below threshold 70. No match.
+2025-06-23 14:18:05,192 - INFO - No normalization match found for: 'Trump Media Announces Share Repurchase Authorization' (cleaned: 'trump media announces share repurchase authorization')
+2025-06-23 14:18:05,193 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,195 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,196 - INFO - Fuzzy match score for 'Archer Aviation' (cleaned: 'archer aviation') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,198 - INFO - No normalization match found for: 'Archer Aviation' (cleaned: 'archer aviation')
+2025-06-23 14:18:05,199 - INFO - Fuzzy match score for 'Hims & Hers' (cleaned: 'hims hers') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,199 - INFO - No normalization match found for: 'Hims & Hers' (cleaned: 'hims hers')
+2025-06-23 14:18:05,200 - INFO - Normalized 'SPY' (cleaned: 'spy') to 'Synopsys' via fuzzy match (score: 72)
+2025-06-23 14:18:05,201 - INFO - Fuzzy match score for 'Novo Nordisk' (cleaned: 'novo nordisk') was 65, below threshold 70. No match.
+2025-06-23 14:18:05,202 - INFO - No normalization match found for: 'Novo Nordisk' (cleaned: 'novo nordisk')
+2025-06-23 14:18:05,203 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,204 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,206 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,207 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,208 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,209 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,210 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,211 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,211 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,213 - INFO - Fuzzy match score for 'Trump Tariffs' (cleaned: 'trump tariffs') was 57, below threshold 70. No match.
+2025-06-23 14:18:05,213 - INFO - No normalization match found for: 'Trump Tariffs' (cleaned: 'trump tariffs')
+2025-06-23 14:18:05,214 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,215 - INFO - Fuzzy match score for 'Bonds Treasuries' (cleaned: 'bonds treasuries') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,215 - INFO - No normalization match found for: 'Bonds Treasuries' (cleaned: 'bonds treasuries')
+2025-06-23 14:18:05,216 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,216 - INFO - Fuzzy match score for 'YOLO' (cleaned: 'yolo') was 68, below threshold 70. No match.
+2025-06-23 14:18:05,218 - INFO - No normalization match found for: 'YOLO' (cleaned: 'yolo')
+2025-06-23 14:18:05,219 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,219 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,220 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,221 - INFO - Fuzzy match score for 'AI on Instagram' (cleaned: 'ai on instagram') was 62, below threshold 70. No match.
+2025-06-23 14:18:05,221 - INFO - No normalization match found for: 'AI on Instagram' (cleaned: 'ai on instagram')
+2025-06-23 14:18:05,223 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,224 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,224 - INFO - Fuzzy match score for 'AI API Prices' (cleaned: 'ai api prices') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,225 - INFO - No normalization match found for: 'AI API Prices' (cleaned: 'ai api prices')
+2025-06-23 14:18:05,225 - INFO - Normalized 'Tesla' (cleaned: 'tesla') to 'Tesla, Inc.' via common name map
+2025-06-23 14:18:05,227 - INFO - Fuzzy match score for 'MCU' (cleaned: 'mcu') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,227 - INFO - No normalization match found for: 'MCU' (cleaned: 'mcu')
+2025-06-23 14:18:05,228 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,230 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,230 - INFO - Fuzzy match score for 'FHD IPS 144Hz' (cleaned: 'fhd ips 144hz') was 43, below threshold 70. No match.
+2025-06-23 14:18:05,231 - INFO - No normalization match found for: 'FHD IPS 144Hz' (cleaned: 'fhd ips 144hz')
+2025-06-23 14:18:05,232 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,232 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,234 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,235 - INFO - Fuzzy match score for 'w/ Subscribe & Save' (cleaned: 'w subscribe save') was 54, below threshold 70. No match.
+2025-06-23 14:18:05,235 - INFO - No normalization match found for: 'w/ Subscribe & Save' (cleaned: 'w subscribe save')
+2025-06-23 14:18:05,237 - INFO - Fuzzy match score for 'Ex-NUMC' (cleaned: 'ex numc') was 51, below threshold 70. No match.
+2025-06-23 14:18:05,237 - INFO - No normalization match found for: 'Ex-NUMC' (cleaned: 'ex numc')
+2025-06-23 14:18:05,238 - INFO - Normalized 'Apple Loop' (cleaned: 'apple loop') to 'Apple Inc.' via fuzzy match (score: 90)
+2025-06-23 14:18:05,240 - INFO - Fuzzy match score for 'NBA Mock Draft' (cleaned: 'nba mock draft') was 57, below threshold 70. No match.
+2025-06-23 14:18:05,242 - INFO - No normalization match found for: 'NBA Mock Draft' (cleaned: 'nba mock draft')
+2025-06-23 14:18:05,242 - INFO - Fuzzy match score for 'PFMCrypto Launches Revolutionary XRP Mining Contracts' (cleaned: 'pfmcrypto launches revolutionary xrp mining contracts') was 56, below threshold 70. No match.
+2025-06-23 14:18:05,243 - INFO - No normalization match found for: 'PFMCrypto Launches Revolutionary XRP Mining Contracts' (cleaned: 'pfmcrypto launches revolutionary xrp mining contracts')
+2025-06-23 14:18:05,244 - INFO - Fuzzy match score for 'Buffalo Club' (cleaned: 'buffalo club') was 48, below threshold 70. No match.
+2025-06-23 14:18:05,244 - INFO - No normalization match found for: 'Buffalo Club' (cleaned: 'buffalo club')
+2025-06-23 14:18:05,245 - INFO - Fuzzy match score for 'The Tax Consequences Of Debt Financing For Small Business Loans' (cleaned: 'the tax consequences of debt financing for small business loans') was 56, below threshold 70. No match.
+2025-06-23 14:18:05,246 - INFO - No normalization match found for: 'The Tax Consequences Of Debt Financing For Small Business Loans' (cleaned: 'the tax consequences of debt financing for small business loans')
+2025-06-23 14:18:05,246 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,248 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,248 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,250 - INFO - Fuzzy match score for 'Molecular Partners' (cleaned: 'molecular partners') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,250 - INFO - No normalization match found for: 'Molecular Partners' (cleaned: 'molecular partners')
+2025-06-23 14:18:05,251 - INFO - Fuzzy match score for 'RCAT INVESTOR ALERT' (cleaned: 'rcat investor alert') was 64, below threshold 70. No match.
+2025-06-23 14:18:05,251 - INFO - No normalization match found for: 'RCAT INVESTOR ALERT' (cleaned: 'rcat investor alert')
+2025-06-23 14:18:05,253 - INFO - Fuzzy match score for 'Gewirtz & Grossman' (cleaned: 'gewirtz grossman') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,253 - INFO - No normalization match found for: 'Gewirtz & Grossman' (cleaned: 'gewirtz grossman')
+2025-06-23 14:18:05,255 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,255 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,257 - INFO - Fuzzy match score for 'Lenovo' (cleaned: 'lenovo') was 49, below threshold 70. No match.
+2025-06-23 14:18:05,257 - INFO - No normalization match found for: 'Lenovo' (cleaned: 'lenovo')
+2025-06-23 14:18:05,259 - INFO - Fuzzy match score for 'Gewirtz & Grossman' (cleaned: 'gewirtz grossman') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,259 - INFO - No normalization match found for: 'Gewirtz & Grossman' (cleaned: 'gewirtz grossman')
+2025-06-23 14:18:05,260 - INFO - Fuzzy match score for 'Elio Suffers Lowest Opening Ever for' (cleaned: 'elio suffers lowest opening ever for') was 57, below threshold 70. No match.
+2025-06-23 14:18:05,261 - INFO - No normalization match found for: 'Elio Suffers Lowest Opening Ever for' (cleaned: 'elio suffers lowest opening ever for')
+2025-06-23 14:18:05,262 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,262 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,263 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,264 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,265 - INFO - Fuzzy match score for 'Apple Reportedly Mulling Perplexity Purchase' (cleaned: 'apple reportedly mulling perplexity purchase') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,266 - INFO - No normalization match found for: 'Apple Reportedly Mulling Perplexity Purchase' (cleaned: 'apple reportedly mulling perplexity purchase')
+2025-06-23 14:18:05,267 - INFO - Fuzzy match score for 'Bitget' (cleaned: 'bitget') was 67, below threshold 70. No match.
+2025-06-23 14:18:05,267 - INFO - No normalization match found for: 'Bitget' (cleaned: 'bitget')
+2025-06-23 14:18:05,268 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,268 - INFO - Fuzzy match score for 'NATO' (cleaned: 'nato') was 68, below threshold 70. No match.
+2025-06-23 14:18:05,268 - INFO - No normalization match found for: 'NATO' (cleaned: 'nato')
+2025-06-23 14:18:05,270 - INFO - Fuzzy match score for 'Target' (cleaned: 'target') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,270 - INFO - No normalization match found for: 'Target' (cleaned: 'target')
+2025-06-23 14:18:05,270 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,273 - INFO - Normalized 'Trump' (cleaned: 'trump') to 'Texas Instruments' via fuzzy match (score: 72)
+2025-06-23 14:18:05,274 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,274 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,275 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,276 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,277 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,278 - INFO - Fuzzy match score for 'The Royal Enfield FT450' (cleaned: 'the royal enfield ft450') was 54, below threshold 70. No match.
+2025-06-23 14:18:05,278 - INFO - No normalization match found for: 'The Royal Enfield FT450' (cleaned: 'the royal enfield ft450')
+2025-06-23 14:18:05,278 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,279 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,280 - INFO - Normalized 'Tesla's Robotaxi Service Hits the Road in Texas' (cleaned: 'tesla s robotaxi service hits the road in texas') to 'Texas Instruments' via fuzzy match (score: 86)
+2025-06-23 14:18:05,281 - INFO - Fuzzy match score for 'DHS' (cleaned: 'dhs') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,281 - INFO - No normalization match found for: 'DHS' (cleaned: 'dhs')
+2025-06-23 14:18:05,282 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,283 - INFO - Fuzzy match score for 'ASX Dividend Stocks' (cleaned: 'asx dividend stocks') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,283 - INFO - No normalization match found for: 'ASX Dividend Stocks' (cleaned: 'asx dividend stocks')
+2025-06-23 14:18:05,284 - INFO - Fuzzy match score for 'Air India's' (cleaned: 'air india s') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,284 - INFO - No normalization match found for: 'Air India's' (cleaned: 'air india s')
+2025-06-23 14:18:05,285 - INFO - Normalized 'AI' (cleaned: 'ai') to 'Airbnb' via fuzzy match (score: 90)
+2025-06-23 14:18:05,286 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,286 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,286 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,288 - INFO - Fuzzy match score for 'Novo Nordisk A/S: Mim8' (cleaned: 'novo nordisk a s mim8') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,288 - INFO - No normalization match found for: 'Novo Nordisk A/S: Mim8' (cleaned: 'novo nordisk a s mim8')
+2025-06-23 14:18:05,289 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,291 - INFO - Fuzzy match score for 'Defense' (cleaned: 'defense') was 62, below threshold 70. No match.
+2025-06-23 14:18:05,291 - INFO - No normalization match found for: 'Defense' (cleaned: 'defense')
+2025-06-23 14:18:05,291 - INFO - Fuzzy match score for 'Prada' (cleaned: 'prada') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,291 - INFO - No normalization match found for: 'Prada' (cleaned: 'prada')
+2025-06-23 14:18:05,292 - INFO - Fuzzy match score for 'Small Investment Bank Tied' (cleaned: 'small investment bank tied') was 57, below threshold 70. No match.
+2025-06-23 14:18:05,293 - INFO - No normalization match found for: 'Small Investment Bank Tied' (cleaned: 'small investment bank tied')
+2025-06-23 14:18:05,294 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,294 - INFO - Fuzzy match score for 'MCP' (cleaned: 'mcp') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,295 - INFO - No normalization match found for: 'MCP' (cleaned: 'mcp')
+2025-06-23 14:18:05,295 - INFO - Normalized 'Trump' (cleaned: 'trump') to 'Texas Instruments' via fuzzy match (score: 72)
+2025-06-23 14:18:05,296 - INFO - Fuzzy match score for 'Enrich Uranium Justifies Attack' (cleaned: 'enrich uranium justifies attack') was 55, below threshold 70. No match.
+2025-06-23 14:18:05,296 - INFO - No normalization match found for: 'Enrich Uranium Justifies Attack' (cleaned: 'enrich uranium justifies attack')
+2025-06-23 14:18:05,298 - INFO - Normalized 'COP' (cleaned: 'cop') to 'Copart' via fuzzy match (score: 90)
+2025-06-23 14:18:05,298 - INFO - Fuzzy match score for 'Sierra Leone's' (cleaned: 'sierra leone s') was 55, below threshold 70. No match.
+2025-06-23 14:18:05,299 - INFO - No normalization match found for: 'Sierra Leone's' (cleaned: 'sierra leone s')
+2025-06-23 14:18:05,300 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,302 - INFO - Fuzzy match score for 'The Goals of Automation Tools and Marketing Efforts' (cleaned: 'the goals of automation tools and marketing efforts') was 56, below threshold 70. No match.
+2025-06-23 14:18:05,302 - INFO - No normalization match found for: 'The Goals of Automation Tools and Marketing Efforts' (cleaned: 'the goals of automation tools and marketing efforts')
+2025-06-23 14:18:05,303 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,304 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,306 - INFO - Fuzzy match score for 'Provenir' (cleaned: 'provenir') was 56, below threshold 70. No match.
+2025-06-23 14:18:05,306 - INFO - No normalization match found for: 'Provenir' (cleaned: 'provenir')
+2025-06-23 14:18:05,307 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,308 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,309 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,309 - INFO - Fuzzy match score for 'Jumps' (cleaned: 'jumps') was 51, below threshold 70. No match.
+2025-06-23 14:18:05,309 - INFO - No normalization match found for: 'Jumps' (cleaned: 'jumps')
+2025-06-23 14:18:05,309 - INFO - Fuzzy match score for 'Suns' (cleaned: 'suns') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,311 - INFO - No normalization match found for: 'Suns' (cleaned: 'suns')
+2025-06-23 14:18:05,311 - INFO - Normalized 'Tesla' (cleaned: 'tesla') to 'Tesla, Inc.' via common name map
+2025-06-23 14:18:05,311 - INFO - Normalized 'IDF' (cleaned: 'idf') to 'Idexx Laboratories' via fuzzy match (score: 72)
+2025-06-23 14:18:05,312 - INFO - Normalized 'UN' (cleaned: 'un') to 'GlobalFoundries' via fuzzy match (score: 90)
+2025-06-23 14:18:05,313 - INFO - Fuzzy match score for 'Lifestyle Brand Life Time Takes' (cleaned: 'lifestyle brand life time takes') was 54, below threshold 70. No match.
+2025-06-23 14:18:05,313 - INFO - No normalization match found for: 'Lifestyle Brand Life Time Takes' (cleaned: 'lifestyle brand life time takes')
+2025-06-23 14:18:05,313 - INFO - Fuzzy match score for 'Kremlin' (cleaned: 'kremlin') was 56, below threshold 70. No match.
+2025-06-23 14:18:05,314 - INFO - No normalization match found for: 'Kremlin' (cleaned: 'kremlin')
+2025-06-23 14:18:05,314 - INFO - Fuzzy match score for 'White House' (cleaned: 'white house') was 64, below threshold 70. No match.
+2025-06-23 14:18:05,315 - INFO - No normalization match found for: 'White House' (cleaned: 'white house')
+2025-06-23 14:18:05,315 - INFO - Fuzzy match score for 'OnePlus Has Launched' (cleaned: 'oneplus has launched') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,315 - INFO - No normalization match found for: 'OnePlus Has Launched' (cleaned: 'oneplus has launched')
+2025-06-23 14:18:05,316 - INFO - Fuzzy match score for 'AI Action Summit' (cleaned: 'ai action summit') was 54, below threshold 70. No match.
+2025-06-23 14:18:05,316 - INFO - No normalization match found for: 'AI Action Summit' (cleaned: 'ai action summit')
+2025-06-23 14:18:05,317 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,317 - INFO - Fuzzy match score for 'Jaguar' (cleaned: 'jaguar') was 50, below threshold 70. No match.
+2025-06-23 14:18:05,318 - INFO - No normalization match found for: 'Jaguar' (cleaned: 'jaguar')
+2025-06-23 14:18:05,319 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,319 - INFO - Fuzzy match score for 'NH' (cleaned: 'nh') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,320 - INFO - No normalization match found for: 'NH' (cleaned: 'nh')
+2025-06-23 14:18:05,321 - INFO - Fuzzy match score for 'Toyota' (cleaned: 'toyota') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,321 - INFO - No normalization match found for: 'Toyota' (cleaned: 'toyota')
+2025-06-23 14:18:05,322 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,323 - INFO - Fuzzy match score for 'Jumps' (cleaned: 'jumps') was 51, below threshold 70. No match.
+2025-06-23 14:18:05,323 - INFO - No normalization match found for: 'Jumps' (cleaned: 'jumps')
+2025-06-23 14:18:05,324 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,325 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,326 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,326 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,327 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,328 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,328 - INFO - Normalized 'NVDA' to 'Nvidia' via direct ticker map ('NVDA')
+2025-06-23 14:18:05,328 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,330 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,330 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,330 - INFO - Normalized 'Tesla' (cleaned: 'tesla') to 'Tesla, Inc.' via common name map
+2025-06-23 14:18:05,331 - INFO - Fuzzy match score for 'TY' (cleaned: 'ty') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,332 - INFO - No normalization match found for: 'TY' (cleaned: 'ty')
+2025-06-23 14:18:05,332 - INFO - Normalized 'Google' (cleaned: 'google') to 'Alphabet Inc. (Class A)' via common name map
+2025-06-23 14:18:05,333 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,334 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,335 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,336 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,337 - INFO - Normalized 'TLT' (cleaned: 'tlt') to 'Marriott International' via fuzzy match (score: 72)
+2025-06-23 14:18:05,337 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,338 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,338 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,338 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,340 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,341 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,341 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,343 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,343 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,344 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,344 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,345 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,346 - INFO - Fuzzy match score for 'Telesat - $' (cleaned: 'telesat') was 67, below threshold 70. No match.
+2025-06-23 14:18:05,346 - INFO - No normalization match found for: 'Telesat - $' (cleaned: 'telesat')
+2025-06-23 14:18:05,346 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,348 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,348 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,349 - INFO - Normalized 'r/Stocks Weekly Thread' (cleaned: 'r stocks weekly thread') to 'ADP' via fuzzy match (score: 72)
+2025-06-23 14:18:05,350 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,351 - INFO - Fuzzy match score for 'Investment Advice for Retirement Accounts' (cleaned: 'investment advice for retirement accounts') was 64, below threshold 70. No match.
+2025-06-23 14:18:05,351 - INFO - No normalization match found for: 'Investment Advice for Retirement Accounts' (cleaned: 'investment advice for retirement accounts')
+2025-06-23 14:18:05,352 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,353 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,355 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,355 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,356 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,357 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,357 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,358 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,358 - INFO - Normalized 'AI' (cleaned: 'ai') to 'Airbnb' via fuzzy match (score: 90)
+2025-06-23 14:18:05,360 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,361 - INFO - Fuzzy match score for 'SunPower' (cleaned: 'sunpower') was 69, below threshold 70. No match.
+2025-06-23 14:18:05,361 - INFO - No normalization match found for: 'SunPower' (cleaned: 'sunpower')
+2025-06-23 14:18:05,362 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,363 - INFO - Normalized 'TMO' (cleaned: 'tmo') to 'Moderna' via fuzzy match (score: 72)
+2025-06-23 14:18:05,364 - INFO - Fuzzy match score for 'CHYM' (cleaned: 'chym') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,364 - INFO - No normalization match found for: 'CHYM' (cleaned: 'chym')
+2025-06-23 14:18:05,365 - INFO - Fuzzy match score for 'Employer' (cleaned: 'employer') was 55, below threshold 70. No match.
+2025-06-23 14:18:05,366 - INFO - No normalization match found for: 'Employer' (cleaned: 'employer')
+2025-06-23 14:18:05,366 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,369 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,370 - INFO - Fuzzy match score for 'OSCR, CRCL' (cleaned: 'oscr crcl') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,370 - INFO - No normalization match found for: 'OSCR, CRCL' (cleaned: 'oscr crcl')
+2025-06-23 14:18:05,371 - INFO - Fuzzy match score for 'WSJ' (cleaned: 'wsj') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,371 - INFO - No normalization match found for: 'WSJ' (cleaned: 'wsj')
+2025-06-23 14:18:05,373 - INFO - Fuzzy match score for 'Dividend' (cleaned: 'dividend') was 57, below threshold 70. No match.
+2025-06-23 14:18:05,373 - INFO - No normalization match found for: 'Dividend' (cleaned: 'dividend')
+2025-06-23 14:18:05,374 - INFO - Fuzzy match score for 'The US Leading' (cleaned: 'the us leading') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,374 - INFO - No normalization match found for: 'The US Leading' (cleaned: 'the us leading')
+2025-06-23 14:18:05,375 - INFO - Fuzzy match score for 'VW' (cleaned: 'vw') was 60, below threshold 70. No match.
+2025-06-23 14:18:05,375 - INFO - No normalization match found for: 'VW' (cleaned: 'vw')
+2025-06-23 14:18:05,375 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:18:05,382 - INFO - Saved name mapping to data/company_name_mapping.csv
+2025-06-23 14:18:05,385 - INFO - Filtered out 74 records without valid company matches
+2025-06-23 14:20:59,630 - INFO - Loaded input files. Found 228 records and 101 NASDAQ companies.
+2025-06-23 14:20:59,638 - INFO - Created ticker_map with 101 entries.
+2025-06-23 14:20:59,639 - WARNING - Common name 'google' maps to 'Alphabet Inc. (Class A)' which is not an official Nasdaq name. Attempting to find a match.
+2025-06-23 14:20:59,640 - INFO - Updated common_name_map: 'google' now maps to 'Alphabet Inc. (Class A)'
+2025-06-23 14:20:59,640 - WARNING - Common name 'alphabet' maps to 'Alphabet Inc. (Class A)' which is not an official Nasdaq name. Attempting to find a match.
+2025-06-23 14:20:59,641 - INFO - Updated common_name_map: 'alphabet' now maps to 'Alphabet Inc. (Class A)'
+2025-06-23 14:20:59,641 - INFO - Created common_name_map with 8 entries.
+2025-06-23 14:20:59,641 - INFO - Starting company name normalization...
+2025-06-23 14:20:59,644 - INFO - Fuzzy match score for 'Humble Beginnings' (cleaned: 'humble beginnings') was 54, below threshold 70. No match.
+2025-06-23 14:20:59,644 - INFO - No normalization match found for: 'Humble Beginnings' (cleaned: 'humble beginnings')
+2025-06-23 14:20:59,645 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,646 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,648 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,649 - INFO - Fuzzy match score for 'HIMS' (cleaned: 'hims') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,650 - INFO - No normalization match found for: 'HIMS' (cleaned: 'hims')
+2025-06-23 14:20:59,651 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,654 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,656 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,657 - INFO - Fuzzy match score for 'First YOLO' (cleaned: 'first yolo') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,657 - INFO - No normalization match found for: 'First YOLO' (cleaned: 'first yolo')
+2025-06-23 14:20:59,658 - INFO - Normalized 'CI' (cleaned: 'ci') to 'Cintas' via fuzzy match (score: 90)
+2025-06-23 14:20:59,659 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,659 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,660 - INFO - Fuzzy match score for 'Archer Aviation Smoke' (cleaned: 'archer aviation smoke') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,661 - INFO - No normalization match found for: 'Archer Aviation Smoke' (cleaned: 'archer aviation smoke')
+2025-06-23 14:20:59,661 - INFO - Normalized 'Google' (cleaned: 'google') to 'Alphabet Inc. (Class A)' via common name map
+2025-06-23 14:20:59,662 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,663 - INFO - Fuzzy match score for 'Korea Zinc Investing' (cleaned: 'korea zinc investing') was 57, below threshold 70. No match.
+2025-06-23 14:20:59,663 - INFO - No normalization match found for: 'Korea Zinc Investing' (cleaned: 'korea zinc investing')
+2025-06-23 14:20:59,664 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,665 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,666 - INFO - Fuzzy match score for 'YOLO' (cleaned: 'yolo') was 68, below threshold 70. No match.
+2025-06-23 14:20:59,666 - INFO - No normalization match found for: 'YOLO' (cleaned: 'yolo')
+2025-06-23 14:20:59,667 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,668 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,670 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,671 - INFO - Fuzzy match score for 'CLBR' (cleaned: 'clbr') was 68, below threshold 70. No match.
+2025-06-23 14:20:59,671 - INFO - No normalization match found for: 'CLBR' (cleaned: 'clbr')
+2025-06-23 14:20:59,671 - INFO - Fuzzy match score for 'IPO' (cleaned: 'ipo') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,672 - INFO - No normalization match found for: 'IPO' (cleaned: 'ipo')
+2025-06-23 14:20:59,673 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,674 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,674 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,675 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,675 - INFO - Normalized 'TESLA' (cleaned: 'tesla') to 'Tesla, Inc.' via common name map
+2025-06-23 14:20:59,678 - INFO - Normalized 'TTMI - Advanced PCB Manufacturer & RF Supplier' (cleaned: 'ttmi advanced pcb manufacturer rf supplier') to 'Advanced Micro Devices Inc.' via fuzzy match (score: 86)
+2025-06-23 14:20:59,678 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,678 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,680 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,681 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,682 - INFO - Normalized 'GOOG' to 'Alphabet Inc. (Class C)' via direct ticker map ('GOOG')
+2025-06-23 14:20:59,682 - INFO - Normalized 'SPY' (cleaned: 'spy') to 'Synopsys' via fuzzy match (score: 72)
+2025-06-23 14:20:59,683 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,684 - INFO - Fuzzy match score for 'SPY 0DTE' (cleaned: 'spy 0dte') was 51, below threshold 70. No match.
+2025-06-23 14:20:59,684 - INFO - No normalization match found for: 'SPY 0DTE' (cleaned: 'spy 0dte')
+2025-06-23 14:20:59,685 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,686 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,686 - INFO - Fuzzy match score for 'CRCL' (cleaned: 'crcl') was 68, below threshold 70. No match.
+2025-06-23 14:20:59,687 - INFO - No normalization match found for: 'CRCL' (cleaned: 'crcl')
+2025-06-23 14:20:59,688 - INFO - Normalized 'TRBCX' (cleaned: 'trbcx') to 'CSX Corporation' via fuzzy match (score: 72)
+2025-06-23 14:20:59,690 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,691 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,691 - INFO - Normalized 'CC' (cleaned: 'cc') to 'Paccar' via fuzzy match (score: 90)
+2025-06-23 14:20:59,692 - INFO - Fuzzy match score for 'Offer Own Stablecoin' (cleaned: 'offer own stablecoin') was 55, below threshold 70. No match.
+2025-06-23 14:20:59,692 - INFO - No normalization match found for: 'Offer Own Stablecoin' (cleaned: 'offer own stablecoin')
+2025-06-23 14:20:59,693 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,694 - INFO - Fuzzy match score for 'HIMS' (cleaned: 'hims') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,694 - INFO - No normalization match found for: 'HIMS' (cleaned: 'hims')
+2025-06-23 14:20:59,695 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,695 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,696 - INFO - Fuzzy match score for 'Trump Media Announces Share Repurchase Authorization' (cleaned: 'trump media announces share repurchase authorization') was 53, below threshold 70. No match.
+2025-06-23 14:20:59,698 - INFO - No normalization match found for: 'Trump Media Announces Share Repurchase Authorization' (cleaned: 'trump media announces share repurchase authorization')
+2025-06-23 14:20:59,699 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,703 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,705 - INFO - Fuzzy match score for 'Archer Aviation' (cleaned: 'archer aviation') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,705 - INFO - No normalization match found for: 'Archer Aviation' (cleaned: 'archer aviation')
+2025-06-23 14:20:59,707 - INFO - Fuzzy match score for 'Hims & Hers' (cleaned: 'hims hers') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,707 - INFO - No normalization match found for: 'Hims & Hers' (cleaned: 'hims hers')
+2025-06-23 14:20:59,708 - INFO - Normalized 'SPY' (cleaned: 'spy') to 'Synopsys' via fuzzy match (score: 72)
+2025-06-23 14:20:59,709 - INFO - Fuzzy match score for 'Novo Nordisk' (cleaned: 'novo nordisk') was 65, below threshold 70. No match.
+2025-06-23 14:20:59,709 - INFO - No normalization match found for: 'Novo Nordisk' (cleaned: 'novo nordisk')
+2025-06-23 14:20:59,710 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,711 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,712 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,713 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,713 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,714 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,716 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,718 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,720 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,722 - INFO - Fuzzy match score for 'Trump Tariffs' (cleaned: 'trump tariffs') was 57, below threshold 70. No match.
+2025-06-23 14:20:59,723 - INFO - No normalization match found for: 'Trump Tariffs' (cleaned: 'trump tariffs')
+2025-06-23 14:20:59,724 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,725 - INFO - Fuzzy match score for 'Bonds Treasuries' (cleaned: 'bonds treasuries') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,725 - INFO - No normalization match found for: 'Bonds Treasuries' (cleaned: 'bonds treasuries')
+2025-06-23 14:20:59,726 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,728 - INFO - Fuzzy match score for 'YOLO' (cleaned: 'yolo') was 68, below threshold 70. No match.
+2025-06-23 14:20:59,728 - INFO - No normalization match found for: 'YOLO' (cleaned: 'yolo')
+2025-06-23 14:20:59,729 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,729 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,730 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,732 - INFO - Fuzzy match score for 'AI on Instagram' (cleaned: 'ai on instagram') was 62, below threshold 70. No match.
+2025-06-23 14:20:59,732 - INFO - No normalization match found for: 'AI on Instagram' (cleaned: 'ai on instagram')
+2025-06-23 14:20:59,733 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,734 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,734 - INFO - Fuzzy match score for 'AI API Prices' (cleaned: 'ai api prices') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,735 - INFO - No normalization match found for: 'AI API Prices' (cleaned: 'ai api prices')
+2025-06-23 14:20:59,735 - INFO - Normalized 'Tesla' (cleaned: 'tesla') to 'Tesla, Inc.' via common name map
+2025-06-23 14:20:59,736 - INFO - Fuzzy match score for 'MCU' (cleaned: 'mcu') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,736 - INFO - No normalization match found for: 'MCU' (cleaned: 'mcu')
+2025-06-23 14:20:59,738 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,739 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,740 - INFO - Fuzzy match score for 'FHD IPS 144Hz' (cleaned: 'fhd ips 144hz') was 43, below threshold 70. No match.
+2025-06-23 14:20:59,740 - INFO - No normalization match found for: 'FHD IPS 144Hz' (cleaned: 'fhd ips 144hz')
+2025-06-23 14:20:59,741 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,741 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,741 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,743 - INFO - Fuzzy match score for 'w/ Subscribe & Save' (cleaned: 'w subscribe save') was 54, below threshold 70. No match.
+2025-06-23 14:20:59,743 - INFO - No normalization match found for: 'w/ Subscribe & Save' (cleaned: 'w subscribe save')
+2025-06-23 14:20:59,744 - INFO - Fuzzy match score for 'Ex-NUMC' (cleaned: 'ex numc') was 51, below threshold 70. No match.
+2025-06-23 14:20:59,744 - INFO - No normalization match found for: 'Ex-NUMC' (cleaned: 'ex numc')
+2025-06-23 14:20:59,745 - INFO - Normalized 'Apple Loop' (cleaned: 'apple loop') to 'Apple Inc.' via fuzzy match (score: 90)
+2025-06-23 14:20:59,746 - INFO - Fuzzy match score for 'NBA Mock Draft' (cleaned: 'nba mock draft') was 57, below threshold 70. No match.
+2025-06-23 14:20:59,746 - INFO - No normalization match found for: 'NBA Mock Draft' (cleaned: 'nba mock draft')
+2025-06-23 14:20:59,749 - INFO - Fuzzy match score for 'PFMCrypto Launches Revolutionary XRP Mining Contracts' (cleaned: 'pfmcrypto launches revolutionary xrp mining contracts') was 56, below threshold 70. No match.
+2025-06-23 14:20:59,750 - INFO - No normalization match found for: 'PFMCrypto Launches Revolutionary XRP Mining Contracts' (cleaned: 'pfmcrypto launches revolutionary xrp mining contracts')
+2025-06-23 14:20:59,751 - INFO - Fuzzy match score for 'Buffalo Club' (cleaned: 'buffalo club') was 48, below threshold 70. No match.
+2025-06-23 14:20:59,752 - INFO - No normalization match found for: 'Buffalo Club' (cleaned: 'buffalo club')
+2025-06-23 14:20:59,753 - INFO - Fuzzy match score for 'The Tax Consequences Of Debt Financing For Small Business Loans' (cleaned: 'the tax consequences of debt financing for small business loans') was 56, below threshold 70. No match.
+2025-06-23 14:20:59,754 - INFO - No normalization match found for: 'The Tax Consequences Of Debt Financing For Small Business Loans' (cleaned: 'the tax consequences of debt financing for small business loans')
+2025-06-23 14:20:59,755 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,756 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,757 - INFO - Fuzzy match score for 'Gewirtz & Grossman' (cleaned: 'gewirtz grossman') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,757 - INFO - No normalization match found for: 'Gewirtz & Grossman' (cleaned: 'gewirtz grossman')
+2025-06-23 14:20:59,758 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,760 - INFO - Fuzzy match score for 'RCAT INVESTOR ALERT' (cleaned: 'rcat investor alert') was 64, below threshold 70. No match.
+2025-06-23 14:20:59,760 - INFO - No normalization match found for: 'RCAT INVESTOR ALERT' (cleaned: 'rcat investor alert')
+2025-06-23 14:20:59,760 - INFO - Fuzzy match score for 'Molecular Partners' (cleaned: 'molecular partners') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,760 - INFO - No normalization match found for: 'Molecular Partners' (cleaned: 'molecular partners')
+2025-06-23 14:20:59,762 - INFO - Fuzzy match score for 'Gewirtz & Grossman' (cleaned: 'gewirtz grossman') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,762 - INFO - No normalization match found for: 'Gewirtz & Grossman' (cleaned: 'gewirtz grossman')
+2025-06-23 14:20:59,765 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,766 - INFO - Fuzzy match score for 'Lenovo' (cleaned: 'lenovo') was 49, below threshold 70. No match.
+2025-06-23 14:20:59,768 - INFO - No normalization match found for: 'Lenovo' (cleaned: 'lenovo')
+2025-06-23 14:20:59,770 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,772 - INFO - Fuzzy match score for 'Elio Suffers Lowest Opening Ever for' (cleaned: 'elio suffers lowest opening ever for') was 57, below threshold 70. No match.
+2025-06-23 14:20:59,772 - INFO - No normalization match found for: 'Elio Suffers Lowest Opening Ever for' (cleaned: 'elio suffers lowest opening ever for')
+2025-06-23 14:20:59,773 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,774 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,774 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,775 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,777 - INFO - Fuzzy match score for 'Apple Reportedly Mulling Perplexity Purchase' (cleaned: 'apple reportedly mulling perplexity purchase') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,778 - INFO - No normalization match found for: 'Apple Reportedly Mulling Perplexity Purchase' (cleaned: 'apple reportedly mulling perplexity purchase')
+2025-06-23 14:20:59,778 - INFO - Fuzzy match score for 'Bitget' (cleaned: 'bitget') was 67, below threshold 70. No match.
+2025-06-23 14:20:59,778 - INFO - No normalization match found for: 'Bitget' (cleaned: 'bitget')
+2025-06-23 14:20:59,782 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,782 - INFO - Fuzzy match score for 'NATO' (cleaned: 'nato') was 68, below threshold 70. No match.
+2025-06-23 14:20:59,783 - INFO - No normalization match found for: 'NATO' (cleaned: 'nato')
+2025-06-23 14:20:59,783 - INFO - Fuzzy match score for 'Target' (cleaned: 'target') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,784 - INFO - No normalization match found for: 'Target' (cleaned: 'target')
+2025-06-23 14:20:59,784 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,785 - INFO - Normalized 'Trump' (cleaned: 'trump') to 'Texas Instruments' via fuzzy match (score: 72)
+2025-06-23 14:20:59,786 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,788 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,788 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,790 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,791 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,792 - INFO - Fuzzy match score for 'The Royal Enfield FT450' (cleaned: 'the royal enfield ft450') was 54, below threshold 70. No match.
+2025-06-23 14:20:59,793 - INFO - No normalization match found for: 'The Royal Enfield FT450' (cleaned: 'the royal enfield ft450')
+2025-06-23 14:20:59,794 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,795 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,797 - INFO - Normalized 'Tesla's Robotaxi Service Hits the Road in Texas' (cleaned: 'tesla s robotaxi service hits the road in texas') to 'Texas Instruments' via fuzzy match (score: 86)
+2025-06-23 14:20:59,799 - INFO - Fuzzy match score for 'DHS' (cleaned: 'dhs') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,800 - INFO - No normalization match found for: 'DHS' (cleaned: 'dhs')
+2025-06-23 14:20:59,801 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,802 - INFO - Fuzzy match score for 'ASX Dividend Stocks' (cleaned: 'asx dividend stocks') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,802 - INFO - No normalization match found for: 'ASX Dividend Stocks' (cleaned: 'asx dividend stocks')
+2025-06-23 14:20:59,803 - INFO - Fuzzy match score for 'Air India's' (cleaned: 'air india s') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,803 - INFO - No normalization match found for: 'Air India's' (cleaned: 'air india s')
+2025-06-23 14:20:59,803 - INFO - Normalized 'AI' (cleaned: 'ai') to 'Airbnb' via fuzzy match (score: 90)
+2025-06-23 14:20:59,804 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,804 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,805 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,806 - INFO - Fuzzy match score for 'Novo Nordisk A/S: Mim8' (cleaned: 'novo nordisk a s mim8') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,806 - INFO - No normalization match found for: 'Novo Nordisk A/S: Mim8' (cleaned: 'novo nordisk a s mim8')
+2025-06-23 14:20:59,808 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,808 - INFO - Fuzzy match score for 'Defense' (cleaned: 'defense') was 62, below threshold 70. No match.
+2025-06-23 14:20:59,808 - INFO - No normalization match found for: 'Defense' (cleaned: 'defense')
+2025-06-23 14:20:59,810 - INFO - Fuzzy match score for 'Prada' (cleaned: 'prada') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,810 - INFO - No normalization match found for: 'Prada' (cleaned: 'prada')
+2025-06-23 14:20:59,811 - INFO - Fuzzy match score for 'Small Investment Bank Tied' (cleaned: 'small investment bank tied') was 57, below threshold 70. No match.
+2025-06-23 14:20:59,812 - INFO - No normalization match found for: 'Small Investment Bank Tied' (cleaned: 'small investment bank tied')
+2025-06-23 14:20:59,813 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,814 - INFO - Fuzzy match score for 'MCP' (cleaned: 'mcp') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,815 - INFO - No normalization match found for: 'MCP' (cleaned: 'mcp')
+2025-06-23 14:20:59,816 - INFO - Normalized 'Trump' (cleaned: 'trump') to 'Texas Instruments' via fuzzy match (score: 72)
+2025-06-23 14:20:59,816 - INFO - Fuzzy match score for 'Enrich Uranium Justifies Attack' (cleaned: 'enrich uranium justifies attack') was 55, below threshold 70. No match.
+2025-06-23 14:20:59,817 - INFO - No normalization match found for: 'Enrich Uranium Justifies Attack' (cleaned: 'enrich uranium justifies attack')
+2025-06-23 14:20:59,817 - INFO - Normalized 'COP' (cleaned: 'cop') to 'Copart' via fuzzy match (score: 90)
+2025-06-23 14:20:59,818 - INFO - Fuzzy match score for 'Sierra Leone's' (cleaned: 'sierra leone s') was 55, below threshold 70. No match.
+2025-06-23 14:20:59,818 - INFO - No normalization match found for: 'Sierra Leone's' (cleaned: 'sierra leone s')
+2025-06-23 14:20:59,820 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,820 - INFO - Fuzzy match score for 'The Goals of Automation Tools and Marketing Efforts' (cleaned: 'the goals of automation tools and marketing efforts') was 56, below threshold 70. No match.
+2025-06-23 14:20:59,820 - INFO - No normalization match found for: 'The Goals of Automation Tools and Marketing Efforts' (cleaned: 'the goals of automation tools and marketing efforts')
+2025-06-23 14:20:59,821 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,822 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,822 - INFO - Fuzzy match score for 'Provenir' (cleaned: 'provenir') was 56, below threshold 70. No match.
+2025-06-23 14:20:59,823 - INFO - No normalization match found for: 'Provenir' (cleaned: 'provenir')
+2025-06-23 14:20:59,823 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,824 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,825 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,825 - INFO - Fuzzy match score for 'Jumps' (cleaned: 'jumps') was 51, below threshold 70. No match.
+2025-06-23 14:20:59,827 - INFO - No normalization match found for: 'Jumps' (cleaned: 'jumps')
+2025-06-23 14:20:59,827 - INFO - Fuzzy match score for 'Suns' (cleaned: 'suns') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,828 - INFO - No normalization match found for: 'Suns' (cleaned: 'suns')
+2025-06-23 14:20:59,828 - INFO - Normalized 'Tesla' (cleaned: 'tesla') to 'Tesla, Inc.' via common name map
+2025-06-23 14:20:59,830 - INFO - Normalized 'IDF' (cleaned: 'idf') to 'Idexx Laboratories' via fuzzy match (score: 72)
+2025-06-23 14:20:59,830 - INFO - Normalized 'UN' (cleaned: 'un') to 'GlobalFoundries' via fuzzy match (score: 90)
+2025-06-23 14:20:59,832 - INFO - Fuzzy match score for 'Lifestyle Brand Life Time Takes' (cleaned: 'lifestyle brand life time takes') was 54, below threshold 70. No match.
+2025-06-23 14:20:59,832 - INFO - No normalization match found for: 'Lifestyle Brand Life Time Takes' (cleaned: 'lifestyle brand life time takes')
+2025-06-23 14:20:59,833 - INFO - Fuzzy match score for 'Kremlin' (cleaned: 'kremlin') was 56, below threshold 70. No match.
+2025-06-23 14:20:59,833 - INFO - No normalization match found for: 'Kremlin' (cleaned: 'kremlin')
+2025-06-23 14:20:59,834 - INFO - Fuzzy match score for 'White House' (cleaned: 'white house') was 64, below threshold 70. No match.
+2025-06-23 14:20:59,834 - INFO - No normalization match found for: 'White House' (cleaned: 'white house')
+2025-06-23 14:20:59,834 - INFO - Fuzzy match score for 'OnePlus Has Launched' (cleaned: 'oneplus has launched') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,835 - INFO - No normalization match found for: 'OnePlus Has Launched' (cleaned: 'oneplus has launched')
+2025-06-23 14:20:59,835 - INFO - Fuzzy match score for 'AI Action Summit' (cleaned: 'ai action summit') was 54, below threshold 70. No match.
+2025-06-23 14:20:59,836 - INFO - No normalization match found for: 'AI Action Summit' (cleaned: 'ai action summit')
+2025-06-23 14:20:59,836 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,837 - INFO - Fuzzy match score for 'Jaguar' (cleaned: 'jaguar') was 50, below threshold 70. No match.
+2025-06-23 14:20:59,838 - INFO - No normalization match found for: 'Jaguar' (cleaned: 'jaguar')
+2025-06-23 14:20:59,839 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,840 - INFO - Fuzzy match score for 'NH' (cleaned: 'nh') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,840 - INFO - No normalization match found for: 'NH' (cleaned: 'nh')
+2025-06-23 14:20:59,841 - INFO - Fuzzy match score for 'Toyota' (cleaned: 'toyota') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,841 - INFO - No normalization match found for: 'Toyota' (cleaned: 'toyota')
+2025-06-23 14:20:59,842 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,843 - INFO - Fuzzy match score for 'Jumps' (cleaned: 'jumps') was 51, below threshold 70. No match.
+2025-06-23 14:20:59,844 - INFO - No normalization match found for: 'Jumps' (cleaned: 'jumps')
+2025-06-23 14:20:59,845 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,845 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,846 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,848 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,848 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,849 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,849 - INFO - Normalized 'NVDA' to 'Nvidia' via direct ticker map ('NVDA')
+2025-06-23 14:20:59,851 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,852 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,852 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,853 - INFO - Normalized 'Tesla' (cleaned: 'tesla') to 'Tesla, Inc.' via common name map
+2025-06-23 14:20:59,853 - INFO - Fuzzy match score for 'TY' (cleaned: 'ty') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,853 - INFO - No normalization match found for: 'TY' (cleaned: 'ty')
+2025-06-23 14:20:59,854 - INFO - Normalized 'Google' (cleaned: 'google') to 'Alphabet Inc. (Class A)' via common name map
+2025-06-23 14:20:59,854 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,855 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,856 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,856 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,857 - INFO - Normalized 'TLT' (cleaned: 'tlt') to 'Marriott International' via fuzzy match (score: 72)
+2025-06-23 14:20:59,859 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,861 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,863 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,863 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,865 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,865 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,866 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,867 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,867 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,868 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,868 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,870 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,870 - INFO - Fuzzy match score for 'Telesat - $' (cleaned: 'telesat') was 67, below threshold 70. No match.
+2025-06-23 14:20:59,870 - INFO - No normalization match found for: 'Telesat - $' (cleaned: 'telesat')
+2025-06-23 14:20:59,871 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,871 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,872 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,873 - INFO - Normalized 'r/Stocks Weekly Thread' (cleaned: 'r stocks weekly thread') to 'ADP' via fuzzy match (score: 72)
+2025-06-23 14:20:59,874 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,875 - INFO - Fuzzy match score for 'Investment Advice for Retirement Accounts' (cleaned: 'investment advice for retirement accounts') was 64, below threshold 70. No match.
+2025-06-23 14:20:59,875 - INFO - No normalization match found for: 'Investment Advice for Retirement Accounts' (cleaned: 'investment advice for retirement accounts')
+2025-06-23 14:20:59,876 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,878 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,880 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,880 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,882 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,883 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,883 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,884 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,884 - INFO - Normalized 'AI' (cleaned: 'ai') to 'Airbnb' via fuzzy match (score: 90)
+2025-06-23 14:20:59,885 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,886 - INFO - Fuzzy match score for 'SunPower' (cleaned: 'sunpower') was 69, below threshold 70. No match.
+2025-06-23 14:20:59,886 - INFO - No normalization match found for: 'SunPower' (cleaned: 'sunpower')
+2025-06-23 14:20:59,887 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,888 - INFO - Normalized 'TMO' (cleaned: 'tmo') to 'Moderna' via fuzzy match (score: 72)
+2025-06-23 14:20:59,890 - INFO - Fuzzy match score for 'CHYM' (cleaned: 'chym') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,890 - INFO - No normalization match found for: 'CHYM' (cleaned: 'chym')
+2025-06-23 14:20:59,891 - INFO - Fuzzy match score for 'Employer' (cleaned: 'employer') was 55, below threshold 70. No match.
+2025-06-23 14:20:59,892 - INFO - No normalization match found for: 'Employer' (cleaned: 'employer')
+2025-06-23 14:20:59,893 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,894 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,895 - INFO - Fuzzy match score for 'OSCR, CRCL' (cleaned: 'oscr crcl') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,895 - INFO - No normalization match found for: 'OSCR, CRCL' (cleaned: 'oscr crcl')
+2025-06-23 14:20:59,896 - INFO - Fuzzy match score for 'WSJ' (cleaned: 'wsj') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,896 - INFO - No normalization match found for: 'WSJ' (cleaned: 'wsj')
+2025-06-23 14:20:59,898 - INFO - Fuzzy match score for 'Dividend' (cleaned: 'dividend') was 57, below threshold 70. No match.
+2025-06-23 14:20:59,898 - INFO - No normalization match found for: 'Dividend' (cleaned: 'dividend')
+2025-06-23 14:20:59,899 - INFO - Fuzzy match score for 'The US Leading' (cleaned: 'the us leading') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,899 - INFO - No normalization match found for: 'The US Leading' (cleaned: 'the us leading')
+2025-06-23 14:20:59,900 - INFO - Fuzzy match score for 'VW' (cleaned: 'vw') was 60, below threshold 70. No match.
+2025-06-23 14:20:59,900 - INFO - No normalization match found for: 'VW' (cleaned: 'vw')
+2025-06-23 14:20:59,900 - INFO - Normalized 'nan' (cleaned: 'nan') to 'Analog Devices' via fuzzy match (score: 72)
+2025-06-23 14:20:59,907 - INFO - Saved name mapping to data/company_name_mapping.csv
+2025-06-23 14:20:59,909 - INFO - Filtered out 74 records without valid company matches

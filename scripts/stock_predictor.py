@@ -1,8 +1,14 @@
 import logging
 import os
 import sys
+from pathlib import Path
 import pandas as pd
+from dotenv import load_dotenv
 from openai import OpenAI
+
+# Load environment variables from .env file
+env_path = Path(__file__).parent / '.env'
+load_dotenv(dotenv_path=env_path)
 
 # Configure logging
 logging.basicConfig(
@@ -15,7 +21,9 @@ logger = logging.getLogger(__name__)
 # Ensure OPENAI_API_KEY is loaded from environment variables
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
-    logger.warning("OPENAI_API_KEY environment variable not found.")
+    logger.warning("OPENAI_API_KEY environment variable not found in .env file or environment variables.")
+    logger.warning(f"Current working directory: {os.getcwd()}")
+    logger.warning(f"Looking for .env file at: {env_path.absolute()}")
 
 # Helper function for formatting values in the prompt
 def format_value_for_prompt(value):
@@ -180,4 +188,3 @@ def get_openai_response(prompt_text):
 # The main focus is on the functions used by Streamlit.
 # To test, one would typically run the Streamlit app itself after these changes.
 # And ensure data files (excluding LSTM related ones) are present.
-```
