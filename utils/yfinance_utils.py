@@ -94,5 +94,3 @@ if __name__ == '__main__':
     #         print(f"Could not find ticker for {official_name}")
     # else:
     #     print(f"Could not normalize company: {company_query}")
-
-```
