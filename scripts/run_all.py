@@ -15,7 +15,7 @@ SCRIPTS = [
     "generate_company_sentiment.py",
     "macro_sentiment_analysis.py",
     "fetch_historical_prices.py",
-    "lstm_stock_predictor.py",
+    # "lstm_stock_predictor.py", # Removed as LSTM components are being deleted
     "stock_predictor.py"
 ]
 
