@@ -116,7 +116,7 @@ def get_top_news(num_headlines=5):
             return []
 
         # Convert timestamp and sort
-        news_df['timestamp'] = pd.to_datetime(news_df['timestamp'], errors='coerce')
+        news_df.loc[:, 'timestamp'] = pd.to_datetime(news_df['timestamp'], errors='coerce')
         news_df = news_df.dropna(subset=['timestamp']) # Remove rows where timestamp conversion failed
         news_df_sorted = news_df.sort_values(by="timestamp", ascending=False)
 

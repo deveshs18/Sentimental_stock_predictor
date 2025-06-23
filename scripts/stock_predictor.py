@@ -24,53 +24,100 @@ TARGET_COMPANY = os.environ.get("TARGET_COMPANY", "GOOGL")
 # Number of future days to predict
 FUTURE_DAYS = int(os.environ.get("FUTURE_DAYS", "30"))
 # LSTM model path
-LSTM_MODEL_PATH = os.environ.get("LSTM_MODEL_PATH", "models/lstm_model.h5")
+# LSTM_MODEL_PATH = os.environ.get("LSTM_MODEL_PATH", "models/lstm_model.h5")
 
 
 def load_and_preprocess_data(target_company: str) -> pd.DataFrame:
     """Loads and preprocesses stock data for the target company."""
     logger.info("Loading and preprocessing data for %s", target_company)
-    # Construct the CSV file path based on the target company
-    csv_file_path = f"data/historical_prices/{target_company}.csv"
+    
+    # Define possible file paths to check
+    possible_paths = [
+        f"data/historical_prices/{target_company}.csv",
+        f"data/{target_company}_data.csv"
+    ]
+    
+    data = None
+    for csv_file_path in possible_paths:
+        if os.path.exists(csv_file_path):
+            try:
+                # First, read just the first few rows to understand the structure
+                with open(csv_file_path, 'r') as f:
+                    first_line = f.readline().strip()
+                    second_line = f.readline().strip()
+                    
+                # Check if second line contains ticker information
+                if second_line.startswith('Ticker'):
+                    # If second line is ticker info, skip it and use first line as header
+                    data = pd.read_csv(csv_file_path, header=0, skiprows=[1])
+                else:
+                    # Otherwise, just read normally
+                    data = pd.read_csv(csv_file_path)
+                    
+                logger.info(f"Successfully loaded data from {csv_file_path}")
+                break
+            except Exception as e:
+                logger.warning(f"Error reading {csv_file_path}: {e}")
+                continue
+    
+    if data is None or data.empty:
+        error_msg = f"Could not find or read data file for {target_company}. Tried paths: {', '.join(possible_paths)}"
+        logger.error(error_msg)
+        raise FileNotFoundError(error_msg)
+    
+    # Log the first few rows and column names for debugging
+    logger.debug("Raw data columns: %s", data.columns.tolist())
+    logger.debug("First few rows of raw data:\n%s", data.head())
+    
+    # Drop any empty rows or columns
+    data = data.dropna(how='all')
+    data = data.dropna(axis=1, how='all')
+    
+    if data.empty:
+        raise ValueError("No data remaining after dropping empty rows and columns")
+    
+    # The first column should be the date column
+    date_col = data.columns[0]
+    
+    # Drop any rows where the date is the column name (e.g., 'Date')
+    data = data[data[date_col] != date_col]
+    
+    # Convert the date column to datetime
     try:
-        # Read the CSV file, skipping the first two rows (headers and ticker row)
-        # and using the third row as the header
-        data = pd.read_csv(csv_file_path, skiprows=2, header=0)
+        # Try parsing with dayfirst=True for European format dates
+        data[date_col] = pd.to_datetime(data[date_col], dayfirst=False, errors='coerce')
         
-        # Log the first few rows and column names for debugging
-        logger.debug("Raw data columns: %s", data.columns.tolist())
-        logger.debug("First few rows of raw data:\n%s", data.head())
+        # Drop rows where date parsing failed
+        data = data.dropna(subset=[date_col])
         
-        # Drop any empty rows or columns
-        data = data.dropna(how='all')
-        data = data.dropna(axis=1, how='all')
-        
-        # The first column should be the date column
-        date_col = data.columns[0]
-        
-        # Convert the date column to datetime and set as index
-        data[date_col] = pd.to_datetime(data[date_col])
-        data.set_index(date_col, inplace=True)
-        
-        # Convert all columns to numeric, coercing errors to NaN
-        for col in data.columns:
-            data[col] = pd.to_numeric(data[col], errors='coerce')
+        if data.empty:
+            raise ValueError("No valid dates found in the date column")
             
-        # Drop any rows with all NaN values
-        data = data.dropna(how='all')
-        
-        # Standardize column names to lowercase for consistency
-        data.columns = [col.lower() for col in data.columns]
-        logger.debug("Processed data columns: %s", data.columns.tolist())
-            
-        return data
-    except FileNotFoundError:
-        logger.error(f"Stock data file not found at {csv_file_path}")
-        logger.error("Please run 'python scripts/fetch_historical_prices.py' to download the required data.")
-        return pd.DataFrame()
     except Exception as e:
-        logger.error(f"Error reading or processing stock data in stock_predictor: {e}", exc_info=True)
-        return pd.DataFrame()
+        logger.error(f"Error parsing dates: {e}")
+        raise
+    
+    # Set the index to the date column
+    data = data.set_index(date_col)
+    
+    # Convert all columns to numeric, coercing errors to NaN
+    for col in data.columns:
+        data[col] = pd.to_numeric(data[col], errors='coerce')
+    
+    # Drop any rows with all NaN values
+    data = data.dropna(how='all')
+    
+    if data.empty:
+        raise ValueError("No data remaining after converting to numeric and dropping NaN values")
+    
+    # Standardize column names to lowercase for consistency
+    data.columns = [str(col).strip().lower() for col in data.columns]
+    logger.debug("Processed data columns: %s", data.columns.tolist())
+    
+    # Ensure the data is sorted by date
+    data = data.sort_index()
+    
+    return data
 
 # Helper function for formatting values in the prompt
 def format_value_for_prompt(value):
@@ -208,18 +255,8 @@ def prepare_llm_context_data(user_query, top_n=25): # user_query parameter added
     except Exception as e:
         logger.error(f"An unexpected error occurred while loading data: {e}", exc_info=True)
 
-        logger.error("CSV file not found: %s", csv_file_path)
-        # You might want to raise an exception here or handle it differently
-        raise
-
-    data["Date"] = pd.to_datetime(data["Date"])
-    data.sort_values("Date", inplace=True)
-    data.set_index("Date", inplace=True)
-    return data
-
-
 def prepare_llm_context_data(
-    data: pd.DataFrame, seq_len: int = SEQ_LEN
+    data: pd.DataFrame, seq_len: int = SEQ_LEN, lstm_model_path: str = ""  # Default empty string if not provided
 ) -> tuple[np.ndarray, MinMaxScaler, pd.DataFrame]:
     """Prepares data for the LLM context and LSTM model."""
     logger.info("Preparing data for LLM context and LSTM model.")
@@ -245,8 +282,8 @@ def prepare_llm_context_data(
     logger.debug("Data scaled successfully.")
 
     # Prepare sequences for LSTM if the model file exists
-    if os.path.exists(LSTM_MODEL_PATH):
-        logger.info("LSTM model found. Preparing sequences for LSTM.")
+    if os.path.exists(lstm_model_path): # Use the passed argument
+        logger.info("LSTM model found at %s. Preparing sequences for LSTM.", lstm_model_path)
         # Create sequences for LSTM input
         x_data = []
         for i in range(seq_len, len(scaled_data)):
@@ -258,7 +295,7 @@ def prepare_llm_context_data(
     else:
         logger.warning(
             "LSTM model not found at %s. Skipping LSTM sequence preparation.",
-            LSTM_MODEL_PATH,
+            lstm_model_path, # Use the passed argument
         )
         # Return empty array if no LSTM model to prevent errors downstream
         x_data = np.array([])
@@ -288,10 +325,10 @@ def generate_dynamic_prompt(
         "Recent Stock Data with LSTM Predictions:",
     ]
     # Prepare data with 'prev_close' for trend calculation
-    data["prev_close"] = data["Close"].shift(1)
+    data["prev_close"] = data["close"].shift(1)
 
     for date, row in data.iterrows():
-        line = f"On {date.strftime('%Y-%m-%d')}: Close Price was ${row['Close']:.2f}"
+        line = f"On {date.strftime('%Y-%m-%d')}: Close Price was ${row['close']:.2f}"
         # Check if LSTM predicted price is available and not NaN
         if "predicted_close_price" in row and pd.notna(row["predicted_close_price"]):
             line += f", LSTM Next Day Close Prediction: ${row['predicted_close_price']:.2f}"
@@ -306,7 +343,7 @@ def generate_dynamic_prompt(
 
     # Summary and call to action for LLM
     last_date = data.index[-1].strftime("%Y-%m-%d")
-    last_close_price = data["Close"].iloc[-1]
+    last_close_price = data["close"].iloc[-1]
     prompt_lines.append(
         f"\nSummary: Last actual close on {last_date} was ${last_close_price:.2f}."
     )
@@ -379,7 +416,7 @@ def plot_predictions(
     )
 
     # Create DataFrames for plotting
-    historical_df = historical_data["Close"].reset_index()
+    historical_df = historical_data["close"].reset_index()
     historical_df.columns = ["Date", "Price"]
     historical_df["Type"] = "Historical"
 
@@ -411,6 +448,10 @@ def plot_predictions(
     )
 
 
+# Dynamically define LSTM model path
+lstm_model_path = f"models/lstm_{TARGET_COMPANY.lower()}_model.h5"
+# scaler_path = f"models/lstm_{TARGET_COMPANY.lower()}_scaler.joblib" # Scaler path might be needed later or in other functions
+
 def main():
     """Main function to run the stock prediction process."""
     logger.info("Starting stock prediction process for %s", TARGET_COMPANY)
@@ -423,14 +464,10 @@ def main():
         logger.error("Failed to load stock data. Please ensure the data file exists at 'data/%s_data.csv'", TARGET_COMPANY)
         return
 
-    try:
-        # Prepare data for LLM and LSTM
-        x_lstm_data, scaler, llm_context_data = prepare_llm_context_data(
-            data, SEQ_LEN
-        )
-    except Exception as e:
-        logger.error("Error preparing data for LSTM: %s", str(e))
-        return
+    # Prepare data for LLM and LSTM
+    x_lstm_data, scaler, llm_context_data = prepare_llm_context_data(
+        data, SEQ_LEN, lstm_model_path  # Pass the dynamic path
+    )
 
     # Generate dynamic prompt for LLM
     prompt = generate_dynamic_prompt(
@@ -445,7 +482,7 @@ def main():
     # Predict future prices with LSTM if data is available
     if x_lstm_data.size > 0:
         predicted_prices_lstm = predict_future_prices_with_lstm(
-            LSTM_MODEL_PATH, x_lstm_data, scaler, FUTURE_DAYS
+            lstm_model_path, x_lstm_data, scaler, FUTURE_DAYS
         )
         logger.info(
             "LSTM Predicted Prices for the next %d days: %s",
@@ -462,68 +499,6 @@ def main():
         )
 
     logger.info("Stock prediction process finished.")
-
-
-
-    # Ensure queried companies are included even if they weren't in the top N
-    if not queried_companies_data_df.empty:
-        # Get the official names from the mapping for queried companies
-        queried_official_names = set(queried_companies_data_df['company'])
-        
-        # Find any queried companies that might be missing from the top N
-        missing_queried = []
-        for company in queried_official_names:
-            if company not in top_n_by_score_df['company'].values:
-                missing_queried.append(company)
-        
-        # If we have missing queried companies, add them to the context
-        if missing_queried:
-            logger.info(f"Adding missing queried companies to final context: {missing_queried}")
-            # Get the company data for missing queried companies
-            missing_data = company_df[company_df['company'].isin(missing_queried)].copy()
-            
-            # Add LSTM predictions if available
-            if 'Ticker' in missing_data.columns and not lstm_df.empty:
-                missing_data = pd.merge(
-                    missing_data,
-                    lstm_df[['stock_ticker', 'predicted_close_price']],
-                    left_on='Ticker',
-                    right_on='stock_ticker',
-                    how='left'
-                ).drop(columns=['stock_ticker'])
-            
-            # Add sector information
-            missing_data['theme'] = missing_data['company'].map(theme_map)
-            missing_data['macro_sentiment_score'] = missing_data['theme'].map(macro_map).fillna(0)
-            
-            # Add to queried companies data
-            queried_companies_data_df = pd.concat([queried_companies_data_df, missing_data])
-    
-    # Combine batch top companies and queried companies data
-    final_context_df = pd.concat([top_n_by_score_df, queried_companies_data_df])
-    
-    # Remove duplicates, keeping the first occurrence (prioritize queried companies data)
-    final_context_df = final_context_df.drop_duplicates(subset=['company'], keep='first').reset_index(drop=True)
-    
-    logger.info(f"Final LLM context will include {len(final_context_df)} unique companies (Top N by score + Queried).")
-    
-    # Log the final list of companies being returned
-    logger.info(f"Companies in final context: {final_context_df['company'].tolist()}")
-    
-    if final_context_df.empty:
-        logger.warning("LLM context is empty: No top companies met criteria and no queried companies identified/found in data.")
-    else:
-        # Ensure adjusted_growth_score is numeric before sorting
-        final_context_df['adjusted_growth_score'] = pd.to_numeric(final_context_df['adjusted_growth_score'], errors='coerce')
-        
-        # Sort the final list by adjusted_growth_score for consistent presentation in the prompt, if desired
-        final_context_df = final_context_df.sort_values(by="adjusted_growth_score", ascending=False).reset_index(drop=True)
-        logger.debug(f"Final companies for LLM context (sorted by score):\n{final_context_df.to_string()}")
-
-    market_sentiment_str = get_qualitative_market_sentiment()
-    logger.info(f"Overall market sentiment for LLM context: {market_sentiment_str}")
-
-    return final_context_df, market_sentiment_str
 
 # === Main script execution starts here ===
 

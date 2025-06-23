@@ -1,107 +1,17 @@
-2025-06-17 14:30:39,612 - DEBUG - Entering download()
-2025-06-17 14:30:39,614 - DEBUG - Disabling multithreading because DEBUG logging enabled
-2025-06-17 14:30:39,616 - DEBUG -  Entering history()
-2025-06-17 14:30:39,626 - DEBUG - ('CREATE TABLE IF NOT EXISTS "_tz_kv" ("key" VARCHAR(255) NOT NULL PRIMARY KEY, "value" VARCHAR(255)) WITHOUT ROWID', [])
-2025-06-17 14:30:39,629 - DEBUG - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['^VIX', 1, 0])
-2025-06-17 14:30:39,629 - DEBUG -   Entering _fetch_ticker_tz()
-2025-06-17 14:30:39,629 - DEBUG -    Entering get()
-2025-06-17 14:30:39,630 - DEBUG -     Entering _make_request()
-2025-06-17 14:30:39,630 - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/^VIX
-2025-06-17 14:30:39,630 - DEBUG - params=frozendict.frozendict({'range': '1d', 'interval': '1d'})
-2025-06-17 14:30:39,630 - DEBUG -      Entering _get_cookie_and_crumb()
-2025-06-17 14:30:39,630 - DEBUG - cookie_mode = 'basic'
-2025-06-17 14:30:39,631 - DEBUG -       Entering _get_cookie_and_crumb_basic()
-2025-06-17 14:30:39,631 - DEBUG -        Entering _get_cookie_basic()
-2025-06-17 14:30:39,631 - DEBUG -         Entering _load_cookie_curlCffi()
-2025-06-17 14:30:39,635 - DEBUG - ('CREATE TABLE IF NOT EXISTS "_cookieschema" ("strategy" VARCHAR(255) NOT NULL PRIMARY KEY, "fetch_date" DATETIME NOT NULL, "cookie_bytes" BLOB NOT NULL) WITHOUT ROWID', [])
-2025-06-17 14:30:39,637 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
-2025-06-17 14:30:39,638 - DEBUG -         Exiting _load_cookie_curlCffi()
-2025-06-17 14:30:39,699 - DEBUG -         Entering _save_cookie_curlCffi()
-2025-06-17 14:30:39,699 - DEBUG - ('DELETE FROM "_cookieschema" WHERE ("_cookieschema"."strategy" = ?)', ['curlCffi'])
-2025-06-17 14:30:39,699 - DEBUG - ('BEGIN', None)
-2025-06-17 14:30:39,700 - DEBUG - ('INSERT INTO "_cookieschema" ("strategy", "fetch_date", "cookie_bytes") VALUES (?, ?, ?)', ['curlCffi', '2025-06-17T14:30:39.700084', <memory at 0x000001F15E5A2EC0>])
-2025-06-17 14:30:39,702 - DEBUG -         Exiting _save_cookie_curlCffi()
-2025-06-17 14:30:39,703 - DEBUG -        Exiting _get_cookie_basic()
-2025-06-17 14:30:39,703 - DEBUG -        Entering _get_crumb_basic()
-2025-06-17 14:30:39,703 - DEBUG -         Entering _get_cookie_basic()
-2025-06-17 14:30:39,703 - DEBUG -          Entering _load_cookie_curlCffi()
-2025-06-17 14:30:39,704 - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
-2025-06-17 14:30:39,704 - DEBUG -          Exiting _load_cookie_curlCffi()
-2025-06-17 14:30:39,705 - DEBUG - reusing persistent cookie
-2025-06-17 14:30:39,705 - DEBUG -         Exiting _get_cookie_basic()
-2025-06-17 14:30:39,818 - DEBUG - crumb = 'oP3DnAYIEa4'
-2025-06-17 14:30:39,824 - DEBUG -        Exiting _get_crumb_basic()
-2025-06-17 14:30:39,826 - DEBUG -       Exiting _get_cookie_and_crumb_basic()
-2025-06-17 14:30:39,827 - DEBUG -      Exiting _get_cookie_and_crumb()
-2025-06-17 14:30:39,949 - DEBUG - response code=200
-2025-06-17 14:30:39,950 - DEBUG -     Exiting _make_request()
-2025-06-17 14:30:39,951 - DEBUG -    Exiting get()
-2025-06-17 14:30:39,951 - DEBUG -   Exiting _fetch_ticker_tz()
-2025-06-17 14:30:43,333 - DEBUG - ('BEGIN', None)
-2025-06-17 14:30:43,334 - DEBUG - ('INSERT INTO "_tz_kv" ("key", "value") VALUES (?, ?)', ['^VIX', 'America/Chicago'])
-2025-06-17 14:30:43,337 - DEBUG -   Entering history()
-2025-06-17 14:30:43,353 - DEBUG - ^VIX: Yahoo GET parameters: {'period1': '2025-05-18 14:30:39-05:00', 'period2': '2025-06-17 14:30:39-05:00', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
-2025-06-17 14:30:43,354 - DEBUG -    Entering get()
-2025-06-17 14:30:43,355 - DEBUG -     Entering _make_request()
-2025-06-17 14:30:43,355 - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/^VIX
-2025-06-17 14:30:43,355 - DEBUG - params=frozendict.frozendict({'period1': 1747596639, 'period2': 1750188639, 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'})
-2025-06-17 14:30:43,355 - DEBUG -      Entering _get_cookie_and_crumb()
-2025-06-17 14:30:43,355 - DEBUG - cookie_mode = 'basic'
-2025-06-17 14:30:43,355 - DEBUG -       Entering _get_cookie_and_crumb_basic()
-2025-06-17 14:30:43,355 - DEBUG -        Entering _get_cookie_basic()
-2025-06-17 14:30:43,355 - DEBUG - reusing cookie
-2025-06-17 14:30:43,355 - DEBUG -        Exiting _get_cookie_basic()
-2025-06-17 14:30:43,357 - DEBUG -        Entering _get_crumb_basic()
-2025-06-17 14:30:43,357 - DEBUG - reusing crumb
-2025-06-17 14:30:43,357 - DEBUG -        Exiting _get_crumb_basic()
-2025-06-17 14:30:43,357 - DEBUG -       Exiting _get_cookie_and_crumb_basic()
-2025-06-17 14:30:43,357 - DEBUG -      Exiting _get_cookie_and_crumb()
-2025-06-17 14:30:43,448 - DEBUG - response code=200
-2025-06-17 14:30:43,448 - DEBUG -     Exiting _make_request()
-2025-06-17 14:30:43,448 - DEBUG -    Exiting get()
-2025-06-17 14:30:43,453 - DEBUG - ^VIX: yfinance received OHLC data: 2025-05-19 07:00:00 -> 2025-06-16 07:00:00
-2025-06-17 14:30:43,459 - DEBUG - ^VIX: OHLC after cleaning: 2025-05-19 02:00:00-05:00 -> 2025-06-16 02:00:00-05:00
-2025-06-17 14:30:43,467 - DEBUG - ^VIX: OHLC after combining events: 2025-05-19 00:00:00-05:00 -> 2025-06-16 00:00:00-05:00
-2025-06-17 14:30:43,472 - DEBUG - ^VIX: yfinance returning OHLC: 2025-05-19 00:00:00-05:00 -> 2025-06-16 00:00:00-05:00
-2025-06-17 14:30:43,474 - DEBUG -   Exiting history()
-2025-06-17 14:30:43,476 - DEBUG -  Exiting history()
-2025-06-17 14:30:43,482 - DEBUG - Exiting download()
-2025-06-17 14:30:43,482 - ERROR - Error fetching market data: 'Adj Close'
-2025-06-17 14:30:43,483 - WARNING - Could not fetch market data. Using neutral sentiment.
-2025-06-17 14:30:43,502 - INFO - Loaded sentiment data with 208 rows
-2025-06-17 14:30:43,506 - INFO - Available columns in sentiment data: ['timestamp', 'headline', 'text', 'source', 'url', 'company']
-2025-06-17 14:30:43,506 - INFO - Using text columns: ['headline', 'text']
-2025-06-17 14:30:43,506 - INFO - 'sentiment' column not found or empty, analyzing sentiment from text
-2025-06-17 14:30:43,653 - INFO - Sentiment distribution: {'neutral': 99, 'positive': 94, 'negative': 15}
-2025-06-17 14:30:43,667 - INFO - Loaded 15 EDW keywords
-2025-06-17 14:30:43,670 - INFO - Loaded 101 NASDAQ companies
-2025-06-17 14:30:43,670 - INFO - Using column 'Company' as company name in NASDAQ data
-2025-06-17 14:30:43,672 - INFO - Total companies in sentiment data: 41
-2025-06-17 14:30:43,673 - INFO - Exact matches: 41
-2025-06-17 14:30:43,673 - INFO - Fuzzy matches: 0
-2025-06-17 14:30:43,673 - INFO - Unmatched companies: 0
-2025-06-17 14:30:43,674 - INFO - Calculating growth scores with time decay and market sentiment...
-2025-06-17 14:30:43,675 - INFO - Using reference time for time decay: 2025-06-17 20:28:49+00:00
-2025-06-17 14:30:43,676 - INFO - Market sentiment adjustment factor: 0.00
-2025-06-17 14:30:43,700 - INFO - Saved growth predictions to data/predict_growth.csv
-2025-06-17 14:30:43,700 - INFO - 
-Top 10 companies by growth score:
-2025-06-17 14:30:43,705 - INFO -                company  growth_score  mentions latest_article earliest_article
-     Applied Materials      1.911362         1     2025-06-17       2025-06-17
-                  eBay      1.760881         1     2025-06-17       2025-06-17
-                Seagen      1.000178         1     2025-06-17       2025-06-17
-Vertex Pharmaceuticals      0.884679         1     2025-06-17       2025-06-17
-      Booking Holdings      0.838823         2     2025-06-17       2025-06-16
-  Microchip Technology      0.830105         1     2025-06-17       2025-06-17
-                Rivian      0.595950         1     2025-06-16       2025-06-16
-     Texas Instruments      0.555579         2     2025-06-16       2025-06-16
-             Cognizant      0.543400         3     2025-06-17       2025-06-16
-       CSX Corporation      0.500663         1     2025-06-16       2025-06-16
-2025-06-17 14:30:43,705 - INFO - 
-Top 5 companies by number of mentions:
-2025-06-17 14:30:43,711 - INFO -           company  mentions
-   Analog Devices        67
-        Cognizant         3
- Booking Holdings         2
-Texas Instruments         2
-        Microsoft         2
+2025-06-23 13:49:33,746 - market_sentiment - ERROR - Error fetching market data: 'Adj Close'
+2025-06-23 13:49:33,747 - __main__ - WARNING - Could not fetch market data. Using neutral sentiment.
+2025-06-23 13:49:33,781 - __main__ - INFO - Loaded sentiment data with 165 rows
+2025-06-23 13:49:33,786 - __main__ - INFO - Available columns in sentiment data: ['timestamp', 'headline', 'text', 'source', 'url', 'company']
+2025-06-23 13:49:33,786 - __main__ - INFO - Using text columns: ['headline', 'text']
+2025-06-23 13:49:33,786 - __main__ - INFO - Checking for missing or NA sentiment values to analyze sentiment from text
+2025-06-23 13:49:33,930 - __main__ - INFO - Sentiment distribution: {'positive': 81, 'neutral': 68, 'negative': 16}
+2025-06-23 13:49:33,951 - __main__ - INFO - Loaded 15 EDW keywords
+2025-06-23 13:49:33,953 - __main__ - INFO - Loaded 101 NASDAQ companies
+2025-06-23 13:49:33,954 - __main__ - INFO - Using column 'Company' as company name in NASDAQ data
+2025-06-23 13:49:33,956 - __main__ - INFO - Total companies in sentiment data: 23
+2025-06-23 13:49:33,956 - __main__ - INFO - Exact matches: 23
+2025-06-23 13:49:33,957 - __main__ - INFO - Fuzzy matches: 0
+2025-06-23 13:49:33,957 - __main__ - INFO - Unmatched companies: 0
+2025-06-23 13:49:33,957 - __main__ - INFO - Calculating growth scores with time decay and market sentiment...
+2025-06-23 13:49:33,960 - __main__ - INFO - Market sentiment adjustment factor: 0.00
+2025-06-23 13:49:33,963 - __main__ - WARNING - No growth scores calculated - check your data
