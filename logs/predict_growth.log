@@ -1,17 +1,17 @@
-2025-06-23 15:02:24,896 - market_sentiment - ERROR - Error fetching market data: 'Adj Close'
-2025-06-23 15:02:24,896 - __main__ - WARNING - Could not fetch market data. Using neutral sentiment.
-2025-06-23 15:02:24,899 - __main__ - INFO - Loaded sentiment data with 19 rows
-2025-06-23 15:02:24,903 - __main__ - INFO - Available columns in sentiment data: ['timestamp', 'headline', 'text', 'source', 'url', 'company']
-2025-06-23 15:02:24,903 - __main__ - INFO - Using text columns: ['headline', 'text']
-2025-06-23 15:02:24,903 - __main__ - INFO - Checking for missing or NA sentiment values to analyze sentiment from text
-2025-06-23 15:02:24,932 - __main__ - INFO - Sentiment distribution: {'positive': 10, 'neutral': 8, 'negative': 1}
-2025-06-23 15:02:24,939 - __main__ - INFO - Loaded 15 EDW keywords
-2025-06-23 15:02:24,941 - __main__ - INFO - Loaded 101 NASDAQ companies
-2025-06-23 15:02:24,941 - __main__ - INFO - Using column 'Company' as company name in NASDAQ data
-2025-06-23 15:02:24,943 - __main__ - INFO - Total companies in sentiment data: 12
-2025-06-23 15:02:24,943 - __main__ - INFO - Exact matches: 12
-2025-06-23 15:02:24,943 - __main__ - INFO - Fuzzy matches: 0
-2025-06-23 15:02:24,944 - __main__ - INFO - Unmatched companies: 0
-2025-06-23 15:02:24,944 - __main__ - INFO - Calculating growth scores with time decay and market sentiment...
-2025-06-23 15:02:24,946 - __main__ - INFO - Market sentiment adjustment factor: 0.00
-2025-06-23 15:02:24,947 - __main__ - WARNING - No growth scores calculated - check your data
+2025-06-23 16:53:36,413 - market_sentiment - ERROR - Error fetching market data: 'Adj Close'
+2025-06-23 16:53:36,413 - __main__ - WARNING - Could not fetch market data. Using neutral sentiment.
+2025-06-23 16:53:36,451 - __main__ - INFO - Loaded sentiment data with 20 rows
+2025-06-23 16:53:36,456 - __main__ - INFO - Available columns in sentiment data: ['timestamp', 'headline', 'text', 'source', 'url', 'company']
+2025-06-23 16:53:36,456 - __main__ - INFO - Using text columns: ['headline', 'text']
+2025-06-23 16:53:36,457 - __main__ - INFO - Checking for missing or NA sentiment values to analyze sentiment from text
+2025-06-23 16:53:36,880 - __main__ - INFO - Sentiment distribution: {'positive': 9, 'neutral': 9, 'negative': 2}
+2025-06-23 16:53:36,923 - __main__ - INFO - Loaded 15 EDW keywords
+2025-06-23 16:53:36,925 - __main__ - INFO - Loaded 101 NASDAQ companies
+2025-06-23 16:53:36,926 - __main__ - INFO - Using column 'Company' as company name in NASDAQ data
+2025-06-23 16:53:36,927 - __main__ - INFO - Total companies in sentiment data: 13
+2025-06-23 16:53:36,927 - __main__ - INFO - Exact matches: 13
+2025-06-23 16:53:36,928 - __main__ - INFO - Fuzzy matches: 0
+2025-06-23 16:53:36,930 - __main__ - INFO - Unmatched companies: 0
+2025-06-23 16:53:36,930 - __main__ - INFO - Calculating growth scores with time decay and market sentiment...
+2025-06-23 16:53:36,932 - __main__ - INFO - Market sentiment adjustment factor: 0.00
+2025-06-23 16:53:36,936 - __main__ - WARNING - No growth scores calculated - check your data
