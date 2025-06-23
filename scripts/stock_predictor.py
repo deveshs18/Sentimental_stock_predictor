@@ -31,9 +31,10 @@ else:
 
 
 # Configure logging
+# Change level to DEBUG to see more detailed logs for diagnosing this issue
 logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    level=logging.DEBUG, # << TEMP CHANGE TO DEBUG
+    format="%(asctime)s - %(name)s - %(levelname)s - %(module)s:%(lineno)d - %(message)s",
     handlers=[logging.StreamHandler(sys.stdout)],
 )
 logger = logging.getLogger(__name__)
@@ -61,14 +62,11 @@ def format_value_for_prompt(value):
     return "N/A"
 
 def parse_user_query_for_companies(user_query):
-    """
-    Parses the user query to extract potential company names or tickers.
-    Simple approach: split by common delimiters and try to normalize.
-    More complex parsing can be added later if needed.
-    """
+
     normalized_full_query = normalize_company_name(user_query)
     if normalized_full_query:
-        logger.info(f"Normalized full user query '{user_query}' to '{normalized_full_query}'")
+        logger.debug(f"Normalized full user query '{user_query}' to '{normalized_full_query}'")
+
         return [normalized_full_query]
 
     potential_terms = re.split(r'[\s,]+(?:and|or)?[\s,]*', user_query, flags=re.IGNORECASE)
@@ -79,95 +77,187 @@ def parse_user_query_for_companies(user_query):
             continue
         normalized_name = normalize_company_name(term)
         if normalized_name:
-            logger.info(f"Normalized term '{term}' from user query to '{normalized_name}'")
+
+            logger.debug(f"Normalized term '{term}' from user query to '{normalized_name}'")
             normalized_companies.add(normalized_name)
         else:
-            logger.info(f"Term '{term}' from user query could not be normalized to a known company.")
+            logger.debug(f"Term '{term}' from user query could not be normalized to a known company: '{term}'")
+
     return list(normalized_companies)
 
 
 def prepare_llm_context_data(user_query, top_n=25):
-    """
-    Loads, processes, and filters data from various CSVs to prepare the context for the LLM.
-    Also fetches live stock data using yfinance for included companies.
-    Returns a tuple: (DataFrame of top N companies + queried companies with live yfinance data,
-                     qualitative market sentiment string, list of normalized queried companies).
-    """
-    logger.info(f"Preparing LLM context for query: '{user_query}' with top_n={top_n}")
 
-    load_norm_data() # Ensures normalization maps (including ticker maps) are ready
+    logger.info(f"Starting LLM context preparation for query: '{user_query}'")
+
+    load_norm_data()
     
     queried_companies_normalized = parse_user_query_for_companies(user_query)
-    if queried_companies_normalized:
-        logger.info(f"User query '{user_query}' normalized to: {queried_companies_normalized}")
-    else:
-        logger.info(f"No specific companies identified or normalized from user query: '{user_query}'")
+    logger.info(f"Normalized companies from query '{user_query}': {queried_companies_normalized}")
+
 
     data_dir = os.path.join(parent_dir, "data")
     company_sentiment_path = os.path.join(data_dir, "company_sentiment_normalized.csv")
     predict_growth_path = os.path.join(data_dir, "predict_growth.csv")
     macro_sentiment_path = os.path.join(data_dir, "macro_sentiment.csv")
 
-    final_df = pd.DataFrame() # Initialize final_df
+
+    final_df = pd.DataFrame()
+
 
     try:
-        company_df = pd.read_csv(company_sentiment_path)
-        growth_df = pd.read_csv(predict_growth_path)
+        logger.debug(f"Loading company sentiment from: {company_sentiment_path}")
+        company_df_raw = pd.read_csv(company_sentiment_path)
+        logger.debug(f"Loaded company_df_raw. Shape: {company_df_raw.shape}. Columns: {company_df_raw.columns.tolist()}")
+        logger.debug(f"Sample company_df_raw 'company' before upper: \n{company_df_raw['company'].head().apply(type).value_counts()}\n{company_df_raw['company'].head()}")
+
+
+        logger.debug(f"Loading growth data from: {predict_growth_path}")
+        growth_df_raw = pd.read_csv(predict_growth_path)
+        logger.debug(f"Loaded growth_df_raw. Shape: {growth_df_raw.shape}. Columns: {growth_df_raw.columns.tolist()}")
+        logger.debug(f"Sample growth_df_raw 'company' before upper: \n{growth_df_raw['company'].head().apply(type).value_counts()}\n{growth_df_raw['company'].head()}")
+
+
+        logger.debug(f"Loading macro data from: {macro_sentiment_path}")
         macro_df = pd.read_csv(macro_sentiment_path)
 
-        company_df['company'] = company_df['company'].str.upper()
-        growth_df['company'] = growth_df['company'].str.upper()
-        queried_companies_uppercase = [name.upper() for name in queried_companies_normalized]
+        logger.debug(f"Loaded macro_df. Shape: {macro_df.shape}. Columns: {macro_df.columns.tolist()}")
 
-        merged_df = pd.merge(growth_df, company_df, on="company", how="left")
+        # Store original company names from growth_df for accurate ticker lookup later
+        # as get_ticker_for_company expects original casing from nasdaq_top_companies.csv
+        growth_df = growth_df_raw.copy() # Work with a copy
+        growth_df['original_company_for_ticker_lookup'] = growth_df_raw['company']
+
+        # For merging, use uppercased company names
+        company_df = company_df_raw.copy()
+        company_df['company_upper_merge_key'] = company_df_raw['company'].astype(str).str.upper()
+        growth_df['company_upper_merge_key'] = growth_df_raw['company'].astype(str).str.upper()
+        
+        logger.debug(f"Unique company keys in company_df for merge (first 5): {company_df['company_upper_merge_key'].unique()[:5]}")
+        logger.debug(f"Unique company keys in growth_df for merge (first 5): {growth_df['company_upper_merge_key'].unique()[:5]}")
+
+        # Merge 1: growth_df with company_df (sentiment)
+        logger.info("Merging growth data with company sentiment data...")
+        merged_df = pd.merge(growth_df, company_df, on="company_upper_merge_key", how="left", suffixes=('_growth', '_sentiment'))
+        logger.info(f"Shape after merging with company sentiment: {merged_df.shape}")
+        # Use the company name from growth_df as the primary one, as it's likely more official
+        merged_df['company'] = merged_df['company_growth']
+        merged_df.drop(columns=['company_growth', 'company_sentiment'], errors='ignore', inplace=True)
+
+
+        # Log some results of the first merge for problematic companies
+        example_companies_check = ['ALPHABET INC. (CLASS A)', 'MICROSOFT CORP.', 'AMAZON.COM, INC.', 'ASTRAZENECA PLC', 'ASML HOLDING N.V.'] # Check with official names
+        if not merged_df.empty:
+            logger.debug(f"Post-Merge 1 (Sentiment) check for example companies (matched on 'company_upper_merge_key'):")
+            for ex_co in example_companies_check:
+                ex_data = merged_df[merged_df['company_upper_merge_key'] == ex_co.upper()]
+                if not ex_data.empty:
+                    logger.debug(f"Data for {ex_co.upper()}: Positive={ex_data['positive'].values}, Neutral={ex_data['neutral'].values}, Negative={ex_data['negative'].values}")
+                else:
+                    logger.debug(f"No data found for {ex_co.upper()} after sentiment merge.")
+
 
         if 'theme' in merged_df.columns and not macro_df.empty:
-             merged_df = pd.merge(merged_df, macro_df[['theme', 'macro_sentiment_score']], on="theme", how="left")
+            logger.info("Merging with macro sentiment data...")
+            logger.debug(f"Unique themes in merged_df (first 5): {merged_df['theme'].unique()[:5]}")
+            logger.debug(f"Unique themes in macro_df (first 5): {macro_df['theme'].unique()[:5]}")
+            merged_df = pd.merge(merged_df, macro_df[['theme', 'macro_sentiment_score']], on="theme", how="left")
+            logger.info(f"Shape after merging with macro sentiment: {merged_df.shape}")
         else:
+
+            logger.warning("'theme' column not in merged_df or macro_df is empty. Skipping macro sentiment merge.")
             merged_df['macro_sentiment_score'] = pd.NA
 
-        overall_market_sentiment_value = growth_df['market_sentiment'].iloc[0] if 'market_sentiment' in growth_df.columns and not growth_df.empty else 0
+        if not merged_df.empty:
+            logger.debug(f"Post-Merge 2 (Macro) check for example companies:")
+            for ex_co in example_companies_check:
+                ex_data = merged_df[merged_df['company_upper_merge_key'] == ex_co.upper()]
+                if not ex_data.empty:
+                    logger.debug(f"Data for {ex_co.upper()}: MacroSectorSentiment={ex_data['macro_sentiment_score'].values}")
+                else:
+                    logger.debug(f"No data for {ex_co.upper()} after macro merge (or it was filtered out).")
+
+
+        overall_market_sentiment_value = growth_df_raw['market_sentiment'].iloc[0] if 'market_sentiment' in growth_df_raw.columns and not growth_df_raw.empty else 0
         overall_market_sentiment_string = "Positive" if overall_market_sentiment_value > 0.1 else "Negative" if overall_market_sentiment_value < -0.1 else "Neutral"
+
+        if merged_df.empty or 'growth_score' not in merged_df.columns:
+            logger.error("merged_df is empty or 'growth_score' is missing before sorting. Cannot proceed with company selection.")
+            return pd.DataFrame(), overall_market_sentiment_string, queried_companies_normalized
 
         top_companies_df = merged_df.sort_values(by="growth_score", ascending=False)
 
+        # Prepare final_df (selection of companies)
+        queried_companies_uppercase_keys = [name.upper() for name in queried_companies_normalized]
         final_df_list = []
-        if not queried_companies_uppercase:
-            final_df = top_companies_df.head(top_n)
+
+        if not queried_companies_uppercase_keys:
+            final_df = top_companies_df.head(top_n).copy() # Use .copy() to avoid SettingWithCopyWarning
+            logger.debug(f"No specific companies queried. Selected top {top_n}. Shape: {final_df.shape}")
         else:
+            logger.debug(f"Processing queried companies: {queried_companies_uppercase_keys}")
             queried_company_data_list = []
-            for company_name_upper in queried_companies_uppercase:
-                company_data = merged_df[merged_df['company'] == company_name_upper]
+            for company_key_upper in queried_companies_uppercase_keys:
+                # Match against the merge key
+                company_data = top_companies_df[top_companies_df['company_upper_merge_key'] == company_key_upper]
                 if not company_data.empty:
                     queried_company_data_list.append(company_data)
+                    logger.debug(f"Found data for queried company key {company_key_upper}. Shape: {company_data.shape}")
                 else:
-                    logger.warning(f"Data for queried company '{company_name_upper}' not found in merged CSV data.")
+                    logger.warning(f"Data for queried company key '{company_key_upper}' not found in top_companies_df.")
 
             if queried_company_data_list:
-                queried_companies_selected_df = pd.concat(queried_company_data_list).drop_duplicates(subset=['company'])
+                queried_companies_selected_df = pd.concat(queried_company_data_list).drop_duplicates(subset=['company_upper_merge_key'])
                 final_df_list.append(queried_companies_selected_df)
 
-            if not final_df_list:
-                 final_df = top_companies_df.head(top_n)
+            if not final_df_list: # if no queried companies were found in data
+                 final_df = top_companies_df.head(top_n).copy()
+                 logger.debug(f"No queried companies found in data. Selected top {top_n}. Shape: {final_df.shape}")
             else:
-                companies_to_exclude = final_df_list[0]['company'].tolist()
-                remaining_top_df = top_companies_df[~top_companies_df['company'].isin(companies_to_exclude)].head(top_n - len(companies_to_exclude) if top_n > len(companies_to_exclude) else 0)
-                if not remaining_top_df.empty:
-                    final_df_list.append(remaining_top_df)
-                final_df = pd.concat(final_df_list).drop_duplicates(subset=['company']).reset_index(drop=True)
+                companies_to_exclude_keys = final_df_list[0]['company_upper_merge_key'].tolist()
+                num_to_fetch = top_n - len(companies_to_exclude_keys)
+                if num_to_fetch > 0:
+                    remaining_top_df = top_companies_df[~top_companies_df['company_upper_merge_key'].isin(companies_to_exclude_keys)].head(num_to_fetch)
+                    if not remaining_top_df.empty:
+                        final_df_list.append(remaining_top_df)
+                final_df = pd.concat(final_df_list).drop_duplicates(subset=['company_upper_merge_key']).reset_index(drop=True).copy()
+                logger.debug(f"Combined queried and top companies. Shape: {final_df.shape}")
+
         
         # --- Integrate yfinance data ---
         if not final_df.empty:
             logger.info(f"Enhancing {len(final_df)} companies with live yfinance data...")
             yfinance_updates = []
+
+            # Ensure original_company_for_ticker_lookup is present for all rows in final_df
+            # This might require merging it back if it was lost, or ensuring it's selected carefully
+            if 'original_company_for_ticker_lookup' not in final_df.columns:
+                 logger.error("'original_company_for_ticker_lookup' is missing from final_df. Ticker lookup will fail.")
+                 # Attempt to recover it if 'company' (which was company_growth) is the original name
+                 if 'company' in final_df.columns: # This 'company' should be from growth_df
+                     logger.warning("Attempting to use 'company' column from final_df for ticker lookup. Assumed to be original casing.")
+                     final_df['original_company_for_ticker_lookup'] = final_df['company']
+                 else: # Cannot proceed with yfinance if no suitable name for ticker lookup
+                      final_df['original_company_for_ticker_lookup'] = pd.NA
+
+
             for index, row in final_df.iterrows():
-                official_company_name = row['company'] # Assuming 'company' column has official name (uppercase)
-                ticker_symbol = get_ticker_for_company(official_company_name) # Get ticker from official name
+                # Use the original casing company name for ticker lookup
+                company_name_for_ticker = row.get('original_company_for_ticker_lookup')
 
                 update_values = {'current_price': None, 'sma_20': None, 'sma_50': None, 'previous_close': None, 'day_high': None, 'day_low': None, 'volume': None, 'market_cap': None}
 
+                if pd.isna(company_name_for_ticker):
+                    logger.warning(f"Missing original company name for row index {index}, company_upper_merge_key: {row.get('company_upper_merge_key')}. Cannot fetch yfinance data.")
+                    yfinance_updates.append(update_values)
+                    continue
+
+                logger.debug(f"Attempting ticker lookup for: '{company_name_for_ticker}' (original name)")
+                ticker_symbol = get_ticker_for_company(company_name_for_ticker)
+
                 if ticker_symbol:
-                    logger.debug(f"Fetching yfinance data for {official_company_name} ({ticker_symbol})")
+                    logger.debug(f"Fetching yfinance data for {company_name_for_ticker} ({ticker_symbol})")
+
                     live_data = get_current_stock_data(ticker_symbol)
                     if not live_data.get('error'):
                         update_values['current_price'] = live_data.get('current_price')
@@ -178,19 +268,29 @@ def prepare_llm_context_data(user_query, top_n=25):
                         update_values['day_low'] = live_data.get('day_low')
                         update_values['volume'] = live_data.get('volume')
                         update_values['market_cap'] = live_data.get('market_cap')
+
+                        logger.debug(f"yfinance data for {ticker_symbol}: Price={update_values['current_price']}, SMA20={update_values['sma_20']}")
                     else:
-                        logger.warning(f"Could not fetch yfinance data for {official_company_name} ({ticker_symbol}): {live_data.get('error')}")
+                        logger.warning(f"Could not fetch yfinance data for {company_name_for_ticker} ({ticker_symbol}): {live_data.get('error')}")
                 else:
-                    logger.warning(f"No ticker found for company: {official_company_name}. Cannot fetch yfinance data.")
+                    logger.warning(f"No ticker found for company: '{company_name_for_ticker}'. Cannot fetch yfinance data.")
                 yfinance_updates.append(update_values)
 
             # Update DataFrame with yfinance data
-            for col_name in ['current_price', 'sma_20', 'sma_50', 'previous_close', 'day_high', 'day_low', 'volume', 'market_cap']:
-                final_df[col_name] = [d[col_name] for d in yfinance_updates]
+            if yfinance_updates: # Check if list is not empty
+                for col_name in ['current_price', 'sma_20', 'sma_50', 'previous_close', 'day_high', 'day_low', 'volume', 'market_cap']:
+                    final_df[col_name] = [d[col_name] for d in yfinance_updates]
+            else:
+                logger.warning("yfinance_updates list is empty. No yfinance data was processed to update final_df.")
+
         else:
             logger.info("No companies selected for yfinance data enhancement (final_df is empty).")
 
-        logger.info(f"Successfully prepared LLM context data. Shape: {final_df.shape if not final_df.empty else '0 rows'}")
+        logger.info(f"Successfully prepared LLM context data. Final DF Shape: {final_df.shape if not final_df.empty else '0 rows'}")
+        if not final_df.empty:
+            logger.debug(f"Final DF columns: {final_df.columns.tolist()}")
+            logger.debug(f"Sample of final_df with yfinance data (first 3 rows): \n{final_df.head(3)}")
+
 
         if not final_df.empty and 'predicted_close_price' in final_df.columns:
             final_df.drop(columns=['predicted_close_price'], inplace=True, errors='ignore')
