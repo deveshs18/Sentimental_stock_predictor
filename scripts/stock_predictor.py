@@ -15,6 +15,10 @@ sys.path.append(parent_dir)
 from utils.normalization_utils import normalize_company_name, get_ticker_for_company, _load_normalization_data as load_norm_data
 from utils.yfinance_utils import get_current_stock_data
 
+
+print("--- Running stock_predictor.py - VERSION: DEBUG_LOGGING_V2 ---") # Unmissable print statement
+
+
 # Load environment variables from .env file
 # Assuming .env is in the parent directory (project root) or this script's directory
 env_path_script_dir = Path(__file__).parent / '.env'
@@ -88,6 +92,7 @@ def parse_user_query_for_companies(user_query):
 
 def prepare_llm_context_data(user_query, top_n=25):
 
+
     logger.info(f"Starting LLM context preparation for query: '{user_query}'")
 
     load_norm_data()
@@ -99,7 +104,6 @@ def prepare_llm_context_data(user_query, top_n=25):
     company_sentiment_path = os.path.join(data_dir, "company_sentiment_normalized.csv")
     predict_growth_path = os.path.join(data_dir, "predict_growth.csv")
     macro_sentiment_path = os.path.join(data_dir, "macro_sentiment.csv")
-
 
     final_df = pd.DataFrame()
 
@@ -121,7 +125,6 @@ def prepare_llm_context_data(user_query, top_n=25):
         macro_df = pd.read_csv(macro_sentiment_path)
 
         logger.debug(f"Loaded macro_df. Shape: {macro_df.shape}. Columns: {macro_df.columns.tolist()}")
-
 
         # Store original company names from growth_df for accurate ticker lookup later
         # as get_ticker_for_company expects original casing from nasdaq_top_companies.csv
