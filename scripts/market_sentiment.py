@@ -36,6 +36,7 @@ class MarketSentiment:
                 return None
             sp500 = sp500_data['Close']
 
+
             if vix.empty or sp500.empty:
                 logger.error("VIX or S&P 500 data is empty after download and selecting 'Close' column.")
                 return None
@@ -51,6 +52,7 @@ class MarketSentiment:
 
             sp500_current = sp500.iloc[-1] if not sp500.empty else np.nan
             sp500_initial = sp500.iloc[0] if not sp500.empty else np.nan
+
 
             # Ensure scalar values for the conditional check to avoid "ValueError: The truth value of a Series is ambiguous"
             # by attempting to extract scalar if it's a single-item array/Series via .item()
@@ -70,6 +72,7 @@ class MarketSentiment:
 
             if is_vix_na or is_sp500_current_na or is_sp500_initial_na or is_sp500_initial_zero:
                 logger.error(f"Critical VIX/SP500 values are NaN or S&P initial is zero after download. VIX current: {vix_current_scalar}, SP500 current: {sp500_current_scalar}, SP500 initial: {sp500_initial_scalar}")
+
                 return None
 
             # Calculate daily returns and moving averages
