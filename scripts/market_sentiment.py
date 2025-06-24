@@ -21,30 +21,72 @@ class MarketSentiment:
         
         try:
             # Get VIX (Volatility Index)
-            vix = yf.download(self.vix_symbol, start=start_date, end=end_date)['Adj Close']
+            # Changed 'Adj Close' to 'Close' as it's more reliable for indices
+            vix_data = yf.download(self.vix_symbol, start=start_date, end=end_date)
+            if 'Close' not in vix_data.columns:
+                logger.error(f"Could not find 'Close' column in VIX data. Columns: {vix_data.columns}")
+                return None
+            vix = vix_data['Close']
+
             # Get S&P 500
-            sp500 = yf.download(self.sp500_symbol, start=start_date, end=end_date)['Adj Close']
+            # Changed 'Adj Close' to 'Close'
+            sp500_data = yf.download(self.sp500_symbol, start=start_date, end=end_date)
+            if 'Close' not in sp500_data.columns:
+                logger.error(f"Could not find 'Close' column in S&P 500 data. Columns: {sp500_data.columns}")
+                return None
+            sp500 = sp500_data['Close']
+
+            if vix.empty or sp500.empty:
+                logger.error("VIX or S&P 500 data is empty after download and selecting 'Close' column.")
+                return None
+
+            # Ensure there's enough data for calculations
+            if len(vix) < 1 or len(sp500) < 1:
+                logger.error(f"Not enough data points after download. VIX points: {len(vix)}, S&P500 points: {len(sp500)}")
+                return None
+
+            vix_current = vix.iloc[-1] if not vix.empty else np.nan
+            vix_mean = vix.mean()
+            vix_std = vix.std()
+
+            sp500_current = sp500.iloc[-1] if not sp500.empty else np.nan
+            sp500_initial = sp500.iloc[0] if not sp500.empty else np.nan
             
+            if pd.isna(vix_current) or pd.isna(sp500_current) or pd.isna(sp500_initial) or sp500_initial == 0:
+                logger.error(f"Critical VIX/SP500 values are NaN or S&P initial is zero after download. VIX current: {vix_current}, SP500 current: {sp500_current}, SP500 initial: {sp500_initial}")
+                return None
+
             # Calculate daily returns and moving averages
             sp500_returns = sp500.pct_change().dropna()
-            vix_returns = vix.pct_change().dropna()
+            # vix_returns = vix.pct_change().dropna() # vix_returns not used in current return dict
+
+            sp500_volatility_annualized = sp500_returns.std() * np.sqrt(252) if not sp500_returns.empty else np.nan
             
             # Get economic indicators (example using FRED API)
             # Commented out as it requires API key
             # gdp = self._get_fred_data('GDP')
             # unemployment = self._get_fred_data('UNRATE')
             
-            return {
-                'vix_current': vix[-1],
-                'vix_30d_avg': vix.mean(),
-                'vix_30d_std': vix.std(),
-                'sp500_30d_return': (sp500[-1] / sp500[0] - 1) * 100,
-                'sp500_volatility': sp500_returns.std() * np.sqrt(252),  # Annualized
-                'market_sentiment': self._calculate_market_sentiment(vix, sp500)
+            market_data_dict = {
+                'vix_current': vix_current,
+                'vix_30d_avg': vix_mean,
+                'vix_30d_std': vix_std,
+                'sp500_30d_return': (sp500_current / sp500_initial - 1) * 100,
+                'sp500_volatility': sp500_volatility_annualized,
             }
+            # Calculate market sentiment only if essential data is present
+            # _calculate_market_sentiment itself needs at least 20 data points for sp500 for sp500_medium
+            if len(vix) >= 1 and len(sp500) >= 20: # Adjusted minimum length for _calculate_market_sentiment
+                 market_data_dict['market_sentiment'] = self._calculate_market_sentiment(vix, sp500)
+            else:
+                logger.warning(f"Not enough data for full market sentiment calculation (VIX len: {len(vix)}, S&P500 len: {len(sp500)}). Setting market_sentiment to neutral (0).")
+                market_data_dict['market_sentiment'] = 0.0 # Default to neutral if not enough data
+
+            logger.info(f"Successfully fetched and processed market indicators: {market_data_dict}")
+            return market_data_dict
             
         except Exception as e:
-            logger.error(f"Error fetching market data: {e}")
+            logger.error(f"Error processing market data: {e}", exc_info=True)
             return None
     
     def _get_fred_data(self, series_id):
