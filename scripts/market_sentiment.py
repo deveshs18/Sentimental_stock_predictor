@@ -36,6 +36,7 @@ class MarketSentiment:
                 return None
             sp500 = sp500_data['Close']
 
+
             if vix.empty or sp500.empty:
                 logger.error("VIX or S&P 500 data is empty after download and selecting 'Close' column.")
                 return None
@@ -54,6 +55,7 @@ class MarketSentiment:
             
             if pd.isna(vix_current) or pd.isna(sp500_current) or pd.isna(sp500_initial) or sp500_initial == 0:
                 logger.error(f"Critical VIX/SP500 values are NaN or S&P initial is zero after download. VIX current: {vix_current}, SP500 current: {sp500_current}, SP500 initial: {sp500_initial}")
+
                 return None
 
             # Calculate daily returns and moving averages

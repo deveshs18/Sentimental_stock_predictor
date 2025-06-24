@@ -15,7 +15,9 @@ sys.path.append(parent_dir)
 from utils.normalization_utils import normalize_company_name, get_ticker_for_company, _load_normalization_data as load_norm_data
 from utils.yfinance_utils import get_current_stock_data
 
+
 print("--- Running stock_predictor.py - VERSION: DEBUG_LOGGING_V2 ---") # Unmissable print statement
+
 
 # Load environment variables from .env file
 # Assuming .env is in the parent directory (project root) or this script's directory
@@ -64,9 +66,11 @@ def format_value_for_prompt(value):
     return "N/A"
 
 def parse_user_query_for_companies(user_query):
+
     normalized_full_query = normalize_company_name(user_query)
     if normalized_full_query:
         logger.debug(f"Normalized full user query '{user_query}' to '{normalized_full_query}'")
+
         return [normalized_full_query]
 
     potential_terms = re.split(r'[\s,]+(?:and|or)?[\s,]*', user_query, flags=re.IGNORECASE)
@@ -77,14 +81,18 @@ def parse_user_query_for_companies(user_query):
             continue
         normalized_name = normalize_company_name(term)
         if normalized_name:
+
             logger.debug(f"Normalized term '{term}' from user query to '{normalized_name}'")
             normalized_companies.add(normalized_name)
         else:
             logger.debug(f"Term '{term}' from user query could not be normalized to a known company: '{term}'")
+
     return list(normalized_companies)
 
 
 def prepare_llm_context_data(user_query, top_n=25):
+
+
     logger.info(f"Starting LLM context preparation for query: '{user_query}'")
 
     load_norm_data()
@@ -98,6 +106,7 @@ def prepare_llm_context_data(user_query, top_n=25):
     macro_sentiment_path = os.path.join(data_dir, "macro_sentiment.csv")
 
     final_df = pd.DataFrame()
+
 
     try:
         logger.debug(f"Loading company sentiment from: {company_sentiment_path}")
@@ -114,6 +123,7 @@ def prepare_llm_context_data(user_query, top_n=25):
 
         logger.debug(f"Loading macro data from: {macro_sentiment_path}")
         macro_df = pd.read_csv(macro_sentiment_path)
+
         logger.debug(f"Loaded macro_df. Shape: {macro_df.shape}. Columns: {macro_df.columns.tolist()}")
 
         # Store original company names from growth_df for accurate ticker lookup later
@@ -138,6 +148,7 @@ def prepare_llm_context_data(user_query, top_n=25):
         merged_df.drop(columns=['company_growth', 'company_sentiment'], errors='ignore', inplace=True)
 
 
+
         # Log some results of the first merge for problematic companies
         example_companies_check = ['ALPHABET INC. (CLASS A)', 'MICROSOFT CORP.', 'AMAZON.COM, INC.', 'ASTRAZENECA PLC', 'ASML HOLDING N.V.'] # Check with official names
         if not merged_df.empty:
@@ -157,6 +168,7 @@ def prepare_llm_context_data(user_query, top_n=25):
             merged_df = pd.merge(merged_df, macro_df[['theme', 'macro_sentiment_score']], on="theme", how="left")
             logger.info(f"Shape after merging with macro sentiment: {merged_df.shape}")
         else:
+
             logger.warning("'theme' column not in merged_df or macro_df is empty. Skipping macro sentiment merge.")
             merged_df['macro_sentiment_score'] = pd.NA
 
@@ -202,6 +214,7 @@ def prepare_llm_context_data(user_query, top_n=25):
                 queried_companies_selected_df = pd.concat(queried_company_data_list).drop_duplicates(subset=['company_upper_merge_key'])
                 final_df_list.append(queried_companies_selected_df)
 
+
             if not final_df_list: # if no queried companies were found in data
                  final_df = top_companies_df.head(top_n).copy()
                  logger.debug(f"No queried companies found in data. Selected top {top_n}. Shape: {final_df.shape}")
@@ -214,11 +227,13 @@ def prepare_llm_context_data(user_query, top_n=25):
                         final_df_list.append(remaining_top_df)
                 final_df = pd.concat(final_df_list).drop_duplicates(subset=['company_upper_merge_key']).reset_index(drop=True).copy()
                 logger.debug(f"Combined queried and top companies. Shape: {final_df.shape}")
+
         
         # --- Integrate yfinance data ---
         if not final_df.empty:
             logger.info(f"Enhancing {len(final_df)} companies with live yfinance data...")
             yfinance_updates = []
+
             # Ensure original_company_for_ticker_lookup is present for all rows in final_df
             # This might require merging it back if it was lost, or ensuring it's selected carefully
             if 'original_company_for_ticker_lookup' not in final_df.columns:
@@ -231,9 +246,11 @@ def prepare_llm_context_data(user_query, top_n=25):
                       final_df['original_company_for_ticker_lookup'] = pd.NA
 
 
+
             for index, row in final_df.iterrows():
                 # Use the original casing company name for ticker lookup
                 company_name_for_ticker = row.get('original_company_for_ticker_lookup')
+
 
                 update_values = {'current_price': None, 'sma_20': None, 'sma_50': None, 'previous_close': None, 'day_high': None, 'day_low': None, 'volume': None, 'market_cap': None}
 
@@ -247,6 +264,7 @@ def prepare_llm_context_data(user_query, top_n=25):
 
                 if ticker_symbol:
                     logger.debug(f"Fetching yfinance data for {company_name_for_ticker} ({ticker_symbol})")
+
                     live_data = get_current_stock_data(ticker_symbol)
                     if not live_data.get('error'):
                         update_values['current_price'] = live_data.get('current_price')
@@ -257,6 +275,7 @@ def prepare_llm_context_data(user_query, top_n=25):
                         update_values['day_low'] = live_data.get('day_low')
                         update_values['volume'] = live_data.get('volume')
                         update_values['market_cap'] = live_data.get('market_cap')
+
                         logger.debug(f"yfinance data for {ticker_symbol}: Price={update_values['current_price']}, SMA20={update_values['sma_20']}")
                     else:
                         logger.warning(f"Could not fetch yfinance data for {company_name_for_ticker} ({ticker_symbol}): {live_data.get('error')}")
