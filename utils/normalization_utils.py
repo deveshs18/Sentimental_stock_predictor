@@ -264,3 +264,4 @@ if __name__ == '__main__':
     print(f"Original: 'google' -> Normalized: '{normalize_company_name('google')}'")
     print(f"Original: 'stco' -> Normalized: '{normalize_company_name('stco')}'") # Likely no match
     print(f"Original: 'ktowmorrow' -> Normalized: '{normalize_company_name('ktowmorrow')}'") # Likely no match
+

@@ -105,6 +105,8 @@ def prepare_llm_context_data(user_query, top_n=25):
     final_df = pd.DataFrame()
 
 
+
+
     try:
         logger.debug(f"Loading company sentiment from: {company_sentiment_path}")
         company_df_raw = pd.read_csv(company_sentiment_path)
@@ -145,6 +147,7 @@ def prepare_llm_context_data(user_query, top_n=25):
         merged_df.drop(columns=['company_growth', 'company_sentiment'], errors='ignore', inplace=True)
 
 
+
         # Log some results of the first merge for problematic companies
         example_companies_check = ['ALPHABET INC. (CLASS A)', 'MICROSOFT CORP.', 'AMAZON.COM, INC.', 'ASTRAZENECA PLC', 'ASML HOLDING N.V.'] # Check with official names
         if not merged_df.empty:
@@ -156,7 +159,7 @@ def prepare_llm_context_data(user_query, top_n=25):
                 else:
                     logger.debug(f"No data found for {ex_co.upper()} after sentiment merge.")
 
-
+        # Merge 2: merged_df with macro_df (macro sentiment)
         if 'theme' in merged_df.columns and not macro_df.empty:
             logger.info("Merging with macro sentiment data...")
             logger.debug(f"Unique themes in merged_df (first 5): {merged_df['theme'].unique()[:5]}")
@@ -210,6 +213,7 @@ def prepare_llm_context_data(user_query, top_n=25):
                 queried_companies_selected_df = pd.concat(queried_company_data_list).drop_duplicates(subset=['company_upper_merge_key'])
                 final_df_list.append(queried_companies_selected_df)
 
+
             if not final_df_list: # if no queried companies were found in data
                  final_df = top_companies_df.head(top_n).copy()
                  logger.debug(f"No queried companies found in data. Selected top {top_n}. Shape: {final_df.shape}")
@@ -221,7 +225,6 @@ def prepare_llm_context_data(user_query, top_n=25):
                     if not remaining_top_df.empty:
                         final_df_list.append(remaining_top_df)
                 final_df = pd.concat(final_df_list).drop_duplicates(subset=['company_upper_merge_key']).reset_index(drop=True).copy()
-                logger.debug(f"Combined queried and top companies. Shape: {final_df.shape}")
 
         
         # --- Integrate yfinance data ---
@@ -241,9 +244,11 @@ def prepare_llm_context_data(user_query, top_n=25):
                       final_df['original_company_for_ticker_lookup'] = pd.NA
 
 
+
             for index, row in final_df.iterrows():
                 # Use the original casing company name for ticker lookup
                 company_name_for_ticker = row.get('original_company_for_ticker_lookup')
+
 
                 update_values = {'current_price': None, 'sma_20': None, 'sma_50': None, 'previous_close': None, 'day_high': None, 'day_low': None, 'volume': None, 'market_cap': None}
 
