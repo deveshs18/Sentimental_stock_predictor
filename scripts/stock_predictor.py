@@ -95,7 +95,6 @@ def prepare_llm_context_data(user_query, top_n=25):
     queried_companies_normalized = parse_user_query_for_companies(user_query)
     logger.info(f"Normalized companies from query '{user_query}': {queried_companies_normalized}")
 
-
     data_dir = os.path.join(parent_dir, "data")
     company_sentiment_path = os.path.join(data_dir, "company_sentiment_normalized.csv")
     predict_growth_path = os.path.join(data_dir, "predict_growth.csv")
@@ -103,8 +102,6 @@ def prepare_llm_context_data(user_query, top_n=25):
 
 
     final_df = pd.DataFrame()
-
-
 
 
     try:
@@ -124,6 +121,7 @@ def prepare_llm_context_data(user_query, top_n=25):
         macro_df = pd.read_csv(macro_sentiment_path)
 
         logger.debug(f"Loaded macro_df. Shape: {macro_df.shape}. Columns: {macro_df.columns.tolist()}")
+
 
         # Store original company names from growth_df for accurate ticker lookup later
         # as get_ticker_for_company expects original casing from nasdaq_top_companies.csv
@@ -225,6 +223,7 @@ def prepare_llm_context_data(user_query, top_n=25):
                     if not remaining_top_df.empty:
                         final_df_list.append(remaining_top_df)
                 final_df = pd.concat(final_df_list).drop_duplicates(subset=['company_upper_merge_key']).reset_index(drop=True).copy()
+                logger.debug(f"Combined queried and top companies. Shape: {final_df.shape}")
 
         
         # --- Integrate yfinance data ---
@@ -295,7 +294,6 @@ def prepare_llm_context_data(user_query, top_n=25):
         if not final_df.empty:
             logger.debug(f"Final DF columns: {final_df.columns.tolist()}")
             logger.debug(f"Sample of final_df with yfinance data (first 3 rows): \n{final_df.head(3)}")
-
 
         if not final_df.empty and 'predicted_close_price' in final_df.columns:
             final_df.drop(columns=['predicted_close_price'], inplace=True, errors='ignore')

@@ -21,10 +21,25 @@ class MarketSentiment:
         
         try:
             # Get VIX (Volatility Index)
-            vix = yf.download(self.vix_symbol, start=start_date, end=end_date)['Adj Close']
+            # Changed 'Adj Close' to 'Close' as it's more reliable for indices
+            vix_data = yf.download(self.vix_symbol, start=start_date, end=end_date)
+            if 'Close' not in vix_data.columns:
+                logger.error(f"Could not find 'Close' column in VIX data. Columns: {vix_data.columns}")
+                return None
+            vix = vix_data['Close']
+
             # Get S&P 500
-            sp500 = yf.download(self.sp500_symbol, start=start_date, end=end_date)['Adj Close']
+            # Changed 'Adj Close' to 'Close'
+            sp500_data = yf.download(self.sp500_symbol, start=start_date, end=end_date)
+            if 'Close' not in sp500_data.columns:
+                logger.error(f"Could not find 'Close' column in S&P 500 data. Columns: {sp500_data.columns}")
+                return None
+            sp500 = sp500_data['Close']
             
+            if vix.empty or sp500.empty:
+                logger.error("VIX or S&P 500 data is empty after download.")
+                return None
+
             # Calculate daily returns and moving averages
             sp500_returns = sp500.pct_change().dropna()
             vix_returns = vix.pct_change().dropna()
