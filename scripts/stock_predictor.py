@@ -92,7 +92,6 @@ def parse_user_query_for_companies(user_query):
 
 def prepare_llm_context_data(user_query, top_n=25):
 
-
     logger.info(f"Starting LLM context preparation for query: '{user_query}'")
 
     load_norm_data()
@@ -109,22 +108,54 @@ def prepare_llm_context_data(user_query, top_n=25):
 
 
     try:
-        logger.debug(f"Loading company sentiment from: {company_sentiment_path}")
+        # Enhanced Initial Logging for CSVs
+        logger.debug(f"Attempting to load company sentiment from: {company_sentiment_path}")
+        if not os.path.exists(company_sentiment_path):
+            logger.error(f"File not found: {company_sentiment_path}")
+            return pd.DataFrame(), "Neutral (Error: Missing company sentiment data)", queried_companies_normalized
         company_df_raw = pd.read_csv(company_sentiment_path)
-        logger.debug(f"Loaded company_df_raw. Shape: {company_df_raw.shape}. Columns: {company_df_raw.columns.tolist()}")
-        logger.debug(f"Sample company_df_raw 'company' before upper: \n{company_df_raw['company'].head().apply(type).value_counts()}\n{company_df_raw['company'].head()}")
+        logger.debug(f"Successfully loaded company_sentiment_normalized.csv. Shape: {company_df_raw.shape}. Columns: {company_df_raw.columns.tolist()}")
+        if not company_df_raw.empty:
+            logger.debug(f"Head of company_sentiment_normalized.csv:\n{company_df_raw.head().to_string()}")
+        else:
+            logger.warning(f"{company_sentiment_path} is empty.")
 
-
-        logger.debug(f"Loading growth data from: {predict_growth_path}")
+        logger.debug(f"Attempting to load growth data from: {predict_growth_path}")
+        if not os.path.exists(predict_growth_path):
+            logger.error(f"File not found: {predict_growth_path}")
+            return pd.DataFrame(), "Neutral (Error: Missing predict growth data)", queried_companies_normalized
         growth_df_raw = pd.read_csv(predict_growth_path)
-        logger.debug(f"Loaded growth_df_raw. Shape: {growth_df_raw.shape}. Columns: {growth_df_raw.columns.tolist()}")
-        logger.debug(f"Sample growth_df_raw 'company' before upper: \n{growth_df_raw['company'].head().apply(type).value_counts()}\n{growth_df_raw['company'].head()}")
+        logger.debug(f"Successfully loaded predict_growth.csv. Shape: {growth_df_raw.shape}. Columns: {growth_df_raw.columns.tolist()}")
+        if not growth_df_raw.empty:
+            logger.debug(f"Head of predict_growth.csv:\n{growth_df_raw.head().to_string()}")
+        else:
+            logger.warning(f"{predict_growth_path} is empty.")
 
 
-        logger.debug(f"Loading macro data from: {macro_sentiment_path}")
-        macro_df = pd.read_csv(macro_sentiment_path)
+        logger.debug(f"Attempting to load macro data from: {macro_sentiment_path}")
+        if not os.path.exists(macro_sentiment_path):
+            logger.error(f"File not found: {macro_sentiment_path}")
+            # Continue if this is missing, but log a warning as macro sentiment will be unavailable
+            logger.warning(f"Macro sentiment file not found at {macro_sentiment_path}. Proceeding without it.")
+            macro_df = pd.DataFrame(columns=['theme', 'macro_sentiment_score']) # Empty df to prevent crash
+        else:
+            macro_df = pd.read_csv(macro_sentiment_path)
+            logger.debug(f"Successfully loaded macro_sentiment.csv. Shape: {macro_df.shape}. Columns: {macro_df.columns.tolist()}")
+            if not macro_df.empty:
+                logger.debug(f"Head of macro_sentiment.csv:\n{macro_df.head().to_string()}")
+            else:
+                logger.warning(f"{macro_sentiment_path} is empty.")
 
-        logger.debug(f"Loaded macro_df. Shape: {macro_df.shape}. Columns: {macro_df.columns.tolist()}")
+
+        # Check if essential DataFrames are empty after loading attempts
+        if company_df_raw.empty:
+            logger.error(f"{company_sentiment_path} was loaded as an empty DataFrame. Cannot proceed with merges.")
+            return pd.DataFrame(), "Neutral (Error: Empty company sentiment data)", queried_companies_normalized
+        if growth_df_raw.empty:
+            logger.error(f"{predict_growth_path} was loaded as an empty DataFrame. Cannot proceed with merges.")
+            return pd.DataFrame(), "Neutral (Error: Empty growth data)", queried_companies_normalized
+
+
 
         # Store original company names from growth_df for accurate ticker lookup later
         # as get_ticker_for_company expects original casing from nasdaq_top_companies.csv
@@ -138,6 +169,7 @@ def prepare_llm_context_data(user_query, top_n=25):
         
         logger.debug(f"Unique company keys in company_df for merge (first 5): {company_df['company_upper_merge_key'].unique()[:5]}")
         logger.debug(f"Unique company keys in growth_df for merge (first 5): {growth_df['company_upper_merge_key'].unique()[:5]}")
+
 
         # Merge 1: growth_df with company_df (sentiment)
         logger.info("Merging growth data with company sentiment data...")

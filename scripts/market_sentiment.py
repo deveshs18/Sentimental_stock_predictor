@@ -52,9 +52,26 @@ class MarketSentiment:
 
             sp500_current = sp500.iloc[-1] if not sp500.empty else np.nan
             sp500_initial = sp500.iloc[0] if not sp500.empty else np.nan
+
+
+            # Ensure scalar values for the conditional check to avoid "ValueError: The truth value of a Series is ambiguous"
+            # by attempting to extract scalar if it's a single-item array/Series via .item()
+            # This is a defensive measure in case iloc[-1] or iloc[0] didn't fully scalarize.
             
-            if pd.isna(vix_current) or pd.isna(sp500_current) or pd.isna(sp500_initial) or sp500_initial == 0:
-                logger.error(f"Critical VIX/SP500 values are NaN or S&P initial is zero after download. VIX current: {vix_current}, SP500 current: {sp500_current}, SP500 initial: {sp500_initial}")
+            vix_current_scalar = vix_current.item() if hasattr(vix_current, 'item') and callable(getattr(vix_current, 'item', None)) and np.size(vix_current) == 1 else vix_current
+            sp500_current_scalar = sp500_current.item() if hasattr(sp500_current, 'item') and callable(getattr(sp500_current, 'item', None)) and np.size(sp500_current) == 1 else sp500_current
+            sp500_initial_scalar = sp500_initial.item() if hasattr(sp500_initial, 'item') and callable(getattr(sp500_initial, 'item', None)) and np.size(sp500_initial) == 1 else sp500_initial
+
+            is_vix_na = pd.isna(vix_current_scalar)
+            is_sp500_current_na = pd.isna(sp500_current_scalar)
+            is_sp500_initial_na = pd.isna(sp500_initial_scalar)
+            # Ensure sp500_initial_scalar is not NaN before comparing to 0
+            is_sp500_initial_zero = False
+            if not is_sp500_initial_na:
+                is_sp500_initial_zero = (sp500_initial_scalar == 0)
+
+            if is_vix_na or is_sp500_current_na or is_sp500_initial_na or is_sp500_initial_zero:
+                logger.error(f"Critical VIX/SP500 values are NaN or S&P initial is zero after download. VIX current: {vix_current_scalar}, SP500 current: {sp500_current_scalar}, SP500 initial: {sp500_initial_scalar}")
 
                 return None
 
