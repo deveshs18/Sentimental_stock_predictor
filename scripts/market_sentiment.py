@@ -36,7 +36,6 @@ class MarketSentiment:
                 return None
             sp500 = sp500_data['Close']
 
-
             if vix.empty or sp500.empty:
                 logger.error("VIX or S&P 500 data is empty after download and selecting 'Close' column.")
                 return None
@@ -52,7 +51,6 @@ class MarketSentiment:
 
             sp500_current = sp500.iloc[-1] if not sp500.empty else np.nan
             sp500_initial = sp500.iloc[0] if not sp500.empty else np.nan
-
 
             # Ensure scalar values for the conditional check to avoid "ValueError: The truth value of a Series is ambiguous"
             # by attempting to extract scalar if it's a single-item array/Series via .item()
@@ -72,7 +70,6 @@ class MarketSentiment:
 
             if is_vix_na or is_sp500_current_na or is_sp500_initial_na or is_sp500_initial_zero:
                 logger.error(f"Critical VIX/SP500 values are NaN or S&P initial is zero after download. VIX current: {vix_current_scalar}, SP500 current: {sp500_current_scalar}, SP500 initial: {sp500_initial_scalar}")
-
                 return None
 
             # Calculate daily returns and moving averages
@@ -127,13 +124,20 @@ class MarketSentiment:
     
     def _calculate_market_sentiment(self, vix, sp500):
         """Calculate a composite market sentiment score (-1 to 1)."""
+        # Ensure we have enough data points for these operations
+        if len(vix) < 1 or len(sp500) < 20: # Need at least 20 for sp500_medium, 1 for vix_norm
+            logger.warning(f"_calculate_market_sentiment: Not enough data. VIX len: {len(vix)}, S&P500 len: {len(sp500)}. Returning 0.")
+            return 0.0
+
         # Normalize VIX (higher VIX = more fear)
-        vix_norm = (vix[-1] - vix.mean()) / vix.std()
+        # Use .iloc for robust positional access
+        vix_norm = (vix.iloc[-1] - vix.mean()) / vix.std()
         vix_score = np.exp(-vix_norm)  # Invert so higher VIX = lower score
         
         # Calculate trend (recent returns)
-        sp500_short = sp500[-5:].pct_change().mean() * 100  # 5-day return
-        sp500_medium = sp500[-20:].pct_change().mean() * 100  # 20-day return
+        # Use .iloc for robust positional access for slicing
+        sp500_short = sp500.iloc[-5:].pct_change().mean() * 100 if len(sp500) >= 5 else 0 # 5-day return
+        sp500_medium = sp500.iloc[-20:].pct_change().mean() * 100 if len(sp500) >= 20 else 0 # 20-day return
         
         # Combine factors (you can adjust weights)
         sentiment = (
