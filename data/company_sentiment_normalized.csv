@@ -1,4 +1,5 @@
 company,negative,neutral,positive
+<<<<<<< Updated upstream
 AI,0,0,2
 AI API Prices,1,0,0
 AI Action Summit,0,0,1
@@ -89,3 +90,20 @@ White House,1,0,0
 YOLO,0,0,2
 r/Stocks Weekly Thread,0,0,1
 w/ Subscribe & Save,0,0,1
+=======
+Airbnb,0,4,2
+Alphabet Inc. (Class C),0,1,0
+Amazon,0,1,2
+Apple Inc.,0,1,0
+Broadcom Inc.,1,0,0
+CrowdStrike,0,0,1
+Enphase Energy,0,0,1
+Intel,0,0,2
+Meta Platforms,1,0,2
+Micron Technology,0,3,1
+Nvidia,0,1,1
+Rivian,0,0,1
+Ross Stores,0,1,0
+T-Mobile US,0,0,1
+"Tesla, Inc.",1,1,3
+>>>>>>> Stashed changes

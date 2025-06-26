@@ -1,4 +1,5 @@
 timestamp,headline,text,source,url,company
+<<<<<<< Updated upstream
 2025-06-23 20:01:56,Covered calls fail,"
 900 ASTS shares at a $14 average. I was trying to squeeze premium because of ASTS high volatility and it blew up recently. It’s covered calls but it still kinda sucks in hindsight. ",reddit,https://i.redd.it/gme22d8ggq8f1.jpeg,Analog Devices
 2025-06-23 20:01:23,What a run we’ve had eh boys,Thanks WSB for shilling this thing in 2021 when I found it. Not selling a single one of these hoes ,reddit,https://i.redd.it/xaz5anncgq8f1.jpeg,Analog Devices
@@ -21,17 +22,62 @@ he might get asked about global tensions, oil prices, supply chains. he’ll say
 
 with that said calls",reddit,https://www.reddit.com/r/wallstreetbets/comments/1liq5vk/what_to_expect_from_powell_tomorrow/,Analog Devices
 2025-06-23 19:29:58,CI holding up while rest of healthcare tanks  prior auth changes coming?,"UnitedHealth CVS Aetna Cigna Humana  all just pledged to streamline prior auth requirements after a meeting with HHS and RFK Jr
+=======
+2025-06-25 23:56:59,Judge dismisses authors’ copyright lawsuit against Meta over AI training,"By Matt O’Brien and Barbara Ortutay | Associated Press
+SAN FRANCISCO — A federal judge sided with Facebook parent Meta Platforms in dismissing a copyright infringement lawsuit from a group of authors who accused the company of stealing their works to train it…",news,https://biztoc.com/x/66592fc73d8bf293,Meta Platforms
+2025-06-25 23:56:54,Rubrik acquires Predibase to accelerate adoption of AI agents,Data cybersecurity company Rubrik announced Wednesday its intent to acquire Predibase. Predibase is a venture-backed startup that helps companies train and fine-tune open source AI models to customize them to their needs. Rubrik is the latest company to make …,news,https://biztoc.com/x/ab47c53a5b41b64c,Airbnb
+2025-06-25 23:54:47,Denis Villeneuve to Direct Next James Bond Film for Amazon MGM,He will also executive produce alongside Tanya Lapointe for producers Amy Pascal and David Heyman.,news,https://www.indiewire.com/news/breaking-news/denis-villeneuve-direct-next-james-bond-film-amazon-mgm-1235135335/,Amazon
+2025-06-25 23:45:58,Amazon Doubles Down on India Streaming Wars With Two-Platform Strategy,"Amazon is playing a dual-platform game in India’s competitive streaming landscape, with Prime Video targeting subscription-ready consumers while its ad-supported Amazon MX Player courts viewers transitioning from traditional TV. Speaking at the APOS conferenc…",news,https://variety.com/2025/tv/news/amazon-india-streaming-prime-video-mx-player-1236441219/,Amazon
+2025-06-25 23:45:50,Federal judge sides with Meta in lawsuit over training AI models on copyrighted books,"A federal judge sided with Meta on Wednesday in a lawsuit brought against the company by 13 book authors, including Sarah Silverman, that alleged the company had illegally trained its AI models on their copyrighted works.
+Federal Judge Vince Chhabria issued a…",news,https://biztoc.com/x/a32dc6a137203774,Meta Platforms
+2025-06-25 23:39:59,Nike and Levi’s Channel 150+ Years of American Heritage Into a Denim Air Max 95,The Air Max 95 gets the full denim treatment with three variants and some matching clothes.,news,https://hiconsumption.com/style/nike-x-levis-air-max-95/,CrowdStrike
+2025-06-25 23:39:25,Intel shutters its automotive business amid restructuring push,"Intel Corp. plans to wind down its automotive business and lay off most of the unit’s employees. The Oregonian reported the development on Wednesday, citing an internal company memo. Intel confirmed the move in a statement issued to TechCrunch today. “As we h…",news,https://siliconangle.com/2025/06/25/intel-shutters-automotive-business-amid-restructuring-push/,Intel
+2025-06-25 23:38:01,Micron generates massive profits as AI fuels demand for high-bandwidth memory,"Micron Technology Inc. delivered solid profits today on the back of rampant demand for artificial intelligence chips that drove record quarterly revenue, but it wasn’t enough to move the needle in its stock price, which remained flat after-hours. The company …",news,https://siliconangle.com/2025/06/25/micron-generates-massive-profits-ai-fuels-demand-high-bandwidth-memory/,Micron Technology
+2025-06-25 23:36:02,AI data foundry provider Centific lands $60M to grow enterprise footprint,"Artificial intelligence data foundry company Centific Global Solutions Inc. has raised $60 million in new funding from Jenny Lee of Granite Asia Management Pte. Ltd. to scale its AI infrastructure platform, enhance research and development for safe multimodal…",news,https://siliconangle.com/2025/06/25/ai-data-foundry-provider-centific-lands-60m-grow-enterprise-footprint/,Airbnb
+2025-06-25 23:34:46,Tether CEO predicts one trillion AI agents will use Bitcoin and USDT for transactions within 15 years,"Speaking on The Block's Big Brain podcast, Tether CEO Paolo Ardoino said USDT and Bitcoin will power transactions among AI agents.",news,https://biztoc.com/x/1dfe87a9f6e4dc96,Airbnb
+2025-06-25 23:31:13,Commerce Giants Expand Into Stores With New Debit and Credit Cards,"PYMNTS Intelligence has long tracked the rise of the Click-and-Mortar™ shopper, the tech-savvy individual who traverses eCommerce and in-store shopping armed with mobile devices. [contact-form-7] The blurring of channel lines has been paving the way for platf…",news,http://www.pymnts.com/credit-cards/2025/commerce-giants-expand-into-stores-with-new-debit-and-credit-cards/,Ross Stores
+2025-06-25 23:30:51,"ASE’s COO bets on Taiwan’s AI strength, calls TSMC’s U.S. push decisive","Tien Wu, chief operating officer of ASE Technology, said the company has no plans to revise its full-year capital spending despite mounting geopolitical tensions and tariff pressures that are disrupting the global semiconductor supply chain. While the group i…",news,https://www.digitimes.com/news/a20250625PD225/ase-tsmc-capex-taiwan-supply-chain.html,Enphase Energy
+2025-06-25 23:29:34,AI systems may make mistakes now but are quickly getting smarter: Hinton,"TORONTO — If mistakes artificial intelligence make have you doubting it can’t ever rival humans, one of the technology’s pioneers says think again. Geoffrey Hinton said Wednesday that AI keeps getting better at reasoning and has surpassed the skill level many…",news,https://financialpost.com/pmn/ai-systems-may-make-mistakes-now-but-are-quickly-getting-smarter-hinton,Airbnb
+2025-06-25 23:25:29,Radiant Opto reports strong 1H25 results amid Apple orders and global tensions,"Radiant Opto-Electronics is off to a strong start in 2025, with early Apple product shipments boosting first-half earnings. But the company said the usual seasonal sales pattern is starting to blur. Radiant expects a 55:45 revenue split between the first and …",news,https://www.digitimes.com/news/a20250624PD236/radiant-2025-roec-apple-taiwan.html,Apple Inc.
+2025-06-25 23:23:49,U.S. judge rules in Meta’s favour in authors’ copyright lawsuit over AI training,"A federal judge in San Francisco ruled on Wednesday for Meta Platforms META-Q against a group of authors who had argued that its use of their books without permission to train its artificial intelligence system infringed their copyrights.
+U.S. District Judge …",news,https://biztoc.com/x/089d1d83ed364c19,Meta Platforms
+2025-06-25 23:13:08,Micron Stock Surges As Memory-Chip Maker Crushes Estimates,"This may happen as a result of the following:
+- Javascript is disabled or blocked by an extension (ad blockers for example)
+- Your browser does not support cookies
+Reference ID: #e8a0c8d4-5219-11f0-b479-d8f2da03cc8a
+This may happen as a result of the followin…",news,https://biztoc.com/x/42f047ef1682c795,Micron Technology
+2025-06-25 20:17:15,Micron shares rocket higher as Q3 results as well as Guidance blow past expectations on AI strength,"Micron Technology (NASDAQ:MU) shares rose 6.3% in extended trading on Wednesday after the memory maker reported third-quarter results and guidance that topped expectations by a wide margin, aided by artificial intelligence spending.
 
-prior authorization has been a massive headache for providers and patients, blamed for delays in care and tons of admin bloat.
+For the period ending May 29, Micron said it earned an adjusted $1.91 per share as revenue surged 36.6% year-over-year to come in at $9.3B. A consensus of analysts expected the company to earn $1.61 per share on $8.85B in revenue.
 
-No real details on how this will happen but the optics are clear: regulators are applying pressure and insurers are trying to show good faith.
+Adjusted gross margins during the period were 37.7%, while adjusted free cash flow was $1.95B.
 
-So far market reaction is muted UNH CVS HUM all flat to down.
+""Micron delivered record revenue in fiscal Q3, driven by all-time-high DRAM revenue including nearly 50% sequential growth in HBM revenue. Data center revenue more than doubled year-over-year and reached a quarterly record, and consumer-oriented end markets had strong sequential growth,"" said Sanjay Mehrotra, Chairman, President and CEO of Micron Technology. ""We are on track to deliver record revenue with solid profitability and free cash flow in fiscal 2025, while we make disciplined investments to build on our technology leadership and manufacturing excellence to satisfy growing AI-driven memory demand.""
 
-But CI Cigna actually held up  +0.68% while the rest were red.
+Looking ahead, Micron said it expects adjusted earnings to be between $2.35 and $2.65 per share, with the midpoint of $2.50 well above the $2.05 per share estimate. Sales are forecast to be between $10.4B and $11B, with the midpoint of $10.7B well above the $9.9B estimate.
 
-CI has been flying under the radar lately no meme hype no flashy headlines  just grinding higher.
+The company will host a conference call at 4:30 p.m. EST to discuss the results.",reddit,https://www.reddit.com/r/stocks/comments/1lkgb09/micron_shares_rocket_higher_as_q3_results_as_well/,Micron Technology
+2025-06-25 18:42:57,Are you buying into AI hype without thinking about the bigger picture?,"Consensus thinking leads to ordinary returns. Pre-consensus leads to extraordinary returns.
 
+Here are some second-order narratives for AI.
+>>>>>>> Stashed changes
+
+1. AI-native data providers: community-tagged and developer-exhaust datasets now command eight- and nine-figure licensing deals, yet many providers are still valued like traditional ad-tech or hosting plays.
+2. Retail investor participation: as LLMs convert “institutional” know-how into conversational advice, brokerages that embed AI guidance stand to gain engagement while legacy full-service platforms risk share loss.
+3. AI ops stack & tools: production-scale LLM monitoring, orchestration, and observability are becoming critical infrastructure for every enterprise deploying generative models.
+4. Power & cooling bottlenecks: liquid-immersion cooling, advanced switch-gear, and grid-interconnect suppliers are leveraged plays on the thermal and energy constraints now capping AI datacenter build-outs.
+5. Custom silicon & packaging: hyperscaler pivot to ASICs is channeling demand toward semi-custom chip designers and advanced-packaging specialists, the true choke-points for the next acceleration wave.",reddit,https://www.reddit.com/r/investing/comments/1lkdvv1/are_you_buying_into_ai_hype_without_thinking/,Airbnb
+2025-06-25 16:57:20,Nvidia is ripping again  are we seriously doing this??So can NVDA break the spell and continue to break new highs?,"NVDA is back on a heater. Stock's flying past $150 and it’s looking like we might break the January highs. Honestly… didn’t think we’d be back here this fast after that dumpster fire earlier this year
+
+Remember when it tanked to the low $90s? Between Trump’s China chip ban, Huawei heating up, and that random DeepSeek AI hype? I thought the bubble had popped. But nope  earnings beat, Saudi/UAE deals, and now here we are again
+
+Now I’m seeing $250 PTs getting thrown around like it’s no big deal. $6T market cap? 
+
+ So real talk:Are you still buying here?Is this just the AI hype train picking up steam again?If you’re holding, are you trimming or riding it out?If not NVDA, what are you playing instead? AMD? AVGO? Or just indexing and chilling?
+
+I’ve been sitting on the sidelines and ngl, I’m feeling a little FOMO
+
+<<<<<<< Updated upstream
 If they’re seen as more compliant flexible than UNH CVS they could quietly benefit from policy tailwinds.
 
 Not saying it a moonshot but looks like asymmetric upside vs sentiment.
@@ -66,13 +112,21 @@ Defense stocks LMT RTX oil XLE XOM volatility hedges?
 
 Or is this just another overnight headline that fades by morning?",reddit,https://www.reddit.com/r/stocks/comments/1lipjua/iran_just_hit_al_udeid_air_base_in_qatar_no/,Analog Devices
 2025-06-23 19:09:53,Google: undervalued tech gem?,"I recently started a large (for me) individual position in Google. While I remain bearish on the market as a whole right now, wise investors have said value can always be found in the market. A lot of the market feels very richly valued right now, especially large tech. AAPL, MSFT, NVDA and Meta all carry PE valuations close to 30 at the low end and closer to 50. Google however sits under 20.
+=======
+But on the flip side, Nvidia really seems to be a one-of-a-kind presence. While others are still in the middle of a marathon, it's already taking selfies on the podium
+>>>>>>> Stashed changes
 
 
 
-Google is a major player in data centers, which I believe will be a huge space in the future. Google also has a strong AI program as well as a very healthy ad program. They continue to grow top and bottom lines and in March had a 38% profit margin on 90 Billion of revenue. 
+  
+",reddit,https://www.reddit.com/r/stocks/comments/1lkb2v2/nvidia_is_ripping_again_are_we_seriously_doing/,Nvidia
+2025-06-25 14:13:41,Tesla's European car sales nosedive for fifth month as customers switch to Chinese EVs,"https://www.cnbc.com/2025/06/25/teslas-european-car-sales-fall-as-customers-switch-to-chinese-evs.html
 
+> Tesla new car sales in Europe fell for a fifth straight month in May, according to data from the European Automobile Manufacturers Association (ACEA), as customers pivot to cheaper Chinese electric vehicles.
 
+> Data published Wednesday by ACEA found that Tesla's car sales in the European Union, Britain and the European Free Trade Association fell to 13,863 units in May, down 27.9% year-on-year.
 
+<<<<<<< Updated upstream
 Yet it seems the market isn’t interested in Google. It is by far the worst performing Mag 7 this year, down about 13%. So with so many strong growth segments and a healthy valuation, where is the skepticism coming from? ",reddit,https://www.reddit.com/r/stocks/comments/1lipg45/google_undervalued_tech_gem/,Alphabet Inc. (Class A)
 2025-06-23 19:09:48,Hiring Edward Jones Advisor Without Opening Account,"Twice to see an Edward Jones advisor, the guy is amazing, tells me if I'm thinking about things correctly. But, I'll never open an Edward Jones account. Never.
 
@@ -413,24 +467,30 @@ Comments URL: https://news.ycombinator.com/item…",news,https://github.com/arax
 2025-06-22 19:32:03,How to Train Your Dragon Director Talks Scrapped Sequences,"The live-action adaptation of How to Train Your Dragon has officially soared into theaters, bringing with it a wave of nostalgia, impressive visuals, and strong box office momentum. Released on June 13, the film opened to an $83.7 million domestic weekend and…",news,https://bleedingcool.com/movies/how-to-train-your-dragon-director-talks-scrapped-sequences/,Analog Devices
 2025-06-22 19:30:00,"Trump's Iran strikes ignite debate on presidential authority, win praise from Republicans","Democrats, and a few Republicans, said the strikes were unconstitutional, and demanded more information in a classified setting.",news,https://roanoke.com/news/nation-world/government-politics/article_456e4194-5bed-5c97-8968-b227ccdd0634.html,Texas Instruments
 2025-06-22 19:26:49,"How to hedge against long-term USD decline for retiree living abroad (COP expenses, USD income)","I am helping my mother, a retiree living abroad, design a portfolio to hedge against long-term U.S. dollar devaluation and preserve purchasing power. We are influenced by the macroeconomic concerns highlighted by Ray Dalio and other investment leaders.
+=======
+> Tesla's European market share also dropped to 1.2% from 1.8% in May 2024.",reddit,https://www.reddit.com/r/stocks/comments/1lk6sx6/teslas_european_car_sales_nosedive_for_fifth/,"Tesla, Inc."
+2025-06-25 14:04:18,"I tried to tell my Father, but he was hell bent on buying Tesla at $300 like an idiot.","And then sold it at like $250 because he started freaking out, when I told him to just hold for the long. SMH. So, Whenever he tries to talk about stocks with me, I just point to this and tell him to stfu. Oh and the fact that he’s a narcissist, yet this silences him, is satisfying AF. 😂 ",reddit,https://i.redd.it/c8obq3fgy29f1.jpeg,"Tesla, Inc."
+2025-06-25 13:20:35,Could this be the next Amazon?,"MELI. (Mercado Libre/Free Market) They are the Amazon of the ""Amazon"" (South America!)
 
-Her **expenses are in Colombian Pesos (COP)**, while all her **income and savings are in U.S. Dollars (USD**).  
+Physical stores are still huge there, and there is a lot of runway for them to expand. They are growing by leaps and bounds. They invest in fulfillment. MELI seems like Amazon was 20years ago or so in the US.  They do compete with Amazon and AliBaba but have a very strong brand. Stock is a bit expensive at $2500. PE 62 ish, but maybe worth to keep in mind on a dip.
+>>>>>>> Stashed changes
 
+Anyone smarter than me want to do some deep fundamental analysis?",reddit,https://www.reddit.com/r/stocks/comments/1lk5i03/could_this_be_the_next_amazon/,Amazon
+2025-06-25 13:09:59,(06/25) Breakouts and Breakdowns -  Interesting Stocks Today!,"This is a daily watchlist for short-term trading: I might trade all/none of the stocks listed, and even stocks not listed! I am targeting potentially good candidates for short-term trading; I have no opinion on them as investments. The potential of the stock moving today is what makes it interesting, everything else is secondary.
 
-Her situation:
+Today is mainly focused on breakouts/breakdowns.
 
-Monthly income is around **USD 4K** from SS and other pensions.
+News: [Early US intelligence report suggests US strikes only set back Iran’s nuclear program by months](https://apnews.com/article/iran-nuclear-program-military-strikes-trump-f0fc085a2605e7da3e2f47ff9ac0e01d)
 
-* Her savings are around **USD 175K,** mostly SGOV,
-* and around **USD 25K** equivalent COP in the Colombian money market.
-* She owns her own house.
+[**CRCL (Circle)**](https://finviz.com/quote.ashx?t=CRCL&p=d)\-Yesterday’s major level was $245, interested in if we can stay below $225 today. Currently short, and still short biased. This is still extremely run up (to me). Note that it is mainly run up due to the hype from the senate bill (GENIUS Act). Overall trying to see if we get even close to breaking $200 today. Cbase and HOOD have moved as well (upwards). Typically has a somewhat wide spread (ranges from .50 to $1) so I'm mainly trying to churn as little in this as possible. 
 
-We need help with ideas for
+[**NVO (Novo Nordisk)**](https://finviz.com/quote.ashx?t=NVO&p=d)\-Still somewhat selling off due to news from their discontinuation of their discontinuation with HIMS, citing illegal practices. Interested in if we can break the multi-day lows of $68. Fragment of a comment I read: ""Hims/Hers is advertising Wegovy all over the place, but if you go through their signup process, they have you fill out a questionnaire to supposedly see which medication is best for you. And if you say price is a big factor for you, then they recommend their own compound meds over the name brand."" According to NVO, the decision comes after Hims & Hers allegedly failed to comply with laws prohibiting mass sales of compounded drugs.
 
-* A portfolio that can help to **supplement the possible lose of real income**
-* ways to build a **global diversified portfolio**; I have considered gold, commodities, or emerging markets
-* income strategies that maintain capital and reduce FX risk
+[**NVDA (NVIDIA)**](https://finviz.com/quote.ashx?t=NVDA&p=d)\-Nearing $150 levels and ATH, driven by the market momentum we've had lately (also unveiled the 5050 for their cheapest GPU yet but I doubt it's what's moving the needle on this stock.) Mainly interested in a technical breakout at $150 if it forms. We're nearing it premarket, but I'm mainly interested to see if this breaks it in a significant way at the open.
 
+[**FDX (FedEx)**](https://finviz.com/quote.ashx?t=FDX&p=d)\-FDX reports Adjusted EPS of $6.07). FDX declined to issue full-year earnings and revenue forecasts, citing uncertainty over U.S. trade policy with China. Interested if we sell off further to $215, but frankly this is lowest priority because there are far more interesting stocks today.
+
+<<<<<<< Updated upstream
 Would appreciate any ETF-based or international investing frameworks tailored to this kind of dual-currency situation Thanks!",reddit,https://www.reddit.com/r/investing/comments/1lhwbzj/how_to_hedge_against_longterm_usd_decline_for/,Copart
 2025-06-22 19:26:16,The Latest: US seeks to weaken longtime foe Iran striking 3 nuclear sites,The U.S. military has hit three sites in Iran and inserted itself into Israel’s effort to destroy Iran’s nuclear program in a risky gambit to weaken a longtime foe,news,https://www.wsbtv.com/news/latest-us-seeks/FBAIER6KJFGPXJ4UZNL472B7RM/,Analog Devices
 2025-06-22 19:25:00,China Is Close To Being Able To Refuel Satellites On-Orbit (And Maybe Already Has),"Up until now, satellites have not even been designed with refueling in mind, because, well, it wasn't possible. That will change if China can prove otherwise.",news,https://www.jalopnik.com/1891454/china-close-to-refueling-satellites-on-orbit/,Analog Devices
@@ -479,11 +539,16 @@ My bills come out to roughly 1200 per month.
 I’d really like to get more into stocks but I don’t know if my budget works fit it. Should I stick with my 401k or do a Roth?
 Any adg advice is appreciated.",reddit,https://www.reddit.com/r/investing/comments/1lhssik/roth_ira_or_continue_with_401k/,Analog Devices
 2025-06-22 16:30:40,Predictable swing trade for NVDA?,"I'm very new to investing, like in December will be 2 years. 
+=======
+**Earnings:** [**MU**](https://finviz.com/quote.ashx?t=MU&p=d)",reddit,https://www.reddit.com/r/stocks/comments/1lk598g/0625_breakouts_and_breakdowns_interesting_stocks/,Intel
+2025-06-25 12:40:36,OpenAI’s Self-Driving Ambitions (with TSLA and GOOG),">The artificial intelligence company has set many challenging goals. Autonomous vehicle software is now among them - but may pit the company against Tesla.
+>>>>>>> Stashed changes
 
-What I've been mostly doing is buying NVDA at 100 and below, then selling at 130 and above in chunks. I have never sold at the top price, but I have bought at the very bottom couple of times. And it's been quite profitable 
+>
 
-I've recently talked to experienced investors and they scolded me for swing trading, saying that timing the market is not a way to go and I just should hold the position for decades.
+>Sam Altman has made many big claims about what OpenAI will be able to do, including spearheading ultra-expansive data centers and building artificial intelligence that can rival the abilities of Ph.D. holders.
 
+<<<<<<< Updated upstream
  I'm not arguing with their approach, they know better. But if someone could explain why swing trading is bad and what you are doing with nvda right now I'd be very grateful. I'm itching to sell at 140. ",reddit,https://www.reddit.com/r/stocks/comments/1lhs2k8/predictable_swing_trade_for_nvda/,Nvidia
 2025-06-22 15:41:25,$LMT. Come back of the year. Round 2,"Almost sold on Friday and cut my losses down 20k
 
@@ -890,3 +955,82 @@ Be aware of [Business Cycle Investing](https://eresearch.fidelity.com/eresearch/
 If you need help with a falling stock price, check out Investopedia's [The Art of Selling A Losing Position](https://www.investopedia.com/articles/02/022002.asp) and their [list of biases.](https://www.investopedia.com/articles/stocks/08/capital-losses.asp)
 
 Here's a list of all the [previous portfolio stickies.](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3A%22Rate+My+Portfolio%22&restrict_sr=on&sort=new&t=all)",reddit,https://www.reddit.com/r/stocks/comments/1l0kgkw/rate_my_portfolio_rstocks_quarterly_thread_june/,Analog Devices
+=======
+>But he also recently made a significant, yet largely overlooked, assertion. OpenAI is seeking to crack the code for advanced autonomous driving.
+
+>“We have some new technology that could just do self-driving for standard cars way better than any current approach has worked,” Altman said last week on the “Uncapped With Jack Altman” podcast, which his brother hosts. Altman added, “If our A.I. techniques can really go drive a car, that’s pretty cool.”
+
+>The technology is in its early stages - DealBook hears that it involves both OpenAI’s Sora video software and its robotics team - but commercializing it is still a distant goal. An OpenAI spokesman declined to comment.
+
+>That could make Altman even more of a competitor to Elon Musk, who co-founded OpenAI but has since waged war on the company. (A short reminder: Musk has sued to try to stop OpenAI from revamping its corporate structure, and he’s building a direct competitor, xAI, that’s raising - and spending - billions of dollars.)
+
+>Autonomous vehicles are key to Musk’s vision for Tesla, which he increasingly sees as the producer of huge fleets of fully self-driving cars. Tesla is focusing on A.I.-powered vision rather than on the array of sensors like lidar that Waymo, a Google spinoff, uses.
+
+>One big question mark for OpenAI: Where will its systems get their data? Tesla and Waymo have already amassed huge amounts of information and video through their years of driving on the roads.
+
+>That raises the question of whether OpenAI believes in a fundamentally different approach to self-driving tech, one that relies less on real-world data and more on advanced simulation, synthetic data or a breakthrough in “generalizable” A.I. Of note: The company recently collaborated with Applied Intuition, a start-up focused on putting A.I. in cars.
+
+>(OpenAI’s venture arm also invested in Ghost Autonomy, a self-driving start-up, though the business folded last year.)
+
+>“I think he really gets it,” Altman said of President Trump’s approach to A.I. (Altman has forged close ties to the president, including by donating to his inauguration fund and announcing the Stargate data center project at the White House.) “I think he really understands the importance of leadership in this technology.”
+
+>Altman was uncertain about whether the right A.I. regulations would come to pass: “I have become a bit more, jaded isn’t the right word, but it’s something in that direction, about the ability of policymakers to grapple with the speed of technology.”
+
+>Altman played down reports of tensions between OpenAI and Microsoft as they rework their relationship: “Do you believe that, when you read those things?”
+
+Link: [https://www.nytimes.com/2025/06/25/business/dealbook/openai-autonomous-vehicles-musk-tesla.html](https://www.nytimes.com/2025/06/25/business/dealbook/openai-autonomous-vehicles-musk-tesla.html)",reddit,https://www.reddit.com/r/stocks/comments/1lk4lff/openais_selfdriving_ambitions_with_tsla_and_goog/,Rivian
+2025-06-25 10:45:29,Let's say a CEO starts going on about AI. and an employee publicly rebukes them...what happens?,"So let's say someone sees their CEO actively talking about AI and the capabilities and the company's involvement. But due to you being boots on the ground engineering you happen to know what they are saying is a lie and let's say you reply to a Twitter post with "" you and I both know our infrastructure is not even close to ready yet"". Obviously beyond getting fired, what happens to somebody directly rebuking the executive team like that in terms of stock movement? Let's say you don't own any stock. Didn't tell anybody that you are going to do that, would refuting CEO level statements about AI capability cause stock to go down since AI is such a buzzword?",reddit,https://www.reddit.com/r/investing/comments/1lk2dyt/lets_say_a_ceo_starts_going_on_about_ai_and_an/,Airbnb
+2025-06-25 01:30:14,Buy US ETFs/Stocks from yen directly or convert yen to USD then buy?,"Hello, as the title says, my main currency is Japanese yen, but I wonder if factors like the exchange rate have an effect when trading. Especially for ETFs like VTI, because they are long-term term I can't gauge how exchange rates come into play (if they were to affect). ",reddit,https://www.reddit.com/r/investing/comments/1ljsz8b/buy_us_etfsstocks_from_yen_directly_or_convert/,T-Mobile US
+2025-06-24 22:47:05,"Selling NVDA, buying RDDT & HOOD","Cost basis was $108 for NVDA.  Of course NVDA has a monopoly for AI hardware, but there's not enough headroom (a 50% price increase would be a $5.4T market cap).
+
+RDDT's narrative is simple - they offer a unique dataset in a sea lacking in human creativity and insight.
+
+HOOD - partly a momentum play, but they have captured a large portion of the retail investor base (especially mid to upper middle class), which is becoming an increasingly dominant force in the markets.
+
+Anyone else selling NVDA for something else?",reddit,https://www.reddit.com/r/stocks/comments/1ljpglb/selling_nvda_buying_rddt_hood/,Nvidia
+2025-06-24 20:07:45,My biggest YOLO [150k on GOOG calls],"https://preview.redd.it/3zj8ut76mx8f1.png?width=1106&format=png&auto=webp&s=eceff50834ef4634b021d1b9f5bdd1211c49a947
+
+This is after a successful play on $AMD.
+
+I'm all in on $GOOG. Pray for me, brothers!",reddit,https://www.reddit.com/r/wallstreetbets/comments/1ljlixv/my_biggest_yolo_150k_on_goog_calls/,Alphabet Inc. (Class C)
+2025-06-24 15:53:44,Tesla threatened with fine in France over ‘deceptive’ claims,"Investigators at France's competition, consumer affairs and anti-fraud directorate general, or DGCCRF, has demanded that Tesla stop ""deceptive"" claims over the level of autonomy of its cars or face thousands of euros in fines, The Financial Times' Ian Johnston and Kana Inagaki report. An investigation conducted by the DGCCRF found that Tesla engaged in ""deceptive commercial practices"" about the ability of its Tesla vehicles to be ""fully autonomous,"" as well as deceiving customers on the availability of certain options for their cars, the investigators say. Tesla has been ordered to comply with the order within four months or face fines of EUR 50,000 per day for each day that it does not conform. 
+
+https://www.ft.com/content/4402c45b-c98f-4250-b783-f704c7ca4d28>Reference Link",reddit,https://www.reddit.com/r/stocks/comments/1ljesom/tesla_threatened_with_fine_in_france_over/,"Tesla, Inc."
+2025-06-24 15:17:00,MU price target 140 USD post earnings,"So my DD has a quite easy logic - MU mostly dropped due to the guidance miss in the previous earning. Currently they are massively wining on market share and they are bringing out their 4th generation product soon. All of this speaks for a) besting revenue, profit, and guidance expectations. So I would expect that at least a 10% or more increase in the stock will happen on the 26th of June. 
+
+It is not a financial advice, up to you to do your own research, but I wanted to share my thoughts with you. Happy to hear your opinion tho. ",reddit,https://www.reddit.com/r/stocks/comments/1ljdtti/mu_price_target_140_usd_post_earnings/,Micron Technology
+2025-06-24 14:14:55,US Consumer Confidence Drops on Broad Concerns About Economy,"Bloomberg) -- US consumer confidence unexpectedly declined in June on concerns about prospects for the economy, labor market and personal finances due to trade policy.
+
+The Conference Board’s gauge of confidence decreased 5.4 points to 93, data showed Tuesday. The figure was below all estimates in a Bloomberg survey of economists. 
+
+A measure of consumer expectations for the next six months dropped 4.6 points to 69, while a gauge of present conditions fell 6.4 points to 129.1.
+
+The retreat in confidence erased nearly half of the prior month’s rebound, underscoring lingering anxiety about the potential impacts on the economy from higher US import duties. While inflation over the past three months has been modest, some consumers have become more guarded about their spending.
+
+“Consumers were less positive about current business conditions than May. Their appraisal of current job availability weakened for the sixth consecutive month but remained in positive territory, in line with the still-solid labor market,” Stephanie Guichard, senior economist at The Conference Board, said in a statement.
+
+The cutoff date for the Conference Board survey was June 18, five days after Israel launched a series of strikes on Iranian targets. References to geopolitics increased only slightly in write-in responses, according to the survey.
+
+The share of consumers expecting higher interest rates in the year ahead increased to 57%, the highest since October 2023, the Conference Board data showed. ",reddit,https://www.reddit.com/r/stocks/comments/1ljc8dw/us_consumer_confidence_drops_on_broad_concerns/,Broadcom Inc.
+2025-06-24 13:01:35,"Tesla & Google heat up the Robotaxi race  TSLA pops, GOOGL lags","Big moves in the robotaxi world this week.
+
+TSLA just launched its robotaxi service in Austin, TX over the weekend, and the market loved it. The stock ripped +8% on Monday and kept the momentum into Tuesday, pushing up another 2% premarket
+
+Meanwhile, Alphabet’s Waymo (backed by $GOOGL) responded fast announcing its own robotaxi expansion into Atlanta through its Uber partnership. Waymo now runs in LA, Austin, Phoenix, SF, and soon Miami & DC. Solid coverage
+
+What’s surprising though: $GOOGL only got a modest bump (\~1%) while $TSLA surged
+
+Robotaxi = massive long-term play. Whoever wins autonomy could dominate transportation over the next decade
+
+Personally, I’m a bit surprised by the muted reaction on GOOGL. Waymo’s rollout is arguably more polished  it’s already operating in multiple cities and has a real partnership with Uber. But the market still gives the hype crown to Tesla.
+
+GOOGL, on the other hand, feels like it’s building the future… quietly. Maybe too quietly
+
+Still, I wouldn’t count Waymo out. If it scales smoothly with Uber, the upside could sneak up on people",reddit,https://www.reddit.com/r/stocks/comments/1ljaik7/tesla_google_heat_up_the_robotaxi_race_tsla_pops/,"Tesla, Inc."
+2025-06-24 04:57:24,Tesla’s Robotaxi stunt backfires,"Looks like Tesla’s attempt to pump hype using influencers is backfiring hard. They used livestreaming vloggers to show off their Robotaxi tech, but instead of good PR, the whole thing exposed traffic violations in real time. 🚨
+
+Now the NHTSA has officially contacted Tesla, per Bloomberg via Reuters:
+https://www.reuters.com/business/autos-transportation/nhtsa-contacts-tesla-robotaxi-issues-seen-online-videos-bloomberg-news-reports-2025-06-23/
+
+Get out before any real regulatory hammer drops. Expect wild swings. (May be +10% tomorrow)🍿",reddit,https://www.reddit.com/r/stocks/comments/1lj2e5k/teslas_robotaxi_stunt_backfires/,"Tesla, Inc."
+>>>>>>> Stashed changes
