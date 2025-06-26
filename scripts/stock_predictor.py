@@ -15,9 +15,7 @@ sys.path.append(parent_dir)
 from utils.normalization_utils import normalize_company_name, get_ticker_for_company, _load_normalization_data as load_norm_data
 from utils.yfinance_utils import get_current_stock_data
 
-
 print("--- Running stock_predictor.py - VERSION: DEBUG_LOGGING_V2 ---") # Unmissable print statement
-
 
 # Load environment variables from .env file
 # Assuming .env is in the parent directory (project root) or this script's directory
@@ -66,11 +64,9 @@ def format_value_for_prompt(value):
     return "N/A"
 
 def parse_user_query_for_companies(user_query):
-
     normalized_full_query = normalize_company_name(user_query)
     if normalized_full_query:
         logger.debug(f"Normalized full user query '{user_query}' to '{normalized_full_query}'")
-
         return [normalized_full_query]
 
     potential_terms = re.split(r'[\s,]+(?:and|or)?[\s,]*', user_query, flags=re.IGNORECASE)
@@ -81,17 +77,14 @@ def parse_user_query_for_companies(user_query):
             continue
         normalized_name = normalize_company_name(term)
         if normalized_name:
-
             logger.debug(f"Normalized term '{term}' from user query to '{normalized_name}'")
             normalized_companies.add(normalized_name)
         else:
             logger.debug(f"Term '{term}' from user query could not be normalized to a known company: '{term}'")
-
     return list(normalized_companies)
 
 
 def prepare_llm_context_data(user_query, top_n=25):
-
     logger.info(f"Starting LLM context preparation for query: '{user_query}'")
 
     load_norm_data()
@@ -105,46 +98,45 @@ def prepare_llm_context_data(user_query, top_n=25):
     macro_sentiment_path = os.path.join(data_dir, "macro_sentiment.csv")
 
     final_df = pd.DataFrame()
-
+    logger.debug("Entered prepare_llm_context_data function.")
 
     try:
         # Enhanced Initial Logging for CSVs
-        logger.debug(f"Attempting to load company sentiment from: {company_sentiment_path}")
+        logger.debug(f"CSV_LOAD: Attempting to load company sentiment from: {company_sentiment_path}")
         if not os.path.exists(company_sentiment_path):
-            logger.error(f"File not found: {company_sentiment_path}")
+            logger.error(f"CSV_LOAD: File not found: {company_sentiment_path}")
             return pd.DataFrame(), "Neutral (Error: Missing company sentiment data)", queried_companies_normalized
         company_df_raw = pd.read_csv(company_sentiment_path)
-        logger.debug(f"Successfully loaded company_sentiment_normalized.csv. Shape: {company_df_raw.shape}. Columns: {company_df_raw.columns.tolist()}")
+        logger.debug(f"CSV_LOAD: Successfully loaded company_sentiment_normalized.csv. Shape: {company_df_raw.shape}. Columns: {company_df_raw.columns.tolist()}")
         if not company_df_raw.empty:
-            logger.debug(f"Head of company_sentiment_normalized.csv:\n{company_df_raw.head().to_string()}")
+            logger.debug(f"CSV_LOAD: Head of company_sentiment_normalized.csv:\n{company_df_raw.head().to_string()}")
         else:
-            logger.warning(f"{company_sentiment_path} is empty.")
+            logger.warning(f"CSV_LOAD: {company_sentiment_path} is empty.")
 
-        logger.debug(f"Attempting to load growth data from: {predict_growth_path}")
+        logger.debug(f"CSV_LOAD: Attempting to load growth data from: {predict_growth_path}")
         if not os.path.exists(predict_growth_path):
-            logger.error(f"File not found: {predict_growth_path}")
+            logger.error(f"CSV_LOAD: File not found: {predict_growth_path}")
             return pd.DataFrame(), "Neutral (Error: Missing predict growth data)", queried_companies_normalized
         growth_df_raw = pd.read_csv(predict_growth_path)
-        logger.debug(f"Successfully loaded predict_growth.csv. Shape: {growth_df_raw.shape}. Columns: {growth_df_raw.columns.tolist()}")
+        logger.debug(f"CSV_LOAD: Successfully loaded predict_growth.csv. Shape: {growth_df_raw.shape}. Columns: {growth_df_raw.columns.tolist()}")
         if not growth_df_raw.empty:
-            logger.debug(f"Head of predict_growth.csv:\n{growth_df_raw.head().to_string()}")
+            logger.debug(f"CSV_LOAD: Head of predict_growth.csv:\n{growth_df_raw.head().to_string()}")
         else:
-            logger.warning(f"{predict_growth_path} is empty.")
+            logger.warning(f"CSV_LOAD: {predict_growth_path} is empty.")
 
 
-        logger.debug(f"Attempting to load macro data from: {macro_sentiment_path}")
+        logger.debug(f"CSV_LOAD: Attempting to load macro data from: {macro_sentiment_path}")
         if not os.path.exists(macro_sentiment_path):
-            logger.error(f"File not found: {macro_sentiment_path}")
-            # Continue if this is missing, but log a warning as macro sentiment will be unavailable
-            logger.warning(f"Macro sentiment file not found at {macro_sentiment_path}. Proceeding without it.")
+            # logger.error(f"File not found: {macro_sentiment_path}") # Changed to warning as it's less critical
+            logger.warning(f"CSV_LOAD: Macro sentiment file not found at {macro_sentiment_path}. Proceeding without it.")
             macro_df = pd.DataFrame(columns=['theme', 'macro_sentiment_score']) # Empty df to prevent crash
         else:
             macro_df = pd.read_csv(macro_sentiment_path)
-            logger.debug(f"Successfully loaded macro_sentiment.csv. Shape: {macro_df.shape}. Columns: {macro_df.columns.tolist()}")
+            logger.debug(f"CSV_LOAD: Successfully loaded macro_sentiment.csv. Shape: {macro_df.shape}. Columns: {macro_df.columns.tolist()}")
             if not macro_df.empty:
-                logger.debug(f"Head of macro_sentiment.csv:\n{macro_df.head().to_string()}")
+                logger.debug(f"CSV_LOAD: Head of macro_sentiment.csv:\n{macro_df.head().to_string()}")
             else:
-                logger.warning(f"{macro_sentiment_path} is empty.")
+                logger.warning(f"CSV_LOAD: {macro_sentiment_path} is empty.")
 
 
         # Check if essential DataFrames are empty after loading attempts
@@ -154,7 +146,6 @@ def prepare_llm_context_data(user_query, top_n=25):
         if growth_df_raw.empty:
             logger.error(f"{predict_growth_path} was loaded as an empty DataFrame. Cannot proceed with merges.")
             return pd.DataFrame(), "Neutral (Error: Empty growth data)", queried_companies_normalized
-
 
 
         # Store original company names from growth_df for accurate ticker lookup later
@@ -170,7 +161,6 @@ def prepare_llm_context_data(user_query, top_n=25):
         logger.debug(f"Unique company keys in company_df for merge (first 5): {company_df['company_upper_merge_key'].unique()[:5]}")
         logger.debug(f"Unique company keys in growth_df for merge (first 5): {growth_df['company_upper_merge_key'].unique()[:5]}")
 
-
         # Merge 1: growth_df with company_df (sentiment)
         logger.info("Merging growth data with company sentiment data...")
         merged_df = pd.merge(growth_df, company_df, on="company_upper_merge_key", how="left", suffixes=('_growth', '_sentiment'))
@@ -178,7 +168,6 @@ def prepare_llm_context_data(user_query, top_n=25):
         # Use the company name from growth_df as the primary one, as it's likely more official
         merged_df['company'] = merged_df['company_growth']
         merged_df.drop(columns=['company_growth', 'company_sentiment'], errors='ignore', inplace=True)
-
 
 
         # Log some results of the first merge for problematic companies
@@ -200,7 +189,6 @@ def prepare_llm_context_data(user_query, top_n=25):
             merged_df = pd.merge(merged_df, macro_df[['theme', 'macro_sentiment_score']], on="theme", how="left")
             logger.info(f"Shape after merging with macro sentiment: {merged_df.shape}")
         else:
-
             logger.warning("'theme' column not in merged_df or macro_df is empty. Skipping macro sentiment merge.")
             merged_df['macro_sentiment_score'] = pd.NA
 
@@ -246,7 +234,6 @@ def prepare_llm_context_data(user_query, top_n=25):
                 queried_companies_selected_df = pd.concat(queried_company_data_list).drop_duplicates(subset=['company_upper_merge_key'])
                 final_df_list.append(queried_companies_selected_df)
 
-
             if not final_df_list: # if no queried companies were found in data
                  final_df = top_companies_df.head(top_n).copy()
                  logger.debug(f"No queried companies found in data. Selected top {top_n}. Shape: {final_df.shape}")
@@ -259,13 +246,11 @@ def prepare_llm_context_data(user_query, top_n=25):
                         final_df_list.append(remaining_top_df)
                 final_df = pd.concat(final_df_list).drop_duplicates(subset=['company_upper_merge_key']).reset_index(drop=True).copy()
                 logger.debug(f"Combined queried and top companies. Shape: {final_df.shape}")
-
         
         # --- Integrate yfinance data ---
         if not final_df.empty:
             logger.info(f"Enhancing {len(final_df)} companies with live yfinance data...")
             yfinance_updates = []
-
             # Ensure original_company_for_ticker_lookup is present for all rows in final_df
             # This might require merging it back if it was lost, or ensuring it's selected carefully
             if 'original_company_for_ticker_lookup' not in final_df.columns:
@@ -278,11 +263,9 @@ def prepare_llm_context_data(user_query, top_n=25):
                       final_df['original_company_for_ticker_lookup'] = pd.NA
 
 
-
             for index, row in final_df.iterrows():
                 # Use the original casing company name for ticker lookup
                 company_name_for_ticker = row.get('original_company_for_ticker_lookup')
-
 
                 update_values = {'current_price': None, 'sma_20': None, 'sma_50': None, 'previous_close': None, 'day_high': None, 'day_low': None, 'volume': None, 'market_cap': None}
 
@@ -296,7 +279,6 @@ def prepare_llm_context_data(user_query, top_n=25):
 
                 if ticker_symbol:
                     logger.debug(f"Fetching yfinance data for {company_name_for_ticker} ({ticker_symbol})")
-
                     live_data = get_current_stock_data(ticker_symbol)
                     if not live_data.get('error'):
                         update_values['current_price'] = live_data.get('current_price')
@@ -307,7 +289,6 @@ def prepare_llm_context_data(user_query, top_n=25):
                         update_values['day_low'] = live_data.get('day_low')
                         update_values['volume'] = live_data.get('volume')
                         update_values['market_cap'] = live_data.get('market_cap')
-
                         logger.debug(f"yfinance data for {ticker_symbol}: Price={update_values['current_price']}, SMA20={update_values['sma_20']}")
                     else:
                         logger.warning(f"Could not fetch yfinance data for {company_name_for_ticker} ({ticker_symbol}): {live_data.get('error')}")
