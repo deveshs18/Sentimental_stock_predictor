@@ -1,1036 +1,156 @@
 timestamp,headline,text,source,url,company
-<<<<<<< Updated upstream
-2025-06-23 20:01:56,Covered calls fail,"
-900 ASTS shares at a $14 average. I was trying to squeeze premium because of ASTS high volatility and it blew up recently. It’s covered calls but it still kinda sucks in hindsight. ",reddit,https://i.redd.it/gme22d8ggq8f1.jpeg,Analog Devices
-2025-06-23 20:01:23,What a run we’ve had eh boys,Thanks WSB for shilling this thing in 2021 when I found it. Not selling a single one of these hoes ,reddit,https://i.redd.it/xaz5anncgq8f1.jpeg,Analog Devices
-2025-06-23 19:57:34,"What Are Your Moves Tomorrow, June 24, 2025",This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/wallstreetbets/comments/1liqolm),reddit,https://www.reddit.com/r/wallstreetbets/comments/1liqolm/what_are_your_moves_tomorrow_june_24_2025/,Analog Devices
-2025-06-23 19:47:33,Sell ​​all Google,"Lately I've noticed my cash reserves are running a bit low, and the overall US stock market seems to be losing momentum. After some consideration, I decided to pull the trigger and sell all my Google shares today.
+2025-07-01 17:55:30,Why the META narrative is underappreciated.,"This is my understanding of Zuckerberg's intent throughout Meta/Facebook's history.
 
-I originally bought Google back in October last year at around $160 per share. While the profits weren't huge, I'll take it as a modest win. ",reddit,https://i.redd.it/fmbton19dq8f1.png,Analog Devices
-2025-06-23 19:42:54,"Born to pick stocks, forced to vibe code","Wanted to quickly share a project I've been working on which aggregates dates/times of upcoming earnings calls and estimates the dates of future reports over the next year. You can also save a watchlist, send yourself calendar invites, and have calendar invites automatically send to your address once calls are announced.
+1. Social Graph (2004-2011) - mapping real-world connections into digital form.
+2. Data Extraction (2011-2018) - monetizing attention by modeling & manipulating behavior.
+3. Platform Defense (2018-2022) - protect Meta's empire from regulators & competitive threats.
+4. AI Bootstrapping (2022-2024) - training AI models using the world's richest behavioral dataset.
+5. Interface Reinvention (2025-present)- building a new human-computer interface around persistent presence.
+6. Sovereign AI (2025-present) - position Meta as a public-good default for everyday reasoning, commerce & relationships.
 
-This is exclusively a product of frustration from my PM telling me to send 100+ calendar invites for these and I don't think there's a solid offering out there (excl. Bloomberg). Zero monetization here and probably full of bugs so please reach out if you find any or want to suggest some features. Also lmk if this is considered solicitation and I'll take this down, but I lose money on this so purely sharing to save time for those of us without terminals.
+The last two appear to be parallel tracks that may eventually converge into Zuckerberg’s long-term vision: a persistent, AI-powered metaverse.
 
-Check it out at [earningsguy.com](http://earningsguy.com), I appreciate any and all feedback!",reddit,https://www.reddit.com/r/stocks/comments/1liqb5v/born_to_pick_stocks_forced_to_vibe_code/,Analog Devices
-2025-06-23 19:37:13,what to expect from powell tomorrow,"he’s not about to pivot just because the market’s begging for a cut. he’ll say they’re data dependent. he’ll say they’re watching inflation expectations. he’ll say there’s no preset path. that means no gay bears, no dates at wendy’s dumpsters, no hope for doves.
+Zuckerberg is already moving aggressively - quietly assembling one of the strongest AI teams in the world, including talent responsible for key breakthroughs in open-source LLMs.
 
-he’s not going to give anyone a july cut nod because that locks him in. the fed doesn’t do promises anymore. he’ll point to the last cpi print and say yeah, progress, but not enough. then he’ll throw in some language about risks being more balanced, which is his way of saying we’re not hiking but we’re also not cutting until mango launches nukes.
+Most investors are still treating Meta like an ad business. Meta’s ad revenue is just the cashflow shell -  the real architecture being built is a sovereign operating system for human interaction.
 
-expect him to get grilled on politics. he’ll give the usual fed independence line: he’s not taking orders from the white house. he’s not playing ball with reelect agendas. he’ll keep it boring. NOTHING IS GOING TO HAPPEN
+Most won’t realize it until it’s already entrenched.",reddit,https://www.reddit.com/r/stocks/comments/1lp8itp/why_the_meta_narrative_is_underappreciated/,Meta Platforms
+2025-07-01 17:44:15,What are the odds that Tesla posts god awful deliveries tomorrow and absolutely rockets?,"I feel like i've seen this movie before. I really want to short between the deliveries and antics with trump. On the flipside, my intuition tells me based on what happens every quarter, they will come out and say ""look guys, we actually sold negative cars, i'm not sure how, but thats what the numbers say... it is what it is"" - gap up %10... ",reddit,https://www.reddit.com/r/stocks/comments/1lp88c0/what_are_the_odds_that_tesla_posts_god_awful/,"Tesla, Inc."
+2025-07-01 13:38:12,"AG on CNBC; Archer CEO Talks Air Taxi Rollout, Defense Spending & What’s Next for Urban Flight","Just watched Adam Goldstein on CNBC’s The Exchange and the guy is locked in. Archer isn’t just pitching hype anymore, this was a grounded update on where the company is headed.
 
-he might get asked about global tensions, oil prices, supply chains. he’ll say they’re monitoring all of it, but they won’t act based on hypotheticals. only what shows up in the numbers.
+AG directly addressed the usual skepticism (no revenue, pre certification, etc.) and basically said: yeah, it’s early but the foundation is built. This isn’t just a “flying car” concept anymore. The moves are real.
 
-with that said calls",reddit,https://www.reddit.com/r/wallstreetbets/comments/1liq5vk/what_to_expect_from_powell_tomorrow/,Analog Devices
-2025-06-23 19:29:58,CI holding up while rest of healthcare tanks  prior auth changes coming?,"UnitedHealth CVS Aetna Cigna Humana  all just pledged to streamline prior auth requirements after a meeting with HHS and RFK Jr
-=======
-2025-06-25 23:56:59,Judge dismisses authors’ copyright lawsuit against Meta over AI training,"By Matt O’Brien and Barbara Ortutay | Associated Press
-SAN FRANCISCO — A federal judge sided with Facebook parent Meta Platforms in dismissing a copyright infringement lawsuit from a group of authors who accused the company of stealing their works to train it…",news,https://biztoc.com/x/66592fc73d8bf293,Meta Platforms
-2025-06-25 23:56:54,Rubrik acquires Predibase to accelerate adoption of AI agents,Data cybersecurity company Rubrik announced Wednesday its intent to acquire Predibase. Predibase is a venture-backed startup that helps companies train and fine-tune open source AI models to customize them to their needs. Rubrik is the latest company to make …,news,https://biztoc.com/x/ab47c53a5b41b64c,Airbnb
-2025-06-25 23:54:47,Denis Villeneuve to Direct Next James Bond Film for Amazon MGM,He will also executive produce alongside Tanya Lapointe for producers Amy Pascal and David Heyman.,news,https://www.indiewire.com/news/breaking-news/denis-villeneuve-direct-next-james-bond-film-amazon-mgm-1235135335/,Amazon
-2025-06-25 23:45:58,Amazon Doubles Down on India Streaming Wars With Two-Platform Strategy,"Amazon is playing a dual-platform game in India’s competitive streaming landscape, with Prime Video targeting subscription-ready consumers while its ad-supported Amazon MX Player courts viewers transitioning from traditional TV. Speaking at the APOS conferenc…",news,https://variety.com/2025/tv/news/amazon-india-streaming-prime-video-mx-player-1236441219/,Amazon
-2025-06-25 23:45:50,Federal judge sides with Meta in lawsuit over training AI models on copyrighted books,"A federal judge sided with Meta on Wednesday in a lawsuit brought against the company by 13 book authors, including Sarah Silverman, that alleged the company had illegally trained its AI models on their copyrighted works.
-Federal Judge Vince Chhabria issued a…",news,https://biztoc.com/x/a32dc6a137203774,Meta Platforms
-2025-06-25 23:39:59,Nike and Levi’s Channel 150+ Years of American Heritage Into a Denim Air Max 95,The Air Max 95 gets the full denim treatment with three variants and some matching clothes.,news,https://hiconsumption.com/style/nike-x-levis-air-max-95/,CrowdStrike
-2025-06-25 23:39:25,Intel shutters its automotive business amid restructuring push,"Intel Corp. plans to wind down its automotive business and lay off most of the unit’s employees. The Oregonian reported the development on Wednesday, citing an internal company memo. Intel confirmed the move in a statement issued to TechCrunch today. “As we h…",news,https://siliconangle.com/2025/06/25/intel-shutters-automotive-business-amid-restructuring-push/,Intel
-2025-06-25 23:38:01,Micron generates massive profits as AI fuels demand for high-bandwidth memory,"Micron Technology Inc. delivered solid profits today on the back of rampant demand for artificial intelligence chips that drove record quarterly revenue, but it wasn’t enough to move the needle in its stock price, which remained flat after-hours. The company …",news,https://siliconangle.com/2025/06/25/micron-generates-massive-profits-ai-fuels-demand-high-bandwidth-memory/,Micron Technology
-2025-06-25 23:36:02,AI data foundry provider Centific lands $60M to grow enterprise footprint,"Artificial intelligence data foundry company Centific Global Solutions Inc. has raised $60 million in new funding from Jenny Lee of Granite Asia Management Pte. Ltd. to scale its AI infrastructure platform, enhance research and development for safe multimodal…",news,https://siliconangle.com/2025/06/25/ai-data-foundry-provider-centific-lands-60m-grow-enterprise-footprint/,Airbnb
-2025-06-25 23:34:46,Tether CEO predicts one trillion AI agents will use Bitcoin and USDT for transactions within 15 years,"Speaking on The Block's Big Brain podcast, Tether CEO Paolo Ardoino said USDT and Bitcoin will power transactions among AI agents.",news,https://biztoc.com/x/1dfe87a9f6e4dc96,Airbnb
-2025-06-25 23:31:13,Commerce Giants Expand Into Stores With New Debit and Credit Cards,"PYMNTS Intelligence has long tracked the rise of the Click-and-Mortar™ shopper, the tech-savvy individual who traverses eCommerce and in-store shopping armed with mobile devices. [contact-form-7] The blurring of channel lines has been paving the way for platf…",news,http://www.pymnts.com/credit-cards/2025/commerce-giants-expand-into-stores-with-new-debit-and-credit-cards/,Ross Stores
-2025-06-25 23:30:51,"ASE’s COO bets on Taiwan’s AI strength, calls TSMC’s U.S. push decisive","Tien Wu, chief operating officer of ASE Technology, said the company has no plans to revise its full-year capital spending despite mounting geopolitical tensions and tariff pressures that are disrupting the global semiconductor supply chain. While the group i…",news,https://www.digitimes.com/news/a20250625PD225/ase-tsmc-capex-taiwan-supply-chain.html,Enphase Energy
-2025-06-25 23:29:34,AI systems may make mistakes now but are quickly getting smarter: Hinton,"TORONTO — If mistakes artificial intelligence make have you doubting it can’t ever rival humans, one of the technology’s pioneers says think again. Geoffrey Hinton said Wednesday that AI keeps getting better at reasoning and has surpassed the skill level many…",news,https://financialpost.com/pmn/ai-systems-may-make-mistakes-now-but-are-quickly-getting-smarter-hinton,Airbnb
-2025-06-25 23:25:29,Radiant Opto reports strong 1H25 results amid Apple orders and global tensions,"Radiant Opto-Electronics is off to a strong start in 2025, with early Apple product shipments boosting first-half earnings. But the company said the usual seasonal sales pattern is starting to blur. Radiant expects a 55:45 revenue split between the first and …",news,https://www.digitimes.com/news/a20250624PD236/radiant-2025-roec-apple-taiwan.html,Apple Inc.
-2025-06-25 23:23:49,U.S. judge rules in Meta’s favour in authors’ copyright lawsuit over AI training,"A federal judge in San Francisco ruled on Wednesday for Meta Platforms META-Q against a group of authors who had argued that its use of their books without permission to train its artificial intelligence system infringed their copyrights.
-U.S. District Judge …",news,https://biztoc.com/x/089d1d83ed364c19,Meta Platforms
-2025-06-25 23:13:08,Micron Stock Surges As Memory-Chip Maker Crushes Estimates,"This may happen as a result of the following:
-- Javascript is disabled or blocked by an extension (ad blockers for example)
-- Your browser does not support cookies
-Reference ID: #e8a0c8d4-5219-11f0-b479-d8f2da03cc8a
-This may happen as a result of the followin…",news,https://biztoc.com/x/42f047ef1682c795,Micron Technology
-2025-06-25 20:17:15,Micron shares rocket higher as Q3 results as well as Guidance blow past expectations on AI strength,"Micron Technology (NASDAQ:MU) shares rose 6.3% in extended trading on Wednesday after the memory maker reported third-quarter results and guidance that topped expectations by a wide margin, aided by artificial intelligence spending.
+If they hit their 2025 milestones, ACHR could go from speculative to institutional darling fast
 
-For the period ending May 29, Micron said it earned an adjusted $1.91 per share as revenue surged 36.6% year-over-year to come in at $9.3B. A consensus of analysts expected the company to earn $1.61 per share on $8.85B in revenue.
+https://www.cnbc.com/video/2025/06/30/archer-aviation-ceo-on-air-taxi-plans-defense-spending-and-future-of-air-travel.html",reddit,https://www.reddit.com/r/stocks/comments/1lp1wq3/ag_on_cnbc_archer_ceo_talks_air_taxi_rollout/,Seagen
+2025-07-01 12:30:36,AI and Productivity gains ( which stock(s)) will benefit the most?,"Hypothetically say AI doesn't go to AGI or whatever.  Leave that out.  But say its VERY useful in automating just about every task (from legal to customer service).  
 
-Adjusted gross margins during the period were 37.7%, while adjusted free cash flow was $1.95B.
-
-""Micron delivered record revenue in fiscal Q3, driven by all-time-high DRAM revenue including nearly 50% sequential growth in HBM revenue. Data center revenue more than doubled year-over-year and reached a quarterly record, and consumer-oriented end markets had strong sequential growth,"" said Sanjay Mehrotra, Chairman, President and CEO of Micron Technology. ""We are on track to deliver record revenue with solid profitability and free cash flow in fiscal 2025, while we make disciplined investments to build on our technology leadership and manufacturing excellence to satisfy growing AI-driven memory demand.""
-
-Looking ahead, Micron said it expects adjusted earnings to be between $2.35 and $2.65 per share, with the midpoint of $2.50 well above the $2.05 per share estimate. Sales are forecast to be between $10.4B and $11B, with the midpoint of $10.7B well above the $9.9B estimate.
-
-The company will host a conference call at 4:30 p.m. EST to discuss the results.",reddit,https://www.reddit.com/r/stocks/comments/1lkgb09/micron_shares_rocket_higher_as_q3_results_as_well/,Micron Technology
-2025-06-25 18:42:57,Are you buying into AI hype without thinking about the bigger picture?,"Consensus thinking leads to ordinary returns. Pre-consensus leads to extraordinary returns.
-
-Here are some second-order narratives for AI.
->>>>>>> Stashed changes
-
-1. AI-native data providers: community-tagged and developer-exhaust datasets now command eight- and nine-figure licensing deals, yet many providers are still valued like traditional ad-tech or hosting plays.
-2. Retail investor participation: as LLMs convert “institutional” know-how into conversational advice, brokerages that embed AI guidance stand to gain engagement while legacy full-service platforms risk share loss.
-3. AI ops stack & tools: production-scale LLM monitoring, orchestration, and observability are becoming critical infrastructure for every enterprise deploying generative models.
-4. Power & cooling bottlenecks: liquid-immersion cooling, advanced switch-gear, and grid-interconnect suppliers are leveraged plays on the thermal and energy constraints now capping AI datacenter build-outs.
-5. Custom silicon & packaging: hyperscaler pivot to ASICs is channeling demand toward semi-custom chip designers and advanced-packaging specialists, the true choke-points for the next acceleration wave.",reddit,https://www.reddit.com/r/investing/comments/1lkdvv1/are_you_buying_into_ai_hype_without_thinking/,Airbnb
-2025-06-25 16:57:20,Nvidia is ripping again  are we seriously doing this??So can NVDA break the spell and continue to break new highs?,"NVDA is back on a heater. Stock's flying past $150 and it’s looking like we might break the January highs. Honestly… didn’t think we’d be back here this fast after that dumpster fire earlier this year
-
-Remember when it tanked to the low $90s? Between Trump’s China chip ban, Huawei heating up, and that random DeepSeek AI hype? I thought the bubble had popped. But nope  earnings beat, Saudi/UAE deals, and now here we are again
-
-Now I’m seeing $250 PTs getting thrown around like it’s no big deal. $6T market cap? 
-
- So real talk:Are you still buying here?Is this just the AI hype train picking up steam again?If you’re holding, are you trimming or riding it out?If not NVDA, what are you playing instead? AMD? AVGO? Or just indexing and chilling?
-
-I’ve been sitting on the sidelines and ngl, I’m feeling a little FOMO
-
-<<<<<<< Updated upstream
-If they’re seen as more compliant flexible than UNH CVS they could quietly benefit from policy tailwinds.
-
-Not saying it a moonshot but looks like asymmetric upside vs sentiment.
-
-Anyone else watching this space? Or still too much regulatory overhang?
-
-",reddit,https://www.reddit.com/r/stocks/comments/1lipz0k/ci_holding_up_while_rest_of_healthcare_tanks/,Cintas
-2025-06-23 19:25:30,Some nice gains in few months,"I started my investment journey 3 years ago at 30k that was just sitting in my savings account not growing and decided to jump into investing. It has teeter tottered up and down between 28k and 38k for 2.5 years due to my inexperience and lack of understanding in the market. Beginning of this year I finally started taking investing seriously and began studying the companies & markets I was investing in and all the nuances that come with investing. Super proud to be where I’m at today! Things began to click and I wish I would’ve started sooner!!! They really need to teach this to kids in school, this world of investing has serious opportunities when you’re keeping your eyes, ears, and mind open! Next goal is hitting 100k!!! Ps I know these gains aren’t mind blowing or super crazy but more so a reminder an average 9-5 American that begins taking investing seriously can change the trajectory of their future! ",reddit,https://i.redd.it/pgcihl5y9q8f1.jpeg,Analog Devices
-2025-06-23 19:13:48,Iran Just Hit Al Udeid Air Base in Qatar  No Casualties Reported But Markets Shouldn’t Ignore This,"Reuters is reporting Iran launched both short and medium range ballistic missiles at Al Udeid Air Base in Qatar  the largest U.S. military facility in the Middle East.
-
-No U.S. casualties, per two American officials.
-
-Still this is a direct strike on a major U.S. asset not just a proxy flareup.
-
-No big market reaction yet but this isn’t minorThe base houses CENTCOM air ops  if there were injuries, this could’ve escalated fast.
-
-Oil barely moved but any followup or retaliation could change that overnight.
-
-Gold ticking up a bit, VIX unchanged for now but futures look cautious.
-
-Why it matters
-
-We’ve gone from proxy strikes to direct state to state engagement.
-
-If this is Iran stress-testing U.S. posture before the election season, we’re in for more volatility.
-
-Geopolitical risk premiums are near zero right now might not stay that way.
-
-What the play if this escalates?
-
-Defense stocks LMT RTX oil XLE XOM volatility hedges?
-
-Or is this just another overnight headline that fades by morning?",reddit,https://www.reddit.com/r/stocks/comments/1lipjua/iran_just_hit_al_udeid_air_base_in_qatar_no/,Analog Devices
-2025-06-23 19:09:53,Google: undervalued tech gem?,"I recently started a large (for me) individual position in Google. While I remain bearish on the market as a whole right now, wise investors have said value can always be found in the market. A lot of the market feels very richly valued right now, especially large tech. AAPL, MSFT, NVDA and Meta all carry PE valuations close to 30 at the low end and closer to 50. Google however sits under 20.
-=======
-But on the flip side, Nvidia really seems to be a one-of-a-kind presence. While others are still in the middle of a marathon, it's already taking selfies on the podium
->>>>>>> Stashed changes
-
-
+By earnings power only, which companies are most 'inefficient' now and will see monster benefits.
 
   
-",reddit,https://www.reddit.com/r/stocks/comments/1lkb2v2/nvidia_is_ripping_again_are_we_seriously_doing/,Nvidia
-2025-06-25 14:13:41,Tesla's European car sales nosedive for fifth month as customers switch to Chinese EVs,"https://www.cnbc.com/2025/06/25/teslas-european-car-sales-fall-as-customers-switch-to-chinese-evs.html
+Part of me says BIG biotech will finally have its day in the sun due to their copious amounts of data/legal work.
 
-> Tesla new car sales in Europe fell for a fifth straight month in May, according to data from the European Automobile Manufacturers Association (ACEA), as customers pivot to cheaper Chinese electric vehicles.
+  
+Healthcare in general.....but are there other companies where its prime?  Maybe Berkshire and their insurance? ",reddit,https://www.reddit.com/r/stocks/comments/1lp0esn/ai_and_productivity_gains_which_stocks_will/,Airbnb
+2025-07-01 08:56:50,Time to Sell Apple?,"Is it time to start slowly selling Apple?  It was my go to stock and i got some returns, but
+The past decade i dont see any innovation, and seems  they are not planning to.
+They seem to get beat up in AI / AR by competitors.
+Rumors Apple going to Auto also failed.
+Apple vision had great idea, but failed because of pricing. 
 
-> Data published Wednesday by ACEA found that Tesla's car sales in the European Union, Britain and the European Free Trade Association fell to 13,863 units in May, down 27.9% year-on-year.
+They do great product, but no longer innovative for me. 
 
-<<<<<<< Updated upstream
-Yet it seems the market isn’t interested in Google. It is by far the worst performing Mag 7 this year, down about 13%. So with so many strong growth segments and a healthy valuation, where is the skepticism coming from? ",reddit,https://www.reddit.com/r/stocks/comments/1lipg45/google_undervalued_tech_gem/,Alphabet Inc. (Class A)
-2025-06-23 19:09:48,Hiring Edward Jones Advisor Without Opening Account,"Twice to see an Edward Jones advisor, the guy is amazing, tells me if I'm thinking about things correctly. But, I'll never open an Edward Jones account. Never.
+I wonder what are your thoughts. 
 
-I need his brain now for 30 minutes to give me a nod on a scenario I've been thinking through. Can I hire him as an external advisor to Edward Jones? He'll probably meet with me if I ask, but I feel like I'm abusing his time without any intention of opening up an account.
+And i dont see any future while Tim Cook is CEO. 
+",reddit,https://www.reddit.com/r/stocks/comments/1lowqud/time_to_sell_apple/,Apple Inc.
+2025-07-01 07:59:21,Trump Takes Aim at Musk Over EV Subsidies; Tesla Shares Slump,"Bloomberg) -- President Donald Trump lashed out at Elon Musk on Tuesday, accusing the Tesla Inc. and SpaceX chief executive officer of benefiting excessively from government electric vehicle subsidies. Tesla shares tumbled.
 
-I want to pay him for his services. I tell him so. But he'll likely still see me for free if I request a meeting because that's probably what Edward Jones wants him to do.
+“Elon may get more subsidy than any human being in history, by far, and without subsidies, Elon would probably have to close up shop and head back home to South Africa,” Trump said in a Truth Social post. 
 
-How can I pay him for 30 minutes of his time? Or, is my only option to find an independent advisor who doesn't work for Edward Jones? I really value HIS advice though. I'll pay for his time. ",reddit,https://www.reddit.com/r/investing/comments/1lipg15/hiring_edward_jones_advisor_without_opening/,Analog Devices
-2025-06-23 19:01:09,FinViz: what is the one thing you dislike in it?,"Hey everyone,
+“No more Rocket launches, Satellites, or Electric Car Production, and our Country would save a FORTUNE. Perhaps we should have DOGE take a good, hard, look at this? BIG MONEY TO BE SAVED!!!,” he added.
 
-I assume many of you use FinViz for screening stocks. Can you tell me what annoys you when you do that?
+This comes after Musk slammed the US Senate’s latest version of Trump’s multi-trillion dollar tax bill, warning that the cuts to EV and other clean energy credits would be “incredibly destructive” to the country. Tesla shares slumped 5.8% in European premarket trading on Tradegate.
 
-For context, we've also built a screener and we want it to be perfect. So I want to understand what people dislike about existing screeners like FinViz and avoid those mistakes. Would appreciate your feedback and opinions.
+Tesla has benefitted from a popular $7,500 consumer tax credit for electric vehicles that Trump’s bill will eliminate. The automaker is set to release second-quarter sales later this week that will likely show a further slump in demand.
 
-Thanks, everyone, and happy trading!",reddit,https://www.reddit.com/r/stocks/comments/1lip7t0/finviz_what_is_the_one_thing_you_dislike_in_it/,Analog Devices
-2025-06-23 18:58:46,MY BIGGEST OPTIONS GAIN!,"HOLY CRAP!!! I sold for $2800 profit in the end!!
+“Elon Musk knew, long before he so strongly Endorsed me for President, that I was strongly against the EV Mandate,” Trump said. “It is ridiculous, and was always a major part of my campaign. Electric cars are fine, but not everyone should be forced to own one.”",reddit,https://www.reddit.com/r/stocks/comments/1lovx48/trump_takes_aim_at_musk_over_ev_subsidies_tesla/,"Tesla, Inc."
+2025-07-01 07:36:47,Google stock being pushed,"I've seen a recent uprise of google stock articles saying it's the best AI play right now, that the stock is not as valuable as it should be as an AI player. 
 
-Now what happens???",reddit,https://www.reddit.com/gallery/1lip5gs,Analog Devices
-2025-06-23 18:43:18,Stuck between investing and conscience?,"Let's say you've been recommended an ETF and the dividends don't look bad. But then you see that it includes Coca-Cola, and you know that sugar makes a lot of people sick. Or you see that there's a pharmaceutical company in it that you know someone you know didn't react well to their chemistry.
+But this feels off, ChatGPT is practically threatening google search (The main revenue of their ads business).
 
-But the other ETFs are not as good or contain these companies as well. What do you do then?",reddit,https://www.reddit.com/r/investing/comments/1lioqv8/stuck_between_investing_and_conscience/,Analog Devices
-2025-06-23 18:33:33,American airline stocks?,"What’s the consensus on buying United, Delta, or American Airlines now that Airlines roughing through the Middle East might be disrupted?
+They also fail to point out that google had chatGPT technology before OpenAI was created but they decided to focus on marketing (You know ads after ads ruining their service).
 
-United has the most international partners to facilitiate travel to Asia, but I think American Airlines has better connections around the US. Delta though has the best rewards and benefits programs. Thoughts?",reddit,https://www.reddit.com/r/stocks/comments/1liohly/american_airline_stocks/,Analog Devices
-2025-06-23 18:20:38,What tickers should I add or remove for future growth.,"Recently began my investment portfolio in place of my savings account starting at 28yo. Ill be investing 1k monthly.   What tickers should I add or subtract. What percentage would you recommend I split my portfolio.
+And now google query search is hitting lows never seen in decades:
 
-My goal is growth and dividends drip reinvestment.
+[https://www.statista.com/statistics/216573/worldwide-market-share-of-search-engines/](https://www.statista.com/statistics/216573/worldwide-market-share-of-search-engines/)
 
-Current
-SPY- 8.4%
-JEPI- 16.6%
-VOO- 25%
-SCHD- 25%
-VIG- 25%",reddit,https://www.reddit.com/r/investing/comments/1lio5ia/what_tickers_should_i_add_or_remove_for_future/,Analog Devices
-2025-06-23 17:58:48,Iran's Muted Strikes Send Oil Lower,"Oil fell as Iran's retaliatory strikes on US bases in Qatar were less severe than investors feared, allaying some concerns that conflict would immediately disrupt supplies from the Middle East. West Texas intermediate plunged by as much as 4% to trade below $72 a barrel after Iran launched six missiles toward US bases in Qatar. Traders had initially feared that Iran's retaliatory response would involve closure of Strait of Hormuz choke-point through which about a fifth of world's oil passes. Crude's gain had begun fading even before Trump's post, while there was initial concern that Iran would interfere with energy flows and in retaliation for US strikes on its nuclear sites over the weekend. Tehran warned earlier that strikes would Trigger everlasting consequences and Reuters supported that the US sees a high risk of a strike against US forces soon. ""This appears well orchestrated, Iran hits an empty US base, plenty of warning ahead with their space closure and guidance for shelter. Iran gets its face saving response and stays clear of Strait of Hormoz"", said Harry Tchilinguirian, group head of research at Onyx Capital Group.",reddit,https://www.reddit.com/r/stocks/comments/1linkoa/irans_muted_strikes_send_oil_lower/,Analog Devices
-2025-06-23 17:51:22,You’re welcome bulls 😈,Sold my calls just so the community can catch the sexiest v shape. ,reddit,https://www.reddit.com/gallery/1lindkx,Analog Devices
-2025-06-23 17:47:10,I’ll never sell again,I lost because I sold. I literally sold the bottom ,reddit,https://www.reddit.com/gallery/1lin9jn,Analog Devices
-2025-06-23 17:42:07,$GOOG will be my retirement ticket 🎫,"Been buying since last year and adding 80% of my pay each month, upwards of 5.5k a month till I own 0.01% of google.
+Averaging between 2015-2022 87%.
 
-I wanna name my gravestone 🪦 have $GOOG embossed W gold 🪙.",reddit,https://i.redd.it/ez5m985irp8f1.jpeg,Analog Devices
-2025-06-23 17:28:01,TESLA $72k —> $98k IN 3 HOURS,Robotaxi speeding in the wrong lane ??? No worries +8% in a day 🚀🚀,reddit,https://i.redd.it/r5nl3qgzop8f1.jpeg,"Tesla, Inc."
-2025-06-23 17:22:07,TTMI - Advanced PCB Manufacturer & RF Supplier,"Good afternoon ! So I have had my eye on TTMI for a little while now and wished that I had bought in sooner. They are an Advanced PCB Manufacturer & RF Supplier with a space and defense branch as well as commercial business . They supply parts to Raytheon, Lockheed Martin, Northrop Grumman and more. They are in the midst of building another board shop in CNY which should be completed by early 2026, employing another 400 people on top of the current 16,000. They have plants in America and overseas. The stock was originally targeted around $ 35 and now is predicted to go into the mid 40's.  I believe this stock will continue to grow and has a stronghold within the industry. At this moment they hold a # 1 rating from Zacks Investment Research.  ",reddit,https://www.reddit.com/r/stocks/comments/1limlac/ttmi_advanced_pcb_manufacturer_rf_supplier/,Advanced Micro Devices Inc.
-2025-06-23 17:19:14,Iran launches missiles? It's already priced in,"Don't even ask the question. The answer is yes, it's priced in. Think the US will retaliate again? That's already been priced in. you live in new york city and see missiles flying overhead the news hasn’t reported on yet? Priced in. You think insiders don't already know that? The market is an all powerful, all encompassing being that knows the very inner workings of your subconscious before you were even born. Your very existence was priced in decades ago when the market was valuing Standard Oil's expected future earnings based on population growth that would lead to your birth, what age you would get a car, how many times you would drive your car every week, how many times you take the bus/train, etc. Anything you can think of has already been priced in, even the things you aren't thinking of. You have no original thoughts. Your consciousness is just an illusion, a product of the omniscent market. Free will is a myth. The market sees all, knows all and will be there from the beginning of time until the end of the universe (the market has already priced in the heat death of the universe). So please, before you make a post on wsb asking whether bitcoin has priced in a nuclear war or whatever, know that it has already been priced in and don't ask such a dumb fucking question again.",reddit,https://www.reddit.com/r/wallstreetbets/comments/1limijg/iran_launches_missiles_its_already_priced_in/,Analog Devices
-2025-06-23 17:06:03,Is the Hims selloff overblown,"The company has seen its stock decline by 34% (as of writing) after the cancellation of NVO partnership.
+After ChatGPT release in November 2022 It's down to 79%. And I think it's pretty correlated.
 
-GLP brought in 200m of 1.5b revenue last year so about 15% of total revenues. Is the 30%+ decline for a product that'll still pull in revenues and see an impact of 10ish% max to the company warrant this fall?
+It's not difficult to realize most people are done with searching stuff on multiple websites. Even ChatGPT can handle boomers writing type (Google can't)
 
-Perhaps the rationale is that NVO knows something about upcoming regulation against selling compound GLP products. Or perhaps NVO partnership brought a lot of legitimacy and customers who signed up to get access to Wegovy which will churn.
+Google(and websites) ruined google search, prioritized ads, and the overall internet website stuff became supper annoying (pop-ups, cookies, ads, login, subscribe to read the full content).
 
-Anyways is anybody eyeing the stock now that it's fallen so much for a relatively contained revenue drop? ",reddit,https://www.reddit.com/r/stocks/comments/1lim5r9/is_the_hims_selloff_overblown/,Analog Devices
-2025-06-23 17:03:42,HIMS 260k gain in 2 days,Thanks nordisk,reddit,https://i.redd.it/lx9rkwcnkp8f1.jpeg,Analog Devices
-2025-06-23 16:57:50,I'm looking for private investing,"Hello everyone, last year I've started investing , I've been using trading 212 app , created my own pie  , I've got to buy high, Trump got elected market dropd and I've bought the dip 😁 . I'm a regular person full time working 30k £ annually incoming.  I'm here to try to find and ask if anyone has any clue on how people like me can invest in private companies. I've heard off some interesting ones like TerraPwer , spaceX ... and many other good companies that are private. I guess that I'm asking if regular people have any chance to invest in private companies ..... I don't found platforms where to register and buy but there is a minimum buy in like 50k $ ... I'm looking for something that is more like let's say an ETF for example but with private companies... Hopefully you guys understand where I'm going with this and what I'm looking for. Thanks 🙏",reddit,https://www.reddit.com/r/investing/comments/1lilxrb/im_looking_for_private_investing/,Analog Devices
-2025-06-23 16:54:32,Another GOOG yolo $180 Aug 15th,Wish me luck regards. ,reddit,https://i.redd.it/1q0k5kc0jp8f1.jpeg,Alphabet Inc. (Class C)
-2025-06-23 16:41:30,Tacked on another $2k with a quick SPY scalp,"https://preview.redd.it/s4q9lptmgp8f1.png?width=1268&format=png&auto=webp&s=c0e7f71885b9b8b4bf041c2335d37e9a1060dac5
+  
+Now, why I think they are pushing Google stock? I think they realized the company is going to get hammered hard in the next decades and it's easy to see that google can't execute for a long time, to try to salvage the situation. And they want to opt-out and find better AI plays.
 
-Not bad for 6 minutes work lol",reddit,https://www.reddit.com/r/wallstreetbets/comments/1lilidw/tacked_on_another_2k_with_a_quick_spy_scalp/,Synopsys
-2025-06-23 16:35:24,Notorious doomsayer back here again,"**Long term opinion:** I am of the opinion that anytime P/E ratios hit more than 20 for S & P 500, I know the long term returns start going down and with P/E close to 22 to 23.
+  
+I hold no google, but own other AI stocks.",reddit,https://www.reddit.com/r/stocks/comments/1lovloi/google_stock_being_pushed/,Alphabet Inc. (Class A)
+2025-07-01 00:42:42,"You thought betting against NVDA was retarded? | $10k into CONI, inverse Coinbase 😸",I'm a hungry hungry bear! Rawr 🐻,reddit,https://i.redd.it/90ozaehks5af1.png,Nvidia
+2025-06-30 23:36:55,TSLAQ2 Deliveries Slated at ~395K Vehicles (–11% YoY) as Musk Prioritizes AI & Robotaxi,"  
+Q1 saw 336,681 deliveries; Q4 2024 record was 495,570 units
 
-**Positions:** I am sitting on 90% cash and using my 10% for day trading - Recent profits were all on INTC and TSLA. I always close EOD. I bought FSENX for 5% of my funds
+Q2 Delivery Estimate: \~395,328 vehicles, down \~11% year-over-year
 
-**Thought:** I like looking at indirect impact points in addition to traditional technicals. Example - I keep an eye on are on Fedex/UPS earnings calls for retail forecasts (shipping volume directly proportional to sales numbers), banking earnings for understanding liquidity, credit availability, and investment returns etc. and not wait for formal readings like CPI etc to post.
+AI/Robotaxi Focus: Elon Musk’s shift toward autonomous “robotaxi” projects may be diverting attention from core production ramp
 
-**Target:** I have a SPY target of 550 to 600 for July 2026.
+**EV Demand Softness:** Broader market data points to cooling demand in key regions (e.g. Europe down 28% YoY in May)
 
-**Discussion points:**
+**Production vs. Delivery:** Despite production increases, delivery shortfalls could pressure margins and pricing power this quarter
 
-* **Inflation** has not hit the economy yet, but this weeks earnings will start showing hints of it.
-* Inflation if not controlled can impact **liquidity** (can impact 401k contributions, DCA contributions etc...)
-* **War is never cheap** and thought it can give short term bursts of boosts to stock markets with rumors.
-* **Debt** is good until it is within means - i.e. Debt < GDP
-* **Risk fatigue is real** \- Your month on month contributions are being blindly invested in those target funds without risk readings taken into considerations and rug pulls are not uncommon.
-* **AI bubble** is similar to the dot com bubble - those who know it, know it that dot com investments went beyond the realistic capabilities that were not realized until 10-15 years down the line but by then the bubble burst and took 10-12 years to recover.
+* With deliveries expected to dip below 400K, how might TSLA’s margin profile and pricing strategy be impacted?
+* Is Musk’s heavy investment in AI and robotaxi technology a worthwhile long-term play, or does it risk operational distraction?
+* Given mixed analyst estimates, do you see this as a buying opportunity ahead of the report or a signal to wait for concrete numbers?",reddit,https://www.reddit.com/r/stocks/comments/1lomu5d/tslaq2_deliveries_slated_at_395k_vehicles_11_yoy/,"Tesla, Inc."
+2025-06-30 19:24:45,How do you think progress in AI will impact investing and the economy?,"Currently in the middle of the FIRE journey, but a little anxious about the future of economics in general. AI is advancing at a rate that I think most people are not ready for. What happens to FIRE plans if 50% of people lose their jobs in the next 5-10 years? If the government has to provide universal basic income, what does having money even mean? 
 
-I am not predicting a crash for tomorrow, but a crash or slow burn that will not bring any returns for next 12 months - though volatility both upwards and downwards will continue.",reddit,https://www.reddit.com/r/stocks/comments/1lilcpv/notorious_doomsayer_back_here_again/,Analog Devices
-2025-06-23 16:08:10,So oil is down right now,"I'm going to have to give another one to the ""nothing ever happens bros"" after the past 48 hours on reddit was thread after thread of tens of thousands of upvotes warning us of $20 gas",reddit,https://www.reddit.com/r/wallstreetbets/comments/1likmpq/so_oil_is_down_right_now/,Analog Devices
-2025-06-23 16:04:02,"Was a little scared to fire up the portfolio view after morning meetings, but markets seem.... unfazed?",Wasn't sure what I'd see ant tbh was assuming a drop - just wasn't sure how much.  But then to see mild gains across the board - I guess folks are assuming US bombing Iran isn't going to have a tangible impact on the financial markets overall?  Thoughts?,reddit,https://www.reddit.com/r/investing/comments/1likim8/was_a_little_scared_to_fire_up_the_portfolio_view/,Analog Devices
-2025-06-23 15:47:52,Question concerning 2 funds: TRBCX vs TRULX,"I have these 2 funds in a Roth IRA account and I am looking to possibly remove 1. If you had these 2 funds, which might be the 1 to get cut? Or do you keep both. This portfolio has *cash(30k), bonds(16k), International(16k),* ***TRBCX(45k)*** *and* ***TRULX(20k)*** . The account holder is 61, fully retired with no earned income. What would you look for to make this decision. FYI, this is not all of the retirement. There is a 54k per year pension. And a $402k 401k account. Thanks",reddit,https://www.reddit.com/r/investing/comments/1lik2zk/question_concerning_2_funds_trbcx_vs_trulx/,CSX Corporation
-2025-06-23 15:21:10,ETFs vs USA government bonds,"Hi,
+Also, if the majority of jobs are replaced by ai, who will be buying the products and services that these companies provide? How will people be able to pay mortgages with no income? Will this entirely change the economy and what it means to use currency and/or wealth? 
 
-I was looking at some ETFs and mutual funds that my bank offers: they have a good performance roughly a 40+% return over a 10 year period (excl fees). At the same time looking at the USA government bonds I understand that the yield is 4.5% over a year or so, so essentially over a 10-year period a similar performance with a much safer asset. Am I wrong to conclude here why bother with the mutual funds since the bonds have such a good return?",reddit,https://www.reddit.com/r/investing/comments/1lije3b/etfs_vs_usa_government_bonds/,Analog Devices
-2025-06-23 15:11:01,I’m sorry UNH bag holders,It’s all my fault ,reddit,https://i.redd.it/19xz4fnj0p8f1.jpeg,Analog Devices
-2025-06-23 14:29:48,401k Withdrawal for CC debt,"UPDATE:  Thanks to everyone for straightening me out.  I have decided to just stop putting deposits into my 401k and use the extra money each month to pay off the CC debt.  It will only take me a year and a half to resolve the CC debt and then I can really ramp up the deposits into my 401k.  Thanks so much everyone!!  
+I guess I'm just looking to hear what you guys think. I feel like I may make all of these sacrifices for decades only for my money to be worthless and the economy to be completely different by the time it comes to FIRE. 
 
-I want to clear up my remaining CC debt without having to pay several years on high interest.  I'd much rather take out from my 401k to clear it up and then I can invest more back into my 401k and I can catch up in 1 year and thus be able to continue to pump more into my 401k for the years to come.  I went to the online site and I don't see any options in the Hardship section that fits my category.  Do I select other and just type in what I plan to do with the money?  I'm unsure and I don't want to make any mistakes.",reddit,https://www.reddit.com/r/investing/comments/1lii2l2/401k_withdrawal_for_cc_debt/,Paccar
-2025-06-23 13:47:17,Opportunities in the short-term market volatility? I'm sharing a low-risk offensive strategy that I've been tracking recently,"Over the past few weeks, the S&P 500 and the Nasdaq have been fluctuating repeatedly at high levels. Many friends have said, ""The direction is unclear and we dare not act."" But in fact, the oscillation range is precisely when the low-risk strategy comes into play.
+And if you think I'm being dramatic, pretty much everyone working or forecasting in this field is predicting some version of this. Salesforce CEO said ai is already doing 30-50% of all jobs at his company. Lots of layoffs in software jobs, and it will only spread to other white collar jobs. ",reddit,https://www.reddit.com/r/investing/comments/1logom2/how_do_you_think_progress_in_ai_will_impact/,Airbnb
+2025-06-30 19:19:09,Trump Oversees Worst Dollar Start to Year in Over Half a Century,"https://www.newsweek.com/trump-oversees-worst-dollar-start-year-over-half-century-2092446
 
-Recently, I have been tracking a simplified version of a strategy that combines range-bound oscillation and breakout following. The core logic is:
+T The U.S. dollar has had its worst start to a year since 1973, weighed down by President Donald Trump's trade policy, a worsening outlook for the country's ever-growing public debt, and concerns about the independence of the Federal Reserve.
 
-After determining the key support/resistance areas in major indices (such as $SPY / $QQQ) or large-cap stocks (such as $AAPL / $NVDA), observe the changes in trading volume and K-line structure.
+The Financial Times reported that the U.S. Dollar Index had declined by 10 percent over the course of 2025, marking the weakest performance since the end of the Bretton Woods system, which was underpinned by the dollar's convertibility to gold.
 
-Place an observation order near the upper edge of the range. Once the volume increases and breaks through, follow to open small positions. If there is a false breakout, the stop-loss is extremely small (usually less than 1%).
+Trump has staked much of his political reputation on his handling of the economy, pitching himself as the leader who can slash household bills, put more money in Americans' pockets through lower taxes, and lift commerce into a new golden age.
 
-Auxiliary indicators use simple moving averages (such as EMA20, EMA50) + RSI divergence to determine whether the breakout is healthy.
+The dollar news coincides with the U.S. Senate gearing up to pass Trump's much-tweaked One Big Beautiful Bill Act, the tax-cutting provisions of which are set to expand the deficit by trillions of dollars over the coming decade, putting pressure on the dollar.",reddit,https://www.reddit.com/r/stocks/comments/1logjlz/trump_oversees_worst_dollar_start_to_year_in_over/,Dollar Tree
+2025-06-30 18:42:29,NIKE Removed From Multiple Russell Growth And Defensive Indexes,"https://simplywall.st/stocks/us/consumer-durables/nyse-nke/nike/news/nike-nysenke-removed-from-multiple-russell-growth-and-defens
 
-Last week, I followed up with a small position using this framework when $NVDA broke through 1100, with a profit target in the 1150 range. The stop-loss is set below 1085, and the risk is very controllable.
+What does this mean for $NKE? Is it still worth long term investment given recent positive sentiment? Despite year over year decrease in sales is it time to move on from Nike? ",reddit,https://www.reddit.com/r/stocks/comments/1lofl5l/nike_removed_from_multiple_russell_growth_and/,CrowdStrike
+2025-06-30 18:28:00,"Europe Single-use Bioreactors Market to Reach $3.34 Billion by 2032, Growing at a CAGR of 15.3% from 2025, Says Meticulous Research®","Market Growth Driven by Rapid Disposable Technology Adoption, Expanding Biopharmaceutical Sector, and Government Support for Bioproduction REDDING, Calif., June 30, 2025 /PRNewswire/ --According to a comprehensive market research report titled ""Europe Single-…",news,https://www.prnewswire.co.uk/news-releases/europe-single-use-bioreactors-market-to-reach-3-34-billion-by-2032--growing-at-a-cagr-of-15-3-from-2025--says-meticulous-research-302494781.html,Lam Research
+2025-06-30 18:27:00,"Phasor Measurement Unit (PMU) Market to Reach $2.52 Billion by 2035, Driven by Smart Grid Modernization and Renewable Energy Integration, Says Meticulous Research®","A new report by Meticulous Research® forecasts the global PMU market to grow at a CAGR of 7.5% from 2025 to 2035, with advanced monitoring solutions critical for maintaining grid stability as renewable energy penetration increases. REDDING, Calif., June 30, 2…",news,https://www.prnewswire.co.uk/news-releases/phasor-measurement-unit-pmu-market-to-reach-2-52-billion-by-2035--driven-by-smart-grid-modernization-and-renewable-energy-integration-says-meticulous-research-302494780.html,Lam Research
+2025-06-30 18:26:30,Amazon Launches Oasis Merch Storefront Ahead of Rock Band’s Reunion Tour,"Oasis fans no longer need to wade through vintage shops or eBay for their favorite band merch, thanks to a new storefront launching on Amazon this week. The tech giant has launched the official Oasis fan hub, a one-stop destination for exclusive merch and lim…",news,https://variety.com/2025/shopping/news/oasis-merch-amazon-storefront-shop-online-1236444307/,Amazon
+2025-06-30 18:26:08,Epic antisteering court order is 'constitutionally offensive' to Apple's free speech rights,"Apple shouldn't have to change the App Store rules to meet a court order in the long-running lawsuit with Epic, a trade group insists, as it would violate Apple's First Amendment rights.A still from an Epic Games video instigating the lawsuit against Apple - …",news,https://appleinsider.com/articles/25/06/30/epic-antisteering-court-order-is-constitutionally-offensive-to-apples-free-speech-rights,Apple Inc.
+2025-06-30 18:25:45,"Luckin, China’s largest coffee chain, launches in NYC as it takes on Starbucks in home region",Luckin Coffee opened its first US locations Monday in New York City.,news,https://nypost.com/2025/06/30/business/luckin-chinas-largest-coffee-chain-launches-in-nyc/,Starbucks
+2025-06-30 18:25:05,Hughes ton helps Sussex fight back against Bears,Daniel Hughes makes a season's best 151 before departing to the last ball of the second day as Sussex respond well to Warwickshire's 415.,news,https://www.bbc.com/sport/cricket/articles/crmvkpnnj8do,Baker Hughes
+2025-06-30 18:25:02,"Eos Energy Enterprises, Inc. call volume above normal and directionally bullish","See the rest of the story here.
 
-I wouldn't say this is a ""sure-win strategy"", but its advantage lies in:
+thefly.com provides the latest financial news as it breaks. Known as a leader in market intelligence, The Fly's real-time, streaming news feed keeps individual investors, professional money managers, active traders, and corpor…",news,https://thefly.com/permalinks/entry.php/id4152206/EOSE-Eos-Energy-Enterprises-Inc-call-volume-above-normal-and-directionally-bullish,Enphase Energy
+2025-06-30 18:24:53,Choice Renovations Canada Signs with Multi-Billion Dollar Developer to Reshape Toronto’s Rental Housing Market,"Institutional-scale collaboration will bring speed, quality, and innovation to multifamily renovations across one of North America’s most competitive housing markets TORONTO, June 30, 2025 (GLOBE NEWSWIRE) — Choice Renovations Canada, a leading provider of mu…",news,https://financialpost.com/globe-newswire/choice-renovations-canada-signs-with-multi-billion-dollar-developer-to-reshape-torontos-rental-housing-market,Dollar Tree
+2025-06-30 18:23:00,"Amazon and Nintendo refuse to explain their tumultuous relationship, won't say why Switch 2 isn't directly sold by Amazon",Will you two just make up already?,news,https://gonintendo.com/contents/50312-amazon-and-nintendo-refuse-to-explain-their-tumultuous-relationship-won-t-say-why,Amazon
+2025-06-30 18:22:00,Choice Renovations Canada Signs with Multi-Billion Dollar Developer to Reshape Toronto’s Rental Housing Market,"Choice Renovations Canada partners with a leading developer to bring scalable, quality-driven renovations to Toronto's multifamily rental market.......",news,https://www.globenewswire.com/news-release/2025/06/30/3107811/0/en/Choice-Renovations-Canada-Signs-with-Multi-Billion-Dollar-Developer-to-Reshape-Toronto-s-Rental-Housing-Market.html,Dollar Tree
+2025-06-30 18:21:01,29k-Mile 2003 Ford Focus ZX3 SVT at No Reserve,"This 2003 Ford Focus SVT is a three-door example that has been registered in Michigan from new through the seller's July 2005 acquisition, and it now indicates 29k miles. Finished in Pitch Black over black leather and red cloth, the car is powered by a 2.0-li…",news,https://bringatrailer.com/listing/2003-ford-focus-21/,Fortinet
+2025-06-30 18:20:38,Massive VRAM pools on AMD Instinct accelerators drown Linux's hibernation process — 1.5 TB of memory per server creates headaches,AMD AI Linux-powered servers are failing to hibernate due to excessive VRAM and a high number of AMD Instinct accelerators per system.,news,https://www.tomshardware.com/tech-industry/supercomputers/massive-vram-pools-on-amd-instinct-accelerators-drown-linuxs-hibernation-process-1-5-tb-of-memory-per-server-creates-headaches,Advanced Micro Devices Inc.
+2025-06-30 18:17:12,Kraken Begins Rollout of Tokenized US Stocks and ETFs,Kraken has begun rolling out the availability of tokenized U.S. stocks and exchange-traded funds (ETFs) on its crypto platform for eligible non-U.S. clients. [contact-form-7] This new offering is powered by Backed’s xStocks and is meant to give eligible non-U…,news,http://www.pymnts.com/cryptocurrency/2025/kraken-begins-rollout-of-tokenized-us-stocks-and-etfs/,T-Mobile US
+2025-06-30 18:16:36,AI Gets A Pass On Copyright As Judge Favors ‘Transformative Tech’,"Judge Alsup’s ruling lets Anthropic off the hook for training on full books, calling AI development “one of the most transformative” forces of our time.",news,https://www.forbes.com/sites/torconstantino/2025/06/30/ai-gets-a-pass-on-copyright-as-judge-favors-transformative-tech/,Alphabet Inc. (Class A)
+2025-06-30 18:16:00,"North America LIMS Market to Reach $763.5 Million by 2032, Growing at a CAGR of 7.1% from 2025, Says Meticulous Research®","Market Growth Driven by Increasing R&D Activities in Life Sciences, Laboratory Automation Adoption, and Cloud-based Solution Implementation REDDING, Calif., June 30, 2025 /PRNewswire/ -- According to a comprehensive market research report titled ""North Americ…",news,https://www.prnewswire.co.uk/news-releases/north-america-lims-market-to-reach-763-5-million-by-2032--growing-at-a-cagr-of-7-1-from-2025--says-meticulous-research-302494771.html,Lam Research
+2025-06-30 18:15:00,Latest Galaxy S25 One UI 8 beta has some cool new AI tricks - SamMobile,"Latest Galaxy S25 One UI 8 beta has some cool new AI tricksSamMobile Galaxy Owners Get New-New One UI 8 BetaDroid Life Samsung Galaxy A55 spotted on Geekbench running Android 16, could get One UI 8 before next year - GSMArena.com newsGSMArena.com Delivery mes…",news,https://slashdot.org/firehose.pl?op=view&amp;id=178236744,Airbnb
+2025-06-30 18:14:33,"Elon Musk said to bet on Tesla delivering Robotaxi in June, yet those who did just lost big","Elon Musk said just a few weeks ago that betting on Tesla delivering its promised Robotaxi in June is a “money-making opportunity,” and yet, those who listened to him just lost big.
 
-The risk is low, the cost of making mistakes is low, and it does not rely on prediction but only on market signals. It is suitable for volatile markets and the initial trend formation stage
 
-Which stock/index breakthrough opportunities have you been observing recently? Let's all discuss our ideas together \~",reddit,https://www.reddit.com/r/stocks/comments/1lih12j/opportunities_in_the_shortterm_market_volatility/,Analog Devices
-2025-06-23 13:35:42,Enrolling in my first 401k,"Curious on y'alls thoughts about my 401k allocation.
-This is my first time enrolling in one and it is through work. The options are managed funds so they are more expensive but I do have 4% matching.
 
-I already have a self managed IRA through Fidelity that is invested in FZROX and FZILX.
+A fan of Musk lost $50,000 betting on Tesla Robotaxi.
 
-I'm not personally interested in bonds given my long time horizon and the general feeling towards U.S debt these days. Maybe I'm completely wrong though!
 
-Any thoughts would be much appreciated!
 
-Below are the funds I've identified with the percent allocations.
+ more…",news,http://electrek.co/2025/06/30/elon-musk-bet-tesla-delivering-robotaxi-june-lost-big/,"Tesla, Inc."
+2025-06-30 18:14:00,Way clear for Hewlett Packard Enterprise's $14B acquisition of Juniper after Justice Dept settlement,Hewlett Packard Enterprises has reached a settlement with the Justice Department that could clear the way for its $14 billion takeover of rival Juniper Networks,news,https://abcnews.go.com/Technology/wireStory/clear-hewlett-packard-enterprises-14b-acquisition-juniper-after-123348420,Paccar
+2025-06-30 18:12:25,Pixelmator Pro Gets First Big Update Since Apple Bought It,"Pixelmator Pro version 3.7 has arrived, bringing with it support for Apple Intelligence in the image editing app and new RAW file support. It is the first major update to Apple's newly acquired Photoshop competitor.
+[Read More]",news,https://petapixel.com/2025/06/30/pixelmator-pro-gets-first-big-update-since-apple-bought-it/,Apple Inc.
+2025-06-30 18:11:03,Apple to Delay Some iOS 26 Features in the EU Over DMA Compliance Concerns,"Due DMA compliance concerns, Apple will be disabling some new iOS 26 capabilities in the EU, including an optional Visited Places feature in Maps. 
+The post Apple to Delay Some iOS 26 Features in the EU Over DMA Compliance Concerns appeared first on Thurrott.…",news,https://www.thurrott.com/apple/322784/apple-to-delay-some-ios-26-features-in-the-eu-over-dma-compliance-concerns,Apple Inc.
+2025-06-29 19:54:30,"Microsoft's AI Revenue to Reach $25 Billion, Wedbush Raises Target Price to $600","According to the latest report by Wedbush analyst Daniel Ives, Microsoft ($MSFT)'s leading position in the enterprise AI market continues to strengthen. The AI product Copilot is expected to contribute $25 billion in revenue in the fiscal year 2026. The institution has raised the target price from $515 to $600 and reaffirmed the ""outperform"" rating.
 
-| **Parnassus Core Equity Inv (PRBLX)** | 45%        |
-| **EuroPacific Growth R5 (RERFX)**     | 35%        |
-| **Impax Small Cap Investor (PAXSX)**  | 20%        |
-",reddit,https://www.reddit.com/r/investing/comments/1ligrdf/enrolling_in_my_first_401k/,Analog Devices
-2025-06-23 13:07:21,Will the U.S.–Iran tension affect the market?,"Oil prices went up about **2%** but settled near **$78**. **Stocks**, **bonds**, and the **dollar** didn’t move much. Markets stayed calm overall. In the past, events like this caused short drops, then bounced back. Keep an eye on oil supply, the Strait of Hormuz, and Fed decisions. Safe bets could be bonds or energy and defense stocks.",reddit,https://www.reddit.com/r/investing/comments/1lig4ev/will_the_usiran_tension_affect_the_market/,Analog Devices
-2025-06-23 12:44:22,"(06/23) Breakups, Breakouts, and Bombs- Interesting Stocks Today","This is a daily watchlist for short-term trading: I might trade all/none of the stocks listed, and even stocks not listed! I am targeting potentially good candidates for short-term trading; I have no opinion on them as investments. The potential of the stock moving today is what makes it interesting, everything else is secondary.
+Currently, I hold a small position in $MSFT. This post only shares information and does not constitute investment advice.
 
-News: [Iran's Promise Of Payback Keeps World Powers Markets On Edge](https://www.bloomberg.com/news/articles/2025-06-23/iran-s-promise-of-payback-keeps-world-powers-markets-on-edge?srnd=homepage-americas)
+Source: [Investing.com](http://Investing.com) / Wedbush Research Report",reddit,https://www.reddit.com/r/stocks/comments/1lnnw1q/microsofts_ai_revenue_to_reach_25_billion_wedbush/,Microsoft
+2025-06-29 13:15:27,Nvidia Insiders Sold Over $1B in Stock  Should We Be Worried?,"According to the Financial Times (via Reuters), Nvidia insiders have sold over $1 billion worth of stock over the past year  $500M just this month, right as NVDA hit all-time highs
 
-[**HIMS (Hims & Hers Health)**](https://finviz.com/quote.ashx?t=HIMS&p=d)\-NVO announced it would terminate its collaboration with the telehealth company over the sale of weight-loss drug Wegovy, accusing HIMS of ""disseminating deceptive marketing that put patient safety at risk."" Interested in seeing where this goes at the open, it's moved a significant amount already. We were at highs on this news last month, and we're down 20%- interested to see if we break $50 at the open. Telehealth is very dependent on partnerships with big pharma. NVO has also moved down on this news, and OSCR, which has been heavily momentum based for the past 2 days has moved down as well.
+Even Jensen Huang started selling this week for the first time since September  Meanwhile, NVDA is up 60%+ from its April lows, fueled by the AI boom and optimism around easing Trump-era tariffs
 
-[**CRCL (Circle Internet Financial)**](https://finviz.com/quote.ashx?t=CRCL&p=d)\-Making new highs, topped out around $266 premarket. This is primarily momentum based so interested in the turn, I want to see what this does at the open before entering any position, short biased. This has primarily been moving due to the U.S. Senate passing the GENIUS Act (StableC Bill). It now heads to House before Trump’s desk, with the White House targeting approval by August. If the bill fails, this will turn back significantly and will be a killer reversal.
-
-[**USO (United States Oil Fund)**](https://finviz.com/quote.ashx?t=USO&p=d)\-Following U.S. bombing of Iran’s nuclear sites over the weekend, USO spiked overnight; awaiting Iran’s response. We haven't seen any spike that's TOO crazy yet, Iran has options to retaliate and cause the price of oil to spike so this is more of a catalyst to be aware of rather than something that will occur today. The key phrase I'm looking for is ""Strait of Hormuz closure,"" which is a key shipping route of oil/gas.",reddit,https://www.reddit.com/r/stocks/comments/1lifme5/0623_breakups_breakouts_and_bombs_interesting/,Analog Devices
-2025-06-23 12:42:47,Who gets to trade pre-pre-market?,"I had a strong suspension that we see oil stock go up this morning.  I set my alarm for 5am central time.  I checked Oxidential, it was already up 2 1/2%.  I tried to buy, but I could not.  I waited until 6am on the dot to place my order, and the prices has been dropping ever since.  My question is, who get to by and house before pre-market trading starts?",reddit,https://www.reddit.com/r/stocks/comments/1lifl6o/who_gets_to_trade_prepremarket/,Analog Devices
-2025-06-23 12:13:44,What ETF is both uncorrelated/SPY and Profitable?,"I am for a portfolio that is 50% SPY and 5 ETF's of 10% each that are uncorrelated to SPY but also have a chance to profit well.
-
-GOLD has been uncorrelated with SPY and profitable recently.
-
-CTA / commodity futures seem like an option.
-
-BND / TLT and the like are too darn unprofitable, and to the extent they rely on the credibility of the US government, that does not sweeten the deal these days.
-
-REITs?  the broad general funds seems highly correlated, and the specific ones require superior information and sophistication that most of us ain't got.
-
- What else?
-
-Thanks!
-
-
-
-   ",reddit,https://www.reddit.com/r/investing/comments/1lif06l/what_etf_is_both_uncorrelatedspy_and_profitable/,Synopsys
-2025-06-23 11:14:12,Hurricane season,"Hurricane season is now upon us in the southeast. NOAA and the national weather service had major cuts from DOGE. From the forecasting models to aircraft’s this is going to be a major story once there is a developing storm.
-Are there any plays with public companies that could possibly insert themselves during the upcoming brutal hurricane season that offer radar or technology to the local or even national channels?  This is going to be a very big headline news once there is a category 3-5 storm and meteorologists won’t be able to track like before. ",reddit,https://www.reddit.com/r/stocks/comments/1lidw5d/hurricane_season/,Analog Devices
-2025-06-23 11:13:54,should i invest in take two interactive?,"GTA 6 is expected to be released next year, and because of that, I’ve been thinking about buying some shares of Take-Two Interactive, the company that owns Rockstar Games. The stock price is currently around $240 per share. My dad and I have been talking about it, and we both think it could be a good opportunity, but also a risky one. On the one hand, GTA is one of the most popular and successful game series in the world, so there’s a good chance the release of GTA 6 will increase the company’s value. On the other hand, investing in the stock market always comes with risks, and there’s no way to know for sure what will happen. That’s why I would like to hear from people who understand these things better, so I can decide what’s the smartest thing to do.",reddit,https://www.reddit.com/r/investing/comments/1lidvy0/should_i_invest_in_take_two_interactive/,Analog Devices
-2025-06-23 11:12:34,Using a Solo 401K to do a Mega Backdoor Roth IRA,"I’m in the early conversations of speaking with a CPA about using a solo 401K to set up a mega backdoor roth IRA and I was curious if anyone out here has done this before.
-
-For context, I recently finished college and have started working. I’m in the 24% tax bracket and my CPA and I aren’t too worried about me getting into the 32% bracket. I have one full time job that gives me a W-2 and a contract job that gives me a 1099.
-
-The problem is that my W-2 job won’t allow in service 401K conversions making it not possible to convert it into a roth IRA at least while i’m still working there. I’m hoping that setting up a solo 401K with a company (i.e., vangaurd or fidelity) that allows in service conversions will allow me to contribute and convert more than $7000 a year to my Roth IRA.
-
-My CPA has advised that I also write off as many expenses as I can from my contract job as the self-employment tax is quite high. He also stated that the maximum I can contribute to my solo 401K is only 20% of whatever my net income from the contract job is meaning if I make $20,000 from my contract job a year I can only contribute and then convert $4000 (not taking into account the tax on that $4000). He is not sure if I can take my after-tax money from my W-2 job contribute as an after-tax contribution to my solo 401K. He is under the impression that it can only be the wages gained from my contract job. He was also worried about me maxing out my 401K at my W2 job and contributing to my solo 401K at the same time, but if I’m trying to convert everything in my solo 401K it should be fine?
-
-He’s going to do more research before getting back to me. I was doing research through the White Coat Investor so I believe it is possible. I just want to see if anyone else has done this or has any comments/advice to offer. I hope to cross check what my CPA says when he gets back to me in a couple weeks.
-
-TLDR: Trying to set up a solo 401K to mega backdoor roth IRA because my full time job won’t allow it.
-",reddit,https://www.reddit.com/r/investing/comments/1lidv54/using_a_solo_401k_to_do_a_mega_backdoor_roth_ira/,Analog Devices
-2025-06-23 11:08:38,"Daily Discussion Thread for June 23, 2025",This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/wallstreetbets/comments/1lidso1),reddit,https://www.reddit.com/r/wallstreetbets/comments/1lidso1/daily_discussion_thread_for_june_23_2025/,Analog Devices
-2025-06-23 10:50:33,"$KO, $PEP and the new Texas health labels","Today I saw that Texas are making companies like $KO and $PEP put health warnings on their beverage  and sweets, as well as Mars' M&Ms (which is rather irrelevant, since Mars is private).
-
-Basically, they've been given until 2027 to remove 40 substances - including bleached flour and artificial dyes.
-
-What hit me was that High Fructose Corn Syrup did not make the warnings list. This wasn't because it was healthy - HCFS was formerly banned by the EU and UK but came off the list in 2017 (probs because of healthy lobbying by Big Sugar (21.3m euros at the last count, not because the EU 'finally saw the light).
-
-But what also hit me is the warnings in Texas WILL be followed by the same in 49 other states (in my view), because states don't want to be seen as encouraging people to eat like s\*\*t, and they are worried about RFKJ and his mad campaign to make everyone better again.
-
-So then what about the shares in $KO and $PEP? With this stuff AS WELL as worries in the Middle East, it is a definitely worrying trend for me. Or am I simply worrying for worry's sake, bearing in mind the stock's still up 10% YTD and people will always go to their crappy products for comfort food in times like this.",reddit,https://www.reddit.com/r/stocks/comments/1lidh6b/ko_pep_and_the_new_texas_health_labels/,Analog Devices
-2025-06-23 10:35:21,TSLA 7.9k gain shares,"Yolo’d shares and diamond handed. Sold. Will rebuy when TSLA $300. See my previous YOLO post for proof when I YOLO’d.
-
-https://www.reddit.com/r/wallstreetbets/s/ZL0fa17DdZ",reddit,https://i.redd.it/b79y6e6dnn8f1.jpeg,Analog Devices
-2025-06-23 10:21:51,"Taking profits, yes or no?","I was always wondering why some longtime investors are so against taking profits. What's wrong with taking profits? There is always the chance that there is a big dip on any investment, why risking it? What is the downside, if you are taking profits?
-
-What's your opinion on this?",reddit,https://www.reddit.com/r/investing/comments/1lid08j/taking_profits_yes_or_no/,Analog Devices
-2025-06-23 08:59:25,USD 30k lump sum to invest - is now the time?,"I am a passive investor. My wife and I have about USD 200k invested in global funds (VHVG, EMIM, WLDS). My wife got a small inheritance recently, so we put in about USD 20k last month. I just got a work bonus, so have another USD 30k to put in. I placed the orders on Saturday, in my usual passive funds, as is my way. However, when the US bombed Iran, I cancelled the orders, thinking markets would dip today - with the aim of buying the dip. However, there is no big dip, but there could still be. Or they could not be. This is getting close to 'timing the market', and I'm more of a 'time in the market' sort of guy. Should I simply stick to my plan and chuck it in? I know timing the dip is extremely hard - I held off a bit buying the dip on the tariff related downturn and missed a lot of upside. ",reddit,https://www.reddit.com/r/investing/comments/1libpk5/usd_30k_lump_sum_to_invest_is_now_the_time/,Analog Devices
-2025-06-23 08:01:50,"Daily General Discussion and Advice Thread - June 23, 2025","Have a general question? Want to offer some commentary on markets? Maybe you would just like to throw out a neat fact that doesn't warrant a self post? Feel free to post here!
-
-Please consider consulting our FAQ first - [https://www.reddit.com/r/investing/wiki/faq](https://www.reddit.com/r/investing/wiki/faq) And our [side bar](https://www.reddit.com/r/investing/about/sidebar) also has useful resources.
-
-If you are new to investing - please refer to Wiki - [Getting Started](https://www.reddit.com/r/investing/wiki/index/gettingstarted/)
-
-The reading list in the wiki has a list of books ranging from light reading to advanced topics depending on your knowledge level. Link here - [Reading List](https://www.reddit.com/r/investing/wiki/readinglist)
-
-The media list in the wiki has a list of reputable podcasts and videos - [Podcasts and Videos](https://www.reddit.com/r/investing/wiki/medialist)
-
-If your question is ""I have $XXXXXXX, what do I do?"" or other ""advice for my personal situation"" questions, you should include relevant information, such as the following:
-
-* How old are you? What country do you live in?
-* Are you employed/making income? How much?
-* What are your objectives with this money? (Buy a house? Retirement savings?)
-* What is your time horizon? Do you need this money next month? Next 20yrs?
-* What is your risk tolerance? (Do you mind risking it at blackjack or do you need to know its 100% safe?)
-* What are you current holdings? (Do you already have exposure to specific funds and sectors? Any other assets?)
-* Any big debts (include interest rate) or expenses?
-* And any other relevant financial information will be useful to give you a proper answer.
-
-Check the resources in the sidebar.
-
-Be aware that these answers are just opinions of Redditors and should be used as a starting point for your research. You should strongly consider seeing a registered investment adviser if you need professional support before making any financial decisions!",reddit,https://www.reddit.com/r/investing/comments/1liav4i/daily_general_discussion_and_advice_thread_june/,Analog Devices
-2025-06-23 03:05:39,Not sure if this is the right place.,So I have 44k that’s been sitting in a cash account for some time now and someone told me it’s not a good idea for it just to sit there and I have 230k in Costco. I was told it would be smart to break up some of the Costco and cash and diversify with that. Does anyone have any input? I’m 37 and make 300 a year. I’ve recently started investing in real estate and would love to expand my portfolio there. Any input would be greatly appreciated. Sorry ahead of time if this isn’t the right place for this post. Thanks 🙏🏼 ,reddit,https://www.reddit.com/r/investing/comments/1li61js/not_sure_if_this_is_the_right_place/,Analog Devices
-2025-06-23 00:52:15,Defense and energy stocks,"After the US bombed Iran's nuclear facilities and Iran is being ambiguous about military action, what do yall think about the growth of defense stocks with what could happen this week?
-Is the best time to buy into stocks like NOC and RTX now during night hours, or do we think it would be more profitable to wait for market open during the morning?
-
-Similarly, Iran has ordered for the closure of the straight of hormuz. Do we think this could make ExxonMobil and simar stocks jump, and do we think the best time to invest would be during night hours or when Market opens? Thanks!",reddit,https://www.reddit.com/r/stocks/comments/1li3huz/defense_and_energy_stocks/,Analog Devices
-2025-06-22 23:19:13,Is It Actually Moral and Good to Invest In Evil Companies?,"There is an assumption for most people that ethical investing involves not investing in companies that one deems (personally) immoral. The types of companies one deems immoral will be different for every investor, but is not important for this question. Question is: For someone that cares about a certain issue, is it actually *better* to invest in that company, reap the rewards, and then use the rewards for your cause, than to not invest at all?
-
-
-For example, let's say your biggest issue is climate change. If you invest, let's say, $1K in Exxon Mobil, the benefit to Exxon is essentially *nil*\---you are buying the stock from another person, not the company; the only real impact is a totally negligible increase to the share price (I guess... And I guess of like a theoretical 0.00000000000000000000001%?). A few years later, you sell your investment, which is now worth $1.5K. With the $500 profit, you can donate to a green energy non-profit, use the money to help buy solar panels, etc..---direct forms of support which almost certainly have a much greater positive effect than the buying of the stock had a negative effect. So essentially you are buying a stock from someone (who is probably pro-fossil fuels, and whose consumption patterns would probably align to that---i.e., would use the money they make to make the problem even worse) and now having it be owned by yourself, who will take the increased valuation of this company over time and use it *against them* at a much higher impact multiplier.
-
-
-What are the problems with this argument? I'm not sure I totally agree with it, but I currently find it at least as persuasive as the ""investing in bad stock = bad because complicit"" argument.",reddit,https://www.reddit.com/r/investing/comments/1li1m2h/is_it_actually_moral_and_good_to_invest_in_evil/,Analog Devices
-2025-06-22 23:00:53,Which Austin Tesla launch videos did you find especially interesting? (Here's my pick),"Here's my favorite video so far showcasing both the good and bad of the test drive.
-
-I can't post links to Youtube in original post (the bot will remove it) but [you can click here to see the Youtube video in comments](https://www.reddit.com/r/stocks/comments/1li185b/which_austin_tesla_launch_videos_did_you_find/mz8ge7z/).
-
-Interestingly enough, they feature the same mistake. By the way, all you Tesla video makers -- please create navigation chapters like they did for this video so we can quickly jump to relevant sections.
-
-Some topics for discussion:
-
-* What do you think of these instances?
-* Have you found moments in videos that were especially noteworthy (either good or bad)?
-
-I hope people continue to add videos here as new ones come out.",reddit,https://www.reddit.com/r/stocks/comments/1li185b/which_austin_tesla_launch_videos_did_you_find/,Analog Devices
-2025-06-22 22:28:25,Investing a substantial forgivable loan - liquidity and tax considerations,"Burner account because obviously.
-
-I have been offered a substantial forgivable loan from a company, and I'm debating how I would invest the proceeds. The loan is $500,000 total, and I would receive that amount at the inception of the loan. 1/5 of the loan would be forgiven each year for the next five years, assuming I'm still employed at the company. The loan has an interest rate that is equal to the lowest interest rate permitted by the IRS for an 5-year term arm's length loan (currently about 4%), and the accrued interest to date would be forgiven each year in the same manner as the corresponding principal amount as described above. Every time a tranche of the loan is forgiven, I have to pay taxes on the forgiven amount at that time, which is taxed as ordinary income.
-
-.
-
-The substantial risk here is that if I leave the company (or am laid off) during the term of the loan, I have to pay back the non-forgiven principal and interest accrued to date within 30 days. So I need to be pretty liquid with the investment. The goal is therefore to meet or beat the 4% interest rate (ideally, post-tax) but maintain at least pretty good liquidity.
-
-.
-
-In the immediate term, my candidate solution is to invest in individual municipal bonds with a maturity date right before the first tranche of the loan is forgiven (in about a year). Current rates on such municipal bonds I'm seeing are roughly 5%, and they are not subject to federal income taxes, which is a substantial perk. When those bonds mature, I would reassess and probably lean towards reinvesting the proceeds in municipal bonds again with about a one year term.
-
-.
-
-There is liquidity risk in that I could be compelled to repay the loan before those municipal bonds mature, but there are three considerations that mitigate this:
-
-(1) I think it's very unlikely I would separate or be separated from the company within the next six months. Probably if I am separated from the company, the most likely time would be as we approach the date of the first tranche being forgiven.
-
-(2) Municipal bonds can be sold on the secondary market, so I could liquidate early if necessary. Granted, if interest rates go up (and that seems likely!), I might have to sell at a loss, but the volatility here is less than the stock market.
-
-(3) I have the capacity to liquidate other stock investments and/or take out short-term loans (e.g. until the bonds mature) to repay the loan if necessary.
-
-.
-
-So, thoughts? Can you come up with a better solution? It's an interesting problem and not one that I've been able to find much about online. Thank you!",reddit,https://www.reddit.com/r/investing/comments/1li0iw9/investing_a_substantial_forgivable_loan_liquidity/,Analog Devices
-2025-06-22 20:54:30,"Is now a good time to invest in UnitedHealth, or should we wait to see if the PR crisis goes deeper?","As we know, the UNH CEO was shot over exploitive business practices that hurt people and his profession/company.
-
-In the wake of that, UNH has enacted a few transparency measures, and appointed a seemingly squeaky-clean CEO
-
-The entire health insurance industry is seeing a wave in renewed skepticism that has resulted in UNH share price being nearly cut in half since the start of this controversy.
-
-Should we buy now, or would it be wise to wait while the Luigi trial/internal investigations of the former CEO are still underway?",reddit,https://www.reddit.com/r/stocks/comments/1lhydwg/is_now_a_good_time_to_invest_in_unitedhealth_or/,Analog Devices
-2025-06-22 20:54:19,401k Plan - Does this even look possible to accomplish?,"I want to make some forecast/projections of how much 401k account can grow and sustain. I know market conditions can change (e.g., market under or overperforms, not contributing the full max, etc.), so not banking that this will be the exact numbers by the time I reach a couple of these milestones.
-
-* **Starting balance**: $395,340.74 (What I've accumulated the last 8.5 - 9 years).
-* **Starting salary**: $91,500 (In addition to employer match of 5% and salary base increase of 2% annually)
-* **Annual contribution**: $23,500
-* **Annual return**: 7%
-
-I'll contribute for 25 years, then let time and returns carry my portfolio through the final 8 years.
-
-|Age|Year-End Balance|Inflation-Adjusted (2.5%)|Inflation-Adjusted (3%)|
-|:-|:-|:-|:-|
-|40|**$395,340.74**|**$488,346**|**$448,346**|
-|65|**$13,596,296**|**$8,662,337**|**$4,861,277**|
-|72|**$23,125,326**|**$12,648,090**|**$6,866,508**|
-
-**Summary**:
-
-Just for context: I could adjust this for inflation or make it conservative at even 5%-6%, but the numbers are encouraging IF things stay the way they are. I plan to start Roth conversions in my personal Roth IRA at 60 and hopefully will help minimize large tax bill and remain in a desirable tax bracket by then. And I haven't even considered what and how my wife's 401k, Roth IRA and other income-producing assets will impact this (positively).
-
-Thoughts? Is this realistic?",reddit,https://www.reddit.com/r/investing/comments/1lhydrg/401k_plan_does_this_even_look_possible_to/,Analog Devices
-2025-06-22 20:15:26,"Musk's Tesla is launching robotaxis in Austin, Texas","Tesla CEO Elon Musk posted on his social platform X that the company's ""robotaxi launch"" would start Sunday afternoon with rides for a flat fee of $4.20.",news,https://www.cnbc.com/2025/06/22/musks-tesla-is-launching-robotaxis-in-austin-texas.html,"Tesla, Inc."
-2025-06-22 20:13:55,“We Should All Get Back With Our Exes”: 25 Memes That Shouldn’t Be This Funny,The events of the last 24 hours has the world thinking existential thoughts.,news,https://www.boredpanda.com/ww3-is-trending-and-gen-z-is-handling-it-as-only-they-know-how/,Analog Devices
-2025-06-22 20:13:21,Chicago Sky provides update on Angel Reese's injury,"The season has gotten off to a rough start for the Chicago Sky. Through 12 games, things haven&apos;t gone as expected. They wish the situation were different, but they&apos;ll hav",news,https://www.marca.com/en/basketball/wnba/chicago-sky/2025/06/22/685861d9ca47414b238b4574.html,Analog Devices
-2025-06-22 20:11:19,Labubu plushies aren’t just toys. They’re a brand new frontier for Chinese soft power,Global perceptions of China are often shaped by geopolitics and authoritarianism. Is Labubu the ‘cool China’ antidote?,news,https://theconversation.com/labubu-plushies-arent-just-toys-theyre-a-brand-new-frontier-for-chinese-soft-power-259146,Analog Devices
-2025-06-22 20:11:02,NZ’s changing diet: Māori bread and jackfruit join other new foods in the country’s nutritional database,The latest entries in New Zealand’s food composition database reflect the nation’s growing ethnic diversity and rising demand for plant-based options and allergen-friendly foods.,news,https://theconversation.com/nzs-changing-diet-maori-bread-and-jackfruit-join-other-new-foods-in-the-countrys-nutritional-database-257791,Analog Devices
-2025-06-22 20:10:26,Freak wind gusts made worse by climate change threaten airline passenger safety,"New research suggests global warming is increasing the frequency and intensity of wind gusts from thunderstorm downbursts, with serious consequences for air travel.",news,https://theconversation.com/freak-wind-gusts-made-worse-by-climate-change-threaten-airline-passenger-safety-258823,Analog Devices
-2025-06-22 20:05:54,"Apple Loop: iPhone 17 Pro Release Date, Apple Challenges AI Assumptions, iPad Pro Multitasking Explained","Taking a look back at this week’s news and headlines from Apple; iPhone 17 and iPhone 17 Pro launch dates, MacBook Pro upgrade details, iPad multitasking, Apple challenges AI assumptions, and more...",news,https://www.forbes.com/sites/ewanspence/2025/06/22/apple-news-headlines-iphone-17-pro-ios-26-ipados-multitasking-macbook-pro-upgrade/,Apple Inc.
-2025-06-22 20:01:08,Jackie Jesko's new documentary explores Barbara Walters' groundbreaking career and the personal cost of her rise,Jackie Jesko's new documentary explores Barbara Walters' groundbreaking career and the personal cost of her rise abc30.com,news,https://abc30.com/post/jackie-jeskos-new-documentary-explores-barbara-walters-groundbreaking-career-personal-cost-rise/16800835/,Analog Devices
-2025-06-22 20:00:02,3105: Interoperability,explain xkcd is a wiki dedicated to explaining the webcomic xkcd. Go figure.,news,https://www.explainxkcd.com/wiki/index.php/3105:_Interoperability,Analog Devices
-2025-06-22 20:00:00,"The Rio Tinto share price hit a 52-week low last week, is it a buy?","Is this mining giant worth digging into?
-The post The Rio Tinto share price hit a 52-week low last week, is it a buy? appeared first on The Motley Fool Australia.",news,https://www.fool.com.au/?p=1790170,Analog Devices
-2025-06-22 20:00:00,Claude Code Gains Support for Remote MCP Servers Over Streamable HTTP,"Anthropic has recently introduced support for connecting to remote MCP servers in Claude Code, allowing developers to integrate external tools and resources without manual local server setup. By Sergio De Simone",news,https://www.infoq.com/news/2025/06/anthropic-claude-remote-mcp/,Analog Devices
-2025-06-22 20:00:00,Why Disney Had To Cut A Controversial Scene From The Santa Clause,"A brief but undeniably adult joke in The Santa Clause caused lots of headaches for Disney, so much so the studio eventually cut it from the movie.",news,https://www.slashfilm.com/1888727/why-disney-cut-controversial-phone-number-scene-the-santa-clause/,Analog Devices
-2025-06-22 19:57:08,"What Are Your Moves Tomorrow, June 23, 2025",This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/wallstreetbets/comments/1lhx158),reddit,https://www.reddit.com/r/wallstreetbets/comments/1lhx158/what_are_your_moves_tomorrow_june_23_2025/,Analog Devices
-2025-06-22 19:57:01,Show HN: rtrvr.ai – New Free SOTA AI Web Agent Beats Even Operator,"We just benchmarked our agent, rtrvr.ai, on the Halluminate (YC S25) Web Bench, and rtrvr.ai achieved a new State-of-the-Art performance with an 81% success rate. For perspective, this surpasses not only all other autonomous agents but also the human-interven…",news,https://www.rtrvr.ai/blog/web-bench-results,Analog Devices
-2025-06-22 19:57:00,The Ultimate TikTok Marketing Guide [Update 2025] - TLinky,"This guide provides a definitive, updated roadmap for TikTok marketing in 2025, covering everything from foundational principles to the advanced strategies",news,https://tlinky.com/tiktok-marketing/,Analog Devices
-2025-06-22 19:56:32,Trump Hits Iran ( Destroys Obama's Appeasements),"Trump Hits Iran Trump’s address to the nation was short and to the point. It's on! On June 21, 2025, just after 10 p.m. (EST), President Donald Trump announced that the U.S. military conducted strikes on three Iranian nuclear facilities: Fordow, Natanz, and I…",news,https://freerepublic.com/focus/f-news/4324666/posts,Analog Devices
-2025-06-22 19:55:12,"AI Is Out-Trading Wall Street – Here’s How You Can, Too","InvestorPlace - Stock Market News, Stock Advice & Trading Tips
-What if I told you that the secret to dominating the markets wasn’t a hot tip or gut instinct... but a machine? And soon, for the first time, a tool built on similar principles will be available f…",news,https://biztoc.com/x/2418bc63a7b362a4,Analog Devices
-2025-06-22 19:54:31,Believe it or not,"All talks, no positions",reddit,https://i.redd.it/ykx16ip7aj8f1.jpeg,Analog Devices
-2025-06-22 19:52:20,Democrats assail ‘erratic’ Trump over Iran strikes,"Democrats bristled Sunday over US President Donald Trump’s decision to launch air strikes on Iran without seeking authorization from Congress, accusing the Republican of violating the constitution and demanding a vote to rein in his war powers. Members of the…",news,https://www.digitaljournal.com/world/democrats-assail-erratic-trump-over-iran-strikes/article,Texas Instruments
-2025-06-22 19:51:16,Democrats Assail 'Erratic' Trump Over Iran Strikes,"Democrats bristled Sunday over US President Donald Trump's decision to launch air strikes on Iran without seeking authorization from Congress, accusing the Republican of violating the constitution and demanding a vote to rein in his war powers.",news,https://www.ibtimes.com/democrats-assail-erratic-trump-over-iran-strikes-3776463,Analog Devices
-2025-06-22 19:49:02,smart-api-integrations added to PyPI,"Eliminate API integration boilerplate. Define endpoints once, get intelligent client classes with full IDE support.",news,https://pypi.org/project/smart-api-integrations/,Analog Devices
-2025-06-22 19:48:25,He's 13 and farming hundreds of hectares in the Riverina,"In the New South Wales Riverina, delayed autumn rain threw winter sowing programs off kilter, but teenagers Declan and Brianna Dennis are helping get things back on track on their family farm.",news,https://www.abc.net.au/news/2025-06-23/next-gen-farmers-sowing-crops-feeding-livestock-in-dry-season/105414502,Analog Devices
-2025-06-22 19:45:54,just graduated highschool,"I have experience with trading short term such as options and other contracts, I would like to start expanding my knowledge of long term investment, I got around 3k, I thought of using copy trading apps but that seemed to good to be true. I thought of mutual funds aswell but idk if i have enough $ for that. I was also thinking of putting it into the smp or a fixed rate savings account. whattt do i do!! im trying to build wealth, sorry for the long post any advice would be greatly appreciated",reddit,https://www.reddit.com/r/investing/comments/1lhwrpp/just_graduated_highschool/,Analog Devices
-2025-06-22 19:45:33,US strikes on Iran could hit American economy at a fragile time,America's involvement in the Iran-Israel conflict could buffet an economy that's already weakening.,news,https://www.usatoday.com/story/money/2025/06/22/us-strikes-iran-economy-inflation/84308384007/,Analog Devices
-2025-06-22 19:43:02,When to move out from Crypto(WW3),"When to move out from the crypto market,
-
-I'm new to this but all i know is crypto is going to get more recognised and I'll make more money holding in the long term,
-
-But obviously it'll be better to sell before the war, buy again at the low and hold again.
-
-For obvious reasons...
-
-But right now I'm confused what should be my current move looking at the market.
-
-Plz enlighten me I'm new to all this.
-
-Thank you in advance
-
-Also tell me your views on crypto (if you can I'd love to talk about it)
-
-Edit:-
-
-I'm sorry if I sound as if I'm worried... No... I know there will be no war, even if there's a war things will get back to normal.
-
-All i meant was I want to know how to take advantage of situations like these
-
-Because 90% of the people start believing this and sell so I want to take advantage of this fact and benefit from it.
-
-Just not sure how to do it.",reddit,https://www.reddit.com/r/investing/comments/1lhwpb8/when_to_move_out_from_cryptoww3/,Analog Devices
-2025-06-22 19:41:33,"Tesla launches robotaxis in Austin, Texas at $4.20 a pop to start","After driverless Tesla Model Ys were spotted traversing Austin, Texas streets on Sunday morning, CEO Elon Musk posted on his social platform X that Tesla’s “robotaxi launch” would start today with rides for a flat fee of $4.20. A Reuters witness saw several T…",news,https://nypost.com/2025/06/22/business/tesla-launches-robotaxis-in-austin-texas-at-4-20-a-pop-to-start/,Analog Devices
-2025-06-22 19:41:03,Tesla's Robotaxi Service Hits the Road in Texas,The company debuted its autonomous ride-hailing service Sunday. The limited program is invite-only and uses around 20 cars—signs that Tesla has a long way to go to catch up to its robotaxi rivals.,news,https://www.wired.com/story/tesla-robotaxi-service-launches-austin-texas/,Texas Instruments
-2025-06-22 19:39:17,Stephen Foster Tops Charts On Closing Weekend At Churchill Downs,Closing weekend at Churchill Downs will feature a super Saturday on June 28. The headliner among six Stakes races is the 44th running of the grade 1 Stephen Foster.,news,https://www.forbes.com/sites/dannybrewer/2025/06/22/stephen-foster-tops-charts-on-closing-weekend-at-churchill-downs/,Analog Devices
-2025-06-22 19:37:41,Perv teacher may have used images of middle school students to make AI child porn: Prosecutors,A Florida middle school teacher allegedly downloaded and shared dozens of child porn images while on school’s servers — and he may have even used his own student’s faces to create AI-generated abuse images. David McKeown — who taught sixth-graders at UBIC aca…,news,https://nypost.com/2025/06/22/us-news/perv-teacher-may-have-used-images-of-middle-school-students-to-make-ai-child-porn-prosecutors/,Airbnb
-2025-06-22 19:37:05,Jones ‘Absolutely Positively Sure’ About Retirement,"White shared details of Jon Jones’ retirement call, plus the secret plan for Jones vs. Aspinall that the UFC CEO said ‘Bones’ agreed to.",news,https://www.mmamania.com/2025/6/22/24453767/dana-white-shares-details-of-phone-call-with-jon-jones-he-was-absolutely-sure-he-wanted-to-retire,Analog Devices
-2025-06-22 19:35:35,FMCG companies roll out the red carpet for kiranas amid quick commerce boom,"FMCG giants like ITC, Nestle, and Coca-Cola are renewing their focus on general trade distributors by offering premium products and improved margins. This strategic shift comes after a period where quick-commerce platforms gained traction, prompting concerns …",news,https://economictimes.indiatimes.com/industry/cons-products/fmcg/fmcg-companies-roll-out-the-red-carpet-for-kiranas-amid-quick-commerce-boom/articleshow/122010436.cms,Analog Devices
-2025-06-22 19:35:34,Pro Medicus And 2 Other High Growth Tech Stocks In Australia,"In the current Australian market landscape, the ASX 200 futures are indicating a slight dip of -0.2% amid geopolitical tensions and mixed economic signals...",news,https://finance.yahoo.com/news/pro-medicus-2-other-high-193534798.html,Analog Devices
-2025-06-22 19:34:15,"Show HN: Rotta-Rs, Deep Learning Framework in Rust","AI deep learning framework developed with rust language that focuses on simplicity in building models, currently version 0.0.2 therefore lacks features and is prone to bugs, but can already create simple models
-
-Comments URL: https://news.ycombinator.com/item…",news,https://github.com/araxnoid-code/ROTTA-rs,Analog Devices
-2025-06-22 19:32:03,How to Train Your Dragon Director Talks Scrapped Sequences,"The live-action adaptation of How to Train Your Dragon has officially soared into theaters, bringing with it a wave of nostalgia, impressive visuals, and strong box office momentum. Released on June 13, the film opened to an $83.7 million domestic weekend and…",news,https://bleedingcool.com/movies/how-to-train-your-dragon-director-talks-scrapped-sequences/,Analog Devices
-2025-06-22 19:30:00,"Trump's Iran strikes ignite debate on presidential authority, win praise from Republicans","Democrats, and a few Republicans, said the strikes were unconstitutional, and demanded more information in a classified setting.",news,https://roanoke.com/news/nation-world/government-politics/article_456e4194-5bed-5c97-8968-b227ccdd0634.html,Texas Instruments
-2025-06-22 19:26:49,"How to hedge against long-term USD decline for retiree living abroad (COP expenses, USD income)","I am helping my mother, a retiree living abroad, design a portfolio to hedge against long-term U.S. dollar devaluation and preserve purchasing power. We are influenced by the macroeconomic concerns highlighted by Ray Dalio and other investment leaders.
-=======
-> Tesla's European market share also dropped to 1.2% from 1.8% in May 2024.",reddit,https://www.reddit.com/r/stocks/comments/1lk6sx6/teslas_european_car_sales_nosedive_for_fifth/,"Tesla, Inc."
-2025-06-25 14:04:18,"I tried to tell my Father, but he was hell bent on buying Tesla at $300 like an idiot.","And then sold it at like $250 because he started freaking out, when I told him to just hold for the long. SMH. So, Whenever he tries to talk about stocks with me, I just point to this and tell him to stfu. Oh and the fact that he’s a narcissist, yet this silences him, is satisfying AF. 😂 ",reddit,https://i.redd.it/c8obq3fgy29f1.jpeg,"Tesla, Inc."
-2025-06-25 13:20:35,Could this be the next Amazon?,"MELI. (Mercado Libre/Free Market) They are the Amazon of the ""Amazon"" (South America!)
-
-Physical stores are still huge there, and there is a lot of runway for them to expand. They are growing by leaps and bounds. They invest in fulfillment. MELI seems like Amazon was 20years ago or so in the US.  They do compete with Amazon and AliBaba but have a very strong brand. Stock is a bit expensive at $2500. PE 62 ish, but maybe worth to keep in mind on a dip.
->>>>>>> Stashed changes
-
-Anyone smarter than me want to do some deep fundamental analysis?",reddit,https://www.reddit.com/r/stocks/comments/1lk5i03/could_this_be_the_next_amazon/,Amazon
-2025-06-25 13:09:59,(06/25) Breakouts and Breakdowns -  Interesting Stocks Today!,"This is a daily watchlist for short-term trading: I might trade all/none of the stocks listed, and even stocks not listed! I am targeting potentially good candidates for short-term trading; I have no opinion on them as investments. The potential of the stock moving today is what makes it interesting, everything else is secondary.
-
-Today is mainly focused on breakouts/breakdowns.
-
-News: [Early US intelligence report suggests US strikes only set back Iran’s nuclear program by months](https://apnews.com/article/iran-nuclear-program-military-strikes-trump-f0fc085a2605e7da3e2f47ff9ac0e01d)
-
-[**CRCL (Circle)**](https://finviz.com/quote.ashx?t=CRCL&p=d)\-Yesterday’s major level was $245, interested in if we can stay below $225 today. Currently short, and still short biased. This is still extremely run up (to me). Note that it is mainly run up due to the hype from the senate bill (GENIUS Act). Overall trying to see if we get even close to breaking $200 today. Cbase and HOOD have moved as well (upwards). Typically has a somewhat wide spread (ranges from .50 to $1) so I'm mainly trying to churn as little in this as possible. 
-
-[**NVO (Novo Nordisk)**](https://finviz.com/quote.ashx?t=NVO&p=d)\-Still somewhat selling off due to news from their discontinuation of their discontinuation with HIMS, citing illegal practices. Interested in if we can break the multi-day lows of $68. Fragment of a comment I read: ""Hims/Hers is advertising Wegovy all over the place, but if you go through their signup process, they have you fill out a questionnaire to supposedly see which medication is best for you. And if you say price is a big factor for you, then they recommend their own compound meds over the name brand."" According to NVO, the decision comes after Hims & Hers allegedly failed to comply with laws prohibiting mass sales of compounded drugs.
-
-[**NVDA (NVIDIA)**](https://finviz.com/quote.ashx?t=NVDA&p=d)\-Nearing $150 levels and ATH, driven by the market momentum we've had lately (also unveiled the 5050 for their cheapest GPU yet but I doubt it's what's moving the needle on this stock.) Mainly interested in a technical breakout at $150 if it forms. We're nearing it premarket, but I'm mainly interested to see if this breaks it in a significant way at the open.
-
-[**FDX (FedEx)**](https://finviz.com/quote.ashx?t=FDX&p=d)\-FDX reports Adjusted EPS of $6.07). FDX declined to issue full-year earnings and revenue forecasts, citing uncertainty over U.S. trade policy with China. Interested if we sell off further to $215, but frankly this is lowest priority because there are far more interesting stocks today.
-
-<<<<<<< Updated upstream
-Would appreciate any ETF-based or international investing frameworks tailored to this kind of dual-currency situation Thanks!",reddit,https://www.reddit.com/r/investing/comments/1lhwbzj/how_to_hedge_against_longterm_usd_decline_for/,Copart
-2025-06-22 19:26:16,The Latest: US seeks to weaken longtime foe Iran striking 3 nuclear sites,The U.S. military has hit three sites in Iran and inserted itself into Israel’s effort to destroy Iran’s nuclear program in a risky gambit to weaken a longtime foe,news,https://www.wsbtv.com/news/latest-us-seeks/FBAIER6KJFGPXJ4UZNL472B7RM/,Analog Devices
-2025-06-22 19:25:00,China Is Close To Being Able To Refuel Satellites On-Orbit (And Maybe Already Has),"Up until now, satellites have not even been designed with refueling in mind, because, well, it wasn't possible. That will change if China can prove otherwise.",news,https://www.jalopnik.com/1891454/china-close-to-refueling-satellites-on-orbit/,Analog Devices
-2025-06-22 19:23:11,"May Edochie Ignores Yinka’s Online Drama, Launches Beauty Products, Shares Plush Pics From UK Hotel",May Edochie has shared good news about her latest feat with her fans online. She is launching her new product and already in London for the grand breaking event.,news,https://www.legit.ng/entertainment/nollywood/1660875-may-edochie-ignores-yinkas-online-drama-launches-beauty-products-shares-plush-pics-uk-hotel/,Analog Devices
-2025-06-22 19:22:39,"Israel targets IRGC officials, nuclear scientist, and missile bases in Iran (June 22–21 updates)","Over the past 72 hours, Israel has intensified its air campaign across Iran, striking missile and drone infrastructure in Esfahan, Bushehr, Ahvaz, Yazd, and Qom. Targets included the Imam Hossein missile base in Yazd, IRGC drone and air defense facilities, an…",news,https://www.longwarjournal.org/archives/2025/06/israel-targets-irgc-officials-nuclear-scientist-and-missile-bases-june-22-21-updates.php,Analog Devices
-2025-06-22 19:22:33,Adidas Samba Og X Liberty London Gs Blue / Off White,"The Adidas Samba OG x Liberty London GS Blue / Off White is a remarkable collaboration that brings together the iconic sportswear brand Adidas and the famed British retailer Liberty London. Known for its rich history and unique floral prints, Liberty London l…",news,https://www.kicksonfire.com/adidas-samba-og-x-liberty-london-gs-blue-off-white,Analog Devices
-2025-06-22 19:22:23,Soars 21% W/W on GMS Bid,"In This Article:
-QXO, Inc. (NYSE:QXO) is one of the Double-Digit Winners: 10 Stocks Crushing The Market.
-QXO saw its share prices jump by 21 percent to end Friday’s trading at $23.79 versus the $19.66 a week earlier, with investor sentiment bolstered by its p…",news,https://biztoc.com/x/d86cda7d2a58f693,Analog Devices
-2025-06-22 19:21:49,"Tesla officially launches robotaxis in Austin to a small group of users, charging a $4.20 flat fee per ride","Tesla launched its robotaxis to a limited number of users in Austin on Sunday.
-Tesla
-Tesla launched its first robotaxis to the public in Austin on Sunday after years of delays.
-A small group of users was invited to try the self-driving cars for a flat fee of …",news,https://biztoc.com/x/748c8cb6e1030ede,"Tesla, Inc."
-2025-06-22 19:21:39,"IDF Spokesman: We are deepening our strikes, but Iran can still shoot",Israeli strikes target IRGC missile infrastructure in Yazd and Shahroud amid broader regional campaign.,news,https://www.israelnationalnews.com/news/410480,Idexx Laboratories
-2025-06-22 19:20:26,"'We must act immediately to halt the fighting,' UN Secretary General tells Security Council following US bombing of Iran","The UN Security Council convened after the US military operation Midnight Hammer. The US aerial strike hit Iranian nuclear sites. These sites were at Fordow, Natanz, and Isfahan. UN Secretary-General Antonio Guterres urged immediate de-escalation. He also cal…",news,https://economictimes.indiatimes.com/news/defence/we-must-act-immediately-to-halt-the-fighting-un-secretary-general-tells-security-council-following-us-bombing-of-iran/articleshow/122010245.cms,GlobalFoundries
-2025-06-22 19:17:24,Adidas Superstar Ii Gs Core Black / Signal Green,"The Adidas Superstar II GS in Core Black and Signal Green is a striking rendition of the classic sneaker, known for its iconic shell toe design and timeless appeal. This iteration maintains the familiar silhouette that has been a staple since the Superstar's …",news,https://www.kicksonfire.com/adidas-superstar-ii-gs-core-black-signal-green,Analog Devices
-2025-06-22 19:15:41,"Grim Dawn: Fangs of Asterkarn Will Be the Game’s Biggest Expansion by Far, But It Might Be Delayed to 2026","It's been a couple of years since Crate Entertainment announced Grim Dawn: Fangs of Asterkarn, a new expansion coming to the hack-and-slash action RPG. Back then, the US-based studio estimated a launch in 2024, which clearly didn't happen. Now, the developers…",news,https://wccftech.com/grim-dawn-fangs-of-asterkarn-will-be-the-games-biggest-expansion-by-far-but-it-might-be-delayed-to-2026/,Analog Devices
-2025-06-22 19:11:29,Soars 80% W/W as Analyst Recommends to “Buy” Its Stock,"Circle Internet Group (NYSE:CRCL) is one of the Double-Digit Winners: 10 Stocks Crushing The Market.
-Circle Internet skyrocketed by 80 percent week-on-week, closing at $240.28 versus the $133.56 on June 13, with investor sentiment bolstered by a flurry of cat…",news,https://biztoc.com/x/263e4e898b11be16,Analog Devices
-2025-06-22 19:11:14,Skyrockets 52% W/W. Time to Take Profits?,"In This Article:
-Oscar Health, Inc. (NYSE:OSCR) is one of the Double-Digit Winners: 10 Stocks Crushing The Market.
-Oscar Health jumped by 52 percent week-on-week, finishing at $21.22 versus the $13.95 on June 13, with analysts naming it a meme stock amid the …",news,https://biztoc.com/x/f71163c05ecdd67f,Analog Devices
-2025-06-22 19:11:13,Musk says Tesla Launching Robotaxis Sunday in Austin,The company says its robotaxis will not operate in bad weather or carry passengers below 18-years-old.,news,https://biztoc.com/x/002269492a192e54,Analog Devices
-2025-06-22 19:10:57,Israel Unsure Iran Nuke Program 'Annihilated' After US Strikes: Official,"Voice is AI-generated. Inconsistencies may occur.
-During a Sunday morning press conference, U.S. Defense Secretary Pete Hegseth said that ""many presidents have dreamed of delivering the final blow to Iran's nuclear program, and none could until President Trum…",news,https://biztoc.com/x/2d1c0519e3ac8809,Analog Devices
-2025-06-22 18:14:37,Advice about ethical investing?,"
-So, for context, I’m from Spain and almost 30. I started investing around two years ago, when I didn’t really know how it worked. My biggest investment was my current house, which I bought for around 200,000€, and I’ve also put some money into the stock market sporadically (around 3,000€ total), investing in the classics like Amazon, Apple, Microsoft, Nvidia, and Coca-Cola, by buying individual stocks through Revolut, not funds or ETFs.
-
-I never invested in Tesla, Netflix, and some other companies because they go against my values (Elon Musk, subscription services, gas or arms companies, etc.). But over time, I’ve realized that many of the companies I have invested in don’t align with my morals either, especially after some of them publicly supported Trump (Meta, Amazon, etc.) or Israel (Carrefour, McDonald’s, and many more).
-
-Now I’m dealing with an internal conflict. I want to make money, but not by supporting unethical companies. I’ve noticed that a lot of funds and ETFs also include these companies in different proportions, and the ones that don’t often don’t perform well. So it’s hard to find ways to invest that feel both profitable and principled.
-
-I guess my questions are: how do you align your values with your investments? Do you think there’s a middle ground, and if so, how do you find it? Do you have any recommendations for specific companies, funds, or ETFs that are both ethical and profitable? Or would it make more sense to put the money into a high-yield savings account, crypto, gold, or something else?
-
-All feedback is welcome.
-",reddit,https://www.reddit.com/r/investing/comments/1lhul3c/advice_about_ethical_investing/,Analog Devices
-2025-06-22 18:14:16,Is gold any better than other assets in a global crisis scenario?,"Gold is often compared to Bitcoin being the superior money in case of a global crisis or a total blackout.
-
-It is definitely nice to have some gold on an online balance sheet, but other than that, does gold provide any security or utility for the everyday Joe?
-
-If the world suffered a blackout, no one has physical gold in any meaningful amount or form to use as a medium of exchange.
-
-Why so many people say gold is superior money in a crisis scenario?",reddit,https://www.reddit.com/r/investing/comments/1lhukt0/is_gold_any_better_than_other_assets_in_a_global/,Analog Devices
-2025-06-22 17:01:06,Roth IRA or continue with 401k?,"I make roughly 1,400 per paycheck (bi). .10 of that goes into a 401k which Starbucks matches up to .5.
-My bills come out to roughly 1200 per month.
-I’d really like to get more into stocks but I don’t know if my budget works fit it. Should I stick with my 401k or do a Roth?
-Any adg advice is appreciated.",reddit,https://www.reddit.com/r/investing/comments/1lhssik/roth_ira_or_continue_with_401k/,Analog Devices
-2025-06-22 16:30:40,Predictable swing trade for NVDA?,"I'm very new to investing, like in December will be 2 years. 
-=======
-**Earnings:** [**MU**](https://finviz.com/quote.ashx?t=MU&p=d)",reddit,https://www.reddit.com/r/stocks/comments/1lk598g/0625_breakouts_and_breakdowns_interesting_stocks/,Intel
-2025-06-25 12:40:36,OpenAI’s Self-Driving Ambitions (with TSLA and GOOG),">The artificial intelligence company has set many challenging goals. Autonomous vehicle software is now among them - but may pit the company against Tesla.
->>>>>>> Stashed changes
-
->
-
->Sam Altman has made many big claims about what OpenAI will be able to do, including spearheading ultra-expansive data centers and building artificial intelligence that can rival the abilities of Ph.D. holders.
-
-<<<<<<< Updated upstream
- I'm not arguing with their approach, they know better. But if someone could explain why swing trading is bad and what you are doing with nvda right now I'd be very grateful. I'm itching to sell at 140. ",reddit,https://www.reddit.com/r/stocks/comments/1lhs2k8/predictable_swing_trade_for_nvda/,Nvidia
-2025-06-22 15:41:25,$LMT. Come back of the year. Round 2,"Almost sold on Friday and cut my losses down 20k
-
-Gave it the weekend to see if some magic would happen.
-
-Tomorrow is going to be wild
-
-515 inbound. ",reddit,https://i.redd.it/x38u6u421i8f1.jpeg,Analog Devices
-2025-06-22 15:37:05,Monthly income from taxable account?,"I have a friend who just bought MSTY in his taxable account in order to generate monthly income. I know nothing about this strategy of investing. He is far from retirement but won’t listen to reason. He also invests long term and takes my advice there.
-
-Does he just uncheck reinvest dividends and then pull whatever is deposited into his core account into his checking except for what will be owed in taxes based on the short term capital gains rate he has? I told him to put 22% of what MSTY into SGOV or HYSA for taxes.
-
-Bonus question: What are some other ticker symbols he can use to generate monthly income? He wants some of his taxable portfolio to throw off extra money right now while he long term invests for retirement.
-
-Be gentle, I only know how to long term invest DCA style at all times and double DCA dips and HODL. He is hellbent in getting some extra money monthly. I mentioned OMAH, SPYI, QQQI, and BTCI but no idea if that was good advice. ",reddit,https://www.reddit.com/r/stocks/comments/1lhqsr1/monthly_income_from_taxable_account/,Analog Devices
-2025-06-22 15:33:44,$60K on TSLA Puts:  Why TSLA Will Be Down Big Next Few Weeks.,"In no particular order:
-
-- Iran news completely overshadows the Robotaxi launch which was likely a sell-the-news event anyways.
-
-- Weekend fake internet money prices point to a selloff in stocks.  TSLA highly correlated to fake internet money.
-
-- TX senate vote and signature of Governor requiring all autonomous vehicles to get to Level autonomy in order to operate starting in September.  This is a huge precedent which now means TSLA robotaxis will take much longer to scale because each State will have its own autonomous driving thresholds and review periods.  Waymo will continue to expand faster than TSLA.
-
-- Attention now shifts to July 22 earnings.  Sales are pretty much down YoY throughout most of the entire world.  Analyst downgrades are coming.  TSLA will likely lower full year guidance.
-
-- I expect a class action lawsuit from disgruntled HW3 owners soon because they are all realizing Elon lied about HW3 getting a free upgrade to HW4 and beyond.  It is clear now that HW3 vehicles wont ever have true FSD and the legal liability will be in the tens of billions of dollars.
-
-- Elon is still popping off about one of Mango’s closest White House aides.  The probability of Elon pissing off Mango again is not insignificant.
-
-- $7,500 EV Tax Credit likely expires at the end of this year.
-
-- Oil spike likely means Fed delays rate cuts further.  High P/E stocks like TSLA generally suffer more in higher rate environments especially if economic growth is also slowing.
-
-",reddit,https://i.redd.it/pefm04tozh8f1.jpeg,Analog Devices
-2025-06-22 15:30:15,"Tesla Misses Robotaxi Launch Date, Goes With Safety Drivers",Surprise surprise ,reddit,https://www.forbes.com/sites/bradtempleton/2025/06/22/tesla-misses-robotaxi-launch-date-goes-with-safety-drivers/,"Tesla, Inc."
-2025-06-22 13:54:21,What value is there in Waymo for Google,"I'm having a hard time understanding this move, the taxi industry isn't really know for its margins, it seems like a lot of capital for a high volume low margin business that really doesn't seem that helpful to society either. It seems to me they were largely baited into this because of Tesla and North America has another excuse not to fund better public transit.
-
-Whats your take",reddit,https://www.reddit.com/r/stocks/comments/1lhog0g/what_value_is_there_in_waymo_for_google/,Alphabet Inc. (Class A)
-2025-06-22 09:49:52,Keep 21k in fund or go for riskier stocks?,"
-Im 28m, Have 21k in s&s ISA invested in L&G Global 100 fund at about a 6% gain
-
-Im thinking to sell and go 50/50 into AST spacemobile (ASTS) and Nebius Group (NBIS).
-
-I have done alot of research on these compaines and really believe the potential if far better for a long term gain than the current fund I am in.
-
-Please give me your thoughts",reddit,https://www.reddit.com/r/investing/comments/1lhk6sz/keep_21k_in_fund_or_go_for_riskier_stocks/,Analog Devices
-2025-06-22 09:49:19,Next best OKLO buy in?,"So US hit Iranian nuclear sites so would this have short term stress on OKLO or will OKLO manage to hold it out and keep climbing? And would OBBBA be impactful enough on OKLO to reduce its stock or is it more resilient? I'd assume if OBBBA gets rid of environmental tax credits, it could hurt OKLO in their next earnings but I don't know how that could work since OKLO isn't making money. I'm just trying to find a good price to buy in shares and hoping the stock plummets again after this short term hype to make the most of my money. ",reddit,https://www.reddit.com/r/stocks/comments/1lhk6ih/next_best_oklo_buy_in/,Analog Devices
-2025-06-22 09:31:43,Anyone else here self-taught in managing their own investments after a windfall or inheritance? How’s it going for you?,"Hi all, I’m in my late 20s, working a pretty standard tech job (did a few years in retail before that). Sometime last year, I was fortunate enough to receive a mid to high 5 figure inheritance from family. At first, I let the bank’s advisors handle it, but honestly the returns were pretty underwhelming. So I decided to start learning on the side on my own. Taught myself the basics of investing, lots of youTube, books and lurking on this sub haha.
-
-Fast forward to a year now, and I’ve managed to grow my little inheritance to just over six figures. Nothing crazy, but I’m pretty proud considering I started with zero experience and just learned as I went. I’m still keeping things pretty conservative (mostly index funds, some blue-chip stocks, and a bit of crypto for fun).
-
-My main goal is to save up for a down payment on a property in the next few years, so I’m trying to balance growth with not taking on too much risk.
-
-Curious if anyone else here is in a similar boat, either got a windfall, received an inheritance or just decided to take the DIY route with their investments. How’s it going for you? How long have you been managing your own portfolio, and what’s been your biggest lesson so far?
-
-Would love to hear some stories, tips, or even just cheer each other up about the learning curve, process, etc. Thanks!",reddit,https://www.reddit.com/r/investing/comments/1lhjxii/anyone_else_here_selftaught_in_managing_their_own/,Analog Devices
-2025-06-22 08:01:08,"Daily General Discussion and Advice Thread - June 22, 2025","Have a general question? Want to offer some commentary on markets? Maybe you would just like to throw out a neat fact that doesn't warrant a self post? Feel free to post here!
-
-Please consider consulting our FAQ first - [https://www.reddit.com/r/investing/wiki/faq](https://www.reddit.com/r/investing/wiki/faq) And our [side bar](https://www.reddit.com/r/investing/about/sidebar) also has useful resources.
-
-If you are new to investing - please refer to Wiki - [Getting Started](https://www.reddit.com/r/investing/wiki/index/gettingstarted/)
-
-The reading list in the wiki has a list of books ranging from light reading to advanced topics depending on your knowledge level. Link here - [Reading List](https://www.reddit.com/r/investing/wiki/readinglist)
-
-The media list in the wiki has a list of reputable podcasts and videos - [Podcasts and Videos](https://www.reddit.com/r/investing/wiki/medialist)
-
-If your question is ""I have $XXXXXXX, what do I do?"" or other ""advice for my personal situation"" questions, you should include relevant information, such as the following:
-
-* How old are you? What country do you live in?
-* Are you employed/making income? How much?
-* What are your objectives with this money? (Buy a house? Retirement savings?)
-* What is your time horizon? Do you need this money next month? Next 20yrs?
-* What is your risk tolerance? (Do you mind risking it at blackjack or do you need to know its 100% safe?)
-* What are you current holdings? (Do you already have exposure to specific funds and sectors? Any other assets?)
-* Any big debts (include interest rate) or expenses?
-* And any other relevant financial information will be useful to give you a proper answer.
-
-Check the resources in the sidebar.
-
-Be aware that these answers are just opinions of Redditors and should be used as a starting point for your research. You should strongly consider seeing a registered investment adviser if you need professional support before making any financial decisions!",reddit,https://www.reddit.com/r/investing/comments/1lhimqs/daily_general_discussion_and_advice_thread_june/,Analog Devices
-2025-06-22 05:13:27,Is TLT now a good play with the Iran conflict?,"Is TLT the great thing to do, bonds?
-
-
-TLT has been a safe haven. They say treasuries aren't safe. There is so much noise that I can't identify a solid strategy for stability. Will people flock to bonds for stability with so much going on?",reddit,https://www.reddit.com/r/stocks/comments/1lhg29q/is_tlt_now_a_good_play_with_the_iran_conflict/,Marriott International
-2025-06-22 04:14:34,Should I add Roth and/or IRA to my portfolio?,"I have more or less these in my family's portfolio:
-
-40k in cash
-120k in ETFs
-400k in combined retirement accounts 457 and 401k.
-
-Both me and the wife have government jobs that have pensions...I myself can retire in 10 years. Hopefully my house will be paid in 11 years.
-
-My question is am I missing anything by not having a Roth or IRA?
-
-I am paying low interest rates on my mortgage so I basically have minimal deduction from it.  So I'm maxing out as much as I can on contributions to the 457 and 401k to take advantage of the tax deferment.
-
-Any advice? Thanks!",reddit,https://www.reddit.com/r/investing/comments/1lhf3tn/should_i_add_roth_andor_ira_to_my_portfolio/,Analog Devices
-2025-06-22 04:03:00,Historical Prices vs Historical Performance Claims,"I need some help on the stock system as a whole. I'm doing some research on stock price history.
-
-In the period from 1980 to 1990, several stocks were considered ""best performers"", including USB, Circuit City, Nike, and some others. Nike is listed as having a 23,000% return. Circuit City was supposed to have a 90x return. USB is listed as a 22,000% return.
-
-But when I review the historical prices... I don't see where those returns come from.
-
-Take USB:
-Jan 1980 price about $0.70
-Dec 1989 price about $2.35 (3x increase)
-
-Stock splits
-1984 1.1 for 1
-1985 2 for 1
-1989 2 for 1 (roughly 5.5x cumulative)
-
-All that together is roughly a 1500% return.
-
-There are dividends, roughly quarterly. So that might account for it. Some are into the forty cents a share and some are not even a dime per share.
-
-NIKE is even worse though.
-Jan 1981 price about $0.16
-Dec 1989 price about $0.87 (5.5x increase)
-
-1x 2:1 stock split in the entire decade
-
-6x $0.10 and 1x $0.15 dividend the entire decade.
-
-How does anyone get a 23000% return from that?
-
-What am I missing?
-
-",reddit,https://www.reddit.com/r/stocks/comments/1lhewq2/historical_prices_vs_historical_performance_claims/,Analog Devices
-2025-06-22 03:42:16,Predictions for Monday's Market.,"“Oil is sure to spike on this initial news.""
-
-An increase in oil price will likely lead to a spike in EV stocks (EV becomes more appealing with rising oil prices).
-
-""I think it’s going to be very positive for the stock market,"" due to a decrease in uncertainty on the US stance.
-
-""Likely to cause a selloff in equities and a possible bid for the dollar and other safe-haven assets when trading begins.""
-
-[https://finance.yahoo.com/news/investors-react-us-attack-iran-004412666.html](https://finance.yahoo.com/news/investors-react-us-attack-iran-004412666.html)
-
-[https://www.reuters.com/business/energy/middle-east-tensions-put-investors-alert-weighing-worst-case-scenarios-2025-06-21/](https://www.reuters.com/business/energy/middle-east-tensions-put-investors-alert-weighing-worst-case-scenarios-2025-06-21/)",reddit,https://www.reddit.com/r/stocks/comments/1lhejul/predictions_for_mondays_market/,Analog Devices
-2025-06-22 02:18:06,I feel like a horrible human,https://m.youtube.com/watch?v=s8hEtI9AI0U&pp=0gcJCdgAo7VqN5tD,reddit,https://i.redd.it/51fvuzkq1e8f1.jpeg,Analog Devices
-2025-06-22 01:59:56,What are your opinions on gold after the US decided to enter into war?,"I feel like low key gold could high key be an excellent investment given the instability in the middle east and the fact that the most powerful nation in the world decided to get involved in the conflict. Regardless of whether or not you support those guys having WMDs, it's certainly alarming to see the recent escalation. It makes me think that we could see $5000 gold by the end of the year. I think it could be a very promising move, at least in the near term. Opinions?",reddit,https://www.reddit.com/r/investing/comments/1lhcpym/what_are_your_opinions_on_gold_after_the_us/,Analog Devices
-2025-06-22 01:54:51,Time to buy defense stocks? SHLD? Lockheed Martin?,"Trump just dropped a few bombs on Iran today. Is it time to throw some money in some defense stocks to make some easy $$$??
-
-(Novice investor! I am just getting my feet wet so please don’t come for me)
-",reddit,https://www.reddit.com/r/stocks/comments/1lhcmp4/time_to_buy_defense_stocks_shld_lockheed_martin/,Analog Devices
-2025-06-22 01:51:42,USA bombed Iran. What's next for the market? SP500 and global,"USA bombed Iran's nuclear sites 2 hours ago. Retaliations are expected. Hopefully it doesn't escalate too much.
-
-How do you think this will affect the S&P 500 and global market?
-
-What's worth looking into or selling in your opinion?
-
-[https://www.cnn.com/world/live-news/israel-iran-conflict-06-21-25-intl-hnk#cmc6vpmny000k3b6niyffgdws](https://www.cnn.com/world/live-news/israel-iran-conflict-06-21-25-intl-hnk#cmc6vpmny000k3b6niyffgdws)",reddit,https://www.reddit.com/r/stocks/comments/1lhckos/usa_bombed_iran_whats_next_for_the_market_sp500/,Analog Devices
-2025-06-22 01:22:11,HSA Contribution Question,"Hi Everyone,
-
-I have maxed out my “individual” contribution limit to my HSA for 2025. My fiance and I are getting married in December and once that happens, she will be added to my benefits package.
-
-Am I able to contribute the other $4200 ish to max out the “family” contribution limit before we are married as long as it’s in the account before December 1st? I currently have the money in savings ready to be deposited.
-
-Thanks for the help.",reddit,https://www.reddit.com/r/investing/comments/1lhc1fp/hsa_contribution_question/,Analog Devices
-2025-06-22 01:17:32,Declining Tender Offer - Then what?,"I've been holding BPMC and it looks like Sanofi is planning on acquiring it.
-
-There is a tender offer for $129/share.
-
-
-What happens if I decline the tender offer? Will my BMPC shares be converted to Sanofi?
-
-
-Very new to this. There isn't much info online. Thank you so much!",reddit,https://www.reddit.com/r/stocks/comments/1lhbycm/declining_tender_offer_then_what/,Analog Devices
-2025-06-22 00:59:06,Printing,Casino is paying off this week 💰 ,reddit,https://www.reddit.com/gallery/1lhblsy,Analog Devices
-2025-06-22 00:20:41,What will the market do Monday after attack on Iran?,Obviously this is a breaking development and there will be a lot of uncertainly over the next 24 hours. I assume oil will go up and any highly oil contingent industries will drop. Defense stocks will probably go up but what other ramifications do people see. Are you going to buy a potential dip? Or stay away ? ,reddit,https://www.reddit.com/r/investing/comments/1lhavdk/what_will_the_market_do_monday_after_attack_on/,Analog Devices
-2025-06-21 23:36:35,Investing crypto in portfolio management platforms a good idea?,"Investing in some portfolio management and using their prebuilt strategies like DAC, grid bot etc, is it worth it?
-
-I am looking forward to investing 3k in it. I would like to know if it is a good decision or not and are there returns?
-
-Is the investment safe?
-
-I tried some bots online, but it is all a sca,m especially volatile markets like the meme coin market.
-
-Don't know any good copy trading platform that does automated copy trading platform that does automated trading in futures or spot and is effective. I am expecting normal returns.
-
-I tried copy trading on finance,, but it wasn't as good or safe as it should be given the return ratio and the PNL ratio of traders there.",reddit,https://www.reddit.com/r/investing/comments/1lh9zol/investing_crypto_in_portfolio_management/,Analog Devices
-2025-06-21 19:28:19,For the US investors looking to diversify internationally ...,"As the dollar goes to the toilet, and the S&P is owned more and more from US retail, I'm looking into the world to not have a president that treats the stock market like his milking cow.
-
-So, I have been looking into the recommendations from Rob Citrone's thesis on Argentina and India
-I have been looking at Steve Schwartzman of Blackstone investing $500 billion in Europe going forward
-
-I pay attention at the demographic bomb that the very well developed countries are having thus as TLDR I am looking at
-
-LATAM
-EUR
-INDIA
-
-IF you are investing in international scene going forward, what is your frame of thinking and your investment thesis?
-
-Thank you in advance.",reddit,https://www.reddit.com/r/stocks/comments/1lh4oyq/for_the_us_investors_looking_to_diversify/,Analog Devices
-2025-06-21 18:50:25,Lumpsum inheritance vs keep for rental property,"So in a situation where my parents passed away and their home, still having an $80,000 mortgage on a (Zillow) value of $270,000.
-
-My current situation is 38 year old with ~$600,000 in investments between 401k, Roth IRA, Crypto, brokerage, HSA, and HYSA.  Currently I'm fortunate enough to max out my 401k, Roth IRA for myself and spouse, max HSA, and have some extra I put into brokerage accounts monthly. Also we have a primary residence with a mortgage at 3.375% interest, current mortgage value is around 50% of current home vaule.
-
-I'm trying to decide on of I should sell the inherited home and take the lump sum to invest in brokerage or keep the house as a rental property.  Based on my numbers I think I have to get a new mortgage on the rental property around $120,000 to do some home improvements before it's ready to rent.  Expected rent would be around $1,800-$1,900 and I would prefer to use a property management company to stay as hands off as I could.
-
-My mind is telling me it's be good to keep property as a rental for future passive income and maybe the first stepping stone into a few rentals down the line.  However it's hard for me to not just take the lump sum and grow it at 7%-10% per year in the market.
-
-Looking for any opinions that I'm missing to help with decision.  Thanks for reading.",reddit,https://www.reddit.com/r/investing/comments/1lh3tsf/lumpsum_inheritance_vs_keep_for_rental_property/,Analog Devices
-2025-06-21 16:03:55,Potential conflict of interest from wealth management company,"Hey folks, my girlfriend recently asked me to take a look at her managed investment portfolio to get a second opinion, and I found something a bit strange. A sizable amount of her portfolio was recently invested in a very new ""actively managed fund"" that I had never heard of, ticker FFOX.
-
-Upon further inspection, there are a few odd things that jumped out:
-\- 1% Expense Ratio.
-\- Nearly half of the fund is just a collection of other ETFs.
-\- It is owned and managed by the same wealth management company.
-\- The expense ratio is buried way at the bottom of the fund’s site, and holdings are listed alphabetically (so it’s easy to miss that most of the fund is just other ETFs).
-
-After I learned this, I asked my girlfriend to get in touch with her parents, who use the same wealth management company, and it turns out they also have a chunky amount of money invested in this fund. Neither of them were informed about this move.
-
-This strikes me as a massive conflict of interest, and straight up shady business practice. I have never worked with a wealth advisor, so before I raise the alarm bells, I just wanted to check in here -- am I misinterpreting anything, or does this indeed feel like a huge red flag?",reddit,https://www.reddit.com/r/investing/comments/1lgzzs4/potential_conflict_of_interest_from_wealth/,Analog Devices
-2025-06-21 16:00:35,"r/Stocks Weekly Thread on Meme Stocks Saturday - Jun 21, 2025","The meme stock scheduled posts will now run weekly and post Saturday afternoon and won't be a sticky; you're probably seeing this because automod sent you here!
-
-[Full list of meme stocks here.](https://www.reddit.com/r/stocks/wiki/meme-stocks)  This will be updated every once in a while.
-
-------
-
-Welcome traders who just can't help them selves discuss the same exact stock that's been discussed 100s of times a day.  I get it, you want to talk about what's popular, what's hot, and that 1.. single.. stock you like.. well here you go!  Some helpful links just for you:
-
-* [Previous meme stock threads](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3A%28common+OR+meme%29&restrict_sr=on&include_over_18=on&sort=new&t=all)
-* [General discussions](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3Adiscussion&restrict_sr=on&include_over_18=on&sort=new&t=all)
-* [The **original GME megathread**](https://www.reddit.com/r/stocks/comments/layb68/rstocks_gme_megathread/) with a ton of useful information
-* [Use Finviz for aggregated news on your favorite stock](https://finviz.com/quote.ashx?t=gme)
-
-An important message from the mod team [regarding meme stocks.](https://www.reddit.com/r/stocks/wiki/meme-stocks-warning)
-
-Lastly if you need professional help:
-
-* Problem Gambling:  Call/Text: 1-800-522-4700 or [chat online now.](https://WWW.NCPGAMBLING.ORG/CHAT)
-* Crisis Hotline (24/7): 1-800-273-TALK (8255) (Veterans, press 1) or Text “HOME” to 741-741",reddit,https://www.reddit.com/r/stocks/comments/1lgzwxv/rstocks_weekly_thread_on_meme_stocks_saturday_jun/,ADP
-2025-06-21 15:50:17,Brokerage with automatic buys and sells for income and expenses,"I was wondering if there is a brokerage where I could set my paycheck to direct deposit in, have it automatically invested in ETFs, than sell as needed and setup it up to pay things like a credit card, does such an account exist, or anyway i could set up an account to do parts of this?",reddit,https://www.reddit.com/r/investing/comments/1lgzoi6/brokerage_with_automatic_buys_and_sells_for/,Analog Devices
-2025-06-21 15:11:29,Investing in energy transition projects,"Hello,
-
-I invested into projects on this platform : [https://fr.enerfip.eu](https://fr.enerfip.eu)
-
-Rate : about 7% - local taxes.
-
-There are other projects on [https://www.lumo-france.com](https://www.lumo-france.com), [https://www.lendopolis.com](https://www.lendopolis.com), [https://www.lendosphere.com](https://www.lendosphere.com) and https://miimosa.com.
-
-Do you know other platforms like these?",reddit,https://www.reddit.com/r/investing/comments/1lgysx6/investing_in_energy_transition_projects/,Analog Devices
-2025-06-21 14:53:42,Is it worth investing if I have very little upfront?,"I’ve always been told to only invest what I’m willing to lose. With that in mind, I really can’t do more than a couple of thousand right now. Is it even worth it if that’s all I have to start with? Or should I continue to save and invest when I have more upfront?
-
-Also, is now a horrific time to begin investing considering the current politics? I know very little so would love to hear thoughts!
-
-Thank you!! ",reddit,https://www.reddit.com/r/investing/comments/1lgyeji/is_it_worth_investing_if_i_have_very_little/,Analog Devices
-2025-06-21 13:58:21,What are the best companies to benefit from increased power/grid demand?,"AI demand is already producing strain on existing grid and power plants. Fairfax county VA recently passed restrictions on new data centers due to partially due to concerns related to energy demands and grid stability. No matter what though new AI GPUs and data centers will require more and more electricity. EVs will also require more power consumption as their market share increases. There is also going to be some demand for heat pumps replacing oil/gas furnaces particularly in the Northeast and Midwest.
-
-It seems like no matter what there will need to be billions spent on the grid regionally and nationally for the reasons above. Which companies will benefit the most from this? Looking at either companies that either sell large amounts of raw materials provided or that sell unique components/services that grid providers will need and pay a premium for. ",reddit,https://www.reddit.com/r/stocks/comments/1lgx6xa/what_are_the_best_companies_to_benefit_from/,Analog Devices
-2025-06-21 13:26:50,Employer stop contributing to my 401k,"I've been giving the max allowed, 22%. Their agreement doesn't allow me to withdraw my funds while I'm still employed. Although, I can stop contributing. I also don't have a choice and what they invest in. Of course it's not growing very fast, barely keeping up with inflation.
-
-Should I stop contributing and send that money to my taxable brokerage account? I believe there are some protections built into money inside of 401k versus a brokerage account. But I'm 58 years old and I hope to retire in four or five years and I need growth right now.",reddit,https://www.reddit.com/r/investing/comments/1lgwjn2/employer_stop_contributing_to_my_401k/,Analog Devices
-2025-06-21 13:17:50,Thoughts on this Allocation?,"Thoughts on this allocation?
-
-Hopefully retiring in 30-40 years.
-
-DOMESTIC:
-- 60% | SPTM - TOTAL US MARKET
-
-- 5% | CLOZ - US BBB SENIOR CORP LOANS
-
-- 5% | UTES - AMERICAN UTILITIES
-- 5% | XAR - AMERICAN AEROSPACE & DEFENSE
-
-INTERNATIONAL:
-- 10% | AVDE - INTL EX-US EQUITY
-
-- 5% | FSCO - INTL FIXED INCOME
-
-- 5% | QTUM - INTL MACHINE LEARNING
-- 5% | FTWO - INTL RESOURCE & DEFENSE
-
-I have UTES/XAR/QTUM/FTWO as my tinkering/fun part of the portfolio, also somewhat of a defensive core against market crash. Should I get rid of this and simply reallocate to total market funds for long term growth?
-
-I have CLOZ/FSCO as purely a safety net of capital preservation & compounding dividends. I currently have about 140 shares of both which nets me 1 share of each fund every month.
-
-I feel like I have the basis of what I want to invest in listed, but I also feel like it may be too complicated to keep in balance.
-
-Any advice would be greatly appreciated.",reddit,https://www.reddit.com/r/investing/comments/1lgwd87/thoughts_on_this_allocation/,Analog Devices
-2025-06-21 12:59:25,Anyone buying JD.com US47215P1066 · A112ST,"
-
-Share &amp; Analyst Opinion
-• Current price: ~31.44 USD (US trading system)
-• Analyst estimates:
-• Consensus: &quot;Outperform&quot; with price targets of around 52.9 USD .
-• Citi: &quot;Buy&quot; with a target of 51 USD (+41%) .
-
-Business development &amp; Q1 2025
-• Revenue Q1 2025: 301.1 billion ¥ (approx. 41.5 billion USD), +15.8% compared to Previous year
-• Adjusted earnings per share: ¥8.41, +49% YoY, stronger than expected
-• Operating profit: ¥10.5 billion, margin improved to 3.5% (retail 4.9%)
-• Net profit (GAAP): ¥10.9 billion, +52.7% YoY
-• Shareholder buyback: USD 1.5 billion in Q1, program with USD 3.5 billion remaining volume
-• Cash reserves: approximately ¥203 billion (~USD 28 billion) at the end of the quarter
-
-Conclusion: JD.com significantly exceeded expectations, showing strong sales and profit growth while simultaneously expanding its margin.",reddit,https://www.reddit.com/r/stocks/comments/1lgvzrg/anyone_buying_jdcom_us47215p1066_a112st/,Analog Devices
-2025-06-21 11:51:51,Should I rework my portfolio to change the Distributed ETFs to accumulated?,"Hi everyone. I started investing 4 years ago after reading Mr. Bogle's book (low cost, broad market ETFs using DEGIRO).
-
-Unfortunately I failed to understand at the time the difference between Accumulated and Distributed ETFs (and still unsure whether I get it).
-
-29% of my portfolio is allocated into Vanguard S&P 500 Distributed ETFs
-
-also, 4% onto a Emerging Markets Distributed ETF.
-
-
-Am I not losing out completely on the compounding effect by holding on to these ETFs or do I misunderstand how it works? Should I transfer that money/position to the Accumulated version of those ETFs so those dividends get reinvested automatically onto the ETF?
-
-
-Thank you!",reddit,https://www.reddit.com/r/investing/comments/1lgur5r/should_i_rework_my_portfolio_to_change_the/,Analog Devices
-2025-06-21 09:30:32,"/r/Stocks Weekend Discussion Saturday - Jun 21, 2025","This is the weekend edition of our stickied discussion thread.  Discuss your trades / moves from last week and what you're planning on doing for the week ahead.
-
-Some helpful links:
-
-* [Finviz](https://finviz.com/quote.ashx?t=spy) for charts, fundamentals, and aggregated news on individual stocks
-* [Bloomberg market news](https://www.bloomberg.com/markets)
-* StreetInsider news:
-  * [Market Check](https://www.streetinsider.com/Market+Check) - Possibly why the market is doing what it's doing including sudden spikes/dips
-  * [Reuters aggregated](https://www.streetinsider.com/Reuters) - Global news
-
-If you have a basic question, for example ""what is EPS,"" then google ""investopedia EPS"" and click the investopedia article on it; do this for everything until you have a more in depth question or just want to share what you learned.
-
-Please discuss your portfolios in the [Rate My Portfolio sticky.](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3A%22Rate+My+Portfolio%22&restrict_sr=on&sort=new&t=all).
-
-See our past [daily discussions here.](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+%22r%2Fstocks+daily+discussion%22&restrict_sr=on&sort=new&t=all)  Also links for:  [Technicals](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3Atechnicals&restrict_sr=on&include_over_18=on&sort=new&t=all) Tuesday, [Options Trading](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3Aoptions&restrict_sr=on&include_over_18=on&sort=new&t=all) Thursday, and [Fundamentals](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3Afundamentals&restrict_sr=on&include_over_18=on&sort=new&t=all) Friday.",reddit,https://www.reddit.com/r/stocks/comments/1lgskpu/rstocks_weekend_discussion_saturday_jun_21_2025/,Analog Devices
-2025-06-21 08:07:05,Any AI tools that can summarize financial reports or earnings calls?,"I’ve been spending a lot of time reading through 10-Ks, earnings call transcripts, and pitch decks lately.
-I’m wondering if there’s any AI tool that can help summarize this stuff into something more digestible, like key metrics, risks, and takeaways.
-Bonus if it can also generate a short report or slides. Would save a ton of time.",reddit,https://www.reddit.com/r/investing/comments/1lgrduk/any_ai_tools_that_can_summarize_financial_reports/,Airbnb
-2025-06-21 08:01:09,"Daily General Discussion and Advice Thread - June 21, 2025","Have a general question? Want to offer some commentary on markets? Maybe you would just like to throw out a neat fact that doesn't warrant a self post? Feel free to post here!
-
-Please consider consulting our FAQ first - [https://www.reddit.com/r/investing/wiki/faq](https://www.reddit.com/r/investing/wiki/faq) And our [side bar](https://www.reddit.com/r/investing/about/sidebar) also has useful resources.
-
-If you are new to investing - please refer to Wiki - [Getting Started](https://www.reddit.com/r/investing/wiki/index/gettingstarted/)
-
-The reading list in the wiki has a list of books ranging from light reading to advanced topics depending on your knowledge level. Link here - [Reading List](https://www.reddit.com/r/investing/wiki/readinglist)
-
-The media list in the wiki has a list of reputable podcasts and videos - [Podcasts and Videos](https://www.reddit.com/r/investing/wiki/medialist)
-
-If your question is ""I have $XXXXXXX, what do I do?"" or other ""advice for my personal situation"" questions, you should include relevant information, such as the following:
-
-* How old are you? What country do you live in?
-* Are you employed/making income? How much?
-* What are your objectives with this money? (Buy a house? Retirement savings?)
-* What is your time horizon? Do you need this money next month? Next 20yrs?
-* What is your risk tolerance? (Do you mind risking it at blackjack or do you need to know its 100% safe?)
-* What are you current holdings? (Do you already have exposure to specific funds and sectors? Any other assets?)
-* Any big debts (include interest rate) or expenses?
-* And any other relevant financial information will be useful to give you a proper answer.
-
-Check the resources in the sidebar.
-
-Be aware that these answers are just opinions of Redditors and should be used as a starting point for your research. You should strongly consider seeing a registered investment adviser if you need professional support before making any financial decisions!",reddit,https://www.reddit.com/r/investing/comments/1lgraom/daily_general_discussion_and_advice_thread_june/,Analog Devices
-2025-06-21 04:00:55,"Buying about 1500 shares of a stock, make sense to buy in small increments of 100 or all at once?","I don't fully grasp the buy/ask spread and the impact it will have based on volume.  IE, I see this for one ETF in question: Bid x size$26.74 x 200 Ask x size$26.75 x 600.  Looking to see what this would mean in the event of a 1500 share order and if it would make sense to make say, 7 orders for 200 or 2 x 600 ask price size, etc?
-
-Thanks
-Dave",reddit,https://www.reddit.com/r/investing/comments/1lgnh8c/buying_about_1500_shares_of_a_stock_make_sense_to/,Analog Devices
-2025-06-21 01:43:27,Anyone buying TMO (Thermo Fisher),"Seems to be a good company with established presence in science community. They sell all lab related equipment (from simple pipettes to complex stuff). They have only 2-3 competitors.
-
-The stock has been battered a lot due to current funding cuts for research. I feel this could be short lived (like everything else in this administration)
-
-Stock is at 5 year low and at 23 PE. Technically its oversold in weekly charts (which is a rarity) There is no company specific bad news. I feel it should come back to 450 easily by year end.
-
-Am I too optimistic?",reddit,https://www.reddit.com/r/stocks/comments/1lgky32/anyone_buying_tmo_thermo_fisher/,Moderna
-2025-06-20 20:00:55,SNAP acquires Sature social calendar,"https://finance.yahoo.com/news/snap-acquires-saturn-social-calendar-180431870.html
-
-Snap acquired Saturn, a social calendar app popular with students. Saturn reaches 80% of U.S. high schoolers, boosting Snap’s teen market dominance.
-
-1.  Teen Engagement: Saturn’s integration may increase time spent on Snapchat, as teens open it 30+ times daily.
-
-2.  Global Reach: With 443M daily users, Snap grows fastest in India (36% of users). Saturn could expand to similar markets.
-
-3.  Monetization: Ad revenue hit $1.37B in Q3 2024; Saturn’s data could refine ad targeting. Snapchat+ (9M subscribers) may add Saturn features.
-
-4.  AR/AI: Saturn could leverage Snap’s AR and AI for interactive scheduling, keeping teens hooked.
-
-
-Snap struggles to retain older users but has strategies:
-
-1.  Evolving Needs: Saturn’s tools for college and young adults could retain users transitioning to work.
-
-2.  Feature Growth: Stories, Memories, and Snapchat+ cater to maturing users; Saturn adds utility.
-
-3.  Competition: Snapchat competes with Instagram and TikTok but excels in authenticity. Saturn’s niche strengthens its edge.",reddit,https://www.reddit.com/r/stocks/comments/1lgdj52/snap_acquires_sature_social_calendar/,Analog Devices
-2025-06-20 18:53:02,My investment paradox for buying RDDT,"The more Reddit protects user anonymity, the more monetizable its data becomes.
-
-1. Anonymous honesty leads to authentic, high-signal content - the kind LLMs, brands, and marketers crave.
-
-2. Pseudonymous history creates durable behavioral embeddings (karma, vote patterns, posting cadence) that are even more stable than identity-based profiles.
-
-3. Reddit doesn’t need to sell your name - it sells the DNA of your thought patterns over time.",reddit,https://www.reddit.com/r/stocks/comments/1lgbwwj/my_investment_paradox_for_buying_rddt/,Analog Devices
-2025-06-01 09:00:19,Rate My Portfolio - r/Stocks Quarterly Thread June 2025,"Please use this thread to discuss your portfolio, learn of other stock tickers & portfolios like [Warren Buffet's](https://buffett.online/en/portfolio/), and help out users by giving constructive criticism.
-
-Why quarterly?  Public companies report earnings quarterly; many investors take this as an opportunity to rebalance their portfolios.  We highly recommend you do some reading:  Check out our wiki's list of [relevant posts & book recommendations.](https://www.reddit.com/r/stocks/wiki/index/#wiki_relevant_posts.2C_books.2C_wiki_recommendations)
-
-You can find stocks on your own by using a scanner like your broker's or [Finviz.](https://finviz.com/screener.ashx)  To help further, here's a list of [relevant websites.](https://www.reddit.com/r/stocks/wiki/index/#wiki_relevant_websites.2Fapps)
-
-If you don't have a broker yet, see our [list of brokers](https://www.reddit.com/r/stocks/wiki/index/#wiki_brokers_for_investing) or search old posts.  If you haven't started investing or trading yet, then setup your [paper trading to learn basics like market orders vs limit orders.](https://www.reddit.com/r/stocks/wiki/index/#wiki_is_there_a_way_to_practice.3F)
-
-Be aware of [Business Cycle Investing](https://eresearch.fidelity.com/eresearch/markets_sectors/sectors/si_business_cycle.jhtml?tab=sibusiness) which Fidelity issues updates to the state of global business cycles every 1 to 3 months (note: Fidelity changes their links often, so search for it since their take on it is enlightening).  [Investopedia's take on the Business Cycle](https://www.investopedia.com/articles/investing/061316/business-cycle-investing-ratios-use-each-cycle.asp).
-
-If you need help with a falling stock price, check out Investopedia's [The Art of Selling A Losing Position](https://www.investopedia.com/articles/02/022002.asp) and their [list of biases.](https://www.investopedia.com/articles/stocks/08/capital-losses.asp)
-
-Here's a list of all the [previous portfolio stickies.](https://www.reddit.com/r/stocks/search?q=author%3Aautomoderator+title%3A%22Rate+My+Portfolio%22&restrict_sr=on&sort=new&t=all)",reddit,https://www.reddit.com/r/stocks/comments/1l0kgkw/rate_my_portfolio_rstocks_quarterly_thread_june/,Analog Devices
-=======
->But he also recently made a significant, yet largely overlooked, assertion. OpenAI is seeking to crack the code for advanced autonomous driving.
-
->“We have some new technology that could just do self-driving for standard cars way better than any current approach has worked,” Altman said last week on the “Uncapped With Jack Altman” podcast, which his brother hosts. Altman added, “If our A.I. techniques can really go drive a car, that’s pretty cool.”
-
->The technology is in its early stages - DealBook hears that it involves both OpenAI’s Sora video software and its robotics team - but commercializing it is still a distant goal. An OpenAI spokesman declined to comment.
-
->That could make Altman even more of a competitor to Elon Musk, who co-founded OpenAI but has since waged war on the company. (A short reminder: Musk has sued to try to stop OpenAI from revamping its corporate structure, and he’s building a direct competitor, xAI, that’s raising - and spending - billions of dollars.)
-
->Autonomous vehicles are key to Musk’s vision for Tesla, which he increasingly sees as the producer of huge fleets of fully self-driving cars. Tesla is focusing on A.I.-powered vision rather than on the array of sensors like lidar that Waymo, a Google spinoff, uses.
-
->One big question mark for OpenAI: Where will its systems get their data? Tesla and Waymo have already amassed huge amounts of information and video through their years of driving on the roads.
-
->That raises the question of whether OpenAI believes in a fundamentally different approach to self-driving tech, one that relies less on real-world data and more on advanced simulation, synthetic data or a breakthrough in “generalizable” A.I. Of note: The company recently collaborated with Applied Intuition, a start-up focused on putting A.I. in cars.
-
->(OpenAI’s venture arm also invested in Ghost Autonomy, a self-driving start-up, though the business folded last year.)
-
->“I think he really gets it,” Altman said of President Trump’s approach to A.I. (Altman has forged close ties to the president, including by donating to his inauguration fund and announcing the Stargate data center project at the White House.) “I think he really understands the importance of leadership in this technology.”
-
->Altman was uncertain about whether the right A.I. regulations would come to pass: “I have become a bit more, jaded isn’t the right word, but it’s something in that direction, about the ability of policymakers to grapple with the speed of technology.”
-
->Altman played down reports of tensions between OpenAI and Microsoft as they rework their relationship: “Do you believe that, when you read those things?”
-
-Link: [https://www.nytimes.com/2025/06/25/business/dealbook/openai-autonomous-vehicles-musk-tesla.html](https://www.nytimes.com/2025/06/25/business/dealbook/openai-autonomous-vehicles-musk-tesla.html)",reddit,https://www.reddit.com/r/stocks/comments/1lk4lff/openais_selfdriving_ambitions_with_tsla_and_goog/,Rivian
-2025-06-25 10:45:29,Let's say a CEO starts going on about AI. and an employee publicly rebukes them...what happens?,"So let's say someone sees their CEO actively talking about AI and the capabilities and the company's involvement. But due to you being boots on the ground engineering you happen to know what they are saying is a lie and let's say you reply to a Twitter post with "" you and I both know our infrastructure is not even close to ready yet"". Obviously beyond getting fired, what happens to somebody directly rebuking the executive team like that in terms of stock movement? Let's say you don't own any stock. Didn't tell anybody that you are going to do that, would refuting CEO level statements about AI capability cause stock to go down since AI is such a buzzword?",reddit,https://www.reddit.com/r/investing/comments/1lk2dyt/lets_say_a_ceo_starts_going_on_about_ai_and_an/,Airbnb
-2025-06-25 01:30:14,Buy US ETFs/Stocks from yen directly or convert yen to USD then buy?,"Hello, as the title says, my main currency is Japanese yen, but I wonder if factors like the exchange rate have an effect when trading. Especially for ETFs like VTI, because they are long-term term I can't gauge how exchange rates come into play (if they were to affect). ",reddit,https://www.reddit.com/r/investing/comments/1ljsz8b/buy_us_etfsstocks_from_yen_directly_or_convert/,T-Mobile US
-2025-06-24 22:47:05,"Selling NVDA, buying RDDT & HOOD","Cost basis was $108 for NVDA.  Of course NVDA has a monopoly for AI hardware, but there's not enough headroom (a 50% price increase would be a $5.4T market cap).
-
-RDDT's narrative is simple - they offer a unique dataset in a sea lacking in human creativity and insight.
-
-HOOD - partly a momentum play, but they have captured a large portion of the retail investor base (especially mid to upper middle class), which is becoming an increasingly dominant force in the markets.
-
-Anyone else selling NVDA for something else?",reddit,https://www.reddit.com/r/stocks/comments/1ljpglb/selling_nvda_buying_rddt_hood/,Nvidia
-2025-06-24 20:07:45,My biggest YOLO [150k on GOOG calls],"https://preview.redd.it/3zj8ut76mx8f1.png?width=1106&format=png&auto=webp&s=eceff50834ef4634b021d1b9f5bdd1211c49a947
-
-This is after a successful play on $AMD.
-
-I'm all in on $GOOG. Pray for me, brothers!",reddit,https://www.reddit.com/r/wallstreetbets/comments/1ljlixv/my_biggest_yolo_150k_on_goog_calls/,Alphabet Inc. (Class C)
-2025-06-24 15:53:44,Tesla threatened with fine in France over ‘deceptive’ claims,"Investigators at France's competition, consumer affairs and anti-fraud directorate general, or DGCCRF, has demanded that Tesla stop ""deceptive"" claims over the level of autonomy of its cars or face thousands of euros in fines, The Financial Times' Ian Johnston and Kana Inagaki report. An investigation conducted by the DGCCRF found that Tesla engaged in ""deceptive commercial practices"" about the ability of its Tesla vehicles to be ""fully autonomous,"" as well as deceiving customers on the availability of certain options for their cars, the investigators say. Tesla has been ordered to comply with the order within four months or face fines of EUR 50,000 per day for each day that it does not conform. 
-
-https://www.ft.com/content/4402c45b-c98f-4250-b783-f704c7ca4d28>Reference Link",reddit,https://www.reddit.com/r/stocks/comments/1ljesom/tesla_threatened_with_fine_in_france_over/,"Tesla, Inc."
-2025-06-24 15:17:00,MU price target 140 USD post earnings,"So my DD has a quite easy logic - MU mostly dropped due to the guidance miss in the previous earning. Currently they are massively wining on market share and they are bringing out their 4th generation product soon. All of this speaks for a) besting revenue, profit, and guidance expectations. So I would expect that at least a 10% or more increase in the stock will happen on the 26th of June. 
-
-It is not a financial advice, up to you to do your own research, but I wanted to share my thoughts with you. Happy to hear your opinion tho. ",reddit,https://www.reddit.com/r/stocks/comments/1ljdtti/mu_price_target_140_usd_post_earnings/,Micron Technology
-2025-06-24 14:14:55,US Consumer Confidence Drops on Broad Concerns About Economy,"Bloomberg) -- US consumer confidence unexpectedly declined in June on concerns about prospects for the economy, labor market and personal finances due to trade policy.
-
-The Conference Board’s gauge of confidence decreased 5.4 points to 93, data showed Tuesday. The figure was below all estimates in a Bloomberg survey of economists. 
-
-A measure of consumer expectations for the next six months dropped 4.6 points to 69, while a gauge of present conditions fell 6.4 points to 129.1.
-
-The retreat in confidence erased nearly half of the prior month’s rebound, underscoring lingering anxiety about the potential impacts on the economy from higher US import duties. While inflation over the past three months has been modest, some consumers have become more guarded about their spending.
-
-“Consumers were less positive about current business conditions than May. Their appraisal of current job availability weakened for the sixth consecutive month but remained in positive territory, in line with the still-solid labor market,” Stephanie Guichard, senior economist at The Conference Board, said in a statement.
-
-The cutoff date for the Conference Board survey was June 18, five days after Israel launched a series of strikes on Iranian targets. References to geopolitics increased only slightly in write-in responses, according to the survey.
-
-The share of consumers expecting higher interest rates in the year ahead increased to 57%, the highest since October 2023, the Conference Board data showed. ",reddit,https://www.reddit.com/r/stocks/comments/1ljc8dw/us_consumer_confidence_drops_on_broad_concerns/,Broadcom Inc.
-2025-06-24 13:01:35,"Tesla & Google heat up the Robotaxi race  TSLA pops, GOOGL lags","Big moves in the robotaxi world this week.
-
-TSLA just launched its robotaxi service in Austin, TX over the weekend, and the market loved it. The stock ripped +8% on Monday and kept the momentum into Tuesday, pushing up another 2% premarket
-
-Meanwhile, Alphabet’s Waymo (backed by $GOOGL) responded fast announcing its own robotaxi expansion into Atlanta through its Uber partnership. Waymo now runs in LA, Austin, Phoenix, SF, and soon Miami & DC. Solid coverage
-
-What’s surprising though: $GOOGL only got a modest bump (\~1%) while $TSLA surged
-
-Robotaxi = massive long-term play. Whoever wins autonomy could dominate transportation over the next decade
-
-Personally, I’m a bit surprised by the muted reaction on GOOGL. Waymo’s rollout is arguably more polished  it’s already operating in multiple cities and has a real partnership with Uber. But the market still gives the hype crown to Tesla.
-
-GOOGL, on the other hand, feels like it’s building the future… quietly. Maybe too quietly
-
-Still, I wouldn’t count Waymo out. If it scales smoothly with Uber, the upside could sneak up on people",reddit,https://www.reddit.com/r/stocks/comments/1ljaik7/tesla_google_heat_up_the_robotaxi_race_tsla_pops/,"Tesla, Inc."
-2025-06-24 04:57:24,Tesla’s Robotaxi stunt backfires,"Looks like Tesla’s attempt to pump hype using influencers is backfiring hard. They used livestreaming vloggers to show off their Robotaxi tech, but instead of good PR, the whole thing exposed traffic violations in real time. 🚨
-
-Now the NHTSA has officially contacted Tesla, per Bloomberg via Reuters:
-https://www.reuters.com/business/autos-transportation/nhtsa-contacts-tesla-robotaxi-issues-seen-online-videos-bloomberg-news-reports-2025-06-23/
-
-Get out before any real regulatory hammer drops. Expect wild swings. (May be +10% tomorrow)🍿",reddit,https://www.reddit.com/r/stocks/comments/1lj2e5k/teslas_robotaxi_stunt_backfires/,"Tesla, Inc."
->>>>>>> Stashed changes
+Yes, it's normal for insiders to take profits  but does the timing concern you? Are we nearing a short-term top, or is this just smart rebalancing while retail stays bullish?Personally, I'm still holding, but watching for signs of overextension",reddit,https://www.reddit.com/r/stocks/comments/1lnefep/nvidia_insiders_sold_over_1b_in_stock_should_we/,Nvidia

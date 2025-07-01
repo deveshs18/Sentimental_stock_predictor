@@ -49,23 +49,23 @@ class MarketSentiment:
 
                 return None
 
-            vix_current_scalar = vix.iloc[-1]
-            vix_mean_val = vix.mean()
-
-            vix_std_val = vix.std(ddof=0)
-
-
-            sp500_current_scalar = sp500.iloc[-1]
-            sp500_initial_scalar = sp500.iloc[0]
-            
-
-            if pd.isna(vix_current_scalar) or pd.isna(vix_mean_val) or pd.isna(vix_std_val) or \
-               pd.isna(sp500_current_scalar) or pd.isna(sp500_initial_scalar) or \
-               (not pd.isna(sp500_initial_scalar) and sp500_initial_scalar == 0):
-                logger.error(f"MarketSentiment: Critical VIX/SP500 scalar values are NaN or S&P initial is zero. "
-
-                             f"VIX current: {vix_current_scalar}, VIX mean: {vix_mean_val}, VIX std: {vix_std_val}, "
-                             f"SP500 current: {sp500_current_scalar}, SP500 initial: {sp500_initial_scalar}")
+            try:
+                vix_current_scalar = float(vix.iloc[-1])
+                vix_mean_val = float(vix.mean())
+                vix_std_val = float(vix.std(ddof=0))
+                sp500_current_scalar = float(sp500.iloc[-1])
+                sp500_initial_scalar = float(sp500.iloc[0])
+                
+                if (pd.isna(vix_current_scalar) or pd.isna(vix_mean_val) or pd.isna(vix_std_val) or
+                    pd.isna(sp500_current_scalar) or pd.isna(sp500_initial_scalar) or
+                    sp500_initial_scalar == 0):
+                    logger.error(f"MarketSentiment: Critical VIX/SP500 scalar values are NaN or S&P initial is zero. "
+                                f"VIX current: {vix_current_scalar}, VIX mean: {vix_mean_val}, VIX std: {vix_std_val}, "
+                                f"SP500 current: {sp500_current_scalar}, SP500 initial: {sp500_initial_scalar}")
+                    return None
+                    
+            except (ValueError, IndexError) as e:
+                logger.error(f"MarketSentiment: Error converting market data to float: {e}")
                 return None
 
             sp500_returns = sp500.pct_change().dropna()
@@ -92,15 +92,6 @@ class MarketSentiment:
             
         except Exception as e:
             logger.error(f"MarketSentiment: Error processing market data in get_market_indicators: {e}", exc_info=True)
-
-
-            logger.info(f"Successfully fetched and processed market indicators: {market_data_dict}")
-            return market_data_dict
-            
-        except Exception as e:
-
-            logger.error(f"Error processing market data in get_market_indicators: {e}", exc_info=True)
-
             return None
     
     def _get_fred_data(self, series_id):
