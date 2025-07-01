@@ -1,17 +1,29 @@
-2025-06-23 14:22:11,229 - market_sentiment - ERROR - Error fetching market data: 'Adj Close'
-2025-06-23 14:22:11,230 - __main__ - WARNING - Could not fetch market data. Using neutral sentiment.
-2025-06-23 14:22:11,270 - __main__ - INFO - Loaded sentiment data with 154 rows
-2025-06-23 14:22:11,274 - __main__ - INFO - Available columns in sentiment data: ['timestamp', 'headline', 'text', 'source', 'url', 'company']
-2025-06-23 14:22:11,274 - __main__ - INFO - Using text columns: ['headline', 'text']
-2025-06-23 14:22:11,274 - __main__ - INFO - Checking for missing or NA sentiment values to analyze sentiment from text
-2025-06-23 14:22:11,439 - __main__ - INFO - Sentiment distribution: {'positive': 74, 'neutral': 65, 'negative': 15}
-2025-06-23 14:22:11,458 - __main__ - INFO - Loaded 15 EDW keywords
-2025-06-23 14:22:11,462 - __main__ - INFO - Loaded 101 NASDAQ companies
-2025-06-23 14:22:11,462 - __main__ - INFO - Using column 'Company' as company name in NASDAQ data
-2025-06-23 14:22:11,464 - __main__ - INFO - Total companies in sentiment data: 19
-2025-06-23 14:22:11,464 - __main__ - INFO - Exact matches: 19
-2025-06-23 14:22:11,465 - __main__ - INFO - Fuzzy matches: 0
-2025-06-23 14:22:11,465 - __main__ - INFO - Unmatched companies: 0
-2025-06-23 14:22:11,465 - __main__ - INFO - Calculating growth scores with time decay and market sentiment...
-2025-06-23 14:22:11,467 - __main__ - INFO - Market sentiment adjustment factor: 0.00
-2025-06-23 14:22:11,470 - __main__ - WARNING - No growth scores calculated - check your data
+2025-07-01 12:32:09,498 - market_sentiment - ERROR - MarketSentiment: Error in _calculate_market_sentiment calculation: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+Traceback (most recent call last):
+  File "D:\Sentimental Stock Predictor\scripts\market_sentiment.py", line 132, in _calculate_market_sentiment
+    if pd.isna(vix_std_val) or vix_std_val == 0:
+  File "C:\Users\deves\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 1577, in __nonzero__
+    raise ValueError(
+ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-07-01 12:32:09,507 - market_sentiment - INFO - MarketSentiment: Successfully fetched and processed market indicators: {'vix_current': 16.729999542236328, 'vix_30d_avg': 18.21500015258789, 'vix_30d_std': 1.5607930779074026, 'sp500_30d_return': 4.531889752282781, 'sp500_volatility': Ticker
+^GSPC    0.099037
+dtype: float64, 'market_sentiment': 0.0}
+2025-07-01 12:32:09,507 - __main__ - INFO - 
+Market Sentiment: 0.00
+2025-07-01 12:32:09,508 - __main__ - INFO - VIX: 16.73 (30d avg: 18.22)
+2025-07-01 12:32:09,508 - __main__ - INFO - S&P 500 30d return: 4.53%
+2025-07-01 12:32:09,544 - __main__ - INFO - Loaded sentiment data with 34 rows
+2025-07-01 12:32:09,550 - __main__ - INFO - Available columns in sentiment data: ['timestamp', 'headline', 'text', 'source', 'url', 'company']
+2025-07-01 12:32:09,550 - __main__ - INFO - Using text columns: ['headline', 'text']
+2025-07-01 12:32:09,550 - __main__ - INFO - Checking for missing or NA sentiment values to analyze sentiment from text
+2025-07-01 12:32:09,615 - __main__ - INFO - Sentiment distribution: {'positive': 16, 'neutral': 16, 'negative': 2}
+2025-07-01 12:32:09,638 - __main__ - INFO - Loaded 15 EDW keywords
+2025-07-01 12:32:09,642 - __main__ - INFO - Loaded 101 NASDAQ companies
+2025-07-01 12:32:09,643 - __main__ - INFO - Using column 'Company' as company name in NASDAQ data
+2025-07-01 12:32:09,645 - __main__ - INFO - Total companies in sentiment data: 19
+2025-07-01 12:32:09,645 - __main__ - INFO - Exact matches: 19
+2025-07-01 12:32:09,646 - __main__ - INFO - Fuzzy matches: 0
+2025-07-01 12:32:09,646 - __main__ - INFO - Unmatched companies: 0
+2025-07-01 12:32:09,646 - __main__ - INFO - Calculating growth scores with time decay and market sentiment...
+2025-07-01 12:32:09,648 - __main__ - INFO - Market sentiment adjustment factor: 0.00
+2025-07-01 12:32:09,652 - __main__ - WARNING - No growth scores calculated - check your data

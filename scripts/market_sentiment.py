@@ -18,6 +18,7 @@ class MarketSentiment:
         """Fetch market indicators for sentiment analysis."""
         end_date = datetime.now()
         start_date = end_date - timedelta(days=days_back)
+
         logger.debug(f"MarketSentiment: Fetching market data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
         
         try:
@@ -26,6 +27,7 @@ class MarketSentiment:
                 logger.error(f"MarketSentiment: VIX data is empty or 'Close' column missing. Columns: {vix_data.columns if not vix_data.empty else 'N/A (empty df)'}")
                 return None
             vix = vix_data['Close'].dropna()
+
             
             sp500_data = yf.download(self.sp500_symbol, start=start_date, end=end_date, progress=False)
             if sp500_data.empty or 'Close' not in sp500_data.columns:
@@ -60,6 +62,7 @@ class MarketSentiment:
                 logger.error(f"MarketSentiment: Critical VIX/SP500 scalar values are NaN or S&P initial is zero. "
                              f"VIX current: {vix_current_scalar}, VIX mean: {vix_mean_val}, VIX std: {vix_std_val}, "
                              f"SP500 current: {sp500_current_scalar}, SP500 initial: {sp500_initial_scalar}")
+
                 return None
 
             sp500_returns = sp500.pct_change().dropna()
@@ -71,6 +74,7 @@ class MarketSentiment:
                 'vix_30d_std': vix_std_val,
                 'sp500_30d_return': (sp500_current_scalar / sp500_initial_scalar - 1) * 100,
                 'sp500_volatility': sp500_volatility_annualized,
+
                 'market_sentiment': 0.0 # Default, to be overwritten if calculation succeeds
             }
 
@@ -102,16 +106,20 @@ class MarketSentiment:
             response.raise_for_status()
             return response.json()['observations'][0]['value']
         except Exception as e:
+
             logger.warning(f"MarketSentiment: Could not fetch FRED data for series {series_id}: {e}")
+
             return None
     
     def _calculate_market_sentiment(self, vix, sp500):
         """Calculate a composite market sentiment score (-1 to 1)."""
+
         if len(vix) < 2:
             logger.warning(f"MarketSentiment._calculate_market_sentiment: VIX series has {len(vix)} points, less than 2 required for std dev. Returning 0.0.")
             return 0.0
         if len(sp500) < 20:
             logger.warning(f"MarketSentiment._calculate_market_sentiment: S&P500 series has {len(sp500)} points, less than 20 required for medium term trend. Returning 0.0.")
+
             return 0.0
 
         try:
@@ -119,12 +127,16 @@ class MarketSentiment:
             vix_std_val = vix.std(ddof=0)
 
             if pd.isna(vix_std_val) or vix_std_val == 0:
+
                 logger.warning("MarketSentiment._calculate_market_sentiment: VIX std is NaN or 0. Defaulting VIX component to neutral.")
+
                 vix_component = 0.0
             else:
                 vix_norm = (vix.iloc[-1] - vix_mean_val) / vix_std_val
                 if pd.isna(vix_norm):
+
                      logger.warning("MarketSentiment._calculate_market_sentiment: vix_norm is NaN after calculation. Defaulting VIX component.")
+
                      vix_component = 0.0
                 else:
                     vix_component = -np.tanh(vix_norm)
@@ -145,8 +157,10 @@ class MarketSentiment:
             )
 
             final_sentiment = max(-1.0, min(1.0, sentiment))
+
             logger.debug(f"MarketSentiment._calculate_market_sentiment components: vix_comp={vix_component:.2f}, sp500_short_ret={sp500_short_return:.2f}, sp500_med_ret={sp500_medium_return:.2f}, final_sent={final_sentiment:.2f}")
             return final_sentiment
         except Exception as e:
             logger.error(f"MarketSentiment: Error in _calculate_market_sentiment calculation: {e}", exc_info=True)
             return 0.0
+

@@ -86,6 +86,7 @@ def parse_user_query_for_companies(user_query):
 
 
 def prepare_llm_context_data(user_query, top_n=25):
+
     logger.debug("DEBUG_STEP: prepare_llm_context_data - Entered function.") # New log
     logger.info(f"Starting LLM context preparation for query: '{user_query}'")
 
@@ -96,6 +97,7 @@ def prepare_llm_context_data(user_query, top_n=25):
     logger.debug("DEBUG_STEP: prepare_llm_context_data - Before parse_user_query_for_companies()") # New log
     queried_companies_normalized = parse_user_query_for_companies(user_query)
     logger.debug("DEBUG_STEP: prepare_llm_context_data - After parse_user_query_for_companies()") # New log
+
     logger.info(f"Normalized companies from query '{user_query}': {queried_companies_normalized}")
 
     data_dir = os.path.join(parent_dir, "data")
