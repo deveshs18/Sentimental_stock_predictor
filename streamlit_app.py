@@ -196,12 +196,48 @@ with st.sidebar:
             st.markdown(message["content"])
 
     # React to user input
-    if prompt := st.chat_input("What insights are you looking for today?"):
+    # Consolidate prompt determination logic here
+    user_input_from_chat = st.chat_input("What insights are you looking for today?")
+
+    final_user_query = None
+    query_source = None # To track if it's from advanced or chat_input
+
+    if st.session_state.selected_advanced_prompt_template != ADVANCED_PROMPTS[0]:
+        # User has selected an advanced prompt (and not the default "Type your own...")
+        template = st.session_state.selected_advanced_prompt_template
+        if "[TICKER]" in template:
+            ticker = st.session_state.advanced_query_ticker.strip().upper()
+            if ticker:
+                final_user_query = template.replace("[TICKER]", ticker)
+                query_source = "advanced_with_ticker"
+            else:
+                st.warning("Please enter a ticker for the selected advanced query or choose a different query.")
+                # Potentially clear the selection or handle error more gracefully
+                # For now, this will prevent submission by not setting final_user_query
+        else:
+            final_user_query = template
+            query_source = "advanced_no_ticker"
+
+        # Clear the advanced prompt selection so it doesn't persist for the next turn unless re-selected
+        # And clear ticker, but it might be better to clear it only on successful submission or new selection
+        # For now, let's clear it here to simplify state management for this iteration.
+        # Consider moving this clearing to after successful processing if retaining the ticker is desired.
+        # st.session_state.selected_advanced_prompt_template = ADVANCED_PROMPTS[0]
+        # st.session_state.advanced_query_ticker = ""
+        # Note: Clearing here makes the UI jump. Better to clear after processing or let users change it.
+        # For this step, we will assume submission implies "use this and then reset for next time"
+
+    elif user_input_from_chat:
+        # User typed in the chat input and no advanced prompt (other than default) is selected
+        final_user_query = user_input_from_chat
+        query_source = "chat_input"
+
+    if final_user_query:
         # Add user message to chat history
-        st.session_state.messages.append({"role": "user", "content": prompt})
+        st.session_state.messages.append({"role": "user", "content": final_user_query})
         # Display user message
         with st.chat_message("user"):
-            st.markdown(prompt)
+            st.markdown(final_user_query)
 
         # Assistant's turn
         with st.chat_message("assistant"):
@@ -254,3 +290,62 @@ with st.sidebar:
         "**Note:** The analysis is based on data processed by the backend pipeline. "
         "Ensure `scripts/run_all.py` has been run recently for the most up-to-date insights."
     )
+
+    st.markdown("---") # Separator
+
+    # Advanced Prompt Selection
+    st.subheader("Advanced Query Helper")
+
+    ADVANCED_PROMPTS = [
+        "Type your own query below...", # Default option
+        "Analyze the short-term price movement of [TICKER] using daily historical prices and recent news headlines.",
+        "Given 2 years of daily closing prices, identify support and resistance levels for [TICKER].",
+        "Perform technical analysis on [TICKER] using 50-day and 200-day moving averages.",
+        "Based on news sentiment and recent price trends, is [TICKER] likely to be bullish or bearish tomorrow?",
+        "Assess the impact of recent macroeconomic news (like GDP or inflation data) on the S&P 500.",
+        "Does positive news sentiment for [TICKER] correlate with upward price trends historically?",
+        "When did [TICKER] last experience a “golden cross” and what happened after?",
+        "Analyze the volume spikes in [TICKER] and correlate them with news or earnings events.",
+        "What does the put/call ratio for [TICKER] indicate about investor sentiment this week?",
+        "Assess whether [TICKER] is overbought or oversold using RSI and recent headlines.",
+        "Identify insider buying or selling activity for [TICKER] and predict short-term impact.",
+        "Summarize the top news stories influencing the semiconductor sector this month.",
+        "Compare the performance of growth vs value stocks in the last six months.",
+        "Identify stocks with positive momentum and strong recent news sentiment.",
+        "How does news about AI and automation impact the robotics and chip sectors?"
+    ]
+
+    if 'selected_advanced_prompt_template' not in st.session_state:
+        st.session_state.selected_advanced_prompt_template = ADVANCED_PROMPTS[0]
+    if 'advanced_query_ticker' not in st.session_state:
+        st.session_state.advanced_query_ticker = ""
+
+    selected_prompt_template = st.selectbox(
+        "Or, choose an advanced query:",
+        options=ADVANCED_PROMPTS,
+        key="selected_advanced_prompt_template_widget", # Use a different key for widget if needed for on_change
+        index=ADVANCED_PROMPTS.index(st.session_state.selected_advanced_prompt_template) # Ensure state is reflected
+    )
+    st.session_state.selected_advanced_prompt_template = selected_prompt_template
+
+
+    # Ticker input specifically for advanced prompts
+    # This input is always present but only relevant if a prompt with [TICKER] is chosen.
+    # We will handle the logic of using it when an advanced prompt is submitted.
+    if "[TICKER]" in st.session_state.selected_advanced_prompt_template:
+        st.text_input(
+            "Enter Ticker for selected query (e.g., AAPL, MSFT):",
+            key="advanced_query_ticker_input" # Widget key
+        )
+        # Sync widget state to session_state.advanced_query_ticker
+        st.session_state.advanced_query_ticker = st.session_state.advanced_query_ticker_input
+    else:
+        # If the selected prompt does not need a ticker, clear any previous ticker
+        st.session_state.advanced_query_ticker = ""
+        # Optionally, disable or hide the ticker input if not needed by the current prompt
+        # For now, let's just clear it and rely on the user to ignore it.
+        # A more advanced UI could hide/show this input dynamically.
+        st.caption(" (No Ticker needed for this query)")
+
+    # The main chat input is still primary. The advanced prompt selection is an alternative.
+    # Logic for how to prioritize will be in the chat input handling section.
