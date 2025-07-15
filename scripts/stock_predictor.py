@@ -104,6 +104,7 @@ def prepare_llm_context_data(user_query, top_n=25):
     company_sentiment_path = os.path.join(data_dir, "company_sentiment_normalized.csv")
     predict_growth_path = os.path.join(data_dir, "predict_growth.csv")
     macro_sentiment_path = os.path.join(data_dir, "macro_sentiment.csv")
+    news_sentiment_path = os.path.join(data_dir, "merged_sentiment_input.csv")
 
     final_df = pd.DataFrame()
     logger.debug("Entered prepare_llm_context_data function.")
@@ -322,6 +323,14 @@ def prepare_llm_context_data(user_query, top_n=25):
         if not final_df.empty and 'predicted_close_price' in final_df.columns:
             final_df.drop(columns=['predicted_close_price'], inplace=True, errors='ignore')
 
+        # Add news headlines to the final dataframe
+        if not final_df.empty:
+            news_df = pd.read_csv(news_sentiment_path)
+            news_df['company_upper_merge_key'] = news_df['company'].astype(str).str.upper()
+            final_df['Top_Headlines'] = final_df['company_upper_merge_key'].apply(
+                lambda x: news_df[news_df['company_upper_merge_key'] == x]['headline'].head(3).tolist()
+            )
+
         return final_df, overall_market_sentiment_string, queried_companies_normalized
 
     except FileNotFoundError as e:
@@ -356,6 +365,7 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
        - Growth score and its implications (from 'growth_score' column)
        - Current price (from 'current_price' column)
        - Macro sentiment impact on the sector (from 'macro_sentiment_score' for the company's 'theme')
+       - Justification: Use the 'Top Headlines' to justify the sentiment and growth score.
     4. Actionable Insights: Provide clear, data-driven recommendations based on the analysis.
     
     Do NOT mention LSTM predictions as they are not part of this analysis.
@@ -381,6 +391,11 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
                 f"Sector={theme_str}, MacroSectorSentiment={macro_sentiment_str}"
             )
             
+            # Add headlines if available
+            headlines = row.get('Top_Headlines')
+            if headlines:
+                line += f"\n  - Top Headlines: {'; '.join(headlines)}"
+
             # LSTM Prediction part COMPLETELY REMOVED
             prompt_lines.append(line)
 

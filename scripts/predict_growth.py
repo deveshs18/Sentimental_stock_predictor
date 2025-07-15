@@ -58,24 +58,6 @@ def time_decay_weight(timestamp, reference_time=None, decay_rate=0.00001):
     delta_seconds = (reference_time - timestamp).total_seconds()
     return math.exp(-decay_rate * delta_seconds)
 
-def analyze_sentiment(text):
-    """Analyze sentiment of text using TextBlob."""
-    if not text or pd.isna(text):
-        return 0
-    
-    # Clean text
-    text = str(text).strip()
-    if not text:
-        return 0
-    
-    # Analyze sentiment
-    try:
-        blob = TextBlob(text)
-        return blob.sentiment.polarity
-    except Exception as e:
-        logger.warning(f"Error analyzing sentiment: {e}")
-        return 0
-
 def load_data():
     """Load and prepare data from CSV files."""
     try:
@@ -110,13 +92,8 @@ def load_data():
         sentiment_df['combined_text'] = sentiment_df[text_columns].fillna('').astype(str).agg(' '.join, axis=1)
         # If 'sentiment' column does not exist, create it with NA values
         if 'sentiment' not in sentiment_df.columns:
-            sentiment_df['sentiment'] = np.nan
-        # Analyze sentiment only for rows where sentiment is missing or NA
-        missing_sentiment_mask = sentiment_df['sentiment'].isna()
-        sentiment_df.loc[missing_sentiment_mask, 'sentiment_score'] = sentiment_df.loc[missing_sentiment_mask, 'combined_text'].apply(analyze_sentiment)
-        sentiment_df.loc[missing_sentiment_mask, 'sentiment'] = sentiment_df.loc[missing_sentiment_mask, 'sentiment_score'].apply(
-            lambda x: 'positive' if x > 0.1 else ('negative' if x < -0.1 else 'neutral')
-        )
+            sentiment_df['sentiment'] = "neutral"
+
         logger.info(f"Sentiment distribution: {sentiment_df['sentiment'].value_counts().to_dict()}")
         
         # Load EDW keyword weights
@@ -212,6 +189,10 @@ def calculate_growth_scores(sentiment_df, edw_weights, decay_rate=0.00001, marke
         # Skip if no sentiment
         if sentiment_score == 0:
             continue
+
+        # Get confidence score
+        confidence = row.get('confidence', 0.5)
+        sentiment_score *= confidence
             
         # Get precomputed text for keyword matching
         text = row.get('keyword_text', '')
@@ -336,11 +317,16 @@ def main():
         logger.info(f"Exact matches: {len(matched_companies) - len(fuzzy_matches)}")
         logger.info(f"Fuzzy matches: {len(fuzzy_matches)}")
         logger.info(f"Unmatched companies: {len(unmatched_companies)}")
-        
+
         if fuzzy_matches:
             logger.info("Sample fuzzy matches:")
             for orig, match in list(fuzzy_matches.items())[:5]:  # Show first 5 matches
                 logger.info(f"  '{orig}' -> '{match}'")
+
+        if unmatched_companies:
+            logger.info("Sample of unmatched companies:")
+            for company in list(unmatched_companies)[:5]:
+                logger.info(f"  '{company}'")
         
         # Calculate growth scores with time decay and market sentiment
         logger.info("Calculating growth scores with time decay and market sentiment...")

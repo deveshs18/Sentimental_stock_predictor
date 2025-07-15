@@ -32,19 +32,26 @@ except ImportError as e:
 
 def get_stock_performance_data():
     """
-    Reads predict_growth.csv and returns top/bottom N stocks.
+    Reads predict_growth.csv and returns top/bottom N stocks including their top headlines.
     """
     predict_growth_file = os.path.join(os.path.dirname(__file__), 'data', 'predict_growth.csv')
+    news_sentiment_file = os.path.join(os.path.dirname(__file__), 'data', 'merged_sentiment_input.csv')
+
     try:
         df = pd.read_csv(predict_growth_file)
         if 'growth_score' not in df.columns:
             logger.error(f"'growth_score' column not found in {predict_growth_file}. Cannot determine top/bottom stocks.")
-            return pd.DataFrame(), pd.DataFrame() # Return empty DataFrames
+            return pd.DataFrame(), pd.DataFrame()
 
-        df_sorted = df.sort_values(by="growth_score", ascending=False)
-        top_stocks_df = df_sorted.head(2)[['company', 'growth_score']]
-        # For bottom stocks, ensure we don't re-select top stocks if there are few entries
-        bottom_stocks_df = df_sorted.tail(2)[['company', 'growth_score']]
+        news_df = pd.read_csv(news_sentiment_file)
+        news_df['company_upper'] = news_df['company'].str.upper()
+
+        df['company_upper'] = df['company'].str.upper()
+        df_merged = pd.merge(df, news_df.groupby('company_upper')['headline'].apply(lambda x: x.head(3).tolist()).rename('headlines'), on='company_upper', how='left')
+
+        df_sorted = df_merged.sort_values(by="growth_score", ascending=False)
+        top_stocks_df = df_sorted.head(2)[['company', 'growth_score', 'headlines']]
+        bottom_stocks_df = df_sorted.tail(2)[['company', 'growth_score', 'headlines']]
 
         # Handle case with very few companies (e.g. less than 4)
         if len(df) < 4 and not top_stocks_df.equals(bottom_stocks_df): # if they are different already, no issue
@@ -169,14 +176,22 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("Top 2 Growing Stocks")
     if not top_stocks.empty:
-        st.dataframe(top_stocks.style.format({"growth_score": "{:.2f}"}))
+        for index, row in top_stocks.iterrows():
+            st.write(f"**{row['company']}** (Score: {row['growth_score']:.2f})")
+            if isinstance(row['headlines'], list):
+                for headline in row['headlines']:
+                    st.markdown(f"- {headline}")
     else:
         st.write("No data available for top growing stocks.")
 
 with col2:
     st.subheader("Bottom 2 Lowest Growth Stocks")
     if not bottom_stocks.empty:
-        st.dataframe(bottom_stocks.style.format({"growth_score": "{:.2f}"}))
+        for index, row in bottom_stocks.iterrows():
+            st.write(f"**{row['company']}** (Score: {row['growth_score']:.2f})")
+            if isinstance(row['headlines'], list):
+                for headline in row['headlines']:
+                    st.markdown(f"- {headline}")
     else:
         st.write("No data available for bottom/lowest growth stocks.")
 

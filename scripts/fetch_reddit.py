@@ -9,12 +9,12 @@ import logging
 load_dotenv()
 
 # Configure logging
-os.makedirs('../logs', exist_ok=True)
+os.makedirs('logs', exist_ok=True)
 log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-file_handler = logging.FileHandler('../logs/fetch_reddit.log', mode='w')
+file_handler = logging.FileHandler('logs/fetch_reddit.log', mode='w')
 file_handler.setFormatter(logging.Formatter(log_format))
 logger.addHandler(file_handler)
 

@@ -15716,3 +15716,847 @@
 2025-07-15 00:51:01,691 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
 2025-07-15 00:51:01,696 - INFO - Saved name mapping to D:\Sentimental Stock Predictor\data\company_name_mapping.csv
 2025-07-15 00:51:01,697 - INFO - Filtered out 206 records without valid company matches
+2025-07-15 07:28:48,685 - INFO - Loaded input file: /app/data/merged_sentiment_output_with_companies.csv. Found 226 records.
+2025-07-15 07:28:48,687 - INFO - Loaded NASDAQ companies from /app/utils/../data/nasdaq_top_companies.csv. Found 101 companies.
+2025-07-15 07:28:48,696 - INFO - Created ticker_map with 101 entries.
+2025-07-15 07:28:48,696 - INFO - Common name 'google' mapped to 'Alphabet Inc. (Class A)' which was corrected to 'Alphabet Inc. (Class A)' via clean name matching.
+2025-07-15 07:28:48,696 - INFO - Common name 'alphabet' mapped to 'Alphabet Inc. (Class A)' which was corrected to 'Alphabet Inc. (Class A)' via clean name matching.
+2025-07-15 07:28:48,696 - INFO - Created common_name_map with 8 entries after validation.
+2025-07-15 07:28:48,696 - INFO - Starting company name normalization using normalization_utils...
+2025-07-15 07:28:48,711 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,711 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,712 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,712 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,713 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,713 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,714 - INFO - No normalization match found for: 'Droneshield ASX' (cleaned: 'droneshield asx'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,714 - INFO - Final fallback: No normalization found for 'Droneshield ASX'. Returning empty string.
+2025-07-15 07:28:48,714 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,715 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,715 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,715 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,716 - INFO - No normalization match found for: 'MagDozen' (cleaned: 'magdozen'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,716 - INFO - Final fallback: No normalization found for 'MagDozen'. Returning empty string.
+2025-07-15 07:28:48,717 - INFO - No normalization match found for: 'ref' (cleaned: 'ref'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,717 - INFO - Final fallback: No normalization found for 'ref'. Returning empty string.
+2025-07-15 07:28:48,717 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,717 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,718 - INFO - No normalization match found for: 'Trump' (cleaned: 'trump'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,718 - INFO - Final fallback: No normalization found for 'Trump'. Returning empty string.
+2025-07-15 07:28:48,719 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,719 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,719 - INFO - No normalization match found for: 'Quantum' (cleaned: 'quantum'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,719 - INFO - Final fallback: No normalization found for 'Quantum'. Returning empty string.
+2025-07-15 07:28:48,720 - INFO - No normalization match found for: 'H20 GPU' (cleaned: 'h20 gpu'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,720 - INFO - Final fallback: No normalization found for 'H20 GPU'. Returning empty string.
+2025-07-15 07:28:48,721 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,721 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,722 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,722 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,722 - INFO - No normalization match found for: 'RVHP' (cleaned: 'rvhp'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,722 - INFO - Final fallback: No normalization found for 'RVHP'. Returning empty string.
+2025-07-15 07:28:48,723 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,723 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,724 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,724 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,724 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,724 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,725 - INFO - No normalization match found for: 'LULULULU' (cleaned: 'lulululu'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,725 - INFO - Final fallback: No normalization found for 'LULULULU'. Returning empty string.
+2025-07-15 07:28:48,726 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,726 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,727 - INFO - No normalization match found for: 'LMT' (cleaned: 'lmt'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,727 - INFO - Final fallback: No normalization found for 'LMT'. Returning empty string.
+2025-07-15 07:28:48,728 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,728 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,728 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,728 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,729 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,729 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,730 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,730 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,730 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,730 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,731 - INFO - No normalization match found for: 'GeoVax' (cleaned: 'geovax'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,731 - INFO - Final fallback: No normalization found for 'GeoVax'. Returning empty string.
+2025-07-15 07:28:48,732 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,732 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,733 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,733 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,733 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,734 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,734 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,734 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,735 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,735 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,736 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,736 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,736 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,736 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,737 - INFO - No normalization match found for: 'TD Direct Investing - double' (cleaned: 'td direct investing double'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,737 - INFO - Final fallback: No normalization found for 'TD Direct Investing - double'. Returning empty string.
+2025-07-15 07:28:48,738 - INFO - No normalization match found for: 'YO-LO' (cleaned: 'yo lo'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,738 - INFO - Final fallback: No normalization found for 'YO-LO'. Returning empty string.
+2025-07-15 07:28:48,739 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,739 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,739 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,739 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,740 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,740 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,741 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,741 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,741 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,741 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,742 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,742 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,743 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,743 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,743 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,743 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,744 - INFO - No normalization match found for: 'RDDT' (cleaned: 'rddt'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,744 - INFO - Final fallback: No normalization found for 'RDDT'. Returning empty string.
+2025-07-15 07:28:48,745 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,745 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,746 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,746 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,746 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,746 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,747 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,747 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,748 - INFO - No normalization match found for: 'EPD' (cleaned: 'epd'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,748 - INFO - Final fallback: No normalization found for 'EPD'. Returning empty string.
+2025-07-15 07:28:48,748 - INFO - No normalization match found for: 'EU' (cleaned: 'eu'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,748 - INFO - Final fallback: No normalization found for 'EU'. Returning empty string.
+2025-07-15 07:28:48,749 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,749 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,750 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,750 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,750 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,750 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,751 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,751 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,752 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,752 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,752 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,752 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,753 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,753 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,754 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,754 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,754 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,754 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,755 - INFO - No normalization match found for: 'Financial Advisor' (cleaned: 'financial advisor'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,755 - INFO - Final fallback: No normalization found for 'Financial Advisor'. Returning empty string.
+2025-07-15 07:28:48,756 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,756 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,756 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,757 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,757 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,757 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,758 - INFO - No normalization match found for: 'UNH' (cleaned: 'unh'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,758 - INFO - Final fallback: No normalization found for 'UNH'. Returning empty string.
+2025-07-15 07:28:48,759 - INFO - No normalization match found for: 'Daily General Discussion and Advice Thread - July' (cleaned: 'daily general discussion and advice thread july'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,759 - INFO - Final fallback: No normalization found for 'Daily General Discussion and Advice Thread - July'. Returning empty string.
+2025-07-15 07:28:48,760 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,760 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,761 - INFO - No normalization match found for: 'Hancock Whitney Corporation' (cleaned: 'hancock whitney'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,761 - INFO - Final fallback: No normalization found for 'Hancock Whitney Corporation'. Returning empty string.
+2025-07-15 07:28:48,762 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,762 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:28:48,763 - INFO - No normalization match found for: 'Brokerages Set Freshworks Inc.' (cleaned: 'brokerages set freshworks'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,763 - INFO - Final fallback: No normalization found for 'Brokerages Set Freshworks Inc.'. Returning empty string.
+2025-07-15 07:28:48,763 - INFO - No normalization match found for: 'Shoals Technologies Group, Inc.' (cleaned: 'shoals'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,764 - INFO - Final fallback: No normalization found for 'Shoals Technologies Group, Inc.'. Returning empty string.
+2025-07-15 07:28:48,764 - INFO - No normalization match found for: 'LKQ' (cleaned: 'lkq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,764 - INFO - Final fallback: No normalization found for 'LKQ'. Returning empty string.
+2025-07-15 07:28:48,765 - INFO - No normalization match found for: 'VirTra' (cleaned: 'virtra'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,765 - INFO - Final fallback: No normalization found for 'VirTra'. Returning empty string.
+2025-07-15 07:28:48,766 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,766 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,766 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,766 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,767 - INFO - No normalization match found for: 'Brokerages Set Ingredion Incorporated' (cleaned: 'brokerages set ingredion incorporated'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,767 - INFO - Final fallback: No normalization found for 'Brokerages Set Ingredion Incorporated'. Returning empty string.
+2025-07-15 07:28:48,768 - INFO - No normalization match found for: 'JFrog Ltd.' (cleaned: 'jfrog'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,768 - INFO - Final fallback: No normalization found for 'JFrog Ltd.'. Returning empty string.
+2025-07-15 07:28:48,769 - INFO - No normalization match found for: 'Aritzia Inc.' (cleaned: 'aritzia'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,769 - INFO - Final fallback: No normalization found for 'Aritzia Inc.'. Returning empty string.
+2025-07-15 07:28:48,770 - INFO - No normalization match found for: 'Lennox International, Inc.' (cleaned: 'lennox'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,770 - INFO - Final fallback: No normalization found for 'Lennox International, Inc.'. Returning empty string.
+2025-07-15 07:28:48,770 - INFO - No normalization match found for: 'CPS Technologies' (cleaned: 'cps'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,770 - INFO - Final fallback: No normalization found for 'CPS Technologies'. Returning empty string.
+2025-07-15 07:28:48,771 - INFO - No normalization match found for: 'Tetra Technologies' (cleaned: 'tetra'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,771 - INFO - Final fallback: No normalization found for 'Tetra Technologies'. Returning empty string.
+2025-07-15 07:28:48,772 - INFO - No normalization match found for: 'Jewett-Cameron Trading' (cleaned: 'jewett cameron trading'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,772 - INFO - Final fallback: No normalization found for 'Jewett-Cameron Trading'. Returning empty string.
+2025-07-15 07:28:48,773 - INFO - No normalization match found for: 'NYSE' (cleaned: 'nyse'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,773 - INFO - Final fallback: No normalization found for 'NYSE'. Returning empty string.
+2025-07-15 07:28:48,773 - INFO - No normalization match found for: 'Arch Capital Group Ltd.' (cleaned: 'arch capital'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,773 - INFO - Final fallback: No normalization found for 'Arch Capital Group Ltd.'. Returning empty string.
+2025-07-15 07:28:48,774 - INFO - No normalization match found for: 'Nikon' (cleaned: 'nikon'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,774 - INFO - Final fallback: No normalization found for 'Nikon'. Returning empty string.
+2025-07-15 07:28:48,775 - INFO - No normalization match found for: 'Drake' (cleaned: 'drake'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,775 - INFO - Final fallback: No normalization found for 'Drake'. Returning empty string.
+2025-07-15 07:28:48,775 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,775 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,776 - INFO - No normalization match found for: 'Cleveland-Cliffs Inc.' (cleaned: 'cleveland cliffs'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,776 - INFO - Final fallback: No normalization found for 'Cleveland-Cliffs Inc.'. Returning empty string.
+2025-07-15 07:28:48,777 - INFO - No normalization match found for: 'ArcBest Corporation' (cleaned: 'arcbest'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,777 - INFO - Final fallback: No normalization found for 'ArcBest Corporation'. Returning empty string.
+2025-07-15 07:28:48,778 - INFO - No normalization match found for: 'Tower Resources' (cleaned: 'tower resources'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,778 - INFO - Final fallback: No normalization found for 'Tower Resources'. Returning empty string.
+2025-07-15 07:28:48,778 - INFO - No normalization match found for: 'ServiceNow' (cleaned: 'servicenow'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,778 - INFO - Final fallback: No normalization found for 'ServiceNow'. Returning empty string.
+2025-07-15 07:28:48,779 - INFO - No normalization match found for: 'W.R. Berkley Corporation' (cleaned: 'w r berkley'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,779 - INFO - Final fallback: No normalization found for 'W.R. Berkley Corporation'. Returning empty string.
+2025-07-15 07:28:48,780 - INFO - No normalization match found for: 'Majestic Ideal Holdings' (cleaned: 'majestic ideal'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,780 - INFO - Final fallback: No normalization found for 'Majestic Ideal Holdings'. Returning empty string.
+2025-07-15 07:28:48,780 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,780 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,782 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,782 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,782 - INFO - No normalization match found for: 'UBS Group' (cleaned: 'ubs'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,782 - INFO - Final fallback: No normalization found for 'UBS Group'. Returning empty string.
+2025-07-15 07:28:48,783 - INFO - No normalization match found for: 'Novogen' (cleaned: 'novogen'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,783 - INFO - Final fallback: No normalization found for 'Novogen'. Returning empty string.
+2025-07-15 07:28:48,784 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,784 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,784 - INFO - No normalization match found for: 'LOVE' (cleaned: 'love'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,784 - INFO - Final fallback: No normalization found for 'LOVE'. Returning empty string.
+2025-07-15 07:28:48,785 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,785 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,786 - INFO - No normalization match found for: 'Citigroup Increases Logitech International' (cleaned: 'citigroup increases logitech'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,786 - INFO - Final fallback: No normalization found for 'Citigroup Increases Logitech International'. Returning empty string.
+2025-07-15 07:28:48,787 - INFO - No normalization match found for: 'MYR Group' (cleaned: 'myr'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,787 - INFO - Final fallback: No normalization found for 'MYR Group'. Returning empty string.
+2025-07-15 07:28:48,788 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,788 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:28:48,789 - INFO - No normalization match found for: 'NioCorp Developments' (cleaned: 'niocorp developments'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,789 - INFO - Final fallback: No normalization found for 'NioCorp Developments'. Returning empty string.
+2025-07-15 07:28:48,790 - INFO - No normalization match found for: 'Keefe, Bruyette & Woods Forecasts Strong Price Appreciation for Live Oak Bancshares' (cleaned: 'keefe bruyette woods forecasts strong price appreciation for live oak bancshares'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,790 - INFO - Final fallback: No normalization found for 'Keefe, Bruyette & Woods Forecasts Strong Price Appreciation for Live Oak Bancshares'. Returning empty string.
+2025-07-15 07:28:48,791 - INFO - No normalization match found for: 'Middlefield Banc' (cleaned: 'middlefield banc'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,791 - INFO - Final fallback: No normalization found for 'Middlefield Banc'. Returning empty string.
+2025-07-15 07:28:48,791 - INFO - No normalization match found for: 'LM Funding America' (cleaned: 'lm funding america'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,791 - INFO - Final fallback: No normalization found for 'LM Funding America'. Returning empty string.
+2025-07-15 07:28:48,792 - INFO - No normalization match found for: 'Karat Packaging' (cleaned: 'karat packaging'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,792 - INFO - Final fallback: No normalization found for 'Karat Packaging'. Returning empty string.
+2025-07-15 07:28:48,793 - INFO - No normalization match found for: 'Lifeway Foods' (cleaned: 'lifeway foods'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,793 - INFO - Final fallback: No normalization found for 'Lifeway Foods'. Returning empty string.
+2025-07-15 07:28:48,794 - INFO - No normalization match found for: 'AAR' (cleaned: 'aar'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,794 - INFO - Final fallback: No normalization found for 'AAR'. Returning empty string.
+2025-07-15 07:28:48,794 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,794 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:28:48,795 - INFO - No normalization match found for: 'Motorsport Games' (cleaned: 'motorsport games'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,795 - INFO - Final fallback: No normalization found for 'Motorsport Games'. Returning empty string.
+2025-07-15 07:28:48,796 - INFO - No normalization match found for: 'Karyopharm Therapeutics' (cleaned: 'karyopharm therapeutics'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,796 - INFO - Final fallback: No normalization found for 'Karyopharm Therapeutics'. Returning empty string.
+2025-07-15 07:28:48,796 - INFO - No normalization match found for: 'Monro Muffler Brake' (cleaned: 'monro muffler brake'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,797 - INFO - Final fallback: No normalization found for 'Monro Muffler Brake'. Returning empty string.
+2025-07-15 07:28:48,797 - INFO - No normalization match found for: 'MacroGenics' (cleaned: 'macrogenics'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,797 - INFO - Final fallback: No normalization found for 'MacroGenics'. Returning empty string.
+2025-07-15 07:28:48,798 - INFO - No normalization match found for: 'LPL Financial' (cleaned: 'lpl financial'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,798 - INFO - Final fallback: No normalization found for 'LPL Financial'. Returning empty string.
+2025-07-15 07:28:48,799 - INFO - No normalization match found for: 'KALA BIO' (cleaned: 'kala bio'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,799 - INFO - Final fallback: No normalization found for 'KALA BIO'. Returning empty string.
+2025-07-15 07:28:48,799 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,799 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:28:48,800 - INFO - No normalization match found for: 'Corus Entertainment' (cleaned: 'corus entertainment'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,800 - INFO - Final fallback: No normalization found for 'Corus Entertainment'. Returning empty string.
+2025-07-15 07:28:48,801 - INFO - No normalization match found for: 'New Single & Music Video "Blindsides' (cleaned: 'new single music video blindsides'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,801 - INFO - Final fallback: No normalization found for 'New Single & Music Video "Blindsides'. Returning empty string.
+2025-07-15 07:28:48,802 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,802 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,802 - INFO - No normalization match found for: 'Griffin Decks & Covers Marks Strong' (cleaned: 'griffin decks covers marks strong'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,803 - INFO - Final fallback: No normalization found for 'Griffin Decks & Covers Marks Strong'. Returning empty string.
+2025-07-15 07:28:48,803 - INFO - No normalization match found for: 'TikTok' (cleaned: 'tiktok'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,803 - INFO - Final fallback: No normalization found for 'TikTok'. Returning empty string.
+2025-07-15 07:28:48,804 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,804 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,805 - INFO - No normalization match found for: 'Best Toy Stocks To Follow Now' (cleaned: 'best toy stocks to follow now'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,805 - INFO - Final fallback: No normalization found for 'Best Toy Stocks To Follow Now'. Returning empty string.
+2025-07-15 07:28:48,806 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,806 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,807 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,807 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,808 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,808 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,809 - INFO - No normalization match found for: 'NYSE' (cleaned: 'nyse'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,809 - INFO - Final fallback: No normalization found for 'NYSE'. Returning empty string.
+2025-07-15 07:28:48,811 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,811 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,811 - INFO - No normalization match found for: 'NMI' (cleaned: 'nmi'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,811 - INFO - Final fallback: No normalization found for 'NMI'. Returning empty string.
+2025-07-15 07:28:48,812 - INFO - No normalization match found for: 'NMI' (cleaned: 'nmi'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,812 - INFO - Final fallback: No normalization found for 'NMI'. Returning empty string.
+2025-07-15 07:28:48,813 - INFO - No normalization match found for: 'Northern Trust' (cleaned: 'northern trust'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,813 - INFO - Final fallback: No normalization found for 'Northern Trust'. Returning empty string.
+2025-07-15 07:28:48,813 - INFO - No normalization match found for: 'PENG' (cleaned: 'peng'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,813 - INFO - Final fallback: No normalization found for 'PENG'. Returning empty string.
+2025-07-15 07:28:48,814 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,814 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,815 - INFO - No normalization match found for: 'Old National Bancorp' (cleaned: 'old national bancorp'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,815 - INFO - Final fallback: No normalization found for 'Old National Bancorp'. Returning empty string.
+2025-07-15 07:28:48,815 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,816 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,816 - INFO - No normalization match found for: 'Pinnacle Financial Partners' (cleaned: 'pinnacle financial partners'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,816 - INFO - Final fallback: No normalization found for 'Pinnacle Financial Partners'. Returning empty string.
+2025-07-15 07:28:48,817 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,817 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,818 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,818 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:28:48,818 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,818 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,819 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,819 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:28:48,820 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,820 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,820 - INFO - No normalization match found for: 'Orrstown Financial Services' (cleaned: 'orrstown financial services'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,821 - INFO - Final fallback: No normalization found for 'Orrstown Financial Services'. Returning empty string.
+2025-07-15 07:28:48,821 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,821 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,822 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,822 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,823 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,823 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,823 - INFO - No normalization match found for: 'ScanSource' (cleaned: 'scansource'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,823 - INFO - Final fallback: No normalization found for 'ScanSource'. Returning empty string.
+2025-07-15 07:28:48,824 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,824 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,825 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,825 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,825 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,825 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,826 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,826 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,827 - INFO - No normalization match found for: 'HSA' (cleaned: 'hsa'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,827 - INFO - Final fallback: No normalization found for 'HSA'. Returning empty string.
+2025-07-15 07:28:48,827 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,827 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,828 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,828 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,829 - INFO - No normalization match found for: 'InvestAnswers' (cleaned: 'investanswers'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,829 - INFO - Final fallback: No normalization found for 'InvestAnswers'. Returning empty string.
+2025-07-15 07:28:48,829 - INFO - No normalization match found for: 'Fidelity' (cleaned: 'fidelity'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,829 - INFO - Final fallback: No normalization found for 'Fidelity'. Returning empty string.
+2025-07-15 07:28:48,830 - INFO - No normalization match found for: 'VOO' (cleaned: 'voo'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,830 - INFO - Final fallback: No normalization found for 'VOO'. Returning empty string.
+2025-07-15 07:28:48,831 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,831 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,831 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,831 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,832 - INFO - No normalization match found for: 'ENVX' (cleaned: 'envx'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,832 - INFO - Final fallback: No normalization found for 'ENVX'. Returning empty string.
+2025-07-15 07:28:48,833 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,833 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,833 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,834 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,834 - INFO - No normalization match found for: 'Fintech' (cleaned: 'fintech'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,834 - INFO - Final fallback: No normalization found for 'Fintech'. Returning empty string.
+2025-07-15 07:28:48,835 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,835 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,836 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,836 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,836 - INFO - No normalization match found for: 'Permian Resources Corp' (cleaned: 'permian resources'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,836 - INFO - Final fallback: No normalization found for 'Permian Resources Corp'. Returning empty string.
+2025-07-15 07:28:48,837 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,837 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,838 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,838 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,838 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,838 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,839 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,839 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,840 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,840 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,840 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,841 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,841 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,841 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,842 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,842 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,843 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,843 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,843 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,843 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,844 - INFO - No normalization match found for: 'EU' (cleaned: 'eu'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,844 - INFO - Final fallback: No normalization found for 'EU'. Returning empty string.
+2025-07-15 07:28:48,845 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,845 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,845 - INFO - No normalization match found for: 'YO' (cleaned: 'yo'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,845 - INFO - Final fallback: No normalization found for 'YO'. Returning empty string.
+2025-07-15 07:28:48,846 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,846 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,847 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,847 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,847 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,847 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,848 - INFO - No normalization match found for: 'Daily General Discussion and Advice Thread - July 13, 2025' (cleaned: 'daily general discussion and advice thread july 13 2025'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,848 - INFO - Final fallback: No normalization found for 'Daily General Discussion and Advice Thread - July 13, 2025'. Returning empty string.
+2025-07-15 07:28:48,849 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,849 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,850 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,850 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,850 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,850 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,851 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,851 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,852 - INFO - No normalization match found for: 'Trump' (cleaned: 'trump'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,852 - INFO - Final fallback: No normalization found for 'Trump'. Returning empty string.
+2025-07-15 07:28:48,852 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,852 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,853 - INFO - No normalization match found for: 'License Tech' (cleaned: 'license tech'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,853 - INFO - Final fallback: No normalization found for 'License Tech'. Returning empty string.
+2025-07-15 07:28:48,854 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,854 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,854 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,854 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,855 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,855 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,856 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,856 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,857 - INFO - No normalization match found for: 'Umbrella Policy' (cleaned: 'umbrella policy'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,857 - INFO - Final fallback: No normalization found for 'Umbrella Policy'. Returning empty string.
+2025-07-15 07:28:48,858 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,858 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,858 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,858 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,859 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,859 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,860 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,860 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,860 - INFO - No normalization match found for: 'EU' (cleaned: 'eu'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,860 - INFO - Final fallback: No normalization found for 'EU'. Returning empty string.
+2025-07-15 07:28:48,861 - INFO - No normalization match found for: 'Impose' (cleaned: 'impose'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,861 - INFO - Final fallback: No normalization found for 'Impose'. Returning empty string.
+2025-07-15 07:28:48,862 - INFO - No normalization match found for: 'Trump' (cleaned: 'trump'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,862 - INFO - Final fallback: No normalization found for 'Trump'. Returning empty string.
+2025-07-15 07:28:48,862 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,863 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,863 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:28:48,863 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:28:48,868 - INFO - Saved name mapping to /app/data/company_name_mapping.csv
+2025-07-15 07:28:48,870 - INFO - Filtered out 206 records without valid company matches
+2025-07-15 07:28:48,872 - INFO - ✅ Normalized data saved to: /app/data/merged_sentiment_output_with_companies_normalized.csv
+2025-07-15 07:29:12,167 - INFO - Loaded input file: /app/data/merged_sentiment_output_with_companies.csv. Found 226 records.
+2025-07-15 07:29:12,170 - INFO - Loaded NASDAQ companies from /app/utils/../data/nasdaq_top_companies.csv. Found 101 companies.
+2025-07-15 07:29:12,179 - INFO - Created ticker_map with 101 entries.
+2025-07-15 07:29:12,179 - INFO - Common name 'google' mapped to 'Alphabet Inc. (Class A)' which was corrected to 'Alphabet Inc. (Class A)' via clean name matching.
+2025-07-15 07:29:12,179 - INFO - Common name 'alphabet' mapped to 'Alphabet Inc. (Class A)' which was corrected to 'Alphabet Inc. (Class A)' via clean name matching.
+2025-07-15 07:29:12,179 - INFO - Created common_name_map with 8 entries after validation.
+2025-07-15 07:29:12,179 - INFO - Starting company name normalization using normalization_utils...
+2025-07-15 07:29:12,181 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,181 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,181 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,182 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,182 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,182 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,183 - INFO - No normalization match found for: 'Droneshield ASX' (cleaned: 'droneshield asx'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,183 - INFO - Final fallback: No normalization found for 'Droneshield ASX'. Returning empty string.
+2025-07-15 07:29:12,184 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,184 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,184 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,184 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,185 - INFO - No normalization match found for: 'MagDozen' (cleaned: 'magdozen'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,185 - INFO - Final fallback: No normalization found for 'MagDozen'. Returning empty string.
+2025-07-15 07:29:12,186 - INFO - No normalization match found for: 'ref' (cleaned: 'ref'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,186 - INFO - Final fallback: No normalization found for 'ref'. Returning empty string.
+2025-07-15 07:29:12,186 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,186 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,187 - INFO - No normalization match found for: 'Trump' (cleaned: 'trump'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,187 - INFO - Final fallback: No normalization found for 'Trump'. Returning empty string.
+2025-07-15 07:29:12,188 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,188 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,188 - INFO - No normalization match found for: 'Quantum' (cleaned: 'quantum'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,189 - INFO - Final fallback: No normalization found for 'Quantum'. Returning empty string.
+2025-07-15 07:29:12,189 - INFO - No normalization match found for: 'H20 GPU' (cleaned: 'h20 gpu'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,189 - INFO - Final fallback: No normalization found for 'H20 GPU'. Returning empty string.
+2025-07-15 07:29:12,190 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,190 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,191 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,191 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,191 - INFO - No normalization match found for: 'RVHP' (cleaned: 'rvhp'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,191 - INFO - Final fallback: No normalization found for 'RVHP'. Returning empty string.
+2025-07-15 07:29:12,192 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,192 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,193 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,193 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,193 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,193 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,194 - INFO - No normalization match found for: 'LULULULU' (cleaned: 'lulululu'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,194 - INFO - Final fallback: No normalization found for 'LULULULU'. Returning empty string.
+2025-07-15 07:29:12,195 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,195 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,195 - INFO - No normalization match found for: 'LMT' (cleaned: 'lmt'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,195 - INFO - Final fallback: No normalization found for 'LMT'. Returning empty string.
+2025-07-15 07:29:12,196 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,196 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,197 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,197 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,197 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,197 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,198 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,198 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,199 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,199 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,199 - INFO - No normalization match found for: 'GeoVax' (cleaned: 'geovax'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,199 - INFO - Final fallback: No normalization found for 'GeoVax'. Returning empty string.
+2025-07-15 07:29:12,200 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,200 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,201 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,201 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,201 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,202 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,202 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,202 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,203 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,203 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,203 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,204 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,204 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,204 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,205 - INFO - No normalization match found for: 'TD Direct Investing - double' (cleaned: 'td direct investing double'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,205 - INFO - Final fallback: No normalization found for 'TD Direct Investing - double'. Returning empty string.
+2025-07-15 07:29:12,206 - INFO - No normalization match found for: 'YO-LO' (cleaned: 'yo lo'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,206 - INFO - Final fallback: No normalization found for 'YO-LO'. Returning empty string.
+2025-07-15 07:29:12,206 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,206 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,207 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,207 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,208 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,208 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,208 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,208 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,209 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,209 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,210 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,210 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,210 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,210 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,211 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,211 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,212 - INFO - No normalization match found for: 'RDDT' (cleaned: 'rddt'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,212 - INFO - Final fallback: No normalization found for 'RDDT'. Returning empty string.
+2025-07-15 07:29:12,212 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,213 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,213 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,213 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,214 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,214 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,214 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,215 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,215 - INFO - No normalization match found for: 'EPD' (cleaned: 'epd'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,215 - INFO - Final fallback: No normalization found for 'EPD'. Returning empty string.
+2025-07-15 07:29:12,216 - INFO - No normalization match found for: 'EU' (cleaned: 'eu'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,216 - INFO - Final fallback: No normalization found for 'EU'. Returning empty string.
+2025-07-15 07:29:12,216 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,217 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,217 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,217 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,218 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,218 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,219 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,219 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,219 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,219 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,220 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,220 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,221 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,221 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,221 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,221 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,222 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,222 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,223 - INFO - No normalization match found for: 'Financial Advisor' (cleaned: 'financial advisor'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,223 - INFO - Final fallback: No normalization found for 'Financial Advisor'. Returning empty string.
+2025-07-15 07:29:12,224 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,224 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,224 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,224 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,225 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,225 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,226 - INFO - No normalization match found for: 'UNH' (cleaned: 'unh'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,226 - INFO - Final fallback: No normalization found for 'UNH'. Returning empty string.
+2025-07-15 07:29:12,227 - INFO - No normalization match found for: 'Daily General Discussion and Advice Thread - July' (cleaned: 'daily general discussion and advice thread july'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,227 - INFO - Final fallback: No normalization found for 'Daily General Discussion and Advice Thread - July'. Returning empty string.
+2025-07-15 07:29:12,228 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,228 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,228 - INFO - No normalization match found for: 'Hancock Whitney Corporation' (cleaned: 'hancock whitney'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,228 - INFO - Final fallback: No normalization found for 'Hancock Whitney Corporation'. Returning empty string.
+2025-07-15 07:29:12,230 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,230 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:29:12,230 - INFO - No normalization match found for: 'Brokerages Set Freshworks Inc.' (cleaned: 'brokerages set freshworks'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,230 - INFO - Final fallback: No normalization found for 'Brokerages Set Freshworks Inc.'. Returning empty string.
+2025-07-15 07:29:12,231 - INFO - No normalization match found for: 'Shoals Technologies Group, Inc.' (cleaned: 'shoals'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,231 - INFO - Final fallback: No normalization found for 'Shoals Technologies Group, Inc.'. Returning empty string.
+2025-07-15 07:29:12,232 - INFO - No normalization match found for: 'LKQ' (cleaned: 'lkq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,232 - INFO - Final fallback: No normalization found for 'LKQ'. Returning empty string.
+2025-07-15 07:29:12,232 - INFO - No normalization match found for: 'VirTra' (cleaned: 'virtra'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,232 - INFO - Final fallback: No normalization found for 'VirTra'. Returning empty string.
+2025-07-15 07:29:12,233 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,233 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,234 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,234 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,235 - INFO - No normalization match found for: 'Brokerages Set Ingredion Incorporated' (cleaned: 'brokerages set ingredion incorporated'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,235 - INFO - Final fallback: No normalization found for 'Brokerages Set Ingredion Incorporated'. Returning empty string.
+2025-07-15 07:29:12,235 - INFO - No normalization match found for: 'JFrog Ltd.' (cleaned: 'jfrog'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,236 - INFO - Final fallback: No normalization found for 'JFrog Ltd.'. Returning empty string.
+2025-07-15 07:29:12,236 - INFO - No normalization match found for: 'Aritzia Inc.' (cleaned: 'aritzia'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,236 - INFO - Final fallback: No normalization found for 'Aritzia Inc.'. Returning empty string.
+2025-07-15 07:29:12,237 - INFO - No normalization match found for: 'Lennox International, Inc.' (cleaned: 'lennox'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,237 - INFO - Final fallback: No normalization found for 'Lennox International, Inc.'. Returning empty string.
+2025-07-15 07:29:12,238 - INFO - No normalization match found for: 'CPS Technologies' (cleaned: 'cps'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,238 - INFO - Final fallback: No normalization found for 'CPS Technologies'. Returning empty string.
+2025-07-15 07:29:12,238 - INFO - No normalization match found for: 'Tetra Technologies' (cleaned: 'tetra'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,238 - INFO - Final fallback: No normalization found for 'Tetra Technologies'. Returning empty string.
+2025-07-15 07:29:12,239 - INFO - No normalization match found for: 'Jewett-Cameron Trading' (cleaned: 'jewett cameron trading'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,239 - INFO - Final fallback: No normalization found for 'Jewett-Cameron Trading'. Returning empty string.
+2025-07-15 07:29:12,240 - INFO - No normalization match found for: 'NYSE' (cleaned: 'nyse'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,240 - INFO - Final fallback: No normalization found for 'NYSE'. Returning empty string.
+2025-07-15 07:29:12,240 - INFO - No normalization match found for: 'Arch Capital Group Ltd.' (cleaned: 'arch capital'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,241 - INFO - Final fallback: No normalization found for 'Arch Capital Group Ltd.'. Returning empty string.
+2025-07-15 07:29:12,241 - INFO - No normalization match found for: 'Nikon' (cleaned: 'nikon'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,241 - INFO - Final fallback: No normalization found for 'Nikon'. Returning empty string.
+2025-07-15 07:29:12,242 - INFO - No normalization match found for: 'Drake' (cleaned: 'drake'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,242 - INFO - Final fallback: No normalization found for 'Drake'. Returning empty string.
+2025-07-15 07:29:12,243 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,243 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,243 - INFO - No normalization match found for: 'Cleveland-Cliffs Inc.' (cleaned: 'cleveland cliffs'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,243 - INFO - Final fallback: No normalization found for 'Cleveland-Cliffs Inc.'. Returning empty string.
+2025-07-15 07:29:12,244 - INFO - No normalization match found for: 'ArcBest Corporation' (cleaned: 'arcbest'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,244 - INFO - Final fallback: No normalization found for 'ArcBest Corporation'. Returning empty string.
+2025-07-15 07:29:12,245 - INFO - No normalization match found for: 'Tower Resources' (cleaned: 'tower resources'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,245 - INFO - Final fallback: No normalization found for 'Tower Resources'. Returning empty string.
+2025-07-15 07:29:12,245 - INFO - No normalization match found for: 'ServiceNow' (cleaned: 'servicenow'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,246 - INFO - Final fallback: No normalization found for 'ServiceNow'. Returning empty string.
+2025-07-15 07:29:12,246 - INFO - No normalization match found for: 'W.R. Berkley Corporation' (cleaned: 'w r berkley'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,246 - INFO - Final fallback: No normalization found for 'W.R. Berkley Corporation'. Returning empty string.
+2025-07-15 07:29:12,247 - INFO - No normalization match found for: 'Majestic Ideal Holdings' (cleaned: 'majestic ideal'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,247 - INFO - Final fallback: No normalization found for 'Majestic Ideal Holdings'. Returning empty string.
+2025-07-15 07:29:12,248 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,248 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,249 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,249 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,250 - INFO - No normalization match found for: 'UBS Group' (cleaned: 'ubs'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,250 - INFO - Final fallback: No normalization found for 'UBS Group'. Returning empty string.
+2025-07-15 07:29:12,250 - INFO - No normalization match found for: 'Novogen' (cleaned: 'novogen'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,250 - INFO - Final fallback: No normalization found for 'Novogen'. Returning empty string.
+2025-07-15 07:29:12,251 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,251 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,252 - INFO - No normalization match found for: 'LOVE' (cleaned: 'love'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,252 - INFO - Final fallback: No normalization found for 'LOVE'. Returning empty string.
+2025-07-15 07:29:12,252 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,252 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,253 - INFO - No normalization match found for: 'Citigroup Increases Logitech International' (cleaned: 'citigroup increases logitech'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,253 - INFO - Final fallback: No normalization found for 'Citigroup Increases Logitech International'. Returning empty string.
+2025-07-15 07:29:12,255 - INFO - No normalization match found for: 'MYR Group' (cleaned: 'myr'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,255 - INFO - Final fallback: No normalization found for 'MYR Group'. Returning empty string.
+2025-07-15 07:29:12,255 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,255 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:29:12,256 - INFO - No normalization match found for: 'NioCorp Developments' (cleaned: 'niocorp developments'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,256 - INFO - Final fallback: No normalization found for 'NioCorp Developments'. Returning empty string.
+2025-07-15 07:29:12,257 - INFO - No normalization match found for: 'Keefe, Bruyette & Woods Forecasts Strong Price Appreciation for Live Oak Bancshares' (cleaned: 'keefe bruyette woods forecasts strong price appreciation for live oak bancshares'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,257 - INFO - Final fallback: No normalization found for 'Keefe, Bruyette & Woods Forecasts Strong Price Appreciation for Live Oak Bancshares'. Returning empty string.
+2025-07-15 07:29:12,258 - INFO - No normalization match found for: 'Middlefield Banc' (cleaned: 'middlefield banc'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,258 - INFO - Final fallback: No normalization found for 'Middlefield Banc'. Returning empty string.
+2025-07-15 07:29:12,259 - INFO - No normalization match found for: 'LM Funding America' (cleaned: 'lm funding america'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,259 - INFO - Final fallback: No normalization found for 'LM Funding America'. Returning empty string.
+2025-07-15 07:29:12,259 - INFO - No normalization match found for: 'Karat Packaging' (cleaned: 'karat packaging'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,259 - INFO - Final fallback: No normalization found for 'Karat Packaging'. Returning empty string.
+2025-07-15 07:29:12,260 - INFO - No normalization match found for: 'Lifeway Foods' (cleaned: 'lifeway foods'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,260 - INFO - Final fallback: No normalization found for 'Lifeway Foods'. Returning empty string.
+2025-07-15 07:29:12,261 - INFO - No normalization match found for: 'AAR' (cleaned: 'aar'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,261 - INFO - Final fallback: No normalization found for 'AAR'. Returning empty string.
+2025-07-15 07:29:12,261 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,261 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:29:12,262 - INFO - No normalization match found for: 'Motorsport Games' (cleaned: 'motorsport games'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,262 - INFO - Final fallback: No normalization found for 'Motorsport Games'. Returning empty string.
+2025-07-15 07:29:12,263 - INFO - No normalization match found for: 'Karyopharm Therapeutics' (cleaned: 'karyopharm therapeutics'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,263 - INFO - Final fallback: No normalization found for 'Karyopharm Therapeutics'. Returning empty string.
+2025-07-15 07:29:12,264 - INFO - No normalization match found for: 'Monro Muffler Brake' (cleaned: 'monro muffler brake'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,264 - INFO - Final fallback: No normalization found for 'Monro Muffler Brake'. Returning empty string.
+2025-07-15 07:29:12,264 - INFO - No normalization match found for: 'MacroGenics' (cleaned: 'macrogenics'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,264 - INFO - Final fallback: No normalization found for 'MacroGenics'. Returning empty string.
+2025-07-15 07:29:12,265 - INFO - No normalization match found for: 'LPL Financial' (cleaned: 'lpl financial'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,265 - INFO - Final fallback: No normalization found for 'LPL Financial'. Returning empty string.
+2025-07-15 07:29:12,266 - INFO - No normalization match found for: 'KALA BIO' (cleaned: 'kala bio'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,266 - INFO - Final fallback: No normalization found for 'KALA BIO'. Returning empty string.
+2025-07-15 07:29:12,266 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,267 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:29:12,267 - INFO - No normalization match found for: 'Corus Entertainment' (cleaned: 'corus entertainment'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,267 - INFO - Final fallback: No normalization found for 'Corus Entertainment'. Returning empty string.
+2025-07-15 07:29:12,268 - INFO - No normalization match found for: 'New Single & Music Video "Blindsides' (cleaned: 'new single music video blindsides'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,268 - INFO - Final fallback: No normalization found for 'New Single & Music Video "Blindsides'. Returning empty string.
+2025-07-15 07:29:12,269 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,269 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,270 - INFO - No normalization match found for: 'Griffin Decks & Covers Marks Strong' (cleaned: 'griffin decks covers marks strong'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,270 - INFO - Final fallback: No normalization found for 'Griffin Decks & Covers Marks Strong'. Returning empty string.
+2025-07-15 07:29:12,270 - INFO - No normalization match found for: 'TikTok' (cleaned: 'tiktok'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,270 - INFO - Final fallback: No normalization found for 'TikTok'. Returning empty string.
+2025-07-15 07:29:12,271 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,271 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,272 - INFO - No normalization match found for: 'Best Toy Stocks To Follow Now' (cleaned: 'best toy stocks to follow now'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,272 - INFO - Final fallback: No normalization found for 'Best Toy Stocks To Follow Now'. Returning empty string.
+2025-07-15 07:29:12,273 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,273 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,274 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,274 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,275 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,275 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,276 - INFO - No normalization match found for: 'NYSE' (cleaned: 'nyse'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,276 - INFO - Final fallback: No normalization found for 'NYSE'. Returning empty string.
+2025-07-15 07:29:12,278 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,278 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,279 - INFO - No normalization match found for: 'NMI' (cleaned: 'nmi'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,279 - INFO - Final fallback: No normalization found for 'NMI'. Returning empty string.
+2025-07-15 07:29:12,279 - INFO - No normalization match found for: 'NMI' (cleaned: 'nmi'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,279 - INFO - Final fallback: No normalization found for 'NMI'. Returning empty string.
+2025-07-15 07:29:12,280 - INFO - No normalization match found for: 'Northern Trust' (cleaned: 'northern trust'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,280 - INFO - Final fallback: No normalization found for 'Northern Trust'. Returning empty string.
+2025-07-15 07:29:12,281 - INFO - No normalization match found for: 'PENG' (cleaned: 'peng'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,281 - INFO - Final fallback: No normalization found for 'PENG'. Returning empty string.
+2025-07-15 07:29:12,282 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,282 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,283 - INFO - No normalization match found for: 'Old National Bancorp' (cleaned: 'old national bancorp'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,283 - INFO - Final fallback: No normalization found for 'Old National Bancorp'. Returning empty string.
+2025-07-15 07:29:12,284 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,284 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,284 - INFO - No normalization match found for: 'Pinnacle Financial Partners' (cleaned: 'pinnacle financial partners'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,285 - INFO - Final fallback: No normalization found for 'Pinnacle Financial Partners'. Returning empty string.
+2025-07-15 07:29:12,285 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,285 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,286 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,286 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:29:12,287 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,287 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,287 - INFO - No normalization match found for: 'NASDAQ' (cleaned: 'nasdaq'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,287 - INFO - Final fallback: No normalization found for 'NASDAQ'. Returning empty string.
+2025-07-15 07:29:12,288 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,288 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,289 - INFO - No normalization match found for: 'Orrstown Financial Services' (cleaned: 'orrstown financial services'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,289 - INFO - Final fallback: No normalization found for 'Orrstown Financial Services'. Returning empty string.
+2025-07-15 07:29:12,290 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,290 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,290 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,290 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,291 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,291 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,292 - INFO - No normalization match found for: 'ScanSource' (cleaned: 'scansource'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,292 - INFO - Final fallback: No normalization found for 'ScanSource'. Returning empty string.
+2025-07-15 07:29:12,292 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,293 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,293 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,293 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,294 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,294 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,295 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,295 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,295 - INFO - No normalization match found for: 'HSA' (cleaned: 'hsa'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,295 - INFO - Final fallback: No normalization found for 'HSA'. Returning empty string.
+2025-07-15 07:29:12,296 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,296 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,297 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,297 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,298 - INFO - No normalization match found for: 'InvestAnswers' (cleaned: 'investanswers'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,298 - INFO - Final fallback: No normalization found for 'InvestAnswers'. Returning empty string.
+2025-07-15 07:29:12,298 - INFO - No normalization match found for: 'Fidelity' (cleaned: 'fidelity'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,298 - INFO - Final fallback: No normalization found for 'Fidelity'. Returning empty string.
+2025-07-15 07:29:12,299 - INFO - No normalization match found for: 'VOO' (cleaned: 'voo'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,299 - INFO - Final fallback: No normalization found for 'VOO'. Returning empty string.
+2025-07-15 07:29:12,300 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,300 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,300 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,300 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,301 - INFO - No normalization match found for: 'ENVX' (cleaned: 'envx'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,301 - INFO - Final fallback: No normalization found for 'ENVX'. Returning empty string.
+2025-07-15 07:29:12,302 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,302 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,302 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,303 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,303 - INFO - No normalization match found for: 'Fintech' (cleaned: 'fintech'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,303 - INFO - Final fallback: No normalization found for 'Fintech'. Returning empty string.
+2025-07-15 07:29:12,304 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,304 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,305 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,305 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,306 - INFO - No normalization match found for: 'Permian Resources Corp' (cleaned: 'permian resources'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,306 - INFO - Final fallback: No normalization found for 'Permian Resources Corp'. Returning empty string.
+2025-07-15 07:29:12,306 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,306 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,307 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,307 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,308 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,308 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,308 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,308 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,309 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,309 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,310 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,310 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,310 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,310 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,311 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,311 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,312 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,312 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,312 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,313 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,313 - INFO - No normalization match found for: 'EU' (cleaned: 'eu'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,313 - INFO - Final fallback: No normalization found for 'EU'. Returning empty string.
+2025-07-15 07:29:12,314 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,314 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,315 - INFO - No normalization match found for: 'YO' (cleaned: 'yo'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,315 - INFO - Final fallback: No normalization found for 'YO'. Returning empty string.
+2025-07-15 07:29:12,315 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,315 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,316 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,316 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,317 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,317 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,318 - INFO - No normalization match found for: 'Daily General Discussion and Advice Thread - July 13, 2025' (cleaned: 'daily general discussion and advice thread july 13 2025'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,318 - INFO - Final fallback: No normalization found for 'Daily General Discussion and Advice Thread - July 13, 2025'. Returning empty string.
+2025-07-15 07:29:12,318 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,318 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,319 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,319 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,320 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,320 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,321 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,321 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,321 - INFO - No normalization match found for: 'Trump' (cleaned: 'trump'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,321 - INFO - Final fallback: No normalization found for 'Trump'. Returning empty string.
+2025-07-15 07:29:12,322 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,322 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,323 - INFO - No normalization match found for: 'License Tech' (cleaned: 'license tech'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,323 - INFO - Final fallback: No normalization found for 'License Tech'. Returning empty string.
+2025-07-15 07:29:12,323 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,323 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,324 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,324 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,325 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,325 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,326 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,326 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,327 - INFO - No normalization match found for: 'Umbrella Policy' (cleaned: 'umbrella policy'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,327 - INFO - Final fallback: No normalization found for 'Umbrella Policy'. Returning empty string.
+2025-07-15 07:29:12,328 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,328 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,328 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,328 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,329 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,329 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,330 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,330 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,330 - INFO - No normalization match found for: 'EU' (cleaned: 'eu'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,331 - INFO - Final fallback: No normalization found for 'EU'. Returning empty string.
+2025-07-15 07:29:12,331 - INFO - No normalization match found for: 'Impose' (cleaned: 'impose'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,331 - INFO - Final fallback: No normalization found for 'Impose'. Returning empty string.
+2025-07-15 07:29:12,332 - INFO - No normalization match found for: 'Trump' (cleaned: 'trump'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,332 - INFO - Final fallback: No normalization found for 'Trump'. Returning empty string.
+2025-07-15 07:29:12,333 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,333 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,333 - INFO - No normalization match found for: 'nan' (cleaned: 'nan'). Returning original as a last resort if it's a proper noun, else empty.
+2025-07-15 07:29:12,333 - INFO - Final fallback: No normalization found for 'nan'. Returning empty string.
+2025-07-15 07:29:12,338 - INFO - Saved name mapping to /app/data/company_name_mapping.csv
+2025-07-15 07:29:12,340 - INFO - Filtered out 206 records without valid company matches
+2025-07-15 07:29:12,343 - INFO - ✅ Normalized data saved to: /app/data/merged_sentiment_output_with_companies_normalized.csv
