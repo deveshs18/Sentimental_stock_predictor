@@ -149,7 +149,7 @@ elif market_sentiment_summary == "Negative":
 elif market_sentiment_summary == "Neutral":
     st.metric(label="Market Sentiment", value=market_sentiment_summary, delta="Neutral", delta_color="off")
 else: # Data not available
-    st.write(market_sentiment_summary)
+    st.metric(label="Market Sentiment", value="Not Available", delta="No Data", delta_color="off")
 
 st.markdown("---") #Separator
 
@@ -186,9 +186,33 @@ with st.sidebar:
     st.title("🤖 Chat Analyst")
     st.caption("Ask me about stock market trends, company sentiment, or potential growth!")
 
-    # Initialize chat history in session state
-    if "messages" not in st.session_state:
+    # Define advanced prompts first
+    ADVANCED_PROMPTS = [
+        "Type your own query below...", # Default option
+        "Analyze the short-term price movement of [TICKER] using daily historical prices and recent news headlines.",
+        "Given 2 years of daily closing prices, identify support and resistance levels for [TICKER].",
+        "Perform technical analysis on [TICKER] using 50-day and 200-day moving averages.",
+        "Based on news sentiment and recent price trends, is [TICKER] likely to be bullish or bearish tomorrow?",
+        "Assess the impact of recent macroeconomic news (like GDP or inflation data) on the S&P 500.",
+        "Does positive news sentiment for [TICKER] correlate with upward price trends historically?",
+        "When did [TICKER] last experience a “golden cross” and what happened after?",
+        "Analyze the volume spikes in [TICKER] and correlate them with news or earnings events.",
+        "What does the put/call ratio for [TICKER] indicate about investor sentiment this week?",
+        "Assess whether [TICKER] is overbought or oversold using RSI and recent headlines.",
+        "Identify insider buying or selling activity for [TICKER] and predict short-term impact.",
+        "Summarize the top news stories influencing the semiconductor sector this month.",
+        "Compare the performance of growth vs value stocks in the last six months.",
+        "Identify stocks with positive momentum and strong recent news sentiment.",
+        "How does news about AI and automation impact the robotics and chip sectors?"
+    ]
+
+    # Initialize session state variables
+    if 'messages' not in st.session_state:
         st.session_state.messages = []
+    if 'selected_advanced_prompt_template' not in st.session_state:
+        st.session_state.selected_advanced_prompt_template = ADVANCED_PROMPTS[0]
+    if 'advanced_query_ticker' not in st.session_state:
+        st.session_state.advanced_query_ticker = ""
 
     # Display chat messages from history
     for message in st.session_state.messages:
@@ -249,16 +273,16 @@ with st.sidebar:
                 # 1. Get the latest company context data
                 logger.info("Streamlit App: Calling prepare_llm_context_data()")
                 # Correctly unpack the three values returned by prepare_llm_context_data
-                top_companies_df, market_sentiment_str, queried_companies_normalized = prepare_llm_context_data(user_query=prompt)
+                top_companies_df, market_sentiment_str, queried_companies_normalized = prepare_llm_context_data(user_query=final_user_query)
 
                 if top_companies_df.empty:
                     logger.warning("Streamlit App: No company context data returned from prepare_llm_context_data().")
                     # This warning is for logs; the prompt will inform the user via LLM
 
                 # 2. Generate the dynamic prompt
-                logger.info(f"Streamlit App: Generating dynamic prompt for user query: {prompt}")
+                logger.info(f"Streamlit App: Generating dynamic prompt for user query: {final_user_query}")
                 # Pass all necessary arguments, including the new queried_companies_normalized
-                dynamic_prompt_text = generate_dynamic_prompt(prompt, top_companies_df, market_sentiment_str, queried_companies_normalized)
+                dynamic_prompt_text = generate_dynamic_prompt(final_user_query, top_companies_df, market_sentiment_str, queried_companies_normalized)
                 logger.debug(f"Streamlit App: Generated prompt: {dynamic_prompt_text}")
 
                 # 3. Get response from OpenAI

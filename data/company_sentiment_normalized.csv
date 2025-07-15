@@ -1,20 +1,17 @@
 company,negative,neutral,positive
-Advanced Micro Devices Inc.,1,0,0
-Airbnb,0,1,2
-Alphabet Inc. (Class A),0,0,2
-Amazon,0,0,2
-Apple Inc.,3,0,1
-Baker Hughes,0,0,1
-CrowdStrike,0,1,0
-Dollar Tree,1,1,1
-Enphase Energy,0,1,0
-Fortinet,0,0,1
-Lam Research,0,3,0
+Adobe Inc.,0,1,0
+Advanced Micro Devices Inc.,0,1,0
+Airbnb,0,0,1
+Align Technology,1,0,0
+Alphabet Inc. (Class A),1,0,0
+Amgen,0,0,1
+Booking Holdings,0,0,1
+CSX Corporation,0,0,1
+Cisco,0,0,1
+Constellation Energy,0,0,1
+Idexx Laboratories,0,1,0
 Meta Platforms,0,1,0
-Microsoft,0,1,0
-Nvidia,0,1,1
-Paccar,0,0,1
-Seagen,0,0,1
-Starbucks,0,0,1
-T-Mobile US,0,0,1
-"Tesla, Inc.",3,0,1
+Netflix,0,2,2
+Nvidia,1,1,0
+Qualcomm,1,0,0
+Synopsys,0,0,1
