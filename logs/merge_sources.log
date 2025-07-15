@@ -1,7 +1,7 @@
-2025-07-15 07:29:10,399 - __main__ - INFO - Loading news data from data/news_combined.csv
-2025-07-15 07:29:10,404 - __main__ - INFO - Loaded 99 news articles.
-2025-07-15 07:29:10,404 - __main__ - INFO - Loading Reddit data from data/reddit_posts.csv
-2025-07-15 07:29:10,411 - __main__ - INFO - Loaded 150 Reddit posts.
-2025-07-15 07:29:10,411 - __main__ - INFO - Normalizing column names...
-2025-07-15 07:29:10,424 - __main__ - INFO - Combined data has 226 rows after merging and cleaning.
-2025-07-15 07:29:10,435 - __main__ - INFO - ✅ Merged News + Reddit → data/merged_sentiment_input.csv
+2025-07-15 20:02:23,657 - __main__ - INFO - Loading news data from data/news_combined.csv
+2025-07-15 20:02:23,669 - __main__ - INFO - Loaded 99 news articles.
+2025-07-15 20:02:23,669 - __main__ - INFO - Loading Reddit data from data/reddit_posts.csv
+2025-07-15 20:02:23,678 - __main__ - INFO - Loaded 150 Reddit posts.
+2025-07-15 20:02:23,678 - __main__ - INFO - Normalizing column names...
+2025-07-15 20:02:23,701 - __main__ - INFO - Combined data has 226 rows after merging and cleaning.
+2025-07-15 20:02:23,721 - __main__ - INFO - ✅ Merged News + Reddit → data/merged_sentiment_input.csv

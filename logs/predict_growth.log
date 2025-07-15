@@ -1,23 +1,24 @@
-2025-07-15 00:51:43,491 - market_sentiment - ERROR - MarketSentiment: Error processing market data in get_market_indicators: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-07-15 20:02:32,043 - market_sentiment - ERROR - MarketSentiment: Error processing market data in get_market_indicators: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
 Traceback (most recent call last):
-  File "D:\Sentimental Stock Predictor\scripts\market_sentiment.py", line 59, in get_market_indicators
+  File "/app/scripts/market_sentiment.py", line 59, in get_market_indicators
     if pd.isna(vix_current_scalar) or pd.isna(vix_mean_val) or pd.isna(vix_std_val) or \
-  File "D:\Sentimental Stock Predictor\venv\lib\site-packages\pandas\core\generic.py", line 1577, in __nonzero__
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.11/lib/python3.12/site-packages/pandas/core/generic.py", line 1577, in __nonzero__
     raise ValueError(
 ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
-2025-07-15 00:51:43,523 - __main__ - WARNING - Could not fetch market data. Using neutral sentiment.
-2025-07-15 00:51:43,582 - __main__ - INFO - Loaded sentiment data with 20 rows
-2025-07-15 00:51:43,584 - __main__ - INFO - Available columns in sentiment data: ['timestamp', 'headline', 'text', 'source', 'url', 'company']
-2025-07-15 00:51:43,584 - __main__ - INFO - Using text columns: ['headline', 'text']
-2025-07-15 00:51:43,585 - __main__ - INFO - Checking for missing or NA sentiment values to analyze sentiment from text
-2025-07-15 00:51:43,668 - __main__ - INFO - Sentiment distribution: {'positive': 11, 'neutral': 9}
-2025-07-15 00:51:43,685 - __main__ - INFO - Loaded 15 EDW keywords
-2025-07-15 00:51:43,714 - __main__ - INFO - Loaded 101 NASDAQ companies
-2025-07-15 00:51:43,724 - __main__ - INFO - Using column 'Company' as company name in NASDAQ data
-2025-07-15 00:51:43,728 - __main__ - INFO - Total companies in sentiment data: 16
-2025-07-15 00:51:43,731 - __main__ - INFO - Exact matches: 16
-2025-07-15 00:51:43,732 - __main__ - INFO - Fuzzy matches: 0
-2025-07-15 00:51:43,733 - __main__ - INFO - Unmatched companies: 0
-2025-07-15 00:51:43,733 - __main__ - INFO - Calculating growth scores with time decay and market sentiment...
-2025-07-15 00:51:43,736 - __main__ - INFO - Market sentiment adjustment factor: 0.00
-2025-07-15 00:51:43,741 - __main__ - WARNING - No growth scores calculated - check your data
+2025-07-15 20:02:32,064 - __main__ - WARNING - Could not fetch market data. Using neutral sentiment.
+2025-07-15 20:02:32,069 - __main__ - INFO - Loaded sentiment data with 20 rows
+2025-07-15 20:02:32,073 - __main__ - INFO - Available columns in sentiment data: ['timestamp', 'headline', 'text', 'source', 'url', 'company']
+2025-07-15 20:02:32,074 - __main__ - INFO - Using text columns: ['headline', 'text']
+2025-07-15 20:02:32,074 - __main__ - INFO - Checking for missing or NA sentiment values to analyze sentiment from text
+2025-07-15 20:02:32,078 - __main__ - INFO - Sentiment distribution: {'neutral': 20}
+2025-07-15 20:02:32,080 - __main__ - INFO - Loaded 15 EDW keywords
+2025-07-15 20:02:32,083 - __main__ - INFO - Loaded 101 NASDAQ companies
+2025-07-15 20:02:32,083 - __main__ - INFO - Using column 'Company' as company name in NASDAQ data
+2025-07-15 20:02:32,085 - __main__ - INFO - Total companies in sentiment data: 16
+2025-07-15 20:02:32,085 - __main__ - INFO - Exact matches: 16
+2025-07-15 20:02:32,085 - __main__ - INFO - Fuzzy matches: 0
+2025-07-15 20:02:32,086 - __main__ - INFO - Unmatched companies: 0
+2025-07-15 20:02:32,086 - __main__ - INFO - Calculating growth scores with time decay and market sentiment...
+2025-07-15 20:02:32,088 - __main__ - INFO - Market sentiment adjustment factor: 0.00
+2025-07-15 20:02:32,092 - __main__ - WARNING - No growth scores calculated - check your data

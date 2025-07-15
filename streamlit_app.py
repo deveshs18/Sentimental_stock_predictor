@@ -176,9 +176,10 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("Top 2 Growing Stocks")
     if not top_stocks.empty:
+        st.dataframe(top_stocks[['company', 'growth_score']].style.format({"growth_score": "{:.2f}"}))
         for index, row in top_stocks.iterrows():
-            st.write(f"**{row['company']}** (Score: {row['growth_score']:.2f})")
             if isinstance(row['headlines'], list):
+                st.write(f"**Recent Headlines for {row['company']}:**")
                 for headline in row['headlines']:
                     st.markdown(f"- {headline}")
     else:
@@ -187,9 +188,10 @@ with col1:
 with col2:
     st.subheader("Bottom 2 Lowest Growth Stocks")
     if not bottom_stocks.empty:
+        st.dataframe(bottom_stocks[['company', 'growth_score']].style.format({"growth_score": "{:.2f}"}))
         for index, row in bottom_stocks.iterrows():
-            st.write(f"**{row['company']}** (Score: {row['growth_score']:.2f})")
             if isinstance(row['headlines'], list):
+                st.write(f"**Recent Headlines for {row['company']}:**")
                 for headline in row['headlines']:
                     st.markdown(f"- {headline}")
     else:

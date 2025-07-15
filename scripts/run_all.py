@@ -23,7 +23,7 @@ def run_script(script):
     print(f"\n🚀 Running {script} ...")
     result = subprocess.run([sys.executable, os.path.join(os.path.dirname(__file__), script)])
     if result.returncode != 0:
-        if script in ['fetch_news.py', 'fetch_reddit.py', 'extract_entities.py', 'sentiment_analysis.py']:
+        if script in ['fetch_news.py', 'fetch_reddit.py', 'extract_entities.py', 'sentiment_analysis.py', 'cms_keyword_counter.py', 'predict_growth.py', 'fetch_historical_prices.py']:
             print(f"⚠️ Error running {script}, but continuing pipeline.")
         else:
             print(f"❌ Error running {script}. Stopping pipeline.")
