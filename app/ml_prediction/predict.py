@@ -1,9 +1,11 @@
 import os
 import pandas as pd
 import yfinance as yf
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import MinMaxScaler
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense, Dropout
+import numpy as np
 import logging
 
 # Configure logging
@@ -42,35 +44,86 @@ def create_features(df):
     df['target'] = (df['price_change'].shift(-1) > 0).astype(int)
     return df.dropna()
 
+def create_dataset(X, y, time_steps=1):
+    Xs, ys = [], []
+    for i in range(len(X) - time_steps):
+        v = X[i:(i + time_steps)]
+        Xs.append(v)
+        ys.append(y[i + time_steps])
+    return np.array(Xs), np.array(ys)
+
 def train_model(X, y):
     """
-    Trains a logistic regression model.
+    Trains an LSTM model.
     """
+    time_steps = 10
+    X, y = create_dataset(X, y, time_steps)
+
+    if X.shape[0] == 0:
+        logger.warning("Not enough data to train the model after creating sequences.")
+        return None
+
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    model = LogisticRegression()
-    model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
+
+    model = Sequential()
+    model.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], X_train.shape[2])))
+    model.add(Dropout(0.2))
+    model.add(LSTM(units=50))
+    model.add(Dropout(0.2))
+    model.add(Dense(units=1, activation='sigmoid'))
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+    model.fit(X_train, y_train, epochs=25, batch_size=32, validation_data=(X_test, y_test), verbose=0)
+
+    loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
     logger.info(f"Model accuracy: {accuracy}")
+
     return model
 
 def main(tickers):
     """
     Main function to fetch data, train a model, and make predictions.
     """
+    try:
+        sentiment_df = pd.read_csv("data/company_sentiment.csv")
+    except FileNotFoundError:
+        logger.error("company_sentiment.csv not found. Please run the sentiment analysis first.")
+        sentiment_df = pd.DataFrame(columns=['company', 'normalized_sentiment'])
+
     predictions = {}
     for ticker in tickers:
         data = fetch_data(ticker)
         if not data.empty:
             featured_data = create_features(data)
+
+            # Merge sentiment data
+            ticker_sentiment = sentiment_df[sentiment_df['company'] == ticker]
+            if not ticker_sentiment.empty:
+                sentiment_score = ticker_sentiment.iloc[0]['normalized_sentiment']
+                featured_data['sentiment'] = sentiment_score
+            else:
+                featured_data['sentiment'] = 0
+
+            featured_data = featured_data.dropna()
+
             if not featured_data.empty:
-                X = featured_data[['5_day_ma', '10_day_ma']]
-                y = featured_data['target']
+                scaler = MinMaxScaler(feature_range=(0, 1))
+                scaled_data = scaler.fit_transform(featured_data[['5_day_ma', '10_day_ma', 'sentiment']])
+
+                X = scaled_data
+                y = featured_data['target'].values
+
                 model = train_model(X, y)
-                latest_data = featured_data[['5_day_ma', '10_day_ma']].iloc[-1].values.reshape(1, -1)
-                prediction = model.predict(latest_data)[0]
-                predictions[ticker] = "up" if prediction == 1 else "down"
-                logger.info(f"Prediction for {ticker}: {'up' if prediction == 1 else 'down'}")
+
+                if model:
+                    time_steps = 10
+                    # Prepare the latest data for prediction
+                    latest_data = scaled_data[-time_steps:]
+                    latest_data = latest_data.reshape(1, time_steps, 3)
+
+                    prediction = model.predict(latest_data)[0][0]
+                    predictions[ticker] = "up" if prediction > 0.5 else "down"
+                    logger.info(f"Prediction for {ticker}: {'up' if prediction > 0.5 else 'down'}")
 
     # Save predictions
     predictions_df = pd.DataFrame(list(predictions.items()), columns=['company', 'ml_prediction'])

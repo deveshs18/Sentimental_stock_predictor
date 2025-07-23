@@ -1,5 +1,12 @@
 import argparse
 import logging
+import sys
+import os
+
+# Add the project root to the Python path
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(project_root)
+
 from app.data_ingestion import fetch
 from app.sentiment_analysis import sentiment
 from app.ml_prediction import predict
