@@ -1,41 +1,20 @@
 import streamlit as st
 import sys
 import os
-import pandas as pd # Added import
+import pandas as pd
 
-# Add scripts directory to Python path to import stock_predictor
-scripts_dir = os.path.join(os.path.dirname(__file__), 'scripts')
-if scripts_dir not in sys.path:
-    sys.path.append(scripts_dir)
+# Add the project root to the Python path
+project_root = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(project_root)
 
-# Now import the functions from stock_predictor
-# We expect stock_predictor.py to have:
-# - prepare_llm_context_data()
-# - generate_dynamic_prompt(user_query, top_companies_df)
-# - get_openai_response(prompt_text)
-# - setup_logging() (if you have a common logging setup function, otherwise configure basic logging here)
-try:
-    from stock_predictor import prepare_llm_context_data, generate_dynamic_prompt, get_openai_response
-    # Attempt to import setup_logging if it exists, otherwise skip
-    try:
-        from stock_predictor import logger # Use the logger configured in stock_predictor
-    except ImportError:
-        # Fallback basic logging if stock_predictor.logger is not available
-        import logging
-        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        logger = logging.getLogger(__name__)
-        logger.info("Using fallback basic logging for Streamlit app.")
-
-except ImportError as e:
-    st.error(f"Error importing functions from stock_predictor: {e}. Ensure stock_predictor.py is in the 'scripts' directory and all its dependencies are met.")
-    st.stop() # Stop the app if we can't import necessary functions
+from app.llm_integration.stock_predictor import prepare_llm_context_data, generate_dynamic_prompt, get_openai_response, logger
 
 def get_stock_performance_data():
     """
     Reads predict_growth.csv and returns top/bottom N stocks including their top headlines.
     """
-    predict_growth_file = os.path.join(os.path.dirname(__file__), 'data', 'predict_growth.csv')
-    news_sentiment_file = os.path.join(os.path.dirname(__file__), 'data', 'merged_sentiment_input.csv')
+    predict_growth_file = os.path.join(project_root, 'data', 'predict_growth.csv')
+    news_sentiment_file = os.path.join(project_root, 'data', 'merged_sentiment_input.csv')
 
     try:
         df = pd.read_csv(predict_growth_file)
@@ -74,7 +53,7 @@ def get_overall_market_sentiment():
     """
     Reads market_sentiment from predict_growth.csv and returns a qualitative description.
     """
-    predict_growth_file = os.path.join(os.path.dirname(__file__), 'data', 'predict_growth.csv')
+    predict_growth_file = os.path.join(project_root, 'data', 'predict_growth.csv')
     try:
         df = pd.read_csv(predict_growth_file)
         if 'market_sentiment' not in df.columns:
@@ -106,7 +85,7 @@ def get_top_news(num_headlines=5):
     """
     Reads merged_sentiment_input.csv and returns top N recent news headlines.
     """
-    merged_input_file = os.path.join(os.path.dirname(__file__), 'data', 'merged_sentiment_input.csv')
+    merged_input_file = os.path.join(project_root, 'data', 'merged_sentiment_input.csv')
     try:
         df = pd.read_csv(merged_input_file)
 
