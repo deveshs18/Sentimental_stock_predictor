@@ -1,4 +1,0 @@
-2025-07-15 00:51:08,465 - __main__ - INFO - Starting sentiment analysis for input: data/merged_sentiment_output_with_companies.csv, output: data/merged_sentiment_output_with_companies_and_sentiment.csv
-2025-07-15 00:51:08,473 - __main__ - INFO - Running sentiment analysis...
-2025-07-15 00:51:32,158 - __main__ - INFO - [SUCCESS] Saved sentiment results → data/merged_sentiment_output_with_companies_and_sentiment.csv
-2025-07-15 00:51:32,158 - __main__ - INFO - Sentiment analysis script finished successfully.
