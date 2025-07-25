@@ -121,9 +121,14 @@ def main():
 
     company_sentiment['normalized_sentiment'] = company_sentiment['weighted_sentiment_sum'] / company_sentiment['article_count']
 
+    # Identify popping stocks
+    company_mentions = sentiment_df['company'].value_counts().reset_index()
+    company_mentions.columns = ['company', 'mention_count']
+
     # Save results
     sentiment_df.to_csv("data/sentiment_analysis_results.csv", index=False)
     company_sentiment.to_csv("data/company_sentiment.csv", index=False)
+    company_mentions.to_csv("data/company_mentions.csv", index=False)
 
     logger.info("Successfully saved sentiment analysis results.")
 
