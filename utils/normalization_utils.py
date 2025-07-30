@@ -172,12 +172,12 @@ def normalize_company_name(name_to_normalize):
         match_result = process.extractOne(cleaned_name_lower, _loaded_data["clean_official_names"])
         if match_result:
             match, score = match_result
-            if score >= 90: # Adjusted threshold, can be tuned
+            if score >= 95: # Adjusted threshold, can be tuned
                 official_name = _loaded_data["name_mapping"][match]
                 logger.debug(f"Normalized '{name_to_normalize}' (cleaned: '{cleaned_name_lower}') to '{official_name}' via fuzzy match (score: {score}).")
                 return official_name
             else:
-                logger.debug(f"Fuzzy match score for '{name_to_normalize}' (cleaned: '{cleaned_name_lower}') was {score}, below threshold 90.")
+                logger.debug(f"Fuzzy match score for '{name_to_normalize}' (cleaned: '{cleaned_name_lower}') was {score}, below threshold 95.")
         else:
             logger.debug(f"No fuzzy match found for '{name_to_normalize}' (cleaned: '{cleaned_name_lower}').")
 
