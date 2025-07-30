@@ -100,7 +100,7 @@ def prepare_llm_context_data(user_query, top_n=25):
 
     logger.info(f"Normalized companies from query '{user_query}': {queried_companies_normalized}")
 
-    data_dir = os.path.join(parent_dir, "data")
+    data_dir = os.path.join(os.path.dirname(parent_dir), "data")
     company_sentiment_path = os.path.join(data_dir, "company_sentiment_normalized.csv")
     predict_growth_path = os.path.join(data_dir, "predict_growth.csv")
     macro_sentiment_path = os.path.join(data_dir, "macro_sentiment.csv")
