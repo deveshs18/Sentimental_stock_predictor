@@ -1,24 +1,113 @@
-2025-07-15 20:02:32,043 - market_sentiment - ERROR - MarketSentiment: Error processing market data in get_market_indicators: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
-Traceback (most recent call last):
-  File "/app/scripts/market_sentiment.py", line 59, in get_market_indicators
-    if pd.isna(vix_current_scalar) or pd.isna(vix_mean_val) or pd.isna(vix_std_val) or \
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jules/.pyenv/versions/3.12.11/lib/python3.12/site-packages/pandas/core/generic.py", line 1577, in __nonzero__
-    raise ValueError(
-ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
-2025-07-15 20:02:32,064 - __main__ - WARNING - Could not fetch market data. Using neutral sentiment.
-2025-07-15 20:02:32,069 - __main__ - INFO - Loaded sentiment data with 20 rows
-2025-07-15 20:02:32,073 - __main__ - INFO - Available columns in sentiment data: ['timestamp', 'headline', 'text', 'source', 'url', 'company']
-2025-07-15 20:02:32,074 - __main__ - INFO - Using text columns: ['headline', 'text']
-2025-07-15 20:02:32,074 - __main__ - INFO - Checking for missing or NA sentiment values to analyze sentiment from text
-2025-07-15 20:02:32,078 - __main__ - INFO - Sentiment distribution: {'neutral': 20}
-2025-07-15 20:02:32,080 - __main__ - INFO - Loaded 15 EDW keywords
-2025-07-15 20:02:32,083 - __main__ - INFO - Loaded 101 NASDAQ companies
-2025-07-15 20:02:32,083 - __main__ - INFO - Using column 'Company' as company name in NASDAQ data
-2025-07-15 20:02:32,085 - __main__ - INFO - Total companies in sentiment data: 16
-2025-07-15 20:02:32,085 - __main__ - INFO - Exact matches: 16
-2025-07-15 20:02:32,085 - __main__ - INFO - Fuzzy matches: 0
-2025-07-15 20:02:32,086 - __main__ - INFO - Unmatched companies: 0
-2025-07-15 20:02:32,086 - __main__ - INFO - Calculating growth scores with time decay and market sentiment...
-2025-07-15 20:02:32,088 - __main__ - INFO - Market sentiment adjustment factor: 0.00
-2025-07-15 20:02:32,092 - __main__ - WARNING - No growth scores calculated - check your data
+2025-07-30 15:07:20,198 - __main__ - INFO - Logging to D:\Sentimental Stock Predictor\logs\predict_growth.log
+2025-07-30 15:07:20,205 - __main__ - INFO - Starting prediction pipeline...
+2025-07-30 15:07:20,209 - __main__ - INFO - Project root: D:\Sentimental Stock Predictor
+2025-07-30 15:07:20,211 - __main__ - INFO - Files in processed directory: ['company_mentions.csv', 'company_sentiment.csv', 'sentiment_analysis.csv']
+2025-07-30 15:07:20,211 - __main__ - INFO - Loading data...
+2025-07-30 15:07:20,211 - __main__ - INFO - Loading data...
+2025-07-30 15:07:20,211 - __main__ - INFO - Project root: D:\Sentimental Stock Predictor
+2025-07-30 15:07:20,211 - __main__ - INFO - Files in processed directory: ['company_mentions.csv', 'company_sentiment.csv', 'sentiment_analysis.csv']
+2025-07-30 15:07:20,240 - __main__ - INFO - Initially loaded 300 rows from D:\Sentimental Stock Predictor\data\processed\sentiment_analysis.csv
+2025-07-30 15:07:20,241 - __main__ - INFO - Successfully loaded 300 rows from D:\Sentimental Stock Predictor\data\processed\sentiment_analysis.csv
+2025-07-30 15:07:20,246 - __main__ - INFO - Sentiment score statistics:
+count    300.000000
+mean       0.380646
+std        0.610193
+min       -0.999999
+25%        0.000000
+50%        0.000000
+75%        0.999534
+max        1.000000
+Name: sentiment_score, dtype: float64
+2025-07-30 15:07:20,250 - __main__ - INFO - Sentiment value counts (top 10):
+sentiment
+positive    140
+neutral     138
+negative     22
+Name: count, dtype: int64
+2025-07-30 15:07:20,253 - __main__ - INFO - Found required columns: ['company', 'sentiment_score', 'timestamp']
+2025-07-30 15:07:20,255 - __main__ - INFO - Available columns in sentiment data: ['timestamp', 'text', 'source', 'title', 'url', 'company', 'headline', 'sentiment', 'confidence', 'sentiment_score', 'time_decay_weight', 'weighted_sentiment']
+2025-07-30 15:07:20,257 - __main__ - INFO - Loaded 11 EDW keywords from D:\Sentimental Stock Predictor\data\edw_keywords.csv
+2025-07-30 15:07:20,259 - __main__ - INFO - Initially loaded 7 NASDAQ companies from D:\Sentimental Stock Predictor\data\nasdaq_top_companies.csv
+2025-07-30 15:07:20,259 - __main__ - INFO - Successfully loaded 7 NASDAQ companies
+2025-07-30 15:07:20,260 - __main__ - INFO - Using column 'company' as company name in NASDAQ data
+2025-07-30 15:07:20,260 - __main__ - INFO - Data loaded successfully. Sentiment data shape: (300, 12)
+2025-07-30 15:07:20,264 - __main__ - INFO - Sample sentiment data: {'company': {0: 'AAPL', 1: 'AAPL'}, 'sentiment_score': {0: 0.0, 1: 0.0}, 'timestamp': {0: '2025-07-21 03:59:48+00:00', 1: '2025-07-25 11:45:48+00:00'}}
+2025-07-30 15:07:20,265 - __main__ - INFO - Total companies in sentiment data: 3
+2025-07-30 15:07:20,267 - __main__ - INFO - Exact matches: 3
+2025-07-30 15:07:20,267 - __main__ - INFO - Fuzzy matches: 0
+2025-07-30 15:07:20,267 - __main__ - INFO - Unmatched companies: 0
+2025-07-30 15:07:20,267 - __main__ - INFO - Calculating growth scores with time decay and market sentiment...
+2025-07-30 15:07:20,267 - __main__ - INFO - ================================================================================
+2025-07-30 15:07:20,269 - __main__ - INFO - STARTING GROWTH SCORE CALCULATION
+2025-07-30 15:07:20,269 - __main__ - INFO - ================================================================================
+2025-07-30 15:07:20,270 - __main__ - INFO - Input data shape: (300, 12)
+2025-07-30 15:07:20,273 - __main__ - INFO - Sample data (first 2 rows):
+  company  sentiment_score                  timestamp
+0    AAPL              0.0  2025-07-21 03:59:48+00:00
+1    AAPL              0.0  2025-07-25 11:45:48+00:00
+2025-07-30 15:07:20,273 - __main__ - INFO - 
+Data types and non-null counts:
+2025-07-30 15:07:20,279 - __main__ - INFO - None
+2025-07-30 15:07:20,279 - __main__ - INFO - Converting timestamp column to datetime...
+2025-07-30 15:07:20,282 - __main__ - INFO - Timestamp conversion successful
+2025-07-30 15:07:20,283 - __main__ - INFO - 
+=== REFERENCE TIME ===
+2025-07-29 08:15:37+00:00
+2025-07-30 15:07:20,283 - __main__ - INFO - === MARKET SENTIMENT ADJUSTMENT ===
+0.00
+2025-07-30 15:07:20,283 - __main__ - INFO - 
+=== SENTIMENT SCORE DISTRIBUTION ===
+2025-07-30 15:07:20,287 - __main__ - INFO - count    300.000000
+mean       0.380646
+std        0.610193
+min       -0.999999
+25%        0.000000
+50%        0.000000
+75%        0.999534
+max        1.000000
+2025-07-30 15:07:20,287 - __main__ - INFO - 
+=== PROCESSING COMPANIES ===
+2025-07-30 15:07:20,289 - __main__ - INFO - 
+Processing company: AAPL
+2025-07-30 15:07:20,289 - __main__ - INFO - Number of records: 100
+2025-07-30 15:07:20,291 - __main__ - INFO - Sample time deltas (hours): [196.26361111  92.49694444 574.07722222 474.05888889 443.74277778]
+2025-07-30 15:07:20,291 - __main__ - INFO - Sample weights: [8.54076320e-04 3.57970425e-02 1.05811163e-09 3.87505844e-08
+ 1.15414020e-07]
+2025-07-30 15:07:20,291 - __main__ - INFO - Valid sentiment scores: 100/100
+2025-07-30 15:07:20,293 - __main__ - INFO - Score stats - Min: -1.0000, Max: 1.0000, Mean: 0.5278
+2025-07-30 15:07:20,295 - __main__ - INFO - Calculated scores for AAPL: {'company': 'AAPL', 'growth_score': np.float64(50.88211703525295), 'avg_sentiment': np.float64(0.01764234070505908), 'sentiment_count': 100, 'last_updated': '2025-07-29 08:15:37 UTC'}
+2025-07-30 15:07:20,296 - __main__ - INFO - 
+Processing company: GOOGL
+2025-07-30 15:07:20,297 - __main__ - INFO - Number of records: 100
+2025-07-30 15:07:20,299 - __main__ - INFO - Sample time deltas (hours): [319.2375      14.26027778 446.21027778 179.38444444 697.49972222]
+2025-07-30 15:07:20,299 - __main__ - INFO - Sample weights: [1.02058446e-05 5.98475315e-01 1.05603956e-07 1.56817932e-03
+ 1.24414186e-11]
+2025-07-30 15:07:20,303 - __main__ - INFO - Valid sentiment scores: 100/100
+2025-07-30 15:07:20,304 - __main__ - INFO - Score stats - Min: -1.0000, Max: 1.0000, Mean: 0.2959
+2025-07-30 15:07:20,306 - __main__ - INFO - Calculated scores for GOOGL: {'company': 'GOOGL', 'growth_score': np.float64(50.84380952058668), 'avg_sentiment': np.float64(0.016876190411733633), 'sentiment_count': 100, 'last_updated': '2025-07-29 08:15:37 UTC'}
+2025-07-30 15:07:20,306 - __main__ - INFO - 
+Processing company: MSFT
+2025-07-30 15:07:20,307 - __main__ - INFO - Number of records: 100
+2025-07-30 15:07:20,308 - __main__ - INFO - Sample time deltas (hours): [ 19.84361111 429.57111111 595.25944444 156.03055556 620.50972222]
+2025-07-30 15:07:20,309 - __main__ - INFO - Sample weights: [4.89500400e-01 1.92232550e-07 4.93578106e-10 3.63516782e-03
+ 1.98873932e-10]
+2025-07-30 15:07:20,310 - __main__ - INFO - Valid sentiment scores: 100/100
+2025-07-30 15:07:20,310 - __main__ - INFO - Score stats - Min: -1.0000, Max: 1.0000, Mean: 0.3182
+2025-07-30 15:07:20,311 - __main__ - INFO - Calculated scores for MSFT: {'company': 'MSFT', 'growth_score': np.float64(50.805933206060814), 'avg_sentiment': np.float64(0.016118664121216326), 'sentiment_count': 100, 'last_updated': '2025-07-29 08:15:37 UTC'}
+2025-07-30 15:07:20,312 - __main__ - INFO - 
+================================================================================
+2025-07-30 15:07:20,312 - __main__ - INFO - GROWTH SCORE CALCULATION COMPLETE
+2025-07-30 15:07:20,312 - __main__ - INFO - ================================================================================
+2025-07-30 15:07:20,312 - __main__ - INFO - Successfully processed 3 companies
+2025-07-30 15:07:20,315 - __main__ - INFO - Final growth scores (top 10):
+  company  growth_score  avg_sentiment  sentiment_count             last_updated
+0    AAPL     50.882117       0.017642              100  2025-07-29 08:15:37 UTC
+1   GOOGL     50.843810       0.016876              100  2025-07-29 08:15:37 UTC
+2    MSFT     50.805933       0.016119              100  2025-07-29 08:15:37 UTC
+2025-07-30 15:07:20,320 - __main__ - INFO - Growth scores saved to D:\Sentimental Stock Predictor\data/processed/predict_growth.csv
+2025-07-30 15:07:20,320 - __main__ - INFO - 
+Top 10 companies by growth score:
+2025-07-30 15:07:20,324 - __main__ - INFO -   company  growth_score  avg_sentiment  sentiment_count             last_updated
+0    AAPL     50.882117       0.017642              100  2025-07-29 08:15:37 UTC
+1   GOOGL     50.843810       0.016876              100  2025-07-29 08:15:37 UTC
+2    MSFT     50.805933       0.016119              100  2025-07-29 08:15:37 UTC

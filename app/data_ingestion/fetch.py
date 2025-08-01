@@ -6,8 +6,17 @@ import praw
 from dotenv import load_dotenv
 import logging
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from the scripts/.env file
+script_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+dotenv_path = os.path.join(script_dir, 'scripts', '.env')
+print(f"Loading .env file from: {dotenv_path}")
+print(f"File exists: {os.path.exists(dotenv_path)}")
+load_dotenv(dotenv_path)
+
+# Debug: Print environment variables
+print(f"NEWS_API_KEY exists: {'NEWS_API_KEY' in os.environ}")
+print(f"REDDIT_CLIENT_ID exists: {'REDDIT_CLIENT_ID' in os.environ}")
+print(f"REDDIT_CLIENT_SECRET exists: 'REDDIT_CLIENT_SECRET' in os.environ")
 
 # Configure logging
 log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

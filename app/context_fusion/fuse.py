@@ -39,13 +39,15 @@ def main():
     """
     # Load data
     try:
-        company_sentiment = pd.read_csv("data/company_sentiment.csv")
+        # Go up two levels from fuse.py to the project root
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        company_sentiment = pd.read_csv(os.path.join(project_root, "data", "processed", "company_sentiment.csv"))
     except FileNotFoundError:
         logger.error("company_sentiment.csv not found. Please run the sentiment analysis pipeline first.")
         company_sentiment = pd.DataFrame()
 
     try:
-        ml_predictions = pd.read_csv("data/ml_predictions.csv")
+        ml_predictions = pd.read_csv(os.path.join(project_root, "data", "ml_predictions.csv"))
     except FileNotFoundError:
         logger.error("ml_predictions.csv not found. Please run the ML prediction pipeline first.")
         ml_predictions = pd.DataFrame()
@@ -65,7 +67,7 @@ def main():
     fused_df = fused_df.sort_values(by="final_score", ascending=False)
 
     # Save results
-    fused_df.to_csv("data/fused_scores.csv", index=False)
+    fused_df.to_csv(os.path.join(project_root, "data", "fused_scores.csv"), index=False)
     logger.info("Successfully saved fused scores.")
 
 if __name__ == "__main__":

@@ -4,8 +4,15 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import logging
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from the scripts/.env file
+script_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+dotenv_path = os.path.join(script_dir, 'scripts', '.env')
+print(f"Loading .env file from: {dotenv_path}")
+print(f"File exists: {os.path.exists(dotenv_path)}")
+load_dotenv(dotenv_path)
+
+# Debug: Print if OPENAI_API_KEY is loaded
+print(f"OPENAI_API_KEY exists: {'OPENAI_API_KEY' in os.environ}")
 
 # Configure logging
 log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

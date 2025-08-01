@@ -79,7 +79,7 @@ os.makedirs("data", exist_ok=True)
 output_path = "data/merged_sentiment_input.csv"
 try:
     combined_df.to_csv(output_path, index=False)
-    logger.info(f"✅ Merged News + Reddit → {output_path}")
+    logger.info(f"Merged News + Reddit -> {output_path}")
 except Exception as e:
     logger.error(f"Error saving merged data: {e}", exc_info=True)
     raise

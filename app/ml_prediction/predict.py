@@ -85,7 +85,7 @@ def main(tickers):
     Main function to fetch data, train a model, and make predictions.
     """
     try:
-        sentiment_df = pd.read_csv("data/company_sentiment.csv")
+        sentiment_df = pd.read_csv("data/processed/company_sentiment.csv")
     except FileNotFoundError:
         logger.error("company_sentiment.csv not found. Please run the sentiment analysis first.")
         sentiment_df = pd.DataFrame(columns=['company', 'normalized_sentiment'])

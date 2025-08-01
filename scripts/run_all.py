@@ -2,10 +2,16 @@ import argparse
 import logging
 import sys
 import os
+from dotenv import load_dotenv
 
 # Add the project root to the Python path
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
+
+# Load environment variables from the scripts/.env file
+script_dir = os.path.dirname(os.path.abspath(__file__))
+dotenv_path = os.path.join(script_dir, '.env')
+load_dotenv(dotenv_path)
 
 from app.data_ingestion import fetch
 from app.sentiment_analysis import sentiment
@@ -34,25 +40,25 @@ def main():
     fetch.main(args.keywords, args.subreddits)
     logger.info("--- Data Ingestion Finished ---")
 
+    # 1b. Merge Sources
+    logger.info("--- Merging Data Sources ---")
+    os.system(f"python scripts/merge_sources.py")
+    logger.info("--- Merging Data Sources Finished ---")
+
+    # 1c. Entity Extraction (extract company names and normalize)
+    logger.info("--- Starting Entity Extraction ---")
+    os.system(f"python scripts/extract_entities.py")
+    logger.info("--- Entity Extraction Finished ---")
+
     # 2. Sentiment Analysis
     logger.info("--- Starting Sentiment Analysis ---")
     sentiment.main()
     logger.info("--- Sentiment Analysis Finished ---")
 
-    # 3. ML Prediction
-    logger.info("--- Starting ML Prediction ---")
-    predict.main(args.keywords)
-    logger.info("--- ML Prediction Finished ---")
-
-    # 4. Context Fusion
-    logger.info("--- Starting Context Fusion ---")
-    fuse.main()
-    logger.info("--- Context Fusion Finished ---")
-
-    # 5. LLM Integration
-    logger.info("--- Starting LLM Integration ---")
-    integration.main()
-    logger.info("--- LLM Integration Finished ---")
+    # 3. Comprehensive Analysis (Replaces ML Prediction, Merge, and Context Fusion)
+    logger.info("--- Starting Comprehensive Stock Analysis ---")
+    os.system(f"python scripts/comprehensive_stock_analysis.py")
+    logger.info("--- Comprehensive Stock Analysis Finished ---")
 
     logger.info("Stock prediction pipeline finished successfully.")
 

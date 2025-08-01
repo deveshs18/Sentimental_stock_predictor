@@ -2,6 +2,9 @@ import pandas as pd
 import spacy
 from tqdm import tqdm
 import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from utils.normalization_utils import normalize_company_name
 
 # Load SpaCy English model
 nlp = spacy.load("en_core_web_sm")
@@ -12,15 +15,19 @@ output_path = "data/merged_sentiment_output_with_companies.csv"
 
 df = pd.read_csv(input_path)
 
-# Extract organization names (companies) using NER
+# Extract organization names (companies) using NER and normalize
 companies = []
 
-print("🔍 Extracting companies using spaCy NER...")
+print("🔍 Extracting and normalizing companies using spaCy NER...")
 for headline in tqdm(df["headline"].fillna("")):
     doc = nlp(str(headline))
     orgs = [ent.text for ent in doc.ents if ent.label_ == "ORG"]
-    # Pick the first ORG as the primary company (or '' if none)
-    companies.append(orgs[0] if orgs else "")
+    # Normalize the first ORG entity to a ticker/canonical name
+    if orgs:
+        normalized = normalize_company_name(orgs[0])
+        companies.append(normalized if normalized else "")
+    else:
+        companies.append("")
 
 df["company"] = companies
 

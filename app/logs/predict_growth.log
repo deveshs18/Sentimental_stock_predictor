@@ -1,0 +1,3 @@
+2025-07-30 03:26:24,539 - __main__ - INFO - Starting prediction pipeline...
+2025-07-30 03:26:24,539 - __main__ - INFO - Project root: D:\Sentimental Stock Predictor
+2025-07-30 03:26:24,540 - __main__ - INFO - Files in processed directory: ['company_mentions.csv', 'company_sentiment.csv', 'sentiment_analysis.csv']

@@ -8,8 +8,10 @@ import logging
 import math
 from datetime import datetime, timezone
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from the scripts/.env file
+script_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+dotenv_path = os.path.join(script_dir, 'scripts', '.env')
+load_dotenv(dotenv_path)
 
 # Configure logging
 log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -67,20 +69,15 @@ def main():
     """
     Main function to run sentiment analysis on the ingested data.
     """
-    logger.info("Starting sentiment analysis.")
     # Load ingested data
     try:
-        logger.info("Loading news_combined.csv")
         news_df = pd.read_csv("data/news_combined.csv")
-        logger.info("Loaded news_combined.csv successfully.")
     except FileNotFoundError:
         logger.error("news_combined.csv not found. Please run the data ingestion pipeline first.")
         news_df = pd.DataFrame()
 
     try:
-        logger.info("Loading reddit_posts.csv")
         reddit_df = pd.read_csv("data/reddit_posts.csv")
-        logger.info("Loaded reddit_posts.csv successfully.")
     except FileNotFoundError:
         logger.error("reddit_posts.csv not found. Please run the data ingestion pipeline first.")
         reddit_df = pd.DataFrame()
@@ -89,18 +86,12 @@ def main():
         logger.error("No data to process. Exiting.")
         return
 
-    logger.info(f"News df shape: {news_df.shape}")
-    logger.info(f"Reddit df shape: {reddit_df.shape}")
-
     combined_df = pd.concat([news_df, reddit_df], ignore_index=True)
     combined_df['timestamp'] = pd.to_datetime(combined_df['timestamp'], errors='coerce', utc=True)
 
     # Run sentiment analysis
     sentiments = []
-    logger.info(f"Processing {len(combined_df)} rows for sentiment analysis.")
     for index, row in combined_df.iterrows():
-        if index % 50 == 0:
-            logger.info(f"Processing row {index}...")
         combined_text = f"{row['headline']} {row['text']}"
         sentiment, confidence = classify_sentiment(combined_text)
         sentiments.append({
@@ -113,7 +104,7 @@ def main():
             "url": row["url"],
             "company": row["company"]
         })
-    logger.info(f"Successfully processed {len(sentiments)} items for sentiment analysis.")
+
     sentiment_df = pd.DataFrame(sentiments)
 
     # Calculate sentiment score with time decay
@@ -124,24 +115,32 @@ def main():
     sentiment_df['time_decay_weight'] = sentiment_df['timestamp'].apply(time_decay_weight)
     sentiment_df['weighted_sentiment'] = sentiment_df['sentiment_score'] * sentiment_df['time_decay_weight']
 
-    # Aggregate sentiment scores by company
-    company_sentiment = sentiment_df.groupby('company').agg(
-        weighted_sentiment_sum=('weighted_sentiment', 'sum'),
-        article_count=('headline', 'count')
-    ).reset_index()
-
-    company_sentiment['normalized_sentiment'] = company_sentiment['weighted_sentiment_sum'] / company_sentiment['article_count']
-
-    # Identify popping stocks
-    company_mentions = sentiment_df['company'].value_counts().reset_index()
-    company_mentions.columns = ['company', 'mention_count']
-
-    # Save results
-    sentiment_df.to_csv("data/sentiment_analysis_results.csv", index=False)
-    company_sentiment.to_csv("data/company_sentiment.csv", index=False)
-    company_mentions.to_csv("data/company_mentions.csv", index=False)
-
-    logger.info("Successfully saved sentiment analysis results.")
+        # Save results
+        os.makedirs('data/processed', exist_ok=True)
+        combined_df.to_csv('data/processed/sentiment_analysis.csv', index=False)
+        
+        # If we have company data, aggregate by company
+        if 'company' in combined_df.columns and not combined_df['company'].isna().all():
+            company_sentiment = combined_df.groupby('company').agg(
+                weighted_sentiment_sum=('weighted_sentiment', 'sum'),
+                article_count=('headline', 'count')
+            ).reset_index()
+            
+            company_sentiment['normalized_sentiment'] = company_sentiment['weighted_sentiment_sum'] / company_sentiment['article_count']
+            company_sentiment.to_csv('data/processed/company_sentiment.csv', index=False)
+            # Also save to data/company_sentiment_normalized.csv for downstream compatibility
+            os.makedirs('data', exist_ok=True)
+            company_sentiment.to_csv('data/company_sentiment_normalized.csv', index=False)
+            
+            company_mentions = combined_df['company'].value_counts().reset_index()
+            company_mentions.columns = ['company', 'mention_count']
+            company_mentions.to_csv('data/processed/company_mentions.csv', index=False)
+        
+        logger.info(f"Successfully processed {len(combined_df)} items for sentiment analysis.")
+        
+    except Exception as e:
+        logger.error(f"Error in sentiment analysis: {e}")
+        raise
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,3 @@
+2025-08-01 15:31:38,422 - app.data_ingestion.fetch - INFO - Successfully saved news data to data/news_combined.csv
+2025-08-01 15:31:38,424 - app.data_ingestion.fetch - INFO - Reddit API initialized successfully.
+2025-08-01 15:31:40,962 - app.data_ingestion.fetch - INFO - Successfully saved Reddit data to data/reddit_posts.csv

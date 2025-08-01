@@ -17,20 +17,16 @@ from utils.yfinance_utils import get_current_stock_data
 
 print("--- Running stock_predictor.py - VERSION: DEBUG_LOGGING_V2 ---") # Unmissable print statement
 
-# Load environment variables from .env file
-# Assuming .env is in the parent directory (project root) or this script's directory
-env_path_script_dir = Path(__file__).parent / '.env'
-env_path_parent_dir = Path(__file__).parent.parent / '.env'
+# Load environment variables from the scripts/.env file
+script_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+dotenv_path = os.path.join(script_dir, 'scripts', '.env')
+print(f"Loading .env file from: {dotenv_path}")
+print(f"File exists: {os.path.exists(dotenv_path)}")
+load_dotenv(dotenv_path)
 
-if os.path.exists(env_path_script_dir):
-    load_dotenv(dotenv_path=env_path_script_dir)
-    env_path = env_path_script_dir
-elif os.path.exists(env_path_parent_dir):
-    load_dotenv(dotenv_path=env_path_parent_dir)
-    env_path = env_path_parent_dir
-else:
-    env_path = None
-
+# Debug: Print if OPENAI_API_KEY is loaded
+print(f"OPENAI_API_KEY exists: {'OPENAI_API_KEY' in os.environ}")
+env_path = dotenv_path
 
 # Configure logging
 # Change level to DEBUG to see more detailed logs for diagnosing this issue
@@ -100,7 +96,7 @@ def prepare_llm_context_data(user_query, top_n=25):
 
     logger.info(f"Normalized companies from query '{user_query}': {queried_companies_normalized}")
 
-    data_dir = os.path.join(os.path.dirname(parent_dir), "data")
+    data_dir = os.path.join(parent_dir, "data")
     company_sentiment_path = os.path.join(data_dir, "company_sentiment_normalized.csv")
     predict_growth_path = os.path.join(data_dir, "predict_growth.csv")
     macro_sentiment_path = os.path.join(data_dir, "macro_sentiment.csv")
@@ -119,6 +115,7 @@ def prepare_llm_context_data(user_query, top_n=25):
         logger.debug(f"CSV_LOAD: Successfully loaded company_sentiment_normalized.csv. Shape: {company_df_raw.shape}. Columns: {company_df_raw.columns.tolist()}")
         if not company_df_raw.empty:
             logger.debug(f"CSV_LOAD: Head of company_sentiment_normalized.csv:\n{company_df_raw.head().to_string()}")
+            logger.debug(f"Company names in company_sentiment_normalized.csv: {company_df_raw['company'].unique().tolist()}")
         else:
             logger.warning(f"CSV_LOAD: {company_sentiment_path} is empty.")
 
@@ -130,6 +127,7 @@ def prepare_llm_context_data(user_query, top_n=25):
         logger.debug(f"CSV_LOAD: Successfully loaded predict_growth.csv. Shape: {growth_df_raw.shape}. Columns: {growth_df_raw.columns.tolist()}")
         if not growth_df_raw.empty:
             logger.debug(f"CSV_LOAD: Head of predict_growth.csv:\n{growth_df_raw.head().to_string()}")
+            logger.debug(f"Company names in predict_growth.csv: {growth_df_raw['company'].unique().tolist()}")
         else:
             logger.warning(f"CSV_LOAD: {predict_growth_path} is empty.")
 
@@ -230,6 +228,7 @@ def prepare_llm_context_data(user_query, top_n=25):
         final_df_list = []
 
         if not queried_companies_uppercase_keys:
+            # Always select top N companies if no specific company is found in the query
             final_df = top_companies_df.head(top_n).copy() # Use .copy() to avoid SettingWithCopyWarning
             logger.debug(f"No specific companies queried. Selected top {top_n}. Shape: {final_df.shape}")
         else:
@@ -330,11 +329,33 @@ def prepare_llm_context_data(user_query, top_n=25):
 
         # Add news headlines to the final dataframe
         if not final_df.empty:
-            news_df = pd.read_csv(news_sentiment_path)
-            news_df['company_upper_merge_key'] = news_df['company'].astype(str).str.upper()
-            final_df['Top_Headlines'] = final_df['company_upper_merge_key'].apply(
-                lambda x: news_df[news_df['company_upper_merge_key'] == x]['headline'].head(3).tolist()
-            )
+            try:
+                news_df = pd.read_csv(news_sentiment_path)
+                # Check if 'company' column exists, if not try to find a suitable alternative
+                company_col = None
+                possible_company_cols = ['company', 'ticker', 'symbol', 'name']
+                for col in possible_company_cols:
+                    if col in news_df.columns:
+                        company_col = col
+                        break
+                
+                if company_col:
+                    news_df['company_upper_merge_key'] = news_df[company_col].astype(str).str.upper()
+                    final_df['Top_Headlines'] = final_df['company_upper_merge_key'].apply(
+                        lambda x: news_df[news_df['company_upper_merge_key'] == x]['headline'].head(3).tolist() 
+                        if 'headline' in news_df.columns else []
+                    )
+                else:
+                    logger.warning(f"Could not find company identifier column in {news_sentiment_path}. Expected one of: {possible_company_cols}")
+                    final_df['Top_Headlines'] = [[] for _ in range(len(final_df))]
+            except Exception as e:
+                logger.error(f"Error processing news data: {e}")
+                final_df['Top_Headlines'] = [[] for _ in range(len(final_df))]
+        else:
+            # If no company data is available, provide a clear message for the LLM prompt
+            logger.warning("No company data available after merging. The LLM will be told exactly which companies were found and which were missing.")
+            if queried_companies_normalized:
+                logger.warning(f"User asked about these companies, but none were found in the data: {queried_companies_normalized}")
 
         logger.debug(f"final_df head before returning:\n{final_df.head().to_string()}")
 
@@ -366,18 +387,16 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
     instructions = """Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow'. 
     Focus on the following key aspects:
     1. Overall Market Sentiment: Summarize the general market mood based on the provided sentiment data.
-    2. Sector Analysis: Highlight which sectors are showing strength or weakness (e.g. based on 'theme' and 'macro_sentiment_score').
-    3. Company Analysis: For companies mentioned in the query or showing significant movement (present in the data), provide:
-       - Sentiment analysis (positive/negative/neutral from 'positive', 'neutral', 'negative' columns)
-       - Growth score and its implications (from 'growth_score' column)
-       - Current price (from 'current_price' column)
-       - Macro sentiment impact on the sector (from 'macro_sentiment_score' for the company's 'theme')
-       - Justification: Use the 'Top Headlines' to justify the sentiment and growth score.
-    4. Actionable Insights: Provide clear, data-driven recommendations based on the analysis.
+    2. Company Analysis: For companies mentioned in the query or showing significant movement (present in the data), provide:
+       - A combined prediction for tomorrow (up/down/neutral) based on the ML model and sentiment.
+       - The ML model's prediction (from 'ml_prediction').
+       - The recent time-decayed sentiment (from 'time_decayed_sentiment').
+       - The overall growth score and its components.
+       - Justification using recent news headlines.
+    3. Actionable Insights: Provide clear, data-driven recommendations.
     
-    Do NOT mention LSTM predictions as they are not part of this analysis.
-    Always consider the context of the user's query and provide specific, relevant information.
-    If data is missing or unclear, acknowledge it and explain any limitations in the analysis."""
+    If data is missing or unclear, acknowledge it and explain any limitations.
+    """
 
     prompt_lines.append("\nCompany Data Context:")
     if top_companies_df.empty:
@@ -385,25 +404,17 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
     else:
         for _, row in top_companies_df.iterrows():
             company_name = row.get('company', 'N/A')
-            macro_sentiment_val = row.get('macro_sentiment_score')
-            macro_sentiment_str = f"{macro_sentiment_val:.2f}" if pd.notna(macro_sentiment_val) else "N/A"
-            theme_str = row.get('theme', 'N/A')
-            current_price_str = format_value_for_prompt(row.get('current_price'))
-
             line = (
-                f"- {company_name}: GrowthScore={format_value_for_prompt(row.get('growth_score'))}, "
-                f"CurrentPrice=${current_price_str}, " # Added CurrentPrice
-                f"PositiveSentiment={format_value_for_prompt(row.get('positive'))}, NeutralSentiment={format_value_for_prompt(row.get('neutral'))}, "
-                f"NegativeSentiment={format_value_for_prompt(row.get('negative'))}, "
-                f"Sector={theme_str}, MacroSectorSentiment={macro_sentiment_str}"
+                f"- {company_name}:\n"
+                f"  - ML Prediction for Tomorrow: {row.get('ml_prediction', 'N/A')}\n"
+                f"  - Time-Decayed Sentiment: {format_value_for_prompt(row.get('time_decayed_sentiment'))}\n"
+                f"  - Overall Growth Score: {format_value_for_prompt(row.get('growth_score'))}\n"
+                f"  - Base Sentiment Score: {format_value_for_prompt(row.get('sentiment_score'))}\n"
+                f"  - Total News Mentions: {row.get('total_mentions', 'N/A')}\n"
             )
-            
-            # Add headlines if available
             headlines = row.get('Top_Headlines')
             if headlines:
-                line += f"\n  - Top Headlines: {'; '.join(headlines)}"
-
-            # LSTM Prediction part COMPLETELY REMOVED
+                line += f"  - Top Headlines: {'; '.join(headlines)}"
             prompt_lines.append(line)
 
     prompt_lines.append("\n---\nInstructions:\n" + instructions)

@@ -41,7 +41,7 @@ def _load_normalization_data():
         return
 
     try:
-        nasdaq_df = pd.read_csv(NASDAQS_COMPANIES_CSV_PATH)
+        nasdaq_df = pd.read_csv(NASDAQS_COMPANIES_CSV_PATH, sep=',', quotechar='"', engine='python', on_bad_lines='skip')
         logger.info(f"Loaded NASDAQ companies from {NASDAQS_COMPANIES_CSV_PATH}. Found {len(nasdaq_df)} companies.")
         _loaded_data["nasdaq_df"] = nasdaq_df
     except FileNotFoundError:
@@ -63,15 +63,15 @@ def _load_normalization_data():
         return
 
     # Create cleaned versions for matching
-    nasdaq_df['clean_name'] = nasdaq_df['Company'].fillna('').apply(clean_company_name)
-    _loaded_data["name_mapping"] = dict(zip(nasdaq_df['clean_name'], nasdaq_df['Company']))
+    nasdaq_df['clean_name'] = nasdaq_df['company_name'].fillna('').apply(clean_company_name)
+    _loaded_data["name_mapping"] = dict(zip(nasdaq_df['clean_name'], nasdaq_df['company_name']))
     _loaded_data["clean_official_names"] = list(_loaded_data["name_mapping"].keys())
 
     # Create ticker_map
     ticker_map = {}
     for _, row in nasdaq_df.iterrows():
-        ticker = row['Ticker']
-        company_name = row['Company']
+        ticker = row['symbol']
+        company_name = row['company_name']
         if pd.notna(ticker) and pd.notna(company_name):
             ticker_map[ticker.upper()] = company_name
     _loaded_data["ticker_map"] = ticker_map
@@ -122,54 +122,32 @@ def _load_normalization_data():
 
 def normalize_company_name(name_to_normalize):
     """
-    Normalizes a given company name or ticker to its official company name
-    using various matching strategies.
+    Normalizes a given company name or ticker to its ticker symbol.
     """
     _load_normalization_data() # Ensure data is loaded
 
     if not isinstance(name_to_normalize, str) or not name_to_normalize.strip():
         return ""
 
-    # 1. Direct Ticker Match (if name_to_normalize is a potential ticker)
-    # Check if the input itself is a ticker (common for user queries)
+    # 1. Direct Ticker Match
     potential_ticker_input = name_to_normalize.upper()
     if potential_ticker_input in _loaded_data["ticker_map"]:
-        official_name = _loaded_data["ticker_map"][potential_ticker_input]
-        logger.debug(f"Normalized '{name_to_normalize}' to '{official_name}' via direct ticker input map.")
-        return official_name
+        return potential_ticker_input
 
-    # Also check for tickers within a longer string (original logic)
-    potential_tickers_in_string = re.findall(r'\b([A-Z]{1,5})\b', name_to_normalize)
-    for ticker in potential_tickers_in_string:
-        if ticker in _loaded_data["ticker_map"]:
-            official_name = _loaded_data["ticker_map"][ticker]
-            logger.debug(f"Normalized '{name_to_normalize}' to '{official_name}' via ticker '{ticker}' found in string.")
-            return official_name
-
+    # 2. Common Name Match (e.g., "apple" -> "AAPL")
     cleaned_name_lower = clean_company_name(name_to_normalize)
-    if not cleaned_name_lower:
-        logger.debug(f"Could not normalize '{name_to_normalize}' after cleaning, result is empty.")
-        return ""
-
-    # 2. Common Name Match
     if cleaned_name_lower in _loaded_data["common_name_map"]:
         official_name = _loaded_data["common_name_map"][cleaned_name_lower]
-        logger.debug(f"Normalized '{name_to_normalize}' (cleaned: '{cleaned_name_lower}') to '{official_name}' via common name map.")
-        return official_name
+        ticker = get_ticker_for_company(official_name)
+        if ticker:
+            return ticker
 
-    # 3. Exact Cleaned Match
-    if cleaned_name_lower in _loaded_data["name_mapping"]:
-        official_name = _loaded_data["name_mapping"][cleaned_name_lower]
-        logger.debug(f"Normalized '{name_to_normalize}' (cleaned: '{cleaned_name_lower}') to '{official_name}' via exact cleaned match.")
-        return official_name
-
-    # 4. Fuzzy Match
+    # 3. Fuzzy Match to get official name, then get ticker
     try:
         if not _loaded_data["clean_official_names"]:
-            logger.warning("Clean official names list is empty, skipping fuzzy match.")
             return ""
-
         match_result = process.extractOne(cleaned_name_lower, _loaded_data["clean_official_names"])
+
         if match_result:
             match, score = match_result
             if score >= 95: # Adjusted threshold, can be tuned
@@ -181,21 +159,10 @@ def normalize_company_name(name_to_normalize):
         else:
             logger.debug(f"No fuzzy match found for '{name_to_normalize}' (cleaned: '{cleaned_name_lower}').")
 
+
     except Exception as e:
-        logger.warning(f"Error during fuzzy matching for '{name_to_normalize}' (cleaned: '{cleaned_name_lower}'): {str(e)}")
+        logger.warning(f"Error during fuzzy matching for '{name_to_normalize}': {str(e)}")
 
-    logger.info(f"No normalization match found for: '{name_to_normalize}' (cleaned: '{cleaned_name_lower}'). Returning original as a last resort if it's a proper noun, else empty.")
-    # Fallback: if it looks like a proper name (e.g., starts with capital or is all caps) return it, else empty
-    if name_to_normalize.isupper() or (name_to_normalize[0].isupper() if name_to_normalize else False):
-        # Check if the original name_to_normalize is an official name already
-        if name_to_normalize in _loaded_data["name_mapping"].values():
-             return name_to_normalize
-
-    # If user query was "google stco ktowmorrow", this function would be called with "google stco ktowmorrow".
-    # It would fail to find a direct match.
-    # A more advanced query parser in stock_predictor.py might split this into "google", "stco", "ktowmorrow"
-    # and call normalize_company_name on each part. "google" would then be normalized.
-    logger.info(f"Final fallback: No normalization found for '{name_to_normalize}'. Returning empty string.")
     return ""
 
 
