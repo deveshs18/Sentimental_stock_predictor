@@ -100,7 +100,7 @@ def prepare_llm_context_data(user_query, top_n=25):
 
     logger.info(f"Normalized companies from query '{user_query}': {queried_companies_normalized}")
 
-    data_dir = os.path.join(parent_dir, "data")
+    data_dir = os.path.join(os.path.dirname(parent_dir), "data")
     company_sentiment_path = os.path.join(data_dir, "company_sentiment_normalized.csv")
     predict_growth_path = os.path.join(data_dir, "predict_growth.csv")
     macro_sentiment_path = os.path.join(data_dir, "macro_sentiment.csv")
@@ -156,6 +156,9 @@ def prepare_llm_context_data(user_query, top_n=25):
             logger.error(f"{predict_growth_path} was loaded as an empty DataFrame. Cannot proceed with merges.")
             return pd.DataFrame(), "Neutral (Error: Empty growth data)", queried_companies_normalized
 
+        logger.debug(f"company_df_raw head:\n{company_df_raw.head().to_string()}")
+        logger.debug(f"growth_df_raw head:\n{growth_df_raw.head().to_string()}")
+
 
         # Store original company names from growth_df for accurate ticker lookup later
         # as get_ticker_for_company expects original casing from nasdaq_top_companies.csv
@@ -177,6 +180,8 @@ def prepare_llm_context_data(user_query, top_n=25):
         # Use the company name from growth_df as the primary one, as it's likely more official
         merged_df['company'] = merged_df['company_growth']
         merged_df.drop(columns=['company_growth', 'company_sentiment'], errors='ignore', inplace=True)
+
+        logger.debug(f"merged_df head after sentiment merge:\n{merged_df.head().to_string()}")
 
 
         # Log some results of the first merge for problematic companies
@@ -330,6 +335,8 @@ def prepare_llm_context_data(user_query, top_n=25):
             final_df['Top_Headlines'] = final_df['company_upper_merge_key'].apply(
                 lambda x: news_df[news_df['company_upper_merge_key'] == x]['headline'].head(3).tolist()
             )
+
+        logger.debug(f"final_df head before returning:\n{final_df.head().to_string()}")
 
         return final_df, overall_market_sentiment_string, queried_companies_normalized
 

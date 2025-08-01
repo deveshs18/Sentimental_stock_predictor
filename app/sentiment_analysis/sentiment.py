@@ -67,15 +67,20 @@ def main():
     """
     Main function to run sentiment analysis on the ingested data.
     """
+    logger.info("Starting sentiment analysis.")
     # Load ingested data
     try:
+        logger.info("Loading news_combined.csv")
         news_df = pd.read_csv("data/news_combined.csv")
+        logger.info("Loaded news_combined.csv successfully.")
     except FileNotFoundError:
         logger.error("news_combined.csv not found. Please run the data ingestion pipeline first.")
         news_df = pd.DataFrame()
 
     try:
+        logger.info("Loading reddit_posts.csv")
         reddit_df = pd.read_csv("data/reddit_posts.csv")
+        logger.info("Loaded reddit_posts.csv successfully.")
     except FileNotFoundError:
         logger.error("reddit_posts.csv not found. Please run the data ingestion pipeline first.")
         reddit_df = pd.DataFrame()
@@ -84,12 +89,18 @@ def main():
         logger.error("No data to process. Exiting.")
         return
 
+    logger.info(f"News df shape: {news_df.shape}")
+    logger.info(f"Reddit df shape: {reddit_df.shape}")
+
     combined_df = pd.concat([news_df, reddit_df], ignore_index=True)
     combined_df['timestamp'] = pd.to_datetime(combined_df['timestamp'], errors='coerce', utc=True)
 
     # Run sentiment analysis
     sentiments = []
+    logger.info(f"Processing {len(combined_df)} rows for sentiment analysis.")
     for index, row in combined_df.iterrows():
+        if index % 50 == 0:
+            logger.info(f"Processing row {index}...")
         combined_text = f"{row['headline']} {row['text']}"
         sentiment, confidence = classify_sentiment(combined_text)
         sentiments.append({
@@ -102,7 +113,7 @@ def main():
             "url": row["url"],
             "company": row["company"]
         })
-
+    logger.info(f"Successfully processed {len(sentiments)} items for sentiment analysis.")
     sentiment_df = pd.DataFrame(sentiments)
 
     # Calculate sentiment score with time decay

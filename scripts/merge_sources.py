@@ -59,7 +59,7 @@ reddit_df = reddit_df.rename(columns={
 reddit_df["source"] = "reddit"
 
 # Standardize column order
-columns = ["timestamp", "headline", "text", "source", "url"]
+columns = ["timestamp", "headline", "text", "source", "url", "company"]
 news_df = news_df[columns]
 reddit_df = reddit_df[columns]
 
