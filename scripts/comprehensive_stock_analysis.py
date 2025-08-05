@@ -36,14 +36,42 @@ def analyze_stocks():
         print(f"Error: Missing required data file: {e}. Please ensure all previous steps have run.")
         return
 
-    # 1. Calculate Time-Decayed News Sentiment
+    # 1. Process sentiment data
+    # Ensure required columns exist
+    if 'timestamp' not in news_df.columns or 'company' not in news_df.columns:
+        print("Error: Missing required columns in sentiment data. Expected 'timestamp' and 'company' columns.")
+        return
+
+    # Convert timestamp and handle missing values
     news_df['timestamp'] = pd.to_datetime(news_df['timestamp'], utc=True, errors='coerce')
-    news_df.dropna(subset=['timestamp', 'sentiment_score', 'company'], inplace=True)
-    news_df['time_decay_weight'] = news_df['timestamp'].apply(time_decay_weight)
+
+    # Calculate sentiment score if not present
+    if 'sentiment_score' not in news_df.columns:
+        if 'sentiment' in news_df.columns and 'confidence' in news_df.columns:
+            # Calculate sentiment score from sentiment and confidence
+            news_df['sentiment_score'] = news_df.apply(
+                lambda x: (1 if x['sentiment'] == 'positive' else -1 if x['sentiment'] == 'negative' else 0) * x.get('confidence', 1),
+                axis=1
+            )
+        else:
+            print("Warning: 'sentiment_score' column not found and cannot be calculated. Using default score of 0.")
+            news_df['sentiment_score'] = 0.0
+    
+    # Drop rows with missing required data
+    news_df = news_df.dropna(subset=['timestamp', 'company'])
+    
+    # Calculate time-decayed sentiment
+    news_df['time_decay_weight'] = news_df['timestamp'].apply(time_decay_weight) 
     news_df['time_decayed_sentiment'] = news_df['sentiment_score'] * news_df['time_decay_weight']
     
-    time_decay_sentiment = news_df.groupby('company')['time_decayed_sentiment'].mean().reset_index()
-    total_mentions = news_df.groupby('company').size().reset_index(name='total_mentions')
+    # Group by company and calculate metrics
+    if not news_df.empty:
+        time_decay_sentiment = news_df.groupby('company')['time_decayed_sentiment'].mean().reset_index()
+        total_mentions = news_df.groupby('company').size().reset_index(name='total_mentions')
+    else:
+        print("Warning: No valid data available after filtering. Using empty DataFrames.")
+        time_decay_sentiment = pd.DataFrame(columns=['company', 'time_decayed_sentiment'])
+        total_mentions = pd.DataFrame(columns=['company', 'total_mentions'])
 
     # 2. Calculate Overall Market Sentiment
     # A simple average of all time-decayed news sentiment

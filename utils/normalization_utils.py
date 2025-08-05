@@ -62,20 +62,23 @@ def _load_normalization_data():
         _loaded_data["clean_official_names"] = []
         return
 
-    # Create cleaned versions for matching
-    nasdaq_df['clean_name'] = nasdaq_df['company_name'].fillna('').apply(clean_company_name)
-    _loaded_data["name_mapping"] = dict(zip(nasdaq_df['clean_name'], nasdaq_df['company_name']))
+    # Create cleaned versions for matching - handle both 'company_name' and 'Company' column names
+    company_col = 'Company' if 'Company' in nasdaq_df.columns else 'company_name'
+    nasdaq_df['clean_name'] = nasdaq_df[company_col].fillna('').apply(clean_company_name)
+    _loaded_data["name_mapping"] = dict(zip(nasdaq_df['clean_name'], nasdaq_df[company_col]))
     _loaded_data["clean_official_names"] = list(_loaded_data["name_mapping"].keys())
 
-    # Create ticker_map
-    ticker_map = {}
+    # Create ticker_map - handle both 'symbol' and 'Ticker' column names
+    ticker_col = 'Ticker' if 'Ticker' in nasdaq_df.columns else 'symbol'
+    _loaded_data["ticker_map"] = {}
     for _, row in nasdaq_df.iterrows():
-        ticker = row['symbol']
-        company_name = row['company_name']
-        if pd.notna(ticker) and pd.notna(company_name):
-            ticker_map[ticker.upper()] = company_name
-    _loaded_data["ticker_map"] = ticker_map
-    logger.info(f"Created ticker_map with {len(ticker_map)} entries.")
+        ticker = row[ticker_col]
+        company_col = 'Company' if 'Company' in nasdaq_df.columns else 'company_name'
+        official_name = row[company_col]
+        clean_name = clean_company_name(official_name)
+        _loaded_data["ticker_map"][ticker] = official_name
+        _loaded_data["ticker_map"][clean_name] = ticker  # Map clean name to ticker
+    logger.info(f"Created ticker_map with {len(_loaded_data['ticker_map'])} entries.")
 
     # Create common_name_map
     # Ensure these map to the *exact* names from nasdaq_top_companies.csv

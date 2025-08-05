@@ -50,6 +50,41 @@ def load_data():
 
 st.title("📈 Sentimental Stock Predictor")
 
+# --- Sidebar Chat --- 
+with st.sidebar:
+    st.title("🤖 Chat Analyst")
+    st.caption("Ask me about stock market trends, company sentiment, or potential growth!")
+
+    if 'messages' not in st.session_state:
+        st.session_state.messages = []
+
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
+    if prompt := st.chat_input("What insights are you looking for today?"):
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        with st.chat_message("assistant"):
+            message_placeholder = st.empty()
+            message_placeholder.markdown("Analyzing... 📈")
+            
+            try:
+                top_companies_df, market_sentiment_str, queried_companies_normalized = prepare_llm_context_data(user_query=prompt)
+                dynamic_prompt_text = generate_dynamic_prompt(prompt, top_companies_df, market_sentiment_str, queried_companies_normalized)
+                llm_response = get_openai_response(dynamic_prompt_text)
+                message_placeholder.markdown(llm_response)
+                st.session_state.messages.append({"role": "assistant", "content": llm_response})
+            except Exception as e:
+                error_msg = f"An error occurred: {e}"
+                logger.error(error_msg, exc_info=True)
+                message_placeholder.error(error_msg)
+                st.session_state.messages.append({"role": "assistant", "content": error_msg})
+
+    st.info("Note: The analysis is based on data processed by the backend pipeline. Ensure `scripts/run_all.py` has been run recently for the most up-to-date insights.")
+
 # Load the data once
 data_load_state = st.info("Loading data...")
 data = load_data()
@@ -70,10 +105,10 @@ else:
         market_sentiment_value = growth_df['market_sentiment'].iloc[0]
         if market_sentiment_value > 0.1:
             market_sentiment_summary = "Positive"
-            st.metric(label="Market Sentiment", value="Positive", delta="Upward Trend", delta_color="green")
+            st.metric(label="Market Sentiment", value="Positive", delta="Upward Trend", delta_color="normal")
         elif market_sentiment_value < -0.1:
             market_sentiment_summary = "Negative"
-            st.metric(label="Market Sentiment", value="Negative", delta="Downward Trend", delta_color="red")
+            st.metric(label="Market Sentiment", value="Negative", delta="Downward Trend", delta_color="inverse")
         else:
             market_sentiment_summary = "Neutral"
             st.metric(label="Market Sentiment", value="Neutral", delta="Neutral", delta_color="off")
@@ -132,38 +167,3 @@ else:
             st.error("No data available for top growing stocks.")
         with col2:
             st.error("No data available for bottom/lowest growth stocks.")
-
-    # --- Sidebar Chat --- 
-    with st.sidebar:
-        st.title("🤖 Chat Analyst")
-        st.caption("Ask me about stock market trends, company sentiment, or potential growth!")
-
-        if 'messages' not in st.session_state:
-            st.session_state.messages = []
-
-        for message in st.session_state.messages:
-            with st.chat_message(message["role"]):
-                st.markdown(message["content"])
-
-        if prompt := st.chat_input("What insights are you looking for today?"):
-            st.session_state.messages.append({"role": "user", "content": prompt})
-            with st.chat_message("user"):
-                st.markdown(prompt)
-
-            with st.chat_message("assistant"):
-                message_placeholder = st.empty()
-                message_placeholder.markdown("Analyzing... 📈")
-                
-                try:
-                    top_companies_df, market_sentiment_str, queried_companies_normalized = prepare_llm_context_data(user_query=prompt)
-                    dynamic_prompt_text = generate_dynamic_prompt(prompt, top_companies_df, market_sentiment_str, queried_companies_normalized)
-                    llm_response = get_openai_response(dynamic_prompt_text)
-                    message_placeholder.markdown(llm_response)
-                    st.session_state.messages.append({"role": "assistant", "content": llm_response})
-                except Exception as e:
-                    error_msg = f"An error occurred: {e}"
-                    logger.error(error_msg, exc_info=True)
-                    message_placeholder.error(error_msg)
-                    st.session_state.messages.append({"role": "assistant", "content": error_msg})
-
-        st.info("Note: The analysis is based on data processed by the backend pipeline. Ensure `scripts/run_all.py` has been run recently for the most up-to-date insights.")

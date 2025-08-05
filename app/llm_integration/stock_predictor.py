@@ -60,25 +60,50 @@ def format_value_for_prompt(value):
             return str(value)
     return "N/A"
 
-def parse_user_query_for_companies(user_query):
-    normalized_full_query = normalize_company_name(user_query)
-    if normalized_full_query:
-        logger.debug(f"Normalized full user query '{user_query}' to '{normalized_full_query}'")
-        return [normalized_full_query]
+def parse_user_query_for_companies(user_query, all_known_companies=None):
+    if all_known_companies is None:
+        all_known_companies = []
 
-    potential_terms = re.split(r'[\s,]+(?:and|or)?[\s,]*', user_query, flags=re.IGNORECASE)
-    normalized_companies = set()
-    for term in potential_terms:
-        term = term.strip()
-        if not term or term.lower() in ["stock", "stocks", "company", "companies", "sector", "market", "tomorrow", "ktomorrow", "stco"]:
-            continue
-        normalized_name = normalize_company_name(term)
-        if normalized_name:
-            logger.debug(f"Normalized term '{term}' from user query to '{normalized_name}'")
-            normalized_companies.add(normalized_name)
-        else:
-            logger.debug(f"Term '{term}' from user query could not be normalized to a known company: '{term}'")
-    return list(normalized_companies)
+    logger.debug(f"Parsing user query: '{user_query}' with {len(all_known_companies)} known companies for specific name matching.")
+    
+    found_companies = set()
+    
+    # Primary Strategy: Search for known company names within the query string
+    if all_known_companies:
+        # Sort by length to match longer names first (e.g., "Alphabet Inc." before "Alphabet")
+        sorted_companies = sorted(all_known_companies, key=len, reverse=True)
+        temp_query = user_query.lower()
+        
+        for company_name in sorted_companies:
+            if company_name.lower() in temp_query:
+                # Use word boundaries to ensure we match whole words/phrases
+                if re.search(r'\b' + re.escape(company_name.lower()) + r'\b', temp_query):
+                    logger.debug(f"Found known company '{company_name}' in query via direct match.")
+                    # Use the name directly from the known list, as it's guaranteed to be in the data
+                    found_companies.add(company_name)
+                    # Remove the found company name to avoid re-matching parts of it
+                    temp_query = temp_query.replace(company_name.lower(), "")
+
+    # Fallback Strategy: If no direct matches, try normalizing individual terms
+    if not found_companies:
+        logger.debug("No direct matches found. Falling back to term-by-term normalization.")
+        potential_terms = re.split(r'[\s,]+(?:and|or)?[\s,]*', user_query, flags=re.IGNORECASE)
+        for term in potential_terms:
+            term = term.strip()
+            # Expanded stopword list
+            if not term or term.lower() in ["stock", "stocks", "company", "companies", "sector", "market", "tomorrow", "growth", "prediction", "about", "for", "show", "me", "what", "is", "the", "of", "will", "grow"]:
+                continue
+            
+            # Normalization can catch tickers or aliases (e.g., "GOOGL" -> "Alphabet Inc.")
+            normalized_name = normalize_company_name(term)
+            if normalized_name:
+                logger.debug(f"Normalized term '{term}' from user query to '{normalized_name}'")
+                found_companies.add(normalized_name)
+
+    if not found_companies:
+        logger.warning(f"Could not identify any known company from the query: '{user_query}'")
+
+    return list(found_companies)
 
 
 def prepare_llm_context_data(user_query, top_n=25):
@@ -90,11 +115,7 @@ def prepare_llm_context_data(user_query, top_n=25):
     load_norm_data()
     logger.debug("DEBUG_STEP: prepare_llm_context_data - After load_norm_data()") # New log
     
-    logger.debug("DEBUG_STEP: prepare_llm_context_data - Before parse_user_query_for_companies()") # New log
-    queried_companies_normalized = parse_user_query_for_companies(user_query)
-    logger.debug("DEBUG_STEP: prepare_llm_context_data - After parse_user_query_for_companies()") # New log
-
-    logger.info(f"Normalized companies from query '{user_query}': {queried_companies_normalized}")
+    queried_companies_normalized = [] # Initialize here, will be populated inside try block
 
     data_dir = os.path.join(parent_dir, "data")
     company_sentiment_path = os.path.join(data_dir, "company_sentiment_normalized.csv")
@@ -106,6 +127,22 @@ def prepare_llm_context_data(user_query, top_n=25):
     logger.debug("Entered prepare_llm_context_data function.")
 
     try:
+        # Load all potential data sources to get a list of all known company names
+        all_known_companies = []
+        try:
+            if os.path.exists(company_sentiment_path):
+                all_known_companies.extend(pd.read_csv(company_sentiment_path)['company'].unique())
+            if os.path.exists(predict_growth_path):
+                all_known_companies.extend(pd.read_csv(predict_growth_path)['company'].unique())
+            all_known_companies = list(set(all_known_companies)) # Get unique names
+            logger.debug(f"Loaded {len(all_known_companies)} unique known company names for query parsing.")
+        except Exception as e:
+            logger.error(f"Could not preload known company names: {e}")
+
+        # Now, parse the user query with the list of all known companies
+        queried_companies_normalized = parse_user_query_for_companies(user_query, all_known_companies)
+        logger.info(f"Normalized companies from query '{user_query}': {queried_companies_normalized}")
+
         # Enhanced Initial Logging for CSVs
         logger.debug(f"CSV_LOAD: Attempting to load company sentiment from: {company_sentiment_path}")
         if not os.path.exists(company_sentiment_path):
@@ -228,37 +265,46 @@ def prepare_llm_context_data(user_query, top_n=25):
         final_df_list = []
 
         if not queried_companies_uppercase_keys:
-            # Always select top N companies if no specific company is found in the query
-            final_df = top_companies_df.head(top_n).copy() # Use .copy() to avoid SettingWithCopyWarning
-            logger.debug(f"No specific companies queried. Selected top {top_n}. Shape: {final_df.shape}")
+            # No specific company queried, so return the top N companies by growth score
+            final_df = top_companies_df.head(top_n).copy()
+            logger.debug(f"No specific companies queried. Selected top {top_n} companies.")
         else:
-            logger.debug(f"Processing queried companies: {queried_companies_uppercase_keys}")
+            # A specific company or companies were queried
+            logger.debug(f"Processing queried companies: {queried_companies_normalized}")
+            
             queried_company_data_list = []
             for company_key_upper in queried_companies_uppercase_keys:
-                # Match against the merge key
                 company_data = top_companies_df[top_companies_df['company_upper_merge_key'] == company_key_upper]
                 if not company_data.empty:
                     queried_company_data_list.append(company_data)
-                    logger.debug(f"Found data for queried company key {company_key_upper}. Shape: {company_data.shape}")
+                    logger.debug(f"Found data for queried company key: {company_key_upper}")
                 else:
-                    logger.warning(f"Data for queried company key '{company_key_upper}' not found in top_companies_df.")
+                    logger.warning(f"Data for queried company key '{company_key_upper}' not found in the dataset.")
 
             if queried_company_data_list:
-                queried_companies_selected_df = pd.concat(queried_company_data_list).drop_duplicates(subset=['company_upper_merge_key'])
-                final_df_list.append(queried_companies_selected_df)
-
-            if not final_df_list: # if no queried companies were found in data
-                 final_df = top_companies_df.head(top_n).copy()
-                 logger.debug(f"No queried companies found in data. Selected top {top_n}. Shape: {final_df.shape}")
+                # If we found data for at least one queried company
+                queried_df = pd.concat(queried_company_data_list).drop_duplicates(subset=['company_upper_merge_key'])
+                
+                # Get the keys of the companies we already selected
+                queried_keys = queried_df['company_upper_merge_key'].tolist()
+                
+                # Fill the rest of the list with top companies that weren't part of the query
+                num_remaining_to_fetch = top_n - len(queried_keys)
+                
+                if num_remaining_to_fetch > 0:
+                    remaining_top_df = top_companies_df[~top_companies_df['company_upper_merge_key'].isin(queried_keys)].head(num_remaining_to_fetch)
+                    # Combine the user-queried companies with the remaining top companies
+                    final_df = pd.concat([queried_df, remaining_top_df]).reset_index(drop=True).copy()
+                else:
+                    # If the query already includes top_n or more companies, just use that
+                    final_df = queried_df.copy()
+                
+                logger.debug(f"Combined queried and top companies. Final shape: {final_df.shape}")
             else:
-                companies_to_exclude_keys = final_df_list[0]['company_upper_merge_key'].tolist()
-                num_to_fetch = top_n - len(companies_to_exclude_keys)
-                if num_to_fetch > 0:
-                    remaining_top_df = top_companies_df[~top_companies_df['company_upper_merge_key'].isin(companies_to_exclude_keys)].head(num_to_fetch)
-                    if not remaining_top_df.empty:
-                        final_df_list.append(remaining_top_df)
-                final_df = pd.concat(final_df_list).drop_duplicates(subset=['company_upper_merge_key']).reset_index(drop=True).copy()
-                logger.debug(f"Combined queried and top companies. Shape: {final_df.shape}")
+                # If NO queried companies were found in the data, return an EMPTY DataFrame.
+                # This is a critical step. It signals to the prompt generator that the user's specific request could not be fulfilled.
+                final_df = pd.DataFrame()
+                logger.warning(f"No data found for any of the queried companies: {queried_companies_normalized}. Returning an empty DataFrame to the prompt generator.")
         
         # --- Integrate yfinance data ---
         if not final_df.empty:
@@ -378,25 +424,42 @@ def generate_dynamic_prompt(user_query, top_companies_df, overall_market_sentime
     ]
     prompt_lines.append(f"\nUser Query: \"{user_query}\"")
     if normalized_queried_companies:
-        prompt_lines.append(f"Normalized Companies from Query: {', '.join(normalized_queried_companies)}")
+        # If specific companies were found, list them
+        prompt_lines.append(f"Analysis based on queried companies: {', '.join(normalized_queried_companies)}")
     else:
-        prompt_lines.append("No specific companies were clearly identified from the query for focused analysis, but consider the query's general intent.")
+        # If no specific companies were found, state that the analysis is for the top market performers
+        prompt_lines.append("No specific companies were identified in the query. The following analysis is for the top-performing stocks based on the latest data.")
 
     prompt_lines.append(f"Overall Market Sentiment: {overall_market_sentiment_string}\n")
     
-    instructions = """Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow'. 
-    Focus on the following key aspects:
-    1. Overall Market Sentiment: Summarize the general market mood based on the provided sentiment data.
-    2. Company Analysis: For companies mentioned in the query or showing significant movement (present in the data), provide:
-       - A combined prediction for tomorrow (up/down/neutral) based on the ML model and sentiment.
-       - The ML model's prediction (from 'ml_prediction').
-       - The recent time-decayed sentiment (from 'time_decayed_sentiment').
-       - The overall growth score and its components.
-       - Justification using recent news headlines.
-    3. Actionable Insights: Provide clear, data-driven recommendations.
-    
-    If data is missing or unclear, acknowledge it and explain any limitations.
-    """
+    # Dynamically set instructions based on whether specific companies were queried
+    if normalized_queried_companies:
+        instructions = """Your primary role is to answer the user's query by providing a detailed stock and sector analysis for 'tomorrow'. 
+        Focus on the following key aspects:
+        1. Overall Market Sentiment: Summarize the general market mood based on the provided sentiment data.
+        2. Company Analysis: For the queried companies found in the data, provide:
+           - A combined prediction for tomorrow (up/down/neutral) based on the ML model and sentiment.
+           - The ML model's prediction (from 'ml_prediction').
+           - The recent time-decayed sentiment (from 'time_decayed_sentiment').
+           - The overall growth score and its components.
+           - Justification using recent news headlines.
+        3. Actionable Insights: Provide clear, data-driven recommendations based on the queried companies.
+        
+        If data for a queried company is missing, state that clearly and explain the limitations.
+        """
+    else:
+        instructions = """Your primary role is to answer the user's query by providing a general market overview and an analysis of top-performing stocks for 'tomorrow'.
+        Focus on the following key aspects:
+        1. Overall Market Sentiment: Summarize the general market mood based on the provided sentiment data.
+        2. Top Performer Analysis: For each of the top companies provided in the data, analyze:
+           - The ML model's prediction (from 'ml_prediction').
+           - The recent time-decayed sentiment (from 'time_decayed_sentiment').
+           - The overall growth score and its components.
+           - Justification using recent news headlines.
+        3. Actionable Insights: Provide clear, data-driven recommendations based on the analysis of these top performers.
+        
+        If data is missing or unclear, acknowledge it and explain any limitations.
+        """
 
     prompt_lines.append("\nCompany Data Context:")
     if top_companies_df.empty:
